@@ -1,5 +1,5 @@
 @import "./index.mobile.less";
-@import url(https://cdn.jsdelivr.net/npm/font-awesome@4.7.0/css/font-awesome.min.css);
+@import url("https://cdn.jsdelivr.net/npm/font-awesome@4.7.0/css/font-awesome.min.css");
 
 :root[mode="light"] {
   --blog-bg-color: #fff;
@@ -65,7 +65,7 @@ body {
   color: var(--text-color);
   font-family: "Lato", "PingFang SC", "Microsoft YaHei", sans-serif;
   font-size: 14px;
-  font-weight: 300;
+  font-weight: 400;
 }
 
 table {
@@ -75,13 +75,16 @@ table {
 td {
   padding: 5px;
 }
+
 fieldset,
 img {
   border: 0;
 }
+
 ul {
   word-break: break-all;
 }
+
 li {
   list-style: none;
 }
@@ -701,12 +704,13 @@ a {
 #topics {
   .postTitle {
     text-align: center;
-    font-size: 24px;
+    font-size: 26px;
+    margin-bottom: 30px;
   }
 
   .postBody {
     font-size: 16px;
-    line-height: 1.75;
+    line-height: 1.65;
 
     a {
       color: var(--theme-color);
@@ -849,6 +853,7 @@ a {
       padding: 0.2em 0.3em !important;
       border-radius: 3px !important;
       border: none !important;
+      color: var(--theme-color);
     }
 
     #BlogPostCategory,

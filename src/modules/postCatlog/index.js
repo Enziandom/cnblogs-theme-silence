@@ -2,8 +2,6 @@ import "./index.less";
 import options from "@/consts/options";
 
 function buildPostCatlog() {
-  let screenWidth = window.screen.width;
-
   const config = options.catalog;
   if (config.enable) {
     const levels = config.levels;
@@ -23,7 +21,7 @@ function buildPostCatlog() {
       $toolbar.find(".catlog").trigger("click");
     }
 
-    if (screenWidth < 990) {
+    if (options.screenWidth < 990) {
       $toolbar.find(".catlog").trigger("click");
     }
 

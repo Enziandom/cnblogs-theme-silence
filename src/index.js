@@ -1,6 +1,6 @@
 import "./index.less";
 import options from "@consts/options";
-import { isPostPage, showSidebar } from "@consts/tools";
+import { isPostPage, showSidebar, clearElement } from "@consts/tools";
 import buildGithubCorner from "@modules/githubCorner";
 import buildCustomHeader from "@modules/customHeader";
 import buildCustomFooter from "@modules/customFooter";
@@ -21,10 +21,12 @@ class Silence {
   }
 
   init() {
-    const userOptions = window.$silence;
-    if (userOptions) {
-      $.extend(true, options, userOptions);
-    }
+    $.extend(true, options, window.$silence, {
+      screenWidth: window.screen.width,
+    });
+
+    clearElement();
+
     this.building();
   }
 

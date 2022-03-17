@@ -3,34 +3,36 @@ import { isPostPage } from "@consts/tools";
 import options from "@/consts/options";
 
 function buildToolbar() {
-  $("body").append(`<div class="esa-toolbar">
-        <div class="bars"><i class="fa fa-ellipsis-h"></i></div>
-        <span class="up" title="返回顶部"><i class="fa fa-chevron-up"></i></span>
-        <span class="mode" title="切换模式"><i class="fa fa-adjust"></i></span>
-        <span class="skin" title="主题设置"><i class="fa fa-cog"></i></span>
-        <div class="skin-popup">
-            <div class="item">
-                <div class="title">主题色彩</div>
-                <div class="themes">
-                    <button data-theme="a" style="background: #2D8CF0;"></button>
-                    <button data-theme="b" style="background: #FA7298;"></button>
-                    <button data-theme="c" style="background: #42B983;"></button>
-                    <button data-theme="d" style="background: #607D8B;"></button>
-                    <button data-theme="e" style="background: #5E72E4;"></button>
-                    <button data-theme="f" style="background: #FF9700;"></button>
-                    <button data-theme="g" style="background: #FF5722;"></button>
-                    <button data-theme="h" style="background: #009688;"></button>
-                    <button data-theme="i" style="background: #673BB7;"></button>
-                    <button data-theme="j" style="background: #906f61;"></button>
-                </div>
+  // 创建工具面板
+  $("body").append(`
+    <div class="esa-toolbar">
+      <div class="bars"><i class="fa fa-ellipsis-h"></i></div>
+      <span class="up" title="返回顶部"><i class="fa fa-chevron-up"></i></span>
+      <span class="mode" title="切换模式"><i class="fa fa-adjust"></i></span>
+      <span class="skin" title="主题设置"><i class="fa fa-cog"></i></span>
+      <div class="skin-popup">
+        <div class="item">
+          <div class="title">主题色彩</div>
+            <div class="themes">
+                <button data-theme="a" style="background: #2D8CF0;"></button>
+                <button data-theme="b" style="background: #FA7298;"></button>
+                <button data-theme="c" style="background: #42B983;"></button>
+                <button data-theme="d" style="background: #607D8B;"></button>
+                <button data-theme="e" style="background: #5E72E4;"></button>
+                <button data-theme="f" style="background: #FF9700;"></button>
+                <button data-theme="g" style="background: #FF5722;"></button>
+                <button data-theme="h" style="background: #009688;"></button>
+                <button data-theme="i" style="background: #673BB7;"></button>
+                <button data-theme="j" style="background: #906f61;"></button>
             </div>
+          </div>
         </div>
-        </div>
+      </div>
     </div>`);
 
-  const showContents = isPostPage() && options.catalog.enable;
+  const hasCatlogButton = isPostPage() && options.catalog.enable;
 
-  if (showContents) {
+  if (hasCatlogButton) {
     $(".esa-toolbar").append(
       `<span class="catlog" title="阅读目录"><i class="fa fa-list-ul"></i></span>`
     );
@@ -38,9 +40,7 @@ function buildToolbar() {
 
   const modeKey = `silence-mode-${currentBlogApp}`;
   const themeKey = `silence-theme-${currentBlogApp}`;
-
   const hour = new Date().getHours();
-
   const themeLoading = sessionStorage.getItem(themeKey) || options.defaultTheme;
   const modeLoading =
     sessionStorage.getItem(modeKey) ||
@@ -55,16 +55,16 @@ function buildToolbar() {
 
   const $toolbar = $(".esa-toolbar");
   const $skinPopup = $(".skin-popup");
-  var skinPopEl = document.getElementsByClassName("skin-popup")[0];
+  var skinPop = document.getElementsByClassName("skin-popup")[0];
 
-  let show = true;
+  let isDisplayToolbar = true;
   $toolbar.find(".bars").click(function () {
-    if (!show) {
+    if (!isDisplayToolbar) {
       $toolbar.find(".bars").addClass("bars-show");
       $toolbar.find(".up").addClass("up-show");
       $toolbar.find(".mode").addClass("mode-show");
       $toolbar.find(".skin").addClass("skin-show");
-      if (showContents) {
+      if (hasCatlogButton) {
         $toolbar.find(".catlog").addClass("catlog-show");
       }
     } else {
@@ -72,11 +72,11 @@ function buildToolbar() {
       $toolbar.find(".up").removeClass("up-show");
       $toolbar.find(".mode").removeClass("mode-show");
       $toolbar.find(".skin").removeClass("skin-show");
-      if (showContents) {
+      if (hasCatlogButton) {
         $toolbar.find(".catlog").removeClass("catlog-show");
       }
     }
-    show = !show;
+    isDisplayToolbar = !isDisplayToolbar;
   });
 
   $toolbar.find(".up").click(() => {
@@ -94,7 +94,7 @@ function buildToolbar() {
     $skinPopup.slideToggle();
   });
 
-  skinPopEl.addEventListener("click", function (ev) {
+  skinPop.addEventListener("click", function (ev) {
     ev.stopPropagation();
     if (ev.target.nodeName === "BUTTON") {
       console.log(ev);
@@ -105,12 +105,12 @@ function buildToolbar() {
   });
 
   document.addEventListener("click", function (ev) {
-    if (skinPopEl && skinPopEl.style.display === "block") {
-      skinPopEl.style.display = "none";
+    if (skinPop && skinPop.style.display === "block") {
+      skinPop.style.display = "none";
     }
   });
 
-  let showcontents = false;
+  let isDisplayCatlog = false;
   $toolbar.find(".catlog").click(() => {
     $(".esa-catlog").toggleClass(function () {
       if ($(this).hasClass("active")) {
@@ -122,12 +122,15 @@ function buildToolbar() {
       }
     });
 
-    if (!showcontents) {
-      $("#home").css({ width: "calc(100% - 252px)" });
-      showcontents = true;
-    } else {
-      $("#home").css({ width: "100%" });
-      showcontents = false;
+    // 移动端屏幕目录不占主体内容
+    if (options.screenWidth > 990) {
+      if (!isDisplayCatlog) {
+        $("#home").css({ width: "calc(100% - 252px)" });
+        isDisplayCatlog = true;
+      } else {
+        $("#home").css({ width: "100%" });
+        isDisplayCatlog = false;
+      }
     }
   });
 
