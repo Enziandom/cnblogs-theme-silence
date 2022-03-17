@@ -1,7 +1,7 @@
 import "./index.less";
 import options from "@/consts/options";
 
-function buildPostContents() {
+function buildPostCatlog() {
   let screenWidth = window.screen.width;
 
   const config = options.catalog;
@@ -12,19 +12,19 @@ function buildPostContents() {
     const level3 = levels[2];
     let $headers = $("#cnblogs_post_body").find(levels.join(","));
     let $toolbar = $(".esa-toolbar");
+
     if (!$headers.length) {
-      $toolbar.find(".contents").remove();
-      return false;
+      $toolbar.find(".catlog").remove();
     }
 
-    $("body").append(`<div class="esa-contents noactive"></div>`);
+    $("body").append(`<div class="esa-catlog noactive"></div>`);
 
     if (config.active) {
-      $toolbar.find(".contents").trigger("click");
+      $toolbar.find(".catlog").trigger("click");
     }
 
     if (screenWidth < 990) {
-      $toolbar.find(".contents").trigger("click");
+      $toolbar.find(".catlog").trigger("click");
     }
 
     let h1c = 0;
@@ -93,8 +93,8 @@ function buildPostContents() {
 
     catalogContents += `</ul>`;
 
-    $(".esa-contents").append(catalogContents);
+    $(".esa-catlog").append(catalogContents);
   }
 }
 
-export default buildPostContents;
+export default buildPostCatlog;

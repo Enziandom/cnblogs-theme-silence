@@ -32,7 +32,7 @@ function buildToolbar() {
 
   if (showContents) {
     $(".esa-toolbar").append(
-      `<span class="contents" title="阅读目录"><i class="fa fa-list-ul"></i></span>`
+      `<span class="catlog" title="阅读目录"><i class="fa fa-list-ul"></i></span>`
     );
   }
 
@@ -65,7 +65,7 @@ function buildToolbar() {
       $toolbar.find(".mode").addClass("mode-show");
       $toolbar.find(".skin").addClass("skin-show");
       if (showContents) {
-        $toolbar.find(".contents").addClass("contents-show");
+        $toolbar.find(".catlog").addClass("catlog-show");
       }
     } else {
       $toolbar.find(".bars").removeClass("bars-show");
@@ -73,7 +73,7 @@ function buildToolbar() {
       $toolbar.find(".mode").removeClass("mode-show");
       $toolbar.find(".skin").removeClass("skin-show");
       if (showContents) {
-        $toolbar.find(".contents").removeClass("contents-show");
+        $toolbar.find(".catlog").removeClass("catlog-show");
       }
     }
     show = !show;
@@ -111,8 +111,8 @@ function buildToolbar() {
   });
 
   let showcontents = false;
-  $toolbar.find(".contents").click(() => {
-    $(".esa-contents").toggleClass(function () {
+  $toolbar.find(".catlog").click(() => {
+    $(".esa-catlog").toggleClass(function () {
       if ($(this).hasClass("active")) {
         $(this).removeClass("active");
         return "noactive";
