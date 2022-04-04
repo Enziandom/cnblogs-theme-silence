@@ -31,9 +31,9 @@ const options = {
     alipay: null,
   },
   personBoard: {
-    content: `<div>近期目标：进阶成为 Web 大神</div>`,
     title: `<div>README</div>`,
-    signature: `<span>Time tick away, dream faded away!</span>`,
+    content: `<div>近期目标：进阶成为 Web 大神</div>`,
+    signature: `<span>time tick away, dream faded away!</span>`,
   },
 };
 

@@ -12,7 +12,7 @@ function buildPersonBoard() {
             </div>
             <div id="signature" class="postDesc">
                 <span>
-                    @Signature：
+                    @signature:
                 </span>
             </div>
         </div>

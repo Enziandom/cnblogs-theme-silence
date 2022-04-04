@@ -17,9 +17,6 @@ import loader from "@modules/loader";
 
 class Silence {
   constructor() {
-    // 将其他对象合并到 options 对象中。
-    // window.$silence：用户的自定义配置声明为 $silence 变量，并挂在到 window 对象中。
-    // 第三个参数为屏幕宽度
     $.extend(true, options, window.$silence);
 
     this.clean();
@@ -36,7 +33,6 @@ class Silence {
     buildGithubCorner();
     buildProfile();
     buildToolbar();
-    buildPersonBoard();
     if (isPostPage()) {
       buildPostCatlog();
       buildPostLightbox();
@@ -46,6 +42,7 @@ class Silence {
       buildPostCommentAvatars();
     } else {
       showSidebar();
+      buildPersonBoard();
     }
     loader.hide();
   }
