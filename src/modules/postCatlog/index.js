@@ -21,7 +21,7 @@ function buildPostCatlog() {
       $toolbar.find(".catlog").trigger("click");
     }
 
-    if (options.screenWidth < 990) {
+    if (window.screen.width < 990) {
       $toolbar.find(".catlog").trigger("click");
     }
 
