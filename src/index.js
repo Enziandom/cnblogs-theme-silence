@@ -10,24 +10,24 @@ import buildPostLightbox from "@modules/postLightbox";
 import buildPostSignature from "@modules/postSignature";
 import buildPostSponsor from "@modules/postSponsor";
 import buildPostCommentAvatars from "@modules/postCommentAvatars";
-import buildPostHeader from "@modules/postHeader";
 import buildHljsLineNumber from "@modules/hljsLineNumber";
 import buildToolbar from "@modules/toolbar";
+import buildPersonBoard from "@modules/personBoard";
 import loader from "@modules/loader";
 
 class Silence {
   constructor() {
-    this.init();
+    // 将其他对象合并到 options 对象中。
+    // window.$silence：用户的自定义配置声明为 $silence 变量，并挂在到 window 对象中。
+    // 第三个参数为屏幕宽度
+    $.extend(true, options, window.$silence);
+
+    this.clean();
+    this.building();
   }
 
-  init() {
-    $.extend(true, options, window.$silence, {
-      screenWidth: window.screen.width,
-    });
-
+  clean() {
     clearElement();
-
-    this.building();
   }
 
   building() {
@@ -36,8 +36,8 @@ class Silence {
     buildGithubCorner();
     buildProfile();
     buildToolbar();
+    buildPersonBoard();
     if (isPostPage()) {
-      buildPostHeader();
       buildPostCatlog();
       buildPostLightbox();
       buildHljsLineNumber();

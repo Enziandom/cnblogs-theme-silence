@@ -3,7 +3,6 @@ import { isPostPage } from "@consts/tools";
 import options from "@/consts/options";
 
 function buildToolbar() {
-  // 创建工具面板
   $("body").append(`
     <div class="esa-toolbar">
       <div class="bars"><i class="fa fa-ellipsis-h"></i></div>
@@ -123,7 +122,7 @@ function buildToolbar() {
     });
 
     // 移动端屏幕目录不占主体内容
-    if (options.screenWidth > 990) {
+    if (window.screen.width > 990) {
       if (!isDisplayCatlog) {
         $("#home").css({ width: "calc(100% - 252px)" });
         isDisplayCatlog = true;
