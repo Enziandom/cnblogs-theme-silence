@@ -31,6 +31,7 @@ const options = {
     alipay: null,
   },
   personBoard: {
+    tag: "<span>板子</span>",
     title: `<div>README</div>`,
     content: `<div>近期目标：进阶成为 Web 大神</div>`,
     signature: `<span>time tick away, dream faded away!</span>`,
