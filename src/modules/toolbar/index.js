@@ -29,11 +29,11 @@ function buildToolbar() {
       </div>
     </div>`);
 
-  const hasCatlogButton = isPostPage() && options.catalog.enable;
+  const hasCatalogButton = isPostPage() && options.catalog.enable;
 
-  if (hasCatlogButton) {
+  if (hasCatalogButton) {
     $(".esa-toolbar").append(
-      `<span class="catlog" title="阅读目录"><i class="fa fa-list-ul"></i></span>`
+      `<span class="catalog" title="阅读目录"><i class="fa fa-list-ul"></i></span>`
     );
   }
 
@@ -63,16 +63,16 @@ function buildToolbar() {
       $toolbar.find(".up").addClass("up-show");
       $toolbar.find(".mode").addClass("mode-show");
       $toolbar.find(".skin").addClass("skin-show");
-      if (hasCatlogButton) {
-        $toolbar.find(".catlog").addClass("catlog-show");
+      if (hasCatalogButton) {
+        $toolbar.find(".catalog").addClass("catalog-show");
       }
     } else {
       $toolbar.find(".bars").removeClass("bars-show");
       $toolbar.find(".up").removeClass("up-show");
       $toolbar.find(".mode").removeClass("mode-show");
       $toolbar.find(".skin").removeClass("skin-show");
-      if (hasCatlogButton) {
-        $toolbar.find(".catlog").removeClass("catlog-show");
+      if (hasCatalogButton) {
+        $toolbar.find(".catalog").removeClass("catalog-show");
       }
     }
     isDisplayToolbar = !isDisplayToolbar;
@@ -109,9 +109,9 @@ function buildToolbar() {
     }
   });
 
-  let isDisplayCatlog = false;
-  $toolbar.find(".catlog").click(() => {
-    $(".esa-catlog").toggleClass(function () {
+  let isDisplayCatalog = false;
+  $toolbar.find(".catalog").click(() => {
+    $(".esa-catalog").toggleClass(function () {
       if ($(this).hasClass("active")) {
         $(this).removeClass("active");
         return "noactive";
@@ -123,12 +123,12 @@ function buildToolbar() {
 
     // 移动端屏幕目录不占主体内容
     if (window.screen.width > 990) {
-      if (!isDisplayCatlog) {
+      if (!isDisplayCatalog) {
         $("#home").css({ width: "calc(100% - 252px)" });
-        isDisplayCatlog = true;
+        isDisplayCatalog = true;
       } else {
         $("#home").css({ width: "100%" });
-        isDisplayCatlog = false;
+        isDisplayCatalog = false;
       }
     }
   });

@@ -1,10 +1,12 @@
 import "./index.less";
 import options from "@/consts/options";
 
-function buildPostCatlog() {
-  const config = options.catalog;
-  if (config.enable) {
-    const levels = config.levels;
+function buildPostCatalog() {
+  console.log("entry");
+
+  const catalog = options.catalog;
+  if (catalog.enable) {
+    const levels = catalog.levels;
     const level1 = levels[0];
     const level2 = levels[1];
     const level3 = levels[2];
@@ -12,17 +14,17 @@ function buildPostCatlog() {
     let $toolbar = $(".esa-toolbar");
 
     if (!$headers.length) {
-      $toolbar.find(".catlog").remove();
+      $toolbar.find(".catalog").remove();
     }
 
-    $("body").append(`<div class="esa-catlog noactive"></div>`);
+    $("body").append(`<div class="esa-catalog noactive"></div>`);
 
-    if (config.active) {
-      $toolbar.find(".catlog").trigger("click");
+    if (catalog.active) {
+      $toolbar.find(".catalog").trigger("click");
     }
 
     if (window.screen.width < 990) {
-      $toolbar.find(".catlog").trigger("click");
+      $toolbar.find(".catalog").trigger("click");
     }
 
     let h1c = 0;
@@ -38,7 +40,7 @@ function buildPostCatlog() {
       let titleIndex = "";
       let titleContent = text;
 
-      if (!config.index) {
+      if (!catalog.index) {
         switch (tagName) {
           case level1:
             titleContent = `<span class="level1">${titleContent}</span>`;
@@ -71,11 +73,13 @@ function buildPostCatlog() {
         $(header).attr("id", id);
       }
 
-      catalogContents += `<li class="${tagName}" title="${text}">
-                    <a class="esa-anchor-link" href="#${id}">${
-        titleIndex + titleContent
-      }</a>
-                 </li>`;
+      catalogContents += `
+        <li class="${tagName}" title="${text}">
+          <a class="esa-anchor-link" href="#${id}">
+            ${titleIndex + titleContent}
+          </a>
+        </li>
+      `;
 
       $(header)
         .append(`<a href="#${id}" class="esa-anchor">#</a>`)
@@ -91,8 +95,8 @@ function buildPostCatlog() {
 
     catalogContents += `</ul>`;
 
-    $(".esa-catlog").append(catalogContents);
+    $(".esa-catalog").append(catalogContents);
   }
 }
 
-export default buildPostCatlog;
+export default buildPostCatalog;

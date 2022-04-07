@@ -5,7 +5,7 @@ import buildGithubCorner from "@modules/githubCorner";
 import buildCustomHeader from "@modules/customHeader";
 import buildCustomFooter from "@modules/customFooter";
 import buildProfile from "@modules/profile";
-import buildPostCatlog from "@modules/postCatlog";
+import buildPostCatalog from "@modules/postCatalog";
 import buildPostLightbox from "@modules/postLightbox";
 import buildPostSignature from "@modules/postSignature";
 import buildPostSponsor from "@modules/postSponsor";
@@ -34,11 +34,11 @@ class Silence {
     buildProfile();
     buildToolbar();
     if (isPostPage()) {
-      buildPostCatlog();
-      buildPostLightbox();
-      buildHljsLineNumber();
-      buildPostSignature();
+      buildPostCatalog();
       buildPostSponsor();
+      buildPostLightbox();
+      buildPostSignature();
+      buildHljsLineNumber();
       buildPostCommentAvatars();
     } else {
       showSidebar();
