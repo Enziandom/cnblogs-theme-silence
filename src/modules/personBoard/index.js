@@ -3,7 +3,12 @@ import "./index.less";
 
 function buildPersonBoard() {
   let pager = $("#homepage_top_pager").length;
-  if (pager > 0) return;
+  let postListTitle = $(".forFlow .PostListTitle").length;
+  let tagListMain = $("#taglist_main").length;
+  let entryListTitle = $(".forFlow .entrylistTitle").length;
+  if (pager > 0 || postListTitle > 0 || tagListMain > 0 || entryListTitle > 0) {
+    return;
+  }
 
   $("#mainContent .forFlow").prepend(
     `
