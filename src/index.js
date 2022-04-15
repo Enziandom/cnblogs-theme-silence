@@ -1,6 +1,11 @@
 import "./index.less";
 import options from "@consts/options";
-import { isPostPage, showSidebar, clearElement } from "@consts/tools";
+import {
+  isPostPage,
+  showSidebar,
+  clearElement,
+  addElement,
+} from "@consts/tools";
 import buildGithubCorner from "@modules/githubCorner";
 import buildCustomHeader from "@modules/customHeader";
 import buildCustomFooter from "@modules/customFooter";
@@ -19,12 +24,8 @@ class Silence {
   constructor() {
     $.extend(true, options, window.$silence);
 
-    this.clean();
-    this.building();
-  }
-
-  clean() {
     clearElement();
+    this.building();
   }
 
   building() {
@@ -40,6 +41,7 @@ class Silence {
       buildPostSignature();
       buildHljsLineNumber();
       buildPostCommentAvatars();
+      addElement();
     } else {
       showSidebar();
       buildPersonBoard();
