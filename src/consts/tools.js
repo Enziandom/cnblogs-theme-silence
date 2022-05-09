@@ -45,9 +45,9 @@ export function removeTitleTocButton() {
 }
 
 export function removePostSideBarElements() {
-    $("#sideBarMain").each((self, index, el) => {
+    $("#sideBarMain").each((index, el) => {
         if (index < 3) {
-            el.remove();
+            $(el).remove();
         }
     })
 }
