@@ -1,40 +1,22 @@
-.esa-catalog {
-  position: fixed;
-  top: 0;
-  right: 0;
-  bottom: 0;
-  background-color: var(--blog-bg-color);
-  border-left: 1px solid var(--border-color);
-  overflow-y: auto;
-  user-select: none;
-  padding: 1rem 0;
-  width: 252px;
-  transform: translate3d(252px, 0, 0);
-  z-index: 1000;
+#esa-catalog {
+  li {
+    padding: 5px 0;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    cursor: pointer;
+    color: var(--text-color);
 
-  ul {
-    padding: 0px 15px;
-    overflow-y: auto;
+    .level1 {
+      margin-left: 0;
+    }
 
-    li {
-      padding: 5px 0px;
-      white-space: nowrap;
-      overflow: hidden;
-      text-overflow: ellipsis;
-      cursor: pointer;
-      color: var(--text-color);
+    .level2 {
+      margin-left: 10px;
+    }
 
-      .level1 {
-        margin-left: 0px;
-      }
-
-      .level2 {
-        margin-left: 10px;
-      }
-
-      .level3 {
-        margin-left: 26px;
-      }
+    .level3 {
+      margin-left: 26px;
     }
   }
 }

@@ -1,7 +1,16 @@
 import "./index.less";
 import options from "../../consts/options";
+import {removePostSideBarElements} from "../../consts/tools";
 
 function buildPostCatalog() {
+    removePostSideBarElements();
+
+    $("#mainContent .forFlow").css({
+        "background-color": "var(--card-bg-color)",
+        "border-radius": "10px",
+        "padding": "20px 20px 0 20px",
+    })
+
     const catalog = options.catalog;
 
     if (catalog.enable) {
@@ -9,33 +18,34 @@ function buildPostCatalog() {
         const level1 = levels[0];
         const level2 = levels[1];
         const level3 = levels[2];
-        let $headers = $("#cnblogs_post_body").find(levels.join(","));
+        let captions = $("#cnblogs_post_body").find(levels.join(","));
         let $toolbar = $(".esa-toolbar");
 
-        if (!$headers.length) {
+        if (!captions.length) {
             $toolbar.find(".catalog").remove();
         }
 
-        $("body").append(`<div class="esa-catalog noactive"></div>`);
+        // $("body").append(`<div class="esa-catalog noactive"></div>`);
 
-        if (catalog.active) {
-            $toolbar.find(".catalog").trigger("click");
-        }
-
-        if (window.screen.width < 990) {
-            $toolbar.find(".catalog").trigger("click");
-        }
+        // if (catalog.active) {
+        //     $toolbar.find(".catalog").trigger("click");
+        // }
+        //
+        // if (window.screen.width < 990) {
+        //     $toolbar.find(".catalog").trigger("click");
+        // }
 
         let h1c = 0;
         let h2c = 0;
         let h3c = 0;
 
-        let catalogContents = "<ul>";
+        let catalogContents = "<h3 class='catListTitle'>目录</h3><ul id='esa-catalog'>";
 
-        $.each($headers, (_, header) => {
-            const tagName = header.tagName.toLowerCase();
-            const text = $(header).text();
-            let id = $(header).attr("id");
+        $.each(captions, (index, element) => {
+            const tagName = element.tagName.toLowerCase();
+            console.log(tagName)
+            const text = $(element).text();
+            let id = $(element).attr("id");
             let titleIndex = "";
             let titleContent = text;
 
@@ -68,33 +78,33 @@ function buildPostCatalog() {
             }
 
             if (!id) {
-                id = $(header).text().replace(/\ /g, "-").toLowerCase();
-                $(header).attr("id", id);
+                id = $(element).text().replace(/\ /g, "-").toLowerCase();
+                $(element).attr("id", id);
             }
 
             catalogContents += `
-        <li class="${tagName}" title="${text}">
-          <a class="esa-anchor-link" href="#${id}">
-            ${titleIndex + titleContent}
-          </a>
-        </li>
-      `;
+                <li class="${tagName}" title="${text}">
+                  <a class="esa-anchor-link" href="#${id}">
+                    ${titleIndex + titleContent}
+                  </a>
+                </li>
+            `;
 
-            $(header)
+            $(element)
                 .append(`<a href="#${id}" class="esa-anchor">#</a>`)
                 .hover(
                     () => {
-                        $(header).find(".esa-anchor").css("opacity", 1);
+                        $(element).find(".esa-anchor").css("opacity", 1);
                     },
                     () => {
-                        $(header).find(".esa-anchor").css("opacity", 0);
+                        $(element).find(".esa-anchor").css("opacity", 0);
                     }
                 );
         });
 
         catalogContents += `</ul>`;
 
-        $("#sideBarMain").prepend(catalogContents);
+        $("#sideBarMain").append(catalogContents);
     }
 }
 
