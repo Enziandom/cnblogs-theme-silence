@@ -6,16 +6,17 @@
   --text-color: #596172;
   --border-color: #eef2f8;
   --catalog-bg-color: #fff;
-  --panel-bg-color: #f8f8f8;
+  --blockquote-bg-color: #f8f8f8;
   --code-bg-color: #f1f1f1;
 }
 
 :root[mode="dark"] {
-  --blog-bg-color: #202020;
-  --text-color: #d8d8d8;
-  --border-color: #2f2f2f;
-  --catalog-bg-color: #252525;
-  --panel-bg-color: #252525;
+  --card-bg-color: #252525; /* 卡片背景颜色 */
+  --blog-bg-color: #202020; /* 背景颜色 */
+  --text-color: #d8d8d8; /* 文字颜色 */
+  --border-color: #2f2f2f; /* 边框颜色 */
+  --catalog-bg-color: #252525; /*  */
+  --blockquote-bg-color: #252525; /* 引用背景颜色 */
   --code-bg-color: #3a3a3a;
 }
 
@@ -153,15 +154,18 @@ a {
 }
 
 #header {
-  width: 960px;
+  background-color: var(--card-bg-color);
+  border-bottom-right-radius: 10px;
+  border-bottom-left-radius: 10px;
+  width: 920px;
   position: relative;
   top: 0;
   right: 0;
   left: 0;
   margin: 0 auto;
-  border-top: 0px;
+  border-top: 0;
   border-bottom: 1px var(--border-color) solid;
-  padding-bottom: 0px;
+  padding: 0 20px 0 20px;
   display: block;
   height: 60px;
   z-index: 999;
@@ -298,12 +302,13 @@ a {
 }
 
 #sideBar {
-  width: 230px;
-  border-right: 1px solid var(--border-color);
+  width: 210px;
   font-weight: inherit;
-  display: none;
   min-height: 750px;
-  padding: 0 15px 0 0;
+  background-color: var(--card-bg-color);
+  border-radius: 10px;
+  border-right: 1px solid var(--border-color);
+  padding: 0 20px 0 20px;
 
   #profile_block {
     margin: 0;
@@ -539,7 +544,7 @@ a {
     border-radius: 4px;
     padding: 5px 10px;
     margin: 5px 0;
-    background-color: var(--panel-bg-color);
+    background-color: var(--blockquote-bg-color);
   }
 
   .recent_comment_author {
@@ -562,10 +567,11 @@ a {
 }
 
 .entrylistDescription {
-  margin: 30px auto;
+  margin: 22px auto;
+  border-radius: 4px;
   border-left: 4px solid var(--theme-color);
   text-align: justify;
-  padding-left: 7px;
+  padding: 10px 0 10px 7px;
 }
 
 #myposts {
@@ -643,10 +649,12 @@ a {
 
 .day,
 .entrylistItem {
-  border-bottom: 1px solid var(--border-color);
+  border-bottom: 1px dotted var(--border-color);
   text-align: justify;
+  border-radius: 10px;
+  background-color: var(--card-bg-color);
   margin-bottom: 10px;
-  padding-bottom: 10px;
+  padding: 10px 20px 10px 20px;
 }
 
 .day .postTitle,
@@ -793,7 +801,7 @@ a {
       border-radius: 4px;
       padding: 1px 15px;
       border-left: 4px solid var(--theme-color);
-      background-color: var(--panel-bg-color);
+      background-color: var(--blockquote-bg-color);
     }
 
     em {
@@ -837,7 +845,7 @@ a {
       }
 
       th {
-        background: var(--panel-bg-color);
+        background: var(--blockquote-bg-color);
         border: 1px solid var(--border-color);
         white-space: nowrap;
         font-weight: 400;
@@ -881,7 +889,7 @@ a {
         font-size: 13px;
         border-radius: 4px;
         padding: 4px 6px;
-        background-color: var(--panel-bg-color);
+        background-color: var(--blockquote-bg-color);
         margin-right: 5px;
         transform: none;
         color: var(--text-color);
@@ -1033,7 +1041,7 @@ a {
   border-radius: 4px;
   padding: 12px;
   margin-left: 50px;
-  background-color: var(--panel-bg-color);
+  background-color: var(--blockquote-bg-color);
   min-height: 19px;
 
   img {
@@ -1089,7 +1097,7 @@ a {
     font-size: 17px;
     border-radius: 4px;
     padding: 3px 10px;
-    background: var(--panel-bg-color) none;
+    background: var(--blockquote-bg-color) none;
     transition: all 0.3s;
 
     span {
@@ -1306,6 +1314,6 @@ a {
   border-radius: 4px;
   font-size: 12px;
   color: var(--theme-color);
-  background-color: var(--panel-bg-color);
+  background-color: var(--blockquote-bg-color);
   border: 1px solid var(--border-color);
 }
