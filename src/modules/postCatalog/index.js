@@ -5,6 +5,33 @@ import {removePostSideBarElements} from "../../consts/tools";
 function buildPostCatalog() {
     removePostSideBarElements();
 
+    // 1. 比上次少，就是往上，比上次多，就是往下
+    let lastTop = 0;
+    let correctT = 0;
+
+    $(window).scroll(function() {
+        let catalogContainer = $("#esa-catalog-container")[0];
+        let scrollTop = document.documentElement.scrollTop || document.body.scrollTop;
+        let top = catalogContainer.offsetTop - scrollTop;
+
+        if (scrollTop > lastTop) {
+            if (top < 0) {
+                $(catalogContainer).css({
+                    "position": "fixed",
+                    "top": "55px"
+                })
+                correctT = top;
+            }
+        } else {
+            if (correctT < top) {
+                $(catalogContainer).css({
+                    "position": "initial",
+                })
+            }
+        }
+        lastTop = scrollTop;
+    })
+
     $("#mainContent .forFlow").css({
         "background-color": "var(--card-bg-color)",
         "border-radius": "10px",
@@ -39,11 +66,10 @@ function buildPostCatalog() {
         let h2c = 0;
         let h3c = 0;
 
-        let catalogContents = "<h3 class='catListTitle'>目录</h3><ul id='esa-catalog'>";
+        let catalogContents = "<div id='esa-catalog-container'><h3 class='catListTitle'>目录</h3><ul id='esa-catalog'>";
 
         $.each(captions, (index, element) => {
             const tagName = element.tagName.toLowerCase();
-            console.log(tagName)
             const text = $(element).text();
             let id = $(element).attr("id");
             let titleIndex = "";
@@ -102,7 +128,7 @@ function buildPostCatalog() {
                 );
         });
 
-        catalogContents += `</ul>`;
+        catalogContents += `</ul></div>`;
 
         $("#sideBarMain").append(catalogContents);
     }

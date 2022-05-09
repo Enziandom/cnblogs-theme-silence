@@ -1,22 +1,30 @@
-#esa-catalog {
-  li {
-    padding: 5px 0;
-    white-space: nowrap;
-    overflow: hidden;
-    text-overflow: ellipsis;
-    cursor: pointer;
-    color: var(--text-color);
+#esa-catalog-container {
+  width: 210px;
+  font-weight: inherit;
+  background-color: var(--card-bg-color);
+  border-radius: 10px;
+  border-right: 1px solid var(--border-color);
 
-    .level1 {
-      margin-left: 0;
-    }
+  #esa-catalog {
+    li {
+      padding: 5px 0;
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis;
+      cursor: pointer;
+      color: var(--text-color);
 
-    .level2 {
-      margin-left: 10px;
-    }
+      .level1 {
+        margin-left: 0;
+      }
 
-    .level3 {
-      margin-left: 26px;
+      .level2 {
+        margin-left: 10px;
+      }
+
+      .level3 {
+        margin-left: 26px;
+      }
     }
   }
 }
