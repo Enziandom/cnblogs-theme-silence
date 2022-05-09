@@ -22,30 +22,39 @@
 :root[theme="a"] {
   --theme-color: #2d8cf0;
 }
+
 :root[theme="b"] {
   --theme-color: #fa7298;
 }
+
 :root[theme="c"] {
   --theme-color: #42b983;
 }
+
 :root[theme="d"] {
   --theme-color: #607d8b;
 }
+
 :root[theme="e"] {
   --theme-color: #5e72e4;
 }
+
 :root[theme="f"] {
   --theme-color: #ff9700;
 }
+
 :root[theme="g"] {
   --theme-color: #ff5722;
 }
+
 :root[theme="h"] {
   --theme-color: #009688;
 }
+
 :root[theme="i"] {
   --theme-color: #673bb7;
 }
+
 :root[theme="j"] {
   --theme-color: #906f61;
 }
@@ -72,6 +81,7 @@ table {
   border-collapse: collapse;
   border-spacing: 0;
 }
+
 td {
   padding: 5px;
 }
@@ -113,6 +123,7 @@ a {
   background: var(--theme-color);
   color: #fff;
 }
+
 .navbar,
 .blogStats,
 .dayTitle,
@@ -173,8 +184,8 @@ a {
 #navigator {
   height: inherit;
   position: absolute;
-  right: 0px;
-  top: 0px;
+  right: 0;
+  top: 0;
 }
 
 #navList {
@@ -185,7 +196,7 @@ a {
     position: relative;
     float: left;
     line-height: 60px;
-    padding: 0px 15px;
+    padding: 0 15px;
     font-size: 17px;
 
     &:hover i {
@@ -229,11 +240,11 @@ a {
     display: none;
 
     .caret {
-      border-top: 0px solid transparent;
+      border-top: 0 solid transparent;
       border-left: 8px solid transparent;
       border-right: 8px solid transparent;
       border-bottom: 8px solid var(--blog-bg-color);
-      width: 0px;
+      width: 0;
       position: relative;
       left: calc(50% - 8px);
     }
@@ -254,7 +265,7 @@ a {
           color: var(--text-color);
           display: block;
           width: 100%;
-          padding: 10px 0px;
+          padding: 10px 0;
           height: inherit;
           border-bottom: 1px solid transparent;
 
@@ -271,7 +282,7 @@ a {
   width: 960px;
   margin: 0 auto;
   min-height: calc(100% - 75px);
-  padding: 15px 0px;
+  padding: 15px 0;
   transition: all 0.3s ease;
 }
 
@@ -281,8 +292,7 @@ a {
   width: 100%;
 
   .forFlow {
-    margin: 0px auto;
-    margin-left: 0px;
+    margin: 0 auto 0 0;
     max-width: 960px;
   }
 }
@@ -318,9 +328,11 @@ a {
       &:nth-child(3):after {
         content: "\56ed\9f84";
       }
+
       &:nth-child(5):after {
         content: "\7c89\4e1d";
       }
+
       &:nth-child(7):after {
         content: "\5173\6ce8";
       }
@@ -351,10 +363,11 @@ a {
     #p_b_follow {
       margin: 15px 0 10px 0;
       text-align: center;
+
       a {
         border: 1px solid var(--border-color);
         font-size: 13px;
-        padding: 7px 0px;
+        padding: 7px 0;
         border-radius: 4px;
         width: 230px;
         font-weight: 300;
@@ -381,6 +394,7 @@ a {
   .CalDayHeader {
     font-weight: 300;
   }
+
   .CalTodayDay {
     color: var(--theme-color);
     font-weight: 600;
@@ -437,6 +451,7 @@ a {
       }
     }
   }
+
   #widget_my_google {
     display: none;
   }
@@ -459,6 +474,7 @@ a {
 
   a {
     transition: inherit;
+
     .tag-count {
       display: none;
     }
@@ -474,6 +490,7 @@ a {
     border-color: var(--theme-color);
   }
 }
+
 #sidebar_shortcut li,
 #sidebar_scorerank li,
 #sidebar_categories li {
@@ -492,7 +509,7 @@ a {
 #sidebar_topcommentedposts li,
 #sidebar_topdiggedposts li {
   font-size: 15px;
-  padding: 7px 0px;
+  padding: 7px 0;
   transition: all 0.3s;
   text-align: justify;
   border-bottom: 1px solid var(--border-color);
@@ -521,12 +538,12 @@ a {
   .recent_comment_body {
     border-radius: 4px;
     padding: 5px 10px;
-    margin: 5px 0px;
+    margin: 5px 0;
     background-color: var(--panel-bg-color);
   }
 
   .recent_comment_author {
-    margin-right: 0px;
+    margin-right: 0;
     text-align: right;
     padding-bottom: 10px;
     border-bottom: 1px solid var(--border-color);
@@ -558,14 +575,15 @@ a {
     &:first-of-type {
       border-top: 1px solid var(--border-color);
     }
+
     border-bottom: 1px solid var(--border-color);
-    padding: 0px;
-    margin: 0px;
+    padding: 0;
+    margin: 0;
   }
 
   .postTitl2 {
     font-size: 17px;
-    margin: 10px 0px;
+    margin: 10px 0;
     text-align: justify;
   }
 
@@ -736,29 +754,15 @@ a {
     }
 
     h1 {
-      /*display: flex;
-      align-items: flex-end;
-      align-content: center;
-      padding-bottom: 2px;
-      border-bottom: 1px;
-      border-bottom-color: #6e6e6e;
-      border-bottom-style: solid;*/
-      font-size: 21px;
-
-      /*svg{
-        width: 33px;
-        height: 33px;
-        margin-right: 10px;
-        fill: var(--theme-color);
-      }*/
+      font-size: 26px;
     }
 
     h2 {
-      font-size: 20px;
+      font-size: 23px;
     }
 
     h3 {
-      font-size: 19px;
+      font-size: 20px;
     }
 
     h4 {
@@ -766,11 +770,11 @@ a {
     }
 
     h5 {
-      font-size: 17px;
+      font-size: 16px;
     }
 
     h6 {
-      font-size: 16px;
+      font-size: 14px;
     }
 
     p {
@@ -810,7 +814,7 @@ a {
       margin: 15px 0px 30px 0px;
       border-radius: 3px;
       box-shadow: 0 1px 15px rgba(27, 31, 35, 0.15),
-        0 0 1px rgba(106, 115, 125, 0.35);
+      0 0 1px rgba(106, 115, 125, 0.35);
     }
 
     ul,
@@ -872,6 +876,7 @@ a {
     #BlogPostCategory,
     #EntryTag {
       font-size: 14px;
+
       a {
         font-size: 13px;
         border-radius: 4px;
@@ -1000,7 +1005,7 @@ a {
 .feedbackListSubtitle {
   .sendMsg2This {
     background: transparent;
-    padding-left: 0px;
+    padding-left: 0;
     font-size: 15px;
 
     &::before {
@@ -1015,7 +1020,7 @@ a {
 
 .feedbackItem .feedbackCon {
   margin-bottom: 10px;
-  padding: 10px 0px;
+  padding: 10px 0;
   border-bottom: 1px solid var(--border-color);
 
   .comment_vote {
@@ -1037,16 +1042,16 @@ a {
 }
 
 #taglist_main {
-  margin-top: 0px;
+  margin-top: 0;
 
   table {
     width: 100%;
 
     tr td {
-      padding: 5px 20px 5px 0px;
+      padding: 5px 20px 5px 0;
 
       &:last-child {
-        padding-right: 0px;
+        padding-right: 0;
       }
 
       .small {
@@ -1077,7 +1082,6 @@ a {
 
   .diggit,
   .buryit {
-    background: none;
     height: auto;
     width: auto;
     min-width: 60px;
@@ -1085,7 +1089,7 @@ a {
     font-size: 17px;
     border-radius: 4px;
     padding: 3px 10px;
-    background-color: var(--panel-bg-color);
+    background: var(--panel-bg-color) none;
     transition: all 0.3s;
 
     span {
@@ -1128,7 +1132,7 @@ a {
 #nav_next_page {
   color: var(--text-color);
   text-align: right;
-  margin-right: 0px !important;
+  margin-right: 0 !important;
 
   a {
     color: var(--text-color);
@@ -1162,6 +1166,7 @@ a {
   background-image: none;
   padding-left: 0;
   font-size: 20px;
+
   & > a {
     display: none;
   }
@@ -1170,7 +1175,7 @@ a {
 .commentform {
   #tip_comment {
     color: var(--theme-color) !important;
-    margin: 15px 0px;
+    margin: 15px 0;
     display: block;
   }
 
@@ -1178,12 +1183,13 @@ a {
     width: 100%;
     border: 1px solid var(--border-color);
     background-color: transparent;
-    padding: 0px;
+    padding: 0;
 
     &:focus {
       outline: 0;
     }
   }
+
   .commentbox_title {
     border-bottom: 1px solid var(--border-color);
 

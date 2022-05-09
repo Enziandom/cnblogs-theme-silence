@@ -1,10 +1,10 @@
 import "./index.less";
 import options from "@consts/options";
 import {
-  isPostPage,
-  showSidebar,
-  clearElement,
-  addElement,
+    isPostPage,
+    showSidebar,
+    clearElement,
+    addElement,
 } from "@consts/tools";
 import buildGithubCorner from "@modules/githubCorner";
 import buildCustomHeader from "@modules/customHeader";
@@ -21,33 +21,33 @@ import buildPersonBoard from "@modules/personBoard";
 import loader from "@modules/loader";
 
 class Silence {
-  constructor() {
-    $.extend(true, options, window.$silence);
+    constructor() {
+        $.extend(true, options, window.$silence);
 
-    clearElement();
-    this.building();
-  }
-
-  building() {
-    buildCustomHeader();
-    buildCustomFooter();
-    buildGithubCorner();
-    buildProfile();
-    buildToolbar();
-    if (isPostPage()) {
-      buildPostCatalog();
-      buildPostSponsor();
-      buildPostLightbox();
-      buildPostSignature();
-      buildHljsLineNumber();
-      buildPostCommentAvatars();
-      addElement();
-    } else {
-      showSidebar();
-      buildPersonBoard();
+        clearElement();
+        this.building();
     }
-    loader.hide();
-  }
+
+    building() {
+        buildCustomHeader();
+        buildCustomFooter();
+        buildGithubCorner();
+        buildProfile();
+        buildToolbar();
+        if (isPostPage()) {
+            buildPostCatalog();
+            buildPostSponsor();
+            buildPostLightbox();
+            buildPostSignature();
+            buildHljsLineNumber();
+            buildPostCommentAvatars();
+            addElement();
+        } else {
+            showSidebar();
+            buildPersonBoard();
+        }
+        loader.hide();
+    }
 }
 
 new Silence();
