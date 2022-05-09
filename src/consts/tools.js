@@ -22,7 +22,7 @@ export function isEssayListPage() {
 }
 
 export function justRootPage() {
-    return isPaging() || isTagListPage() || isTagPostsPage() || isEssayListPage();
+    return !(isPaging() || isTagListPage() || isTagPostsPage() || isEssayListPage());
 }
 
 /**
