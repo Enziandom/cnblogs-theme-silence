@@ -4,7 +4,7 @@ import {
     isPostPage,
     justRootPage,
     showSidebar,
-    clearHtmlElement,
+    removeTitleTocButton, removePostSideBarElements,
 } from "./consts/tools";
 import buildGithubCorner from "./modules/githubCorner";
 import buildCustomHeader from "./modules/customHeader";
@@ -27,7 +27,7 @@ class Silence {
     }
 
     building() {
-        clearHtmlElement(); // 清除不必要的标签
+        showSidebar();
         buildCustomHeader();
         buildCustomFooter();
         buildGithubCorner();
@@ -40,8 +40,9 @@ class Silence {
             buildPostSignature();
             buildHljsLineNumber();
             buildPostCommentAvatars();
+            removeTitleTocButton();
+            removePostSideBarElements();
         } else { // 包括首页、标签页、文章页、分类页
-            showSidebar();
             if (justRootPage()) { // 只是首页，不包括标签页、文章页、分类页
                 buildPersonBoard();
             }

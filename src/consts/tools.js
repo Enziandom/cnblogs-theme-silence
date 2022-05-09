@@ -5,22 +5,26 @@ export function isPostPage() {
     return $("#topics").length > 0;
 }
 
-export function isPaging() {
+function isPaging() {
     return $("#homepage_top_pager").length > 0;
 }
 
-export function isTagListPage() {
+function isTagListPage() {
     return $("#taglist_main").length > 0;
 }
 
-export function isTagPostsPage() {
+function isTagPostsPage() {
     return $(".forFlow .PostListTitle").length > 0;
 }
 
-export function isEssayListPage() {
+function isEssayListPage() {
     return $(".forFlow .entrylistTitle").length > 0;
 }
 
+/**
+ * 只是首页，不包括博客园的标签分类页、以标签展示文章页、随笔分类页、包含分页的页面。
+ * @returns {boolean} 是首页返回 true；不是首页，或是其他页返回 false。
+ */
 export function justRootPage() {
     return !(isPaging() || isTagListPage() || isTagPostsPage() || isEssayListPage());
 }
@@ -34,8 +38,16 @@ export function showSidebar() {
 }
 
 /**
- * 删除原生元素
+ * 删除文章页文章标题的目录按钮
  */
-export function clearHtmlElement() {
+export function removeTitleTocButton() {
     $(".post .postTitle .cnblogs-toc-button").remove();
+}
+
+export function removePostSideBarElements() {
+    $("#sideBarMain").each((self, index, el) => {
+        if (index < 3) {
+            el.remove();
+        }
+    })
 }

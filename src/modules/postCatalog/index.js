@@ -1,10 +1,9 @@
 import "./index.less";
-import options from "@/consts/options";
+import options from "../../consts/options";
 
 function buildPostCatalog() {
-    console.log("entry");
-
     const catalog = options.catalog;
+
     if (catalog.enable) {
         const levels = catalog.levels;
         const level1 = levels[0];
@@ -95,7 +94,7 @@ function buildPostCatalog() {
 
         catalogContents += `</ul>`;
 
-        $(".esa-catalog").append(catalogContents);
+        $("#sideBarMain").prepend(catalogContents);
     }
 }
 
