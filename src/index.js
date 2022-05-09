@@ -2,9 +2,9 @@ import "./index.less";
 import options from "./consts/options";
 import {
     isPostPage,
+    justRootPage,
     showSidebar,
     clearHtmlElement,
-    addHtmlElement,
 } from "./consts/tools";
 import buildGithubCorner from "./modules/githubCorner";
 import buildCustomHeader from "./modules/customHeader";
@@ -27,23 +27,23 @@ class Silence {
     }
 
     building() {
-        clearHtmlElement();
+        clearHtmlElement(); // 清除不必要的标签
         buildCustomHeader();
         buildCustomFooter();
         buildGithubCorner();
         buildProfile();
         buildToolbar();
-        if (isPostPage()) {
+        if (isPostPage()) { // 只是文章页
             buildPostCatalog();
             buildPostSponsor();
             buildPostLightbox();
             buildPostSignature();
             buildHljsLineNumber();
             buildPostCommentAvatars();
-            addHtmlElement();
-        } else {
-            showSidebar();
+        } else if (justRootPage()) { // 只是首页，不包括标签页、文章页、分类页
             buildPersonBoard();
+        } else { // 包括首页、标签页、文章页、分类页
+            showSidebar();
         }
         loader.hide();
     }

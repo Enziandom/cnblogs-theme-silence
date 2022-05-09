@@ -35,7 +35,12 @@ const options = {
         title: `<div>README</div>`,
         content: `<div>近期目标：进阶成为 Web 大神</div>`,
         signature: `<span>time tick away, dream faded away!</span>`,
+        signatureFontSize: 16,
     },
+    blogCover: {
+        src: "https://images.cnblogs.com/cnblogs_com/blogs/666252/galleries/1934022/o_220509150428_94756997_p0.jpg",
+
+    }
 };
 
 export default options;

@@ -285,7 +285,7 @@ a {
 #main {
   width: 960px;
   margin: 0 auto;
-  min-height: calc(100% - 75px);
+  //min-height: calc(100% - 75px);
   padding: 15px 0;
   transition: all 0.3s ease;
 }
@@ -303,12 +303,13 @@ a {
 
 #sideBar {
   width: 210px;
+  display: none;
   font-weight: inherit;
   min-height: 750px;
   background-color: var(--card-bg-color);
   border-radius: 10px;
   border-right: 1px solid var(--border-color);
-  padding: 0 20px 0 20px;
+  padding: 20px 20px 0 20px;
 
   #profile_block {
     margin: 0;
@@ -422,11 +423,14 @@ a {
 
 #sidebar_search {
   #widget_my_zzk {
+    display: flex;
+    justify-content: space-between;
+
     .input_my_zzk {
       color: #314659;
       border: solid 1px var(--border-color);
       background-color: transparent;
-      width: 150px;
+      width: 58%;
       height: 32px;
       padding: 0 7px;
       font-size: 16px;
@@ -439,12 +443,12 @@ a {
 
     .btn_my_zzk {
       height: 34px;
-      font-size: 14px;
+      font-size: 13px;
       font-weight: 300;
       background-color: transparent;
       color: var(--text-color);
       cursor: pointer;
-      width: 59px;
+      width: 30%;
       outline: 0;
       border: 1px solid var(--border-color);
       border-radius: 4px;
@@ -1132,8 +1136,8 @@ a {
 
 .topicListFooter {
   text-align: right;
-  margin-top: 10px;
-  margin-right: 0px;
+  margin-top: 20px;
+  margin-right: 0;
 }
 
 .pager,
