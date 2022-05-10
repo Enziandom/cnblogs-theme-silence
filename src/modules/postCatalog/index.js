@@ -68,16 +68,6 @@ function buildPostCatalog() {
         const level3 = levels[2];
         let captions = $("#cnblogs_post_body").find(levels.join(","));
 
-        // $("body").append(`<div class="esa-catalog noactive"></div>`);
-
-        // if (catalog.active) {
-        //     $toolbar.find(".catalog").trigger("click");
-        // }
-        //
-        // if (window.screen.width < 990) {
-        //     $toolbar.find(".catalog").trigger("click");
-        // }
-
         let h1c = 0;
         let h2c = 0;
         let h3c = 0;
@@ -92,23 +82,12 @@ function buildPostCatalog() {
         $.each(captions, (index, element) => {
             const tagName = element.tagName.toLowerCase();
             const text = $(element).text();
-            let id = $(element).attr("id");
-            let titleIndex = "";
             let titleContent = text;
+            let href = $(element).attr("id");
+            let titleIndex = "";
 
-            if (!catalogConfig.index) {
-                switch (tagName) {
-                    case level1:
-                        titleContent = `<span class="level1">${titleContent}</span>`;
-                        break;
-                    case level2:
-                        titleContent = `<span class="level2">${titleContent}</span>`;
-                        break;
-                    case level3:
-                        titleContent = `<span class="level3">${titleContent}</span>`;
-                        break;
-                }
-            } else {
+            if (catalogConfig.index) {
+                // 显示索引值
                 if (tagName === level1) {
                     h1c++;
                     h2c = 0;
@@ -122,29 +101,28 @@ function buildPostCatalog() {
                     h3c++;
                     titleIndex = `<span class="level3">${h1c}.${h2c}.${h3c}. </span>`;
                 }
-            }
-
-            if (!id) {
-                id = $(element).text().replace(/\ /g, "-").toLowerCase();
-                $(element).attr("id", id);
+            } else {
+                // 不显示索引值
+                switch (tagName) {
+                    case level1:
+                        titleContent = `<span class="level1">${text}</span>`;
+                        break;
+                    case level2:
+                        titleContent = `<span class="level2">${text}</span>`;
+                        break;
+                    case level3:
+                        titleContent = `<span class="level3">${text}</span>`;
+                        break;
+                }
             }
 
             catalogContents += `
                 <li class="${tagName}" title="${text}">
-                  <a class="esa-anchor-link" href="#${id}">
+                  <a class="esa-anchor-link" href="#${href}">
                     ${titleIndex + titleContent}
                   </a>
                 </li>
             `;
-
-            $(element).append(`<a href="#${id}" class="esa-anchor">#</a>`).hover(
-                () => {
-                    $(element).find(".esa-anchor").css("opacity", 1);
-                },
-                () => {
-                    $(element).find(".esa-anchor").css("opacity", 0);
-                }
-            );
         });
 
         catalogContents += `</ul></div></div>`;
