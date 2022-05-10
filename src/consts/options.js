@@ -9,9 +9,7 @@ const options = {
     showNavAdmin: true,
     hljsln: false,
     catalog: {
-        enable: false,
         index: true,
-        active: false,
         levels: ["h2", "h3", "h4"],
     },
     signature: {
@@ -30,7 +28,7 @@ const options = {
         wechat: null,
         alipay: null,
     },
-    personBoard: {
+    board: {
         tag: "<span>板子</span>",
         title: `<div>README</div>`,
         content: `<div>近期目标：进阶成为 Web 大神</div>`,

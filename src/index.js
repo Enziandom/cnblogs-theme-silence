@@ -17,7 +17,7 @@ import buildPostSponsor from "./modules/postSponsor";
 import buildPostCommentAvatars from "./modules/postCommentAvatars";
 import buildHljsLineNumber from "./modules/hljsLineNumber";
 import buildToolbar from "./modules/toolbar";
-import buildPersonBoard from "./modules/personBoard";
+import buildBoard from "./modules/board";
 import loader from "./modules/loader";
 
 class Silence {
@@ -43,7 +43,7 @@ class Silence {
             removeTitleTocButton();
         } else { // 包括首页、标签页、文章页、分类页
             if (justRootPage()) { // 只是首页，不包括标签页、文章页、分类页
-                buildPersonBoard();
+                buildBoard();
             }
         }
         loader.hide();

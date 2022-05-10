@@ -1,141 +1,98 @@
 import "./index.less";
-import {isPostPage} from "../../consts/tools";
-import options from "../../consts/options";
+import {
+    getMode,
+    getTheme,
+    setMode,
+    setTheme,
+} from "../../consts/tools";
 
-function buildToolbar() {
-    $("body").append(`
-    <div class="esa-toolbar">
-      <div class="bars"><i class="fa fa-ellipsis-h"></i></div>
-      <span class="up" title="返回顶部"><i class="fa fa-chevron-up"></i></span>
-      <span class="mode" title="切换模式"><i class="fa fa-adjust"></i></span>
-      <span class="skin" title="主题设置"><i class="fa fa-cog"></i></span>
-      <div class="skin-popup">
-        <div class="item">
-          <div class="title">主题色彩</div>
-            <div class="themes">
-                <button data-theme="a" style="background: #2D8CF0;"></button>
-                <button data-theme="b" style="background: #FA7298;"></button>
-                <button data-theme="c" style="background: #42B983;"></button>
-                <button data-theme="d" style="background: #607D8B;"></button>
-                <button data-theme="e" style="background: #5E72E4;"></button>
-                <button data-theme="f" style="background: #FF9700;"></button>
-                <button data-theme="g" style="background: #FF5722;"></button>
-                <button data-theme="h" style="background: #009688;"></button>
-                <button data-theme="i" style="background: #673BB7;"></button>
-                <button data-theme="j" style="background: #906f61;"></button>
-            </div>
-          </div>
+// 创建工具按钮模板
+const esaToolBar = `
+<div class="esa-toolbar">
+  <div class="bars"><i class="fa fa-ellipsis-h"></i></div>
+  <span class="up" title="返回顶部"><i class="fa fa-chevron-up"></i></span>
+  <span class="mode" title="切换模式"><i class="fa fa-adjust"></i></span>
+  <span class="skin" title="主题设置"><i class="fa fa-cog"></i></span>
+  <div id="esa-skin-popup">
+    <div class="item">
+      <div class="title">主题色彩</div>
+        <div class="themes">
+            <button data-theme="a" style="background: #2D8CF0;"></button>
+            <button data-theme="b" style="background: #FA7298;"></button>
+            <button data-theme="c" style="background: #42B983;"></button>
+            <button data-theme="d" style="background: #607D8B;"></button>
+            <button data-theme="e" style="background: #5E72E4;"></button>
+            <button data-theme="f" style="background: #FF9700;"></button>
+            <button data-theme="g" style="background: #FF5722;"></button>
+            <button data-theme="h" style="background: #009688;"></button>
+            <button data-theme="i" style="background: #673BB7;"></button>
+            <button data-theme="j" style="background: #906f61;"></button>
         </div>
       </div>
-    </div>`);
+    </div>
+  </div>
+</div>
+`;
 
-    const hasCatalogButton = isPostPage() && options.catalog.enable;
-
-    if (hasCatalogButton) {
-        $(".esa-toolbar").append(
-            `<span class="catalog" title="阅读目录"><i class="fa fa-list-ul"></i></span>`
-        );
-    }
-
-    const modeKey = `silence-mode-${currentBlogApp}`;
-    const themeKey = `silence-theme-${currentBlogApp}`;
-    const hour = new Date().getHours();
-    const themeLoading = sessionStorage.getItem(themeKey) || options.defaultTheme;
-    const modeLoading =
-        sessionStorage.getItem(modeKey) ||
-        (options.defaultMode == "auto"
-            ? hour >= 6 && hour < 18
-                ? "light"
-                : "dark"
-            : options.defaultMode);
-
-    $("html").attr("mode", modeLoading);
-    $("html").attr("theme", themeLoading);
-
-    const $toolbar = $(".esa-toolbar");
-    const $skinPopup = $(".skin-popup");
-    var skinPop = document.getElementsByClassName("skin-popup")[0];
+function buildToolbar() {
+    // 向页面中添加工具按钮节点
+    $("body").append(esaToolBar);
+    let htmlDom = $("html");
+    // 设置页面的日夜模式
+    $(htmlDom).attr("mode", getMode());
+    // 设置页面主题颜色
+    $(htmlDom).attr("theme", getTheme());
+    // 获取工具按钮中的 DOM 节点
+    let barsDom = $(".bars");
+    let upDom = $(".up");
+    let modeDom = $(".mode");
+    let skinDom = $(".skin");
+    let skinOptions = $("#esa-skin-popup");
 
     let isDisplayToolbar = true;
-    $toolbar.find(".bars").click(function () {
+    $(barsDom).on('click', (e) => {
+        e.stopPropagation();
         if (!isDisplayToolbar) {
-            $toolbar.find(".bars").addClass("bars-show");
-            $toolbar.find(".up").addClass("up-show");
-            $toolbar.find(".mode").addClass("mode-show");
-            $toolbar.find(".skin").addClass("skin-show");
-            if (hasCatalogButton) {
-                $toolbar.find(".catalog").addClass("catalog-show");
-            }
+            $(barsDom).addClass("bars-show");
+            $(upDom).addClass("up-show");
+            $(modeDom).addClass("mode-show");
+            $(skinDom).addClass("skin-show");
         } else {
-            $toolbar.find(".bars").removeClass("bars-show");
-            $toolbar.find(".up").removeClass("up-show");
-            $toolbar.find(".mode").removeClass("mode-show");
-            $toolbar.find(".skin").removeClass("skin-show");
-            if (hasCatalogButton) {
-                $toolbar.find(".catalog").removeClass("catalog-show");
-            }
+            $(barsDom).removeClass("bars-show");
+            $(upDom).removeClass("up-show");
+            $(modeDom).removeClass("mode-show");
+            $(skinDom).removeClass("skin-show");
         }
         isDisplayToolbar = !isDisplayToolbar;
     });
 
-    $toolbar.find(".up").click(() => {
+    // 点击向上按钮，回到页面最顶端
+    $(upDom).on('click', (e) => {
+        e.stopPropagation();
         $("html, body").animate({scrollTop: 0}, 450);
     });
 
-    $toolbar.find(".mode").click(() => {
-        const mode = $("html").attr("mode") == "light" ? "dark" : "light";
-        sessionStorage.setItem(modeKey, mode);
-        $("html").attr("mode", mode);
-    });
-
-    $toolbar.find(".skin").click((e) => {
+    // 点击日夜模式按钮切换模式
+    $(modeDom).on('click', (e) => {
         e.stopPropagation();
-        $skinPopup.slideToggle();
+        setMode();
     });
 
-    skinPop.addEventListener("click", function (ev) {
-        ev.stopPropagation();
-        if (ev.target.nodeName === "BUTTON") {
-            console.log(ev);
-            var theme = ev.target.dataset.theme;
-            sessionStorage.setItem(themeKey, theme);
-            $("html").attr("theme", theme);
+    // 点击主题颜色按钮切换主题颜色
+    $(skinDom).on('click', (e) => {
+        e.stopPropagation();
+        $(skinOptions).slideToggle();
+    });
+
+    // 选择主题颜色
+    $(skinOptions).on('click', (e) => {
+        e.stopPropagation();
+        if (e.target.nodeName === "BUTTON") {
+            setTheme(e.target.dataset.theme);
         }
     });
 
-    document.addEventListener("click", function (ev) {
-        if (skinPop && skinPop.style.display === "block") {
-            skinPop.style.display = "none";
-        }
-    });
-
-    let isDisplayCatalog = false;
-    $toolbar.find(".catalog").click(() => {
-        $(".esa-catalog").toggleClass(function () {
-            if ($(this).hasClass("active")) {
-                $(this).removeClass("active");
-                return "noactive";
-            } else {
-                $(this).removeClass("noactive");
-                return "active";
-            }
-        });
-
-        // 移动端屏幕目录不占主体内容
-        if (window.screen.width > 990) {
-            if (!isDisplayCatalog) {
-                $("#home").css({width: "calc(100% - 252px)"});
-                isDisplayCatalog = true;
-            } else {
-                $("#home").css({width: "100%"});
-                isDisplayCatalog = false;
-            }
-        }
-    });
-
-    if (isPostPage()) {
-        $toolbar.find(".bars").trigger("click");
-    }
+    $(barsDom).trigger("click");
 }
 
 export default buildToolbar;

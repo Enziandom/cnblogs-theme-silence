@@ -4,7 +4,7 @@ import options from "../../consts/options";
 const florFlow = {
     "background-color": "var(--card-bg-color)",
     "border-radius": "10px",
-    "padding": "20px 20px 0 20px",
+    "padding": "20px",
 }
 
 const esaCatalogFixed = {
