@@ -7,8 +7,15 @@ const florFlow = {
     "padding": "20px 20px 0 20px",
 }
 
-function buildCss(dom) {
-    $(dom).css(florFlow);
+const esaCatalogFixed = {
+    "position": "fixed",
+    "top": "0",
+    "left": $("#header")[0].offsetLeft + "px",
+    "padding": "5px 20px 20px 20px",
+}
+
+const esaCatalogInitial = {
+    "position": "initial",
 }
 
 function catalogController() {
@@ -27,11 +34,11 @@ function catalogController() {
 
         if (nowWinScrollTop > lastWinScroTop) {
             if (sidebarItem1.offsetTop - nowWinScrollTop < 0) {
-                $(sidebarItem1).removeClass("esa-catalog-initial").addClass("esa-catalog-fixed");
+                $(sidebarItem1).removeAttr("style").css(esaCatalogFixed);
             }
         } else {
             if (nowWinScrollTop < item0Height) {
-                $(sidebarItem1).removeClass("esa-catalog-fixed").addClass("esa-catalog-initial");
+                $(sidebarItem1).removeAttr("style").css(esaCatalogInitial);
             }
         }
         lastWinScroTop = nowWinScrollTop;
