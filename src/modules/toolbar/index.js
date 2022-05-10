@@ -1,9 +1,9 @@
 import "./index.less";
-import { isPostPage } from "@consts/tools";
-import options from "@/consts/options";
+import {isPostPage} from "../../consts/tools";
+import options from "../../consts/options";
 
 function buildToolbar() {
-  $("body").append(`
+    $("body").append(`
     <div class="esa-toolbar">
       <div class="bars"><i class="fa fa-ellipsis-h"></i></div>
       <span class="up" title="返回顶部"><i class="fa fa-chevron-up"></i></span>
@@ -29,113 +29,113 @@ function buildToolbar() {
       </div>
     </div>`);
 
-  const hasCatalogButton = isPostPage() && options.catalog.enable;
+    const hasCatalogButton = isPostPage() && options.catalog.enable;
 
-  if (hasCatalogButton) {
-    $(".esa-toolbar").append(
-      `<span class="catalog" title="阅读目录"><i class="fa fa-list-ul"></i></span>`
-    );
-  }
-
-  const modeKey = `silence-mode-${currentBlogApp}`;
-  const themeKey = `silence-theme-${currentBlogApp}`;
-  const hour = new Date().getHours();
-  const themeLoading = sessionStorage.getItem(themeKey) || options.defaultTheme;
-  const modeLoading =
-    sessionStorage.getItem(modeKey) ||
-    (options.defaultMode == "auto"
-      ? hour >= 6 && hour < 18
-        ? "light"
-        : "dark"
-      : options.defaultMode);
-
-  $("html").attr("mode", modeLoading);
-  $("html").attr("theme", themeLoading);
-
-  const $toolbar = $(".esa-toolbar");
-  const $skinPopup = $(".skin-popup");
-  var skinPop = document.getElementsByClassName("skin-popup")[0];
-
-  let isDisplayToolbar = true;
-  $toolbar.find(".bars").click(function () {
-    if (!isDisplayToolbar) {
-      $toolbar.find(".bars").addClass("bars-show");
-      $toolbar.find(".up").addClass("up-show");
-      $toolbar.find(".mode").addClass("mode-show");
-      $toolbar.find(".skin").addClass("skin-show");
-      if (hasCatalogButton) {
-        $toolbar.find(".catalog").addClass("catalog-show");
-      }
-    } else {
-      $toolbar.find(".bars").removeClass("bars-show");
-      $toolbar.find(".up").removeClass("up-show");
-      $toolbar.find(".mode").removeClass("mode-show");
-      $toolbar.find(".skin").removeClass("skin-show");
-      if (hasCatalogButton) {
-        $toolbar.find(".catalog").removeClass("catalog-show");
-      }
+    if (hasCatalogButton) {
+        $(".esa-toolbar").append(
+            `<span class="catalog" title="阅读目录"><i class="fa fa-list-ul"></i></span>`
+        );
     }
-    isDisplayToolbar = !isDisplayToolbar;
-  });
 
-  $toolbar.find(".up").click(() => {
-    $("html, body").animate({ scrollTop: 0 }, 450);
-  });
+    const modeKey = `silence-mode-${currentBlogApp}`;
+    const themeKey = `silence-theme-${currentBlogApp}`;
+    const hour = new Date().getHours();
+    const themeLoading = sessionStorage.getItem(themeKey) || options.defaultTheme;
+    const modeLoading =
+        sessionStorage.getItem(modeKey) ||
+        (options.defaultMode == "auto"
+            ? hour >= 6 && hour < 18
+                ? "light"
+                : "dark"
+            : options.defaultMode);
 
-  $toolbar.find(".mode").click(() => {
-    const mode = $("html").attr("mode") == "light" ? "dark" : "light";
-    sessionStorage.setItem(modeKey, mode);
-    $("html").attr("mode", mode);
-  });
+    $("html").attr("mode", modeLoading);
+    $("html").attr("theme", themeLoading);
 
-  $toolbar.find(".skin").click((e) => {
-    e.stopPropagation();
-    $skinPopup.slideToggle();
-  });
+    const $toolbar = $(".esa-toolbar");
+    const $skinPopup = $(".skin-popup");
+    var skinPop = document.getElementsByClassName("skin-popup")[0];
 
-  skinPop.addEventListener("click", function (ev) {
-    ev.stopPropagation();
-    if (ev.target.nodeName === "BUTTON") {
-      console.log(ev);
-      var theme = ev.target.dataset.theme;
-      sessionStorage.setItem(themeKey, theme);
-      $("html").attr("theme", theme);
-    }
-  });
-
-  document.addEventListener("click", function (ev) {
-    if (skinPop && skinPop.style.display === "block") {
-      skinPop.style.display = "none";
-    }
-  });
-
-  let isDisplayCatalog = false;
-  $toolbar.find(".catalog").click(() => {
-    $(".esa-catalog").toggleClass(function () {
-      if ($(this).hasClass("active")) {
-        $(this).removeClass("active");
-        return "noactive";
-      } else {
-        $(this).removeClass("noactive");
-        return "active";
-      }
+    let isDisplayToolbar = true;
+    $toolbar.find(".bars").click(function () {
+        if (!isDisplayToolbar) {
+            $toolbar.find(".bars").addClass("bars-show");
+            $toolbar.find(".up").addClass("up-show");
+            $toolbar.find(".mode").addClass("mode-show");
+            $toolbar.find(".skin").addClass("skin-show");
+            if (hasCatalogButton) {
+                $toolbar.find(".catalog").addClass("catalog-show");
+            }
+        } else {
+            $toolbar.find(".bars").removeClass("bars-show");
+            $toolbar.find(".up").removeClass("up-show");
+            $toolbar.find(".mode").removeClass("mode-show");
+            $toolbar.find(".skin").removeClass("skin-show");
+            if (hasCatalogButton) {
+                $toolbar.find(".catalog").removeClass("catalog-show");
+            }
+        }
+        isDisplayToolbar = !isDisplayToolbar;
     });
 
-    // 移动端屏幕目录不占主体内容
-    if (window.screen.width > 990) {
-      if (!isDisplayCatalog) {
-        $("#home").css({ width: "calc(100% - 252px)" });
-        isDisplayCatalog = true;
-      } else {
-        $("#home").css({ width: "100%" });
-        isDisplayCatalog = false;
-      }
-    }
-  });
+    $toolbar.find(".up").click(() => {
+        $("html, body").animate({scrollTop: 0}, 450);
+    });
 
-  if (isPostPage()) {
-    $toolbar.find(".bars").trigger("click");
-  }
+    $toolbar.find(".mode").click(() => {
+        const mode = $("html").attr("mode") == "light" ? "dark" : "light";
+        sessionStorage.setItem(modeKey, mode);
+        $("html").attr("mode", mode);
+    });
+
+    $toolbar.find(".skin").click((e) => {
+        e.stopPropagation();
+        $skinPopup.slideToggle();
+    });
+
+    skinPop.addEventListener("click", function (ev) {
+        ev.stopPropagation();
+        if (ev.target.nodeName === "BUTTON") {
+            console.log(ev);
+            var theme = ev.target.dataset.theme;
+            sessionStorage.setItem(themeKey, theme);
+            $("html").attr("theme", theme);
+        }
+    });
+
+    document.addEventListener("click", function (ev) {
+        if (skinPop && skinPop.style.display === "block") {
+            skinPop.style.display = "none";
+        }
+    });
+
+    let isDisplayCatalog = false;
+    $toolbar.find(".catalog").click(() => {
+        $(".esa-catalog").toggleClass(function () {
+            if ($(this).hasClass("active")) {
+                $(this).removeClass("active");
+                return "noactive";
+            } else {
+                $(this).removeClass("noactive");
+                return "active";
+            }
+        });
+
+        // 移动端屏幕目录不占主体内容
+        if (window.screen.width > 990) {
+            if (!isDisplayCatalog) {
+                $("#home").css({width: "calc(100% - 252px)"});
+                isDisplayCatalog = true;
+            } else {
+                $("#home").css({width: "100%"});
+                isDisplayCatalog = false;
+            }
+        }
+    });
+
+    if (isPostPage()) {
+        $toolbar.find(".bars").trigger("click");
+    }
 }
 
 export default buildToolbar;

@@ -43,12 +43,3 @@ export function showSidebar() {
 export function removeTitleTocButton() {
     $(".post .postTitle .cnblogs-toc-button").remove();
 }
-
-export function removePostSideBarElements() {
-    let children = $("#sideBarMain").children();
-    $(children).each((index, element) => {
-        if (index < children.length - 2) {
-            $(element).remove();
-        }
-    })
-}

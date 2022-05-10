@@ -1,56 +1,65 @@
-import "./index.less";
+import './index.less';
 import options from "../../consts/options";
-import {removePostSideBarElements} from "../../consts/tools";
 
-function buildPostCatalog() {
-    removePostSideBarElements();
+const florFlow = {
+    "background-color": "var(--card-bg-color)",
+    "border-radius": "10px",
+    "padding": "20px 20px 0 20px",
+}
 
-    // 1. 比上次少，就是往上，比上次多，就是往下
-    let lastTop = 0;
-    let correctT = 0;
+function buildCss(dom) {
+    $(dom).css(florFlow);
+}
 
-    $(window).scroll(function() {
-        let catalogContainer = $("#esa-catalog-container")[0];
-        let scrollTop = document.documentElement.scrollTop || document.body.scrollTop;
-        let top = catalogContainer.offsetTop - scrollTop;
+function catalogController() {
+    // 当前滑动的窗口距离顶部距离比上次的少就是往上滑动，反之往下滑动
+    let lastWinScroTop = 0;
 
-        if (scrollTop > lastTop) {
-            if (top < 0) {
-                $(catalogContainer).css({
-                    "position": "fixed",
-                    "top": "55px"
-                })
-                correctT = top;
+    $(window).scroll(() => {
+        // 侧边栏除目录以外的 DOM
+        let sidebarItem0 = $("#leftcontentcontainer")[0];
+        // 目录 DOM
+        let sidebarItem1 = $("#esa-catalog-wrapper")[0];
+        // sidebarItem0 元素的高度，元素距离顶部 + 元素本身的高度
+        let item0Height = sidebarItem0.offsetHeight + sidebarItem0.offsetTop;
+        // 当前窗口距离顶部的距离
+        let nowWinScrollTop = document.documentElement.scrollTop || document.body.scrollTop;
+
+        if (nowWinScrollTop > lastWinScroTop) {
+            if (sidebarItem1.offsetTop - nowWinScrollTop < 0) {
+                $(sidebarItem1).removeClass("esa-catalog-initial").addClass("esa-catalog-fixed");
             }
         } else {
-            if (correctT < top) {
-                $(catalogContainer).css({
-                    "position": "initial",
-                })
+            if (nowWinScrollTop < item0Height) {
+                $(sidebarItem1).removeClass("esa-catalog-fixed").addClass("esa-catalog-initial");
             }
         }
-        lastTop = scrollTop;
+        lastWinScroTop = nowWinScrollTop;
+    });
+}
+
+function buildSideBar() {
+    let elements = $("#sideBarMain").children();
+    $(elements).each((index, element) => {
+        if (index < elements.length - 2) {
+            $(element).remove();
+        }
     })
+}
 
-    $("#mainContent .forFlow").css({
-        "background-color": "var(--card-bg-color)",
-        "border-radius": "10px",
-        "padding": "20px 20px 0 20px",
-    })
+function buildPostCatalog() {
+    $("#mainContent .forFlow").css(florFlow);
+    buildSideBar();
+    catalogController();
 
-    const catalog = options.catalog;
+    const catalogConfig = options.catalog;
 
-    if (catalog.enable) {
-        const levels = catalog.levels;
+    if (catalogConfig.enable) {
+        const levels = catalogConfig.levels;
         const level1 = levels[0];
         const level2 = levels[1];
         const level3 = levels[2];
         let captions = $("#cnblogs_post_body").find(levels.join(","));
-        let $toolbar = $(".esa-toolbar");
-
-        if (!captions.length) {
-            $toolbar.find(".catalog").remove();
-        }
 
         // $("body").append(`<div class="esa-catalog noactive"></div>`);
 
@@ -66,7 +75,12 @@ function buildPostCatalog() {
         let h2c = 0;
         let h3c = 0;
 
-        let catalogContents = "<div id='esa-catalog-container'><h3 class='catListTitle'>目录</h3><ul id='esa-catalog'>";
+        let catalogContents = `
+            <div id="esa-catalog-wrapper">
+                <div id='esa-catalog-inner'>
+                    <h3 class='catListTitle'>目录</h3>
+                    <ul id='esa-catalog'>
+        `;
 
         $.each(captions, (index, element) => {
             const tagName = element.tagName.toLowerCase();
@@ -75,7 +89,7 @@ function buildPostCatalog() {
             let titleIndex = "";
             let titleContent = text;
 
-            if (!catalog.index) {
+            if (!catalogConfig.index) {
                 switch (tagName) {
                     case level1:
                         titleContent = `<span class="level1">${titleContent}</span>`;
@@ -116,19 +130,17 @@ function buildPostCatalog() {
                 </li>
             `;
 
-            $(element)
-                .append(`<a href="#${id}" class="esa-anchor">#</a>`)
-                .hover(
-                    () => {
-                        $(element).find(".esa-anchor").css("opacity", 1);
-                    },
-                    () => {
-                        $(element).find(".esa-anchor").css("opacity", 0);
-                    }
-                );
+            $(element).append(`<a href="#${id}" class="esa-anchor">#</a>`).hover(
+                () => {
+                    $(element).find(".esa-anchor").css("opacity", 1);
+                },
+                () => {
+                    $(element).find(".esa-anchor").css("opacity", 0);
+                }
+            );
         });
 
-        catalogContents += `</ul></div>`;
+        catalogContents += `</ul></div></div>`;
 
         $("#sideBarMain").append(catalogContents);
     }

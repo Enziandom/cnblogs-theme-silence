@@ -1,46 +1,41 @@
-#esa-catalog-container {
+#esa-catalog-wrapper {
   width: 210px;
   font-weight: inherit;
   background-color: var(--card-bg-color);
   border-radius: 10px;
-  border-right: 1px solid var(--border-color);
 
-  #esa-catalog {
-    li {
-      padding: 5px 0;
-      white-space: nowrap;
-      overflow: hidden;
-      text-overflow: ellipsis;
-      cursor: pointer;
-      color: var(--text-color);
+  #esa-catalog-inner {
+    #esa-catalog {
+      li {
+        padding: 5px 0;
+        cursor: pointer;
+        overflow: hidden;
+        white-space: nowrap;
+        text-overflow: ellipsis;
 
-      .level1 {
-        margin-left: 0;
-      }
+        .level1 {
+          margin-left: 0;
+        }
 
-      .level2 {
-        margin-left: 10px;
-      }
+        .level2 {
+          margin-left: 10px;
+        }
 
-      .level3 {
-        margin-left: 26px;
+        .level3 {
+          margin-left: 25px;
+        }
       }
     }
   }
 }
 
-.esa-anchor {
-  opacity: 0;
-  transition: opacity 0.3s ease;
-  margin-left: 8px;
+.esa-catalog-fixed {
+  position: fixed;
+  top: 0;
+  left: 218px;
+  padding: 5px 20px 20px 20px;
 }
 
-.active {
-  transition-duration: 378ms;
-  transform: translate3d(0px, 0px, 0px);
-}
-
-.noactive {
-  transition-duration: 378ms;
-  transform: translate3d(252px, 0, 0);
+.esa-catalog-initial {
+  position: initial;
 }
