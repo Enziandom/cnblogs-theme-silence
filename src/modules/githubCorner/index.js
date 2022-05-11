@@ -1,5 +1,5 @@
 import "./index.less";
-import options from '@/consts/options';
+import options from '../../consts/options';
 
 function buildGithubCorner() {
     var config = options.github;

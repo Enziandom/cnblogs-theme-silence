@@ -1,14 +1,14 @@
 import "./index.less";
-import options from "@/consts/options";
+import options from "../../consts/options";
 
 function buildPostSponsor() {
-  const config = options.sponsor;
+    const config = options.sponsor;
 
-  if (!config.enable) {
-    return false;
-  }
+    if (!config.enable) {
+        return false;
+    }
 
-  $("#blog_post_info").prepend(`
+    $("#blog_post_info").prepend(`
                 <div class="esa-sponsor">
                     <div class="title">${config.text}</div>
                     <ul class="box">
@@ -21,31 +21,31 @@ function buildPostSponsor() {
                     </div>
                 </div>`);
 
-  var $sponsor = $(".esa-sponsor");
+    var $sponsor = $(".esa-sponsor");
 
-  $sponsor.find(".box li").hover(
-    function () {
-      const type = $(this).attr("class");
-      var qrcode = null;
-      switch (type) {
-        case "paypal":
-          qrcode = config.paypal;
-          break;
-        case "alipay":
-          qrcode = config.alipay;
-          break;
-        case "wechat":
-          qrcode = config.wechat;
-          break;
-      }
-      if (qrcode) {
-        $sponsor.find(".qrshow").html(`<img src="${qrcode}">`).show();
-      }
-    },
-    function () {
-      $sponsor.find(".qrshow").hide();
-    }
-  );
+    $sponsor.find(".box li").hover(
+        function () {
+            const type = $(this).attr("class");
+            var qrcode = null;
+            switch (type) {
+                case "paypal":
+                    qrcode = config.paypal;
+                    break;
+                case "alipay":
+                    qrcode = config.alipay;
+                    break;
+                case "wechat":
+                    qrcode = config.wechat;
+                    break;
+            }
+            if (qrcode) {
+                $sponsor.find(".qrshow").html(`<img src="${qrcode}">`).show();
+            }
+        },
+        function () {
+            $sponsor.find(".qrshow").hide();
+        }
+    );
 }
 
 export default buildPostSponsor;

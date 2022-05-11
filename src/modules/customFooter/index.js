@@ -1,8 +1,7 @@
 import "./index.less";
-import options from '@/consts/options';
 
 function buildCustomFooter() {
-    $('#footer').append(`<span class="esa-copyright">& Theme <a href="https://github.com/esofar/cnblogs-theme-silence" target="_blank">Silence v${options.version}</a></span>`);
+    $('#footer').append(`<span class="esa-copyright">& Theme <a href="https://gitee.com/shiramashiro/cnblogs-theme-silence" target="_blank">Silence Rebuild By shiramashiro</a></span>`);
 }
 
 export default buildCustomFooter;

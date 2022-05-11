@@ -1,5 +1,5 @@
 import "./index.less";
-import { lightbox } from '@consts/cdn';
+import {lightbox} from '../../consts/cdn';
 
 function buildPostLightbox() {
     $('head').append(`<link rel="stylesheet" href="${lightbox.css}"/>`);

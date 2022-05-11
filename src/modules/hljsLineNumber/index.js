@@ -1,5 +1,5 @@
 import "./index.less";
-import options from "@/consts/options";
+import options from "../../consts/options";
 
 function buildHljsLineNumber() {
     let $codes = $(".postBody .cnblogs-markdown").find("pre code");

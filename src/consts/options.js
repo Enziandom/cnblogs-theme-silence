@@ -10,7 +10,8 @@ const options = {
     hljsln: false,
     catalog: {
         index: true,
-        levels: ["h2", "h3", "h4"],
+        enbale: true,
+        levels: ["h1", "h2", "h3"],
     },
     signature: {
         enable: true,
@@ -37,7 +38,6 @@ const options = {
     },
     blogCover: {
         src: "https://images.cnblogs.com/cnblogs_com/blogs/666252/galleries/1934022/o_220509150428_94756997_p0.jpg",
-
     }
 };
 
