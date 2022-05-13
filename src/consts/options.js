@@ -29,13 +29,77 @@ const options = {
         wechat: null,
         alipay: null,
     },
-    board: {
-        tag: "<span>板子</span>",
-        title: `<div>README</div>`,
-        content: `<div>近期目标：进阶成为 Web 大神</div>`,
-        signature: `<span>time tick away, dream faded away!</span>`,
-        signatureFontSize: 16,
+    radarMap: {
+        data: [
+            {
+                title: 'js',
+                star: 4,
+            },
+            {
+                title: 'ts',
+                star: 2
+            },
+            {
+                title: 'html',
+                star: 4
+            },
+            {
+                title: 'css',
+                star: 4
+            },
+            {
+                title: 'vue',
+                star: 4
+            },
+            {
+                title: 'uniapp',
+                star: 4,
+            },
+            {
+                title: 'java',
+                star: 2
+            },
+            {
+                title: 'flutter',
+                star: 3
+            },
+            {
+                title: 'dart',
+                star: 4
+            },
+            {
+                title: 'python',
+                star: 0
+            },
+        ],
+        options: {
+            radar: {
+                lineWidth: 1,
+                lineColor: 'white',
+                textColor: 'white',
+                textSize: 14,
+            },
+            dataArea: {
+                lineWidth: 2,
+                lineColor: 'rgba(68,226,155, 1)',
+                fillColor: 'rgba(81,182,137, 0.6)',
+            }
+        }
     },
+    todolist: [
+        {
+            title: '学习 Flutter',
+            isdone: false,
+        },
+        {
+            title: '学习 Dart',
+            isdone: false,
+        },
+        {
+            title: '学习 HTML 画布',
+            isdone: true,
+        }
+    ],
     blogCover: {
         src: "https://images.cnblogs.com/cnblogs_com/blogs/666252/galleries/1934022/o_220509150428_94756997_p0.jpg",
     }

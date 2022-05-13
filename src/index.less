@@ -154,6 +154,7 @@ a {
 }
 
 #header {
+  position: relative;
   display: flex;
   align-items: center;
   align-content: center;
@@ -187,9 +188,15 @@ a {
 }
 
 #navList {
+  display: flex;
+  align-items: center;
+  align-content: center;
+
   & > li {
+    display: flex;
+    align-items: center;
+    align-content: center;
     position: relative;
-    float: left;
     line-height: 60px;
     padding: 0 15px;
     font-size: 17px;
@@ -248,19 +255,14 @@ a {
       background-color: var(--blog-bg-color);
       border-radius: 4px;
       box-shadow: 0 1px 15px rgba(27, 31, 35, 0.15);
-      padding: 10px;
       text-align: center;
 
       li {
-        float: none;
-
         a {
           font-size: 15px;
-          border-right: 0;
           color: var(--text-color);
           display: block;
           width: 100%;
-          padding: 10px 0;
           height: inherit;
           border-bottom: 1px solid transparent;
 

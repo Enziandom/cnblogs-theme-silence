@@ -1,0 +1,31 @@
+.dropdown-icon {
+  cursor: pointer;
+}
+
+#dropdown-panel {
+  display: none;
+  position: absolute;
+  width: inherit;
+  top: 60px;
+  left: 0;
+  padding: 10px;
+  border-radius: 10px;
+  box-sizing: border-box;
+  background-color: var(--card-bg-color);
+
+  .dropdown-panel-wrapper {
+    display: flex;
+    align-content: center;
+  }
+
+  .dropdown-item {
+    padding: 20px;
+    border-radius: 10px;
+    box-sizing: border-box;
+
+    .dp-item-title {
+      font-size: 16px;
+      font-weight: bold;
+    }
+  }
+}

@@ -17,7 +17,7 @@ import buildPostSponsor from "./modules/postSponsor";
 import buildPostCommentAvatars from "./modules/postCommentAvatars";
 import buildHljsLineNumber from "./modules/hljsLineNumber";
 import buildToolbar from "./modules/toolbar";
-import buildBoard from "./modules/board";
+import buildDropdownPopup from "./modules/dropdownPopup";
 import loader from "./modules/loader";
 
 class Silence {
@@ -33,6 +33,7 @@ class Silence {
         buildGithubCorner();
         buildProfile();
         buildToolbar();
+        buildDropdownPopup();
         if (isPostPage()) { // 只是文章页
             buildPostCatalog();
             buildPostSponsor();
@@ -43,7 +44,6 @@ class Silence {
             removeTitleTocButton();
         } else { // 包括首页、标签页、文章页、分类页
             if (justRootPage()) { // 只是首页，不包括标签页、文章页、分类页
-                buildBoard();
             }
         }
         loader.hide();
