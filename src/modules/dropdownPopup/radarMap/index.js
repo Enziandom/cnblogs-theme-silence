@@ -4,7 +4,7 @@ function buildRadarMap() {
     let canvas = document.getElementById("radar-map");
     let ctx = canvas.getContext("2d");
 
-    drawPolygonPath(5, 20, 10, 150, 150, options.radarMap.data, options.radarMap.options, ctx);
+    drawPolygonPath(options.radarMap.layer, options.radarMap.step, options.radarMap.sides, 150, 150, options.radarMap.data, options.radarMap.options, ctx);
 
     function drawPolygonPath(layer, step, sides, x, y, data, options, ctx) {
         let coordinates = [];
@@ -56,11 +56,12 @@ function buildRadarMap() {
         ctx.lineWidth = options.dataArea.lineWidth;
         for (let i = 0; i < surface; i++) {
             ctx.fillStyle = options.radar.textColor;
-            if (lastLayer[i].x > originX) {
-                ctx.fillText(data[i].title, lastLayer[i].x + 10, lastLayer[i].y);
+            if (lastLayer[i].x <= originX) {
+                ctx.textAlign = 'right'
             } else {
-                ctx.fillText(data[i].title, lastLayer[i].x - 50, lastLayer[i].y);
+                ctx.textAlign = 'left'
             }
+            ctx.fillText(data[i].title, lastLayer[i].x, lastLayer[i].y);
             let layer = data[i].star - 1;
             let x, y;
             if (layer < 0) {

@@ -30,6 +30,9 @@ const options = {
         alipay: null,
     },
     radarMap: {
+        sides: 12,
+        layer: 5,
+        step: 20,
         data: [
             {
                 title: 'js',
@@ -69,8 +72,16 @@ const options = {
             },
             {
                 title: 'python',
-                star: 0
+                star: 1
             },
+            {
+                title: 'nodejs',
+                star: 2
+            },
+            {
+                title: 'linux',
+                star: 2,
+            }
         ],
         options: {
             radar: {
