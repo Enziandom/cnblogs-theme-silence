@@ -32,7 +32,7 @@ const options = {
     radarMap: {
         sides: 12,
         layer: 5,
-        step: 20,
+        step: 12,
         data: [
             {
                 title: 'js',
