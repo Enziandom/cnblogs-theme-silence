@@ -1,7 +1,7 @@
 import './index.less';
 import options from "../../consts/options";
 
-const florFlow = {
+const florFlowStyle = {
     "background-color": "var(--card-bg-color)",
     "border-radius": "10px",
     "padding": "20px",
@@ -10,7 +10,7 @@ const florFlow = {
 const esaCatalogFixed = {
     "position": "fixed",
     "top": "0",
-    "left": $("#header")[0].offsetLeft + "px",
+    "left": `${$("#header")[0].offsetLeft}px`,
     "padding": "5px 20px 20px 20px",
 }
 
@@ -18,7 +18,7 @@ const esaCatalogInitial = {
     "position": "initial",
 }
 
-function catalogController() {
+function shiftCatalog() {
     // 当前滑动的窗口距离顶部距离比上次的少就是往上滑动，反之往下滑动
     let lastWinScroTop = 0;
 
@@ -45,7 +45,7 @@ function catalogController() {
     });
 }
 
-function buildSideBar() {
+function rebuildSideBar() {
     let elements = $("#sideBarMain").children();
     $(elements).each((index, element) => {
         if (index < elements.length - 2) {
@@ -55,9 +55,9 @@ function buildSideBar() {
 }
 
 function buildPostCatalog() {
-    $("#mainContent .forFlow").css(florFlow);
-    buildSideBar();
-    catalogController();
+    $("#mainContent .forFlow").css(florFlowStyle);
+    rebuildSideBar();
+    shiftCatalog();
 
     const catalogConfig = options.catalog;
 

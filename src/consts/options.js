@@ -30,6 +30,14 @@ const options = {
         alipay: null,
     },
     radarMap: {
+        alpha: 0.85,
+        sides: 5,
+        layer: 5,
+        step: 16,
+        lineWidth: 1,
+        lineColor: 'white',
+        textColor: 'white',
+        textSize: 14,
         data: [
             {
                 title: 'js',
@@ -50,48 +58,8 @@ const options = {
             {
                 title: 'vue',
                 star: 4
-            },
-            {
-                title: 'uniapp',
-                star: 4,
-            },
-            {
-                title: 'java',
-                star: 2
-            },
-            {
-                title: 'flutter',
-                star: 3
-            },
-            {
-                title: 'dart',
-                star: 4
-            },
-            {
-                title: 'python',
-                star: 1
-            },
-            {
-                title: 'nodejs',
-                star: 2
-            },
-            {
-                title: 'linux',
-                star: 2,
             }
         ],
-        options: {
-            radar: {
-                alpha: 0.85,
-                sides: 12,
-                layer: 5,
-                step: 16,
-                lineWidth: 1,
-                lineColor: 'white',
-                textColor: 'white',
-                textSize: 14,
-            }
-        }
     },
     todolist: [
         {

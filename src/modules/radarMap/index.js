@@ -1,7 +1,6 @@
-import options from "../../consts/options";
-import {themeColors} from "../../consts/tools";
 import './index.less';
-import {getTheme} from "../../consts/tools";
+import options from "../../consts/options";
+import {themeColors, getTheme} from "../../consts/tools";
 
 let fillColor = '', strokeColor = '';
 
@@ -25,92 +24,135 @@ function buildRadarMap() {
     drawPolygonPath(options.radarMap, 100, 100, ctx);
 }
 
+/**
+ * 绘制多边形
+ *
+ * @param config 配置项
+ * @param x 多边形最里层的圆心 x 轴
+ * @param y 多边形最里层的圆心 y 轴
+ * @param ctx canvas 上下文
+ */
 function drawPolygonPath(config, x, y, ctx) {
-    let coordinates = [];
-    let radius = config.options.radar.step;
-    ctx.strokeStyle = config.options.radar.lineColor;
-    ctx.lineWidth = config.options.radar.lineWidth;
-    for (let j = 0; j < config.options.radar.layer; j++) {
+    let coords = [];
+    let radius = config.step;
+    ctx.strokeStyle = config.lineColor;
+    ctx.lineWidth = config.lineWidth;
+
+    for (let j = 0; j < config.layer; j++) {
         ctx.beginPath();
-        let averageAngle = Math.PI * 2 / config.options.radar.sides;
+        let averageAngle = Math.PI * 2 / config.sides;
         let increaseAngle = 0;
         let lengthX, lengthY, targetX, targetY;
-        coordinates.push({layer: j, coords: []});
-        for (let i = 0; i < config.options.radar.sides; i++) {
+
+        coords.push({layer: j, coords: []});
+
+        for (let i = 0; i < config.sides; i++) {
             lengthX = radius * Math.cos(increaseAngle);
             targetX = x + lengthX;
             lengthY = radius * Math.sin(increaseAngle);
             targetY = y - lengthY;
             ctx.lineTo(targetX, targetY);
             increaseAngle += averageAngle;
-            coordinates[j].coords.push({x: targetX, y: targetY});
+            coords[j].coords.push({x: targetX, y: targetY});
         }
+
         ctx.closePath();
         ctx.stroke();
-        radius = radius + config.options.radar.step;
+
+        radius = radius + config.step;
     }
-    drawStria(coordinates, x, y, config, ctx);
-    drawData(radius, coordinates, x, y, config, ctx);
+
+    drawStria(coords, x, y, config, ctx);
+    drawData(radius, coords, x, y, config, ctx);
 }
 
-function drawStria(coordinates, originX, originY, config, ctx) {
-    let length = coordinates.length;
-    let coords = coordinates[length - 1].coords;
-    for (let i = 0; i < config.options.radar.sides; i++) {
+/**
+ * 连接里层以及外层之间所有多边形
+ *
+ * @param coords 所有多边形（层）的坐标轴
+ * @param x 多边形最里层的圆心 x 轴
+ * @param y 多边形最里层的圆心 y 轴
+ * @param config 配置项
+ * @param ctx canvas 上下文
+ */
+function drawStria(coords, x, y, config, ctx) {
+    let _coords = coords[coords.length - 1].coords;
+
+    for (let i = 0; i < config.sides; i++) {
         ctx.beginPath();
-        ctx.moveTo(originX, originY);
-        ctx.lineTo(coords[i].x, coords[i].y);
+        ctx.moveTo(x, y);
+        ctx.lineTo(_coords[i].x, _coords[i].y);
         ctx.closePath();
         ctx.stroke();
     }
 }
 
-function drawData(radius, coordinates, originX, originY, config, ctx) {
+/**
+ * 绘制多边形每一面对应的数据，即数据覆盖区域
+ *
+ * @param radius 每一层多边形的半径
+ * @param coords 所有多边形（层）的坐标轴
+ * @param x 多边形最里层的圆心 x 轴
+ * @param y 多边形最里层的圆心 y 轴
+ * @param config 配置项
+ * @param ctx canvas 上下文
+ */
+function drawData(radius, coords, x, y, config, ctx) {
     let decidedCoords = [];
-    let length = coordinates.length;
-    let lastLayer = coordinates[length - 1].coords;
+    let maxLayer = coords[coords.length - 1].coords;
+
     ctx.beginPath();
     ctx.moveTo(0, 0);
-    ctx.font = `${config.options.radar.textSize}px Georgia`;
-    for (let i = 0; i < config.options.radar.sides; i++) {
-        ctx.fillStyle = config.options.radar.textColor;
-        if (lastLayer[i].x <= originX) {
+    ctx.font = `${config.textSize}px Georgia`;
+
+    for (let i = 0; i < config.sides; i++) {
+        ctx.fillStyle = config.textColor;
+        if (maxLayer[i].x <= x) {
             ctx.textAlign = 'right'
         } else {
             ctx.textAlign = 'left'
         }
-        ctx.fillText(config.data[i].title, lastLayer[i].x, lastLayer[i].y);
-        let layer = config.data[i].star - 1;
-        let x, y;
-        if (layer < 0) {
-            x = originX;
-            y = originY;
+        ctx.fillText(config.data[i].title, maxLayer[i].x, maxLayer[i].y);
+        let currLayer = config.data[i].star - 1;
+        let _x, _y;
+        if (currLayer < 0) {
+            _x = x;
+            _y = y;
         } else {
-            x = coordinates[layer].coords[i].x;
-            y = coordinates[layer].coords[i].y;
+            _x = coords[currLayer].coords[i].x;
+            _y = coords[currLayer].coords[i].y;
         }
         if (i === 0) {
-            ctx.moveTo(x, y);
+            ctx.moveTo(_x, _y);
         } else {
-            ctx.lineTo(x, y);
+            ctx.lineTo(_x, _y);
         }
-        decidedCoords.push({x: x, y: y});
+        decidedCoords.push({x: _x, y: _y});
     }
+
     ctx.closePath();
     ctx.lineWidth = 3;
     ctx.strokeStyle = strokeColor;
     ctx.stroke();
-    ctx.globalAlpha = config.options.radar.alpha;
+    ctx.globalAlpha = config.alpha;
     ctx.fillStyle = fillColor;
     ctx.fill();
+
     drawPoint(decidedCoords, ctx);
 }
 
-function drawPoint(coordinates, ctx) {
+/**
+ * 绘制数据覆盖区域峰值的点
+ *
+ * @param coords 所有多边形（层）的坐标轴
+ * @param ctx canvas 上下文
+ */
+function drawPoint(coords, ctx) {
     ctx.strokeStyle = 'white';
-    for (let i = 0; i < coordinates.length; i++) {
+
+    for (let i = 0; i < coords.length; i++) {
         ctx.beginPath();
-        ctx.arc(coordinates[i].x, coordinates[i].y, 1, 0, Math.PI * 2);
+        ctx.arc(coords[i].x, coords[i].y, 1, 0, Math.PI * 2);
         ctx.closePath();
         ctx.stroke();
         ctx.fillStyle = 'white';
