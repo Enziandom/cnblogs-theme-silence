@@ -9,10 +9,14 @@ function buildRadarMap() {
     fillColor = themeColors[getTheme()].color;
     strokeColor = themeColors[getTheme()].color2;
 
-    $("#sidebar_news").before(`
-        <div class="radar-map-wrapper">
-            <canvas id="radar-map" width="200" height="200"></canvas>
+    $("#sidebar_search").after(`
+        <div id="radar-map-wrapper">
+            <h3 class="catListTitle">技能雷达</h3>
+            <div class="radar-map-canvas-wrapper">
+                <canvas id="radar-map" width="200" height="200"></canvas>
+            </div>
         </div>
+       
     `);
 
     let canvas = document.getElementById("radar-map");
