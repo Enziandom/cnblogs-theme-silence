@@ -100,7 +100,7 @@ function drawData(radius, coordinates, originX, originY, config, ctx) {
     ctx.lineWidth = 3;
     ctx.strokeStyle = strokeColor;
     ctx.stroke();
-    ctx.globalAlpha = 0.85;
+    ctx.globalAlpha = config.options.radar.alpha;
     ctx.fillStyle = fillColor;
     ctx.fill();
     drawPoint(decidedCoords, ctx);

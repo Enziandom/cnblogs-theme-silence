@@ -28,7 +28,6 @@ class Silence {
         buildGithubCorner();
         buildProfile();
         buildToolbar();
-        buildRadarMap();
         // buildDropdownPopup();
         if (isPostPage()) { // 只是文章页
             buildPostCatalog();
@@ -39,6 +38,7 @@ class Silence {
             buildPostCommentAvatars();
             removeTitleTocButton();
         } else { // 包括首页、标签页、文章页、分类页
+            buildRadarMap();
             if (justRootPage()) {// 只是首页，不包括标签页、文章页、分类页
             }
         }

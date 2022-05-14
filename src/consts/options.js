@@ -82,6 +82,7 @@ const options = {
         ],
         options: {
             radar: {
+                alpha: 0.85,
                 sides: 12,
                 layer: 5,
                 step: 16,
