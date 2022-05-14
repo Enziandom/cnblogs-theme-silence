@@ -1,5 +1,18 @@
 import options from "./options";
 
+export const themeColors = {
+    a: {color: '#2D8CF0', color2: '#79a2dc'},
+    b: {color: '#FA7298', color2: '#e7b6c4'},
+    c: {color: '#42B983', color2: '#89d7b2'},
+    d: {color: '#607D8B', color2: '#a7c3d5'},
+    e: {color: '#5E72E4', color2: '#8794da'},
+    f: {color: '#FF9700', color2: '#e0bf95'},
+    g: {color: '#FF5722', color2: '#e1aa97'},
+    h: {color: '#009688', color2: '#83e0d0'},
+    i: {color: '#673BB7', color2: '#a283d9'},
+    j: {color: '#906f61', color2: '#e1865e'},
+};
+
 /**
  * 当前页面是否为博文内容页。
  */

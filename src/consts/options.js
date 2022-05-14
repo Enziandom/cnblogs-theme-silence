@@ -30,9 +30,6 @@ const options = {
         alipay: null,
     },
     radarMap: {
-        sides: 12,
-        layer: 5,
-        step: 12,
         data: [
             {
                 title: 'js',
@@ -85,15 +82,13 @@ const options = {
         ],
         options: {
             radar: {
+                sides: 12,
+                layer: 5,
+                step: 16,
                 lineWidth: 1,
                 lineColor: 'white',
                 textColor: 'white',
                 textSize: 14,
-            },
-            dataArea: {
-                lineWidth: 2,
-                lineColor: 'rgba(68,226,155, 1)',
-                fillColor: 'rgba(81,182,137, 0.6)',
             }
         }
     },

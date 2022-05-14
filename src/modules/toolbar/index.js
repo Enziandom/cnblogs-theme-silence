@@ -1,10 +1,5 @@
 import "./index.less";
-import {
-    getMode,
-    getTheme,
-    setMode,
-    setTheme,
-} from "../../consts/tools";
+import {getMode, getTheme, setMode, setTheme} from "../../consts/tools";
 
 // 创建工具按钮模板
 const esaToolBar = `
