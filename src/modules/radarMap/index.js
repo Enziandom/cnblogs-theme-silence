@@ -9,13 +9,13 @@ function buildRadarMap() {
     strokeColor = themeColors[getTheme()].color2;
 
     $("#sidebar_search").after(`
-        <div id="radar-map-wrapper">
+        <div class="tech-radar">
             <h3 class="catListTitle">技能雷达</h3>
-            <div class="radar-map-canvas-wrapper">
+            <div class="radar-wrap">
                 <canvas id="radar-map" width="200" height="200"></canvas>
+                <div id="radar-floating"></div>
             </div>
         </div>
-       
     `);
 
     let canvas = document.getElementById("radar-map");
@@ -127,7 +127,7 @@ function drawData(radius, coords, x, y, config, ctx) {
         } else {
             ctx.lineTo(_x, _y);
         }
-        decidedCoords.push({x: _x, y: _y});
+        decidedCoords.push({title: config.data[i].title, star: config.data[i].star, x: _x, y: _y});
     }
 
     ctx.closePath();
@@ -139,6 +139,7 @@ function drawData(radius, coords, x, y, config, ctx) {
     ctx.fill();
 
     drawPoint(decidedCoords, ctx);
+    drawMovablePanel(decidedCoords);
 }
 
 /**
@@ -158,6 +159,39 @@ function drawPoint(coords, ctx) {
         ctx.fillStyle = 'white';
         ctx.fill();
     }
+}
+
+/**
+ * 绘制可移动的面板，显示详细信息
+ *
+ * @param coords 所有多边形（层）的坐标轴
+ */
+function drawMovablePanel(coords) {
+    let cnp = $("#radar-floating");
+    let timeout = null;
+    $("#radar-map").on({
+        mousemove: function (e) {
+            if (timeout != null) clearTimeout(timeout);
+            timeout = setTimeout(() => {
+                coords.forEach((v) => {
+                    if ((v.x >= e.offsetX - 5 && v.x < e.offsetX + 5) && (v.y >= e.offsetY - 5 && v.y < e.offsetY + 5)) {
+                        $(cnp).css({
+                            'display': 'block',
+                            'left': `${e.offsetX}px`,
+                            'top': `${e.offsetY}px`
+                        });
+                        $(cnp).empty().append(`
+                            <div class="tech">技术栈：${v.title}</div>
+                            <div class="star">掌握程度：${v.star} 颗星</div>
+                        `);
+                    }
+                });
+            }, 50);
+        },
+        mouseleave: function (e) {
+            $(cnp).css({'display': 'none'});
+        }
+    });
 }
 
 export default buildRadarMap;
