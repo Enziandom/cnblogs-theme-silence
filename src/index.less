@@ -8,6 +8,7 @@
   --catalog-bg-color: #fff;
   --blockquote-bg-color: #f8f8f8;
   --code-bg-color: #f1f1f1;
+  --table-tg-bg-color: white;
 }
 
 :root[mode="dark"] {
@@ -18,6 +19,7 @@
   --catalog-bg-color: #252525; /*  */
   --blockquote-bg-color: #252525; /* 引用背景颜色 */
   --code-bg-color: #3a3a3a;
+  --table-tg-bg-color: #333333; /* 表头背景顏色 */
 }
 
 :root[theme="a"] {
@@ -794,7 +796,7 @@ a {
 
     blockquote {
       border: none;
-      margin: 15px 0px;
+      margin: 15px 0;
       color: inherit;
       border-radius: 4px;
       padding: 1px 15px;
@@ -826,14 +828,15 @@ a {
     ul,
     ol {
       li {
-        margin: 3px 0px;
+        margin: 3px 0;
       }
     }
 
     table {
+      border-radius: 4px;
       font-size: 15px;
       width: 100%;
-      margin: 15px 0px;
+      margin: 15px 0;
       display: block;
       overflow-x: auto;
       border: none;
@@ -843,17 +846,17 @@ a {
       }
 
       th {
-        background: var(--blockquote-bg-color);
+        background: var(--table-tg-bg-color);
         border: 1px solid var(--border-color);
         white-space: nowrap;
         font-weight: 400;
-        padding: 6px 15px;
+        padding: 8px 14px;
         min-width: 100px;
       }
 
       td {
         border: 1px solid var(--border-color);
-        padding: 6px 15px;
+        padding: 4px 15px;
         min-width: 100px;
       }
     }
