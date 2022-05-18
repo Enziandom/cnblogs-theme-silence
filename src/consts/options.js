@@ -77,7 +77,8 @@ const options = {
     ],
     blogCover: {
         src: "https://images.cnblogs.com/cnblogs_com/blogs/666252/galleries/1934022/o_220509150428_94756997_p0.jpg",
-    }
+    },
+    statusKey: 'growing'
 };
 
 export default options;

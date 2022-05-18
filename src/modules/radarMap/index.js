@@ -9,6 +9,7 @@ function buildRadarMap() {
     strokeColor = themeColors[getTheme()].color2;
 
     $("#sidebar_search").after(`
+        <!-- 技能雷达图 -->
         <div class="tech-radar">
             <h3 class="catListTitle">技能雷达</h3>
             <div class="radar-wrap">
