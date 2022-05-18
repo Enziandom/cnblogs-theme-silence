@@ -19,10 +19,12 @@ function buildRadarMap() {
         </div>
     `);
 
-    let canvas = document.getElementById("radar-map");
-    let ctx = canvas.getContext("2d");
+    setTimeout(() => {
+        let canvas = document.getElementById("radar-map");
+        let ctx = canvas.getContext("2d");
 
-    drawPolygonPath(options.radarMap, 100, 100, ctx);
+        drawPolygonPath(options.radarMap, 100, 100, ctx);
+    }, 120);
 }
 
 /**
