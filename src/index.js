@@ -1,6 +1,6 @@
 import "./index.less";
 import options from "./consts/options";
-import {isPostPage, justRootPage, showSidebar, removeTitleTocButton} from "./consts/tools";
+import { isPostPage, justRootPage, showSidebar, removeTitleTocButton } from "./consts/tools";
 import buildGithubCorner from "./modules/githubCorner";
 import buildCustomHeader from "./modules/customHeader";
 import buildCustomFooter from "./modules/customFooter";
@@ -16,34 +16,34 @@ import buildRadarMap from "./modules/radarMap";
 import loader from "./modules/loader";
 
 class Silence {
-    constructor() {
-        $.extend(true, options, window.$silence);
-        this.building();
-    }
+  constructor() {
+    $.extend(true, options, window.$silence);
+    this.building();
+  }
 
-    building() {
-        showSidebar();
-        buildCustomHeader();
-        buildCustomFooter();
-        buildGithubCorner();
-        buildProfile();
-        buildToolbar();
-        // buildDropdownPopup();
-        if (isPostPage()) { // 只是文章页
-            buildPostCatalog();
-            buildPostSponsor();
-            buildPostLightbox();
-            buildPostSignature();
-            buildHljsLineNumber();
-            buildPostCommentAvatars();
-            removeTitleTocButton();
-        } else { // 包括首页、标签页、文章页、分类页
-            buildRadarMap();
-            if (justRootPage()) {// 只是首页，不包括标签页、文章页、分类页
-            }
-        }
-        loader.hide();
+  building() {
+    showSidebar();
+    buildCustomHeader();
+    buildCustomFooter();
+    buildGithubCorner();
+    buildProfile();
+    buildToolbar();
+    // buildDropdownPopup();
+    if ( isPostPage() ) { // 只是文章页
+      buildPostCatalog();
+      buildPostSponsor();
+      buildPostLightbox();
+      buildPostSignature();
+      buildHljsLineNumber();
+      buildPostCommentAvatars();
+      removeTitleTocButton();
+    } else { // 包括首页、标签页、文章页、分类页
+      buildRadarMap();
+      if ( justRootPage() ) {// 只是首页，不包括标签页、文章页、分类页
+      }
     }
+    loader.hide();
+  }
 }
 
 new Silence();

@@ -7,12 +7,11 @@
     专 注 于 阅 读 的 博 客 园 主 题
   </p> 
 
-  [文档](https://esofar.github.io/cnblogs-theme-silence/) | [演示](https://www.cnblogs.com/esofar/)
-  
+[文档](https://esofar.github.io/cnblogs-theme-silence/) | [演示](https://www.cnblogs.com/esofar/)
 
-  [![GitHub release (latest by date including pre-releases)](https://img.shields.io/github/v/release/esofar/cnblogs-theme-silence?include_prereleases&style=flat-square)](https://github.com/esofar/cnblogs-theme-silence/releases)
-  [![](https://data.jsdelivr.com/v1/package/gh/esofar/cnblogs-theme-silence/badge)](https://www.jsdelivr.com/package/gh/esofar/cnblogs-theme-silence)
-  [![Gitter](https://img.shields.io/gitter/room/esofar/cnblogs-theme-silence?style=flat-square)](https://gitter.im/cnblogs-theme-silence/community)
+[![GitHub release (latest by date including pre-releases)](https://img.shields.io/github/v/release/esofar/cnblogs-theme-silence?include_prereleases&style=flat-square)](https://github.com/esofar/cnblogs-theme-silence/releases)
+[![](https://data.jsdelivr.com/v1/package/gh/esofar/cnblogs-theme-silence/badge)](https://www.jsdelivr.com/package/gh/esofar/cnblogs-theme-silence)
+[![Gitter](https://img.shields.io/gitter/room/esofar/cnblogs-theme-silence?style=flat-square)](https://gitter.im/cnblogs-theme-silence/community)
 
 </div>
 
@@ -29,7 +28,6 @@
 - 支持生成文章版权签名。
 - 提供赞赏功能。
 
-
 ## 开发
 
 项目采用主流的前端模块化工具构建，熟悉前端开发的园友可参考下面的命令进行二次开发，定制化属于自己的独特主题风格。
@@ -44,7 +42,9 @@ npm run build                                                   // 编译生成
 
 ## 贡献
 
-若您在使用中发现 Bug 可以直接在 Github 仓库中直接提交 [Issue](https://github.com/esofar/cnblogs-theme-silence/issues) 或者 [Pull Requests](https://github.com/esofar/cnblogs-theme-silence/pulls) 。若您希望添加新的功能模块或者在使用体验方面有什么好的想法，可以在 [Gitter](https://gitter.im/cnblogs-theme-silence/community) 中讨论。
+若您在使用中发现 Bug 可以直接在 Github 仓库中直接提交 [Issue](https://github.com/esofar/cnblogs-theme-silence/issues)
+或者 [Pull Requests](https://github.com/esofar/cnblogs-theme-silence/pulls)
+。若您希望添加新的功能模块或者在使用体验方面有什么好的想法，可以在 [Gitter](https://gitter.im/cnblogs-theme-silence/community) 中讨论。
 
 ## 案例
 

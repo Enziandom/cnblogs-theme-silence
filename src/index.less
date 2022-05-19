@@ -2,52 +2,52 @@
 @import url("https://cdn.bootcdn.net/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css");
 
 :root[mode="light"] {
-  --blog-bg-color: #fff;
+  --blog-bg-color: #FFF;
   --text-color: #596172;
-  --border-color: #eef2f8;
-  --catalog-bg-color: #fff;
-  --blockquote-bg-color: #f8f8f8;
-  --code-bg-color: #f1f1f1;
+  --border-color: #EEF2F8;
+  --catalog-bg-color: #FFF;
+  --blockquote-bg-color: #F8F8F8;
+  --code-bg-color: #F1F1F1;
   --table-tg-bg-color: white;
 }
 
 :root[mode="dark"] {
   --card-bg-color: #252525; /* 卡片背景颜色 */
   --blog-bg-color: #202020; /* 背景颜色 */
-  --text-color: #d8d8d8; /* 文字颜色 */
-  --border-color: #2f2f2f; /* 边框颜色 */
+  --text-color: #D8D8D8; /* 文字颜色 */
+  --border-color: #2F2F2F; /* 边框颜色 */
   --catalog-bg-color: #252525; /*  */
   --blockquote-bg-color: #252525; /* 引用背景颜色 */
-  --code-bg-color: #3a3a3a;
+  --code-bg-color: #3A3A3A;
   --table-tg-bg-color: #333333; /* 表头背景顏色 */
 }
 
 :root[theme="a"] {
-  --theme-color: #2d8cf0;
+  --theme-color: #2D8CF0;
 }
 
 :root[theme="b"] {
-  --theme-color: #fa7298;
+  --theme-color: #FA7298;
 }
 
 :root[theme="c"] {
-  --theme-color: #42b983;
+  --theme-color: #42B983;
 }
 
 :root[theme="d"] {
-  --theme-color: #607d8b;
+  --theme-color: #607D8B;
 }
 
 :root[theme="e"] {
-  --theme-color: #5e72e4;
+  --theme-color: #5E72E4;
 }
 
 :root[theme="f"] {
-  --theme-color: #ff9700;
+  --theme-color: #FF9700;
 }
 
 :root[theme="g"] {
-  --theme-color: #ff5722;
+  --theme-color: #FF5722;
 }
 
 :root[theme="h"] {
@@ -55,16 +55,20 @@
 }
 
 :root[theme="i"] {
-  --theme-color: #673bb7;
+  --theme-color: #673BB7;
 }
 
 :root[theme="j"] {
-  --theme-color: #906f61;
+  --theme-color: #906F61;
 }
 
 * {
   margin: 0;
   padding: 0;
+  -moz-user-select: none; /*mozilar*/
+  -webkit-user-select: none; /*webkit*/
+  -ms-user-select: none; /*IE*/
+  user-select: none;
 }
 
 html {
@@ -124,7 +128,7 @@ a {
 
 ::selection {
   background: var(--theme-color);
-  color: #fff;
+  color: #FFF;
 }
 
 .navbar,
@@ -350,7 +354,7 @@ a {
         text-align: center;
 
         &:after {
-          color: #97979f;
+          color: #97979F;
           font-size: 14px;
           display: block;
           text-overflow: ellipsis;
@@ -765,27 +769,27 @@ a {
     }
 
     h1 {
-      font-size: 28px;
+      font-size: 24px;
     }
 
     h2 {
-      font-size: 26px;
+      font-size: 22px;
     }
 
     h3 {
-      font-size: 25px;
+      font-size: 20px;
     }
 
     h4 {
-      font-size: 23px;
+      font-size: 18px;
     }
 
     h5 {
-      font-size: 19px;
+      font-size: 16px;
     }
 
     h6 {
-      font-size: 17px;
+      font-size: 14px;
     }
 
     p {
@@ -889,7 +893,7 @@ a {
         color: var(--text-color);
 
         &:hover {
-          color: #fff;
+          color: #FFF;
           background-color: var(--theme-color);
         }
 
@@ -934,7 +938,7 @@ a {
 
   div {
     background-color: transparent;
-    color: #656c73;
+    color: #656C73;
   }
 
   img {
@@ -942,7 +946,7 @@ a {
   }
 
   pre {
-    color: #abb2bf;
+    color: #ABB2BF;
     font-family: inherit !important;
     font-size: 15px !important;
 
@@ -955,9 +959,9 @@ a {
   textarea {
     font-family: inherit !important;
     padding: 5px;
-    border: 1px solid #3e4c42;
-    color: #c5d4ef;
-    background-color: #282c34;
+    border: 1px solid #3E4C42;
+    color: #C5D4EF;
+    background-color: #282C34;
 
     &:focus {
       outline: 0;
@@ -982,8 +986,8 @@ a {
   }
 
   .cnblogs_code_collapse {
-    color: #656c73;
-    border: 1px solid #656c73 + #333;
+    color: #656C73;
+    border: 1px solid #656C73 + #333;
     border-radius: 2px;
     background-color: transparent;
     display: inline-block;
@@ -1100,7 +1104,7 @@ a {
     }
 
     &:hover {
-      color: #fff;
+      color: #FFF;
       background-color: var(--theme-color);
     }
   }
@@ -1238,7 +1242,7 @@ a {
     height: auto;
     border-width: 0px;
     cursor: pointer;
-    color: #fff;
+    color: #FFF;
     background-color: var(--theme-color);
     border-color: var(--theme-color);
     font-weight: 300;
