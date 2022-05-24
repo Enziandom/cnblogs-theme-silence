@@ -29,7 +29,7 @@
 项目采用主流的前端模块化工具构建，熟悉前端开发的园友可参考下面的命令进行二次开发，定制化属于自己的独特主题风格。
 
 ```
-git clone https://github.com/esofar/cnblogs-theme-silence.git   // 克隆代码
+git clone git@github.com:shiramashiro/cnblogs-theme-silence.git   // 克隆代码
 cd cnblogs-theme-silence                                        // 进入目录
 npm install                                                     // 安装依赖
 npm start                                                       // 本地调试

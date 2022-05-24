@@ -1,10 +1,12 @@
 @import "less/mixins.less";
 @import "less/common.less";
 @import "index.mobile.less";
-@import "less/modules/sidebar.less";
 @import "less/modules/main.less";
-@import "less/modules/daypost.less";
+@import "less/modules/topics.less";
+@import "less/modules/sidebar.less";
+@import "less/modules/taglist.less";
 @import "less/modules/essaylist.less";
+@import "less/modules/pager.less";
 @import url("https://cdn.bootcdn.net/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css");
 
 :root[mode="light"] {
@@ -66,6 +68,14 @@
 
 :root[theme="j"] {
   --theme-color: #906F61;
+}
+
+::-webkit-scrollbar {
+  width: 3px;
+}
+
+::-webkit-scrollbar-thumb {
+  background-color: var(--text-color);
 }
 
 * {
@@ -149,6 +159,28 @@ a {
 .under-comment-nav,
 #comment_pager_top {
   display: none;
+}
+
+#ad_text_under_commentbox,
+#cnblogs_ch,
+#opt_under_post,
+#cnblogs_c1,
+#under_post_card1,
+#cnblogs_c2,
+#under_post_card2,
+#HistoryToday {
+  display: none;
+}
+
+.entrylistTitle,
+.PostListTitle,
+.thumbTitle,
+.myposts_title,
+#taglist_title {
+  font-size: 20px;
+  font-weight: 300;
+  margin-bottom: 10px;
+  text-align: left;
 }
 
 .clear {
@@ -280,17 +312,6 @@ a {
   }
 }
 
-.entrylistTitle,
-.PostListTitle,
-.thumbTitle,
-.myposts_title,
-#taglist_title {
-  font-size: 20px;
-  font-weight: 300;
-  margin-bottom: 10px;
-  text-align: left;
-}
-
 .entrylistDescription {
   margin: 22px auto;
   border-radius: 4px;
@@ -299,279 +320,16 @@ a {
   padding: 10px 0 10px 7px;
 }
 
-#myposts {
-  margin-left: 0;
-
-  .PostList {
-    &:first-of-type {
-      border-top: 1px solid var(--border-color);
-    }
-
-    border-bottom: 1px solid var(--border-color);
-    padding: 0;
-    margin: 0;
-  }
-
-  .postTitl2 {
-    font-size: 17px;
-    margin: 10px 0;
-    text-align: justify;
-  }
-
-  .postDesc2 {
-    text-align: right;
-    margin-bottom: 10px;
-    font-size: 14px;
-
-    & > a {
-      display: none;
-    }
-
-    &::before {
-      font-family: FontAwesome;
-      content: "\f017";
-      opacity: 0.7;
-    }
-  }
-}
-
-.post-view-count {
-  &::before {
-    font-family: FontAwesome;
-    content: "\f06e";
-    padding-left: 10px;
-    padding-right: 5px;
-    opacity: 0.7;
-  }
-}
-
-.post-comment-count {
-  &::before {
-    font-family: FontAwesome;
-    content: "\f27b";
-    padding-left: 10px;
-    padding-right: 5px;
-    opacity: 0.7;
-  }
-}
-
-.post-digg-count {
-  &::before {
-    font-family: FontAwesome;
-    content: "\f087";
-    padding-left: 10px;
-    padding-right: 5px;
-    opacity: 0.7;
-  }
-}
-
-.day > .postSeparator {
-  border-bottom: 1px solid var(--border-color);
+.day > .postSeparator { /* 同一天的文章分割线 */
+  border-bottom: 2px solid var(--border-color);
   text-align: justify;
   margin-bottom: 10px;
   padding-bottom: 10px;
 }
 
-.toc-container-header {
+.toc-container-header { /* 目前还不知道这个样式有什么用 */
   font-size: 20px;
   font-weight: bold;
-}
-
-#topics {
-  .postTitle {
-    font-size: 28px;
-    margin-bottom: 30px;
-  }
-
-  .postBody {
-    font-size: 16px;
-    line-height: 1.70;
-
-    a {
-      position: relative;
-      color: var(--theme-color);
-
-      &:after {
-        content: "";
-        display: block;
-        width: 0;
-        height: 1px;
-        position: absolute;
-        left: 0;
-        bottom: -2px;
-        background: var(--theme-color);
-        transition: all 0.3s ease-in-out;
-      }
-
-      &:hover {
-        &::after {
-          width: 100%;
-        }
-      }
-    }
-
-    h1, h2, h3, h4, h5, h6 {
-      font-weight: normal !important;
-    }
-
-    h1 {
-      font-size: 24px;
-    }
-
-    h2 {
-      font-size: 22px;
-    }
-
-    h3 {
-      font-size: 20px;
-    }
-
-    h4 {
-      font-size: 18px;
-    }
-
-    h5 {
-      font-size: 16px;
-    }
-
-    h6 {
-      font-size: 14px;
-    }
-
-    p {
-      margin: 11px auto;
-    }
-
-    hr {
-      border-top: none;
-      border-bottom: 1px solid var(--border-color);
-    }
-
-    blockquote {
-      border: none;
-      margin: 15px 0;
-      color: inherit;
-      padding: 1px 15px;
-      border-left: 4px solid var(--theme-color);
-      background-color: var(--blockquote-bg-color);
-    }
-
-    em {
-      padding-right: 3px;
-    }
-
-    strong {
-      margin: 0 3px;
-      font-weight: 600;
-    }
-
-    .cnblogs-markdown pre {
-      position: relative;
-    }
-
-    img {
-      display: block;
-      border-radius: 3px;
-      box-shadow: 0 1px 15px rgba(27, 31, 35, 0.15),
-      0 0 1px rgba(106, 115, 125, 0.35);
-    }
-
-    table {
-      border-radius: 4px;
-      font-size: 15px;
-      width: 100%;
-      display: block;
-      overflow-x: auto;
-      border: none;
-
-      &::-webkit-scrollbar {
-        height: 4px !important;
-      }
-
-      th {
-        background: var(--table-tg-bg-color);
-        border: 1px solid var(--border-color);
-        white-space: nowrap;
-        font-weight: 400;
-        padding: 8px 14px;
-        min-width: 100px;
-      }
-
-      td {
-        border: 1px solid var(--border-color);
-        padding: 4px 15px;
-        min-width: 100px;
-      }
-    }
-
-    h1 code,
-    h2 code,
-    h3 code,
-    h4 code,
-    h5 code,
-    h6 code,
-    p > code,
-    li > code,
-    table code {
-      line-height: 1.2;
-      font-family: consolas !important;
-      vertical-align: middle;
-      margin: 0 3px;
-      background-color: var(--code-bg-color) !important;
-      font-size: 14px !important;
-      padding: 0.2em 0.3em !important;
-      border-radius: 3px !important;
-      border: none !important;
-      color: var(--theme-color);
-    }
-
-    #BlogPostCategory,
-    #EntryTag {
-      font-size: 14px;
-
-      a {
-        font-size: 13px;
-        border-radius: 4px;
-        padding: 4px 6px;
-        background-color: var(--blockquote-bg-color);
-        margin-right: 5px;
-        transform: none;
-        color: var(--text-color);
-
-        &:hover {
-          color: #FFF;
-          background-color: var(--theme-color);
-        }
-
-        &::after {
-          content: none;
-        }
-      }
-    }
-
-    #BlogPostCategory:before {
-      content: "\f07c";
-      font-family: FontAwesome;
-      opacity: 0.7;
-    }
-
-    #EntryTag:before {
-      content: "\f02c";
-      font-family: FontAwesome;
-      opacity: 0.7;
-    }
-
-    #post_next_prev {
-      font-size: 14px;
-    }
-  }
-
-  .postDesc {
-    border-top: 1px solid var(--border-color);
-    padding-top: 5px;
-    margin-top: 5px;
-    text-align: right;
-  }
 }
 
 .cnblogs_code {
@@ -693,41 +451,6 @@ a {
   }
 }
 
-#taglist_main {
-  margin-top: 0;
-
-  table {
-    width: 100%;
-
-    tr td {
-      padding: 5px 20px 5px 0;
-
-      &:last-child {
-        padding-right: 0;
-      }
-
-      .small {
-        display: none;
-      }
-    }
-
-    tr td a {
-      display: block;
-      padding: 5px;
-      font-weight: 300;
-      line-height: 20px;
-      text-align: center;
-      border: 1px solid var(--border-color);
-      border-radius: 4px;
-      color: var(--text-color);
-
-      &:hover {
-        border: 1px solid var(--theme-color);
-      }
-    }
-  }
-}
-
 #div_digg {
   margin: 0;
   width: auto;
@@ -758,7 +481,7 @@ a {
   .diggit {
     &::before {
       content: "\f087";
-      font-family: FontAwesome;
+      font-family: FontAwesome, serif;
       opacity: 0.7;
     }
   }
@@ -768,7 +491,7 @@ a {
 
     &::before {
       content: "\f088";
-      font-family: FontAwesome;
+      font-family: FontAwesome, serif;
       opacity: 0.7;
     }
   }
@@ -778,33 +501,6 @@ a {
   text-align: right;
   margin-top: 20px;
   margin-right: 0;
-}
-
-.pager,
-#nav_next_page {
-  color: var(--text-color);
-  text-align: right;
-  margin-right: 0 !important;
-
-  a {
-    color: var(--text-color);
-    padding: 4px 7px;
-    border: 1px solid var(--border-color);
-    border-radius: 4px;
-
-    &:hover {
-      color: var(--theme-color);
-      border: 1px solid var(--theme-color);
-    }
-  }
-}
-
-.pager span.current {
-  padding: 3px 7px;
-  border: 1px solid var(--theme-color);
-  background-color: var(--theme-color);
-  border-radius: 4px;
-  margin: 0 0 0 5px;
 }
 
 .feedback_area_title {
@@ -920,23 +616,4 @@ a {
     border-radius: 4px;
     padding: 1px 15px;
   }
-}
-
-::-webkit-scrollbar {
-  width: 3px;
-}
-
-::-webkit-scrollbar-thumb {
-  background-color: var(--text-color);
-}
-
-#ad_text_under_commentbox,
-#cnblogs_ch,
-#opt_under_post,
-#cnblogs_c1,
-#under_post_card1,
-#cnblogs_c2,
-#under_post_card2,
-#HistoryToday {
-  display: none;
 }
