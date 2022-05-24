@@ -1,5 +1,53 @@
-.tech-radar {
+@import "../../less/mixins.less";
+
+@keyframes fresh-icon-animation {
+  0% {transform: rotate(0deg);}
+  25% {transform: rotate(90deg);}
+  50% {transform: rotate(180deg);}
+  75% {transform: rotate(270deg);}
+  100% {transform: rotate(360deg);}
+}
+
+.personal-tech {
   width: inherit;
+
+  .catListTitle {
+    .cat-list-title-wrap {
+      .flex-layout.space-between();
+
+      .icon-wrap {
+        cursor: pointer;
+
+        .flex-layout.normal();
+      }
+    }
+  }
+
+  .tech-radar {
+    position: relative;
+    display: none;
+
+    .radar-wrap-loading {
+      z-index: 999;
+      position: absolute;
+      width: 210px;
+      height: 210px;
+      top: 0;
+      left: 0;
+      box-sizing: border-box;
+
+      .loading-wrap {
+        height: inherit;
+        width: 100%;
+        .flex-layout.center();
+
+        .fresh-icon {
+          margin-right: 15px;
+          animation: fresh-icon-animation 1.8s linear infinite;
+        }
+      }
+    }
+  }
 
   .radar-wrap {
     position: relative;
