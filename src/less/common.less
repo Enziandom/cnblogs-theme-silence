@@ -1,3 +1,4 @@
+@import "mixins.less";
 /* 博客园所有元素公用样式 */
 
 .catListTitle {
@@ -13,12 +14,7 @@
 
 .day,
 .entrylistItem {
-  border-bottom: 1px dotted var(--border-color);
-  text-align: justify;
-  border-radius: 10px;
-  background-color: var(--card-bg-color);
-  margin-bottom: 10px;
-  padding: 10px 20px 10px 20px;
+  .common-card();
 }
 
 .post-view-count {

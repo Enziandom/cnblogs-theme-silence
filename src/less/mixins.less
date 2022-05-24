@@ -1,6 +1,6 @@
 /* less 混合样式 */
 
-.underline-style() {
+.atag-underline() {
   &:after {
     content: "";
     display: block;
@@ -43,24 +43,23 @@
   }
 }
 
-.post-style {
-  .card() {
-    /* border-bottom: 1px dotted var(--border-color); */
-    width: 100%;
-    text-align: justify;
-    border-radius: 10px;
-    background-color: var(--card-bg-color);
-    margin-bottom: 10px;
-    padding: 10px 20px;
-  }
+.common-card {
+  /* border-bottom: 1px dotted var(--border-color); */
+  text-align: justify;
+  border-radius: 10px;
+  background-color: var(--card-bg-color);
+  margin-bottom: 10px;
+  padding: 10px 20px;
+}
 
+.post-style {
   .title() {
     font-size: 19px;
 
     & > a {
       position: relative;
 
-      .underline-style();
+      .atag-underline();
     }
   }
 
