@@ -38,8 +38,8 @@ module.exports = {
         use: [
           MiniCssExtractPlugin.loader,
           "css-loader",
-          "less-loader",
-          "postcss-loader"
+          "postcss-loader",
+          "less-loader"
         ]
       }
     ]

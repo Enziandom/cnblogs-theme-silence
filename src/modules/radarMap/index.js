@@ -19,12 +19,28 @@ function buildRadarMap() {
     </div>
   `);
 
-  setTimeout(() => {
-    let canvas = document.getElementById("radar-map");
-    let ctx = canvas.getContext("2d");
+  let canvas = document.getElementById("radar-map");
+  let ctx = canvas.getContext("2d");
+  drawRadarMap(options.radarMap, 100, 100, ctx);
+}
 
-    drawPolygonPath(options.radarMap, 100, 100, ctx);
-  }, 120);
+function drawPolygon(j, x, y, sides, radius, coords, ctx) {
+  ctx.beginPath();
+  let averageAngle = Math.PI * 2 / sides;
+  let increaseAngle = 0;
+  let lengthX, lengthY, targetX, targetY;
+  coords.push({ layer: j, coords: [] });
+  for ( let i = 0; i < sides; i++ ) {
+    lengthX = radius * Math.cos(increaseAngle);
+    targetX = x + lengthX;
+    lengthY = radius * Math.sin(increaseAngle);
+    targetY = y - lengthY;
+    ctx.lineTo(targetX, targetY);
+    increaseAngle += averageAngle;
+    coords[j].coords.push({ x: targetX, y: targetY });
+  }
+  ctx.closePath();
+  ctx.stroke();
 }
 
 /**
@@ -35,36 +51,15 @@ function buildRadarMap() {
  * @param y 多边形最里层的圆心 y 轴
  * @param ctx canvas 上下文
  */
-function drawPolygonPath(config, x, y, ctx) {
+function drawRadarMap(config, x, y, ctx) {
   let coords = [];
   let radius = config.step;
   ctx.strokeStyle = config.lineColor;
   ctx.lineWidth = config.lineWidth;
-
   for ( let j = 0; j < config.layer; j++ ) {
-    ctx.beginPath();
-    let averageAngle = Math.PI * 2 / config.sides;
-    let increaseAngle = 0;
-    let lengthX, lengthY, targetX, targetY;
-
-    coords.push({ layer: j, coords: [] });
-
-    for ( let i = 0; i < config.sides; i++ ) {
-      lengthX = radius * Math.cos(increaseAngle);
-      targetX = x + lengthX;
-      lengthY = radius * Math.sin(increaseAngle);
-      targetY = y - lengthY;
-      ctx.lineTo(targetX, targetY);
-      increaseAngle += averageAngle;
-      coords[j].coords.push({ x: targetX, y: targetY });
-    }
-
-    ctx.closePath();
-    ctx.stroke();
-
+    drawPolygon(j, x, y, config.sides, radius, coords, ctx);
     radius = radius + config.step;
   }
-
   drawStria(coords, x, y, config, ctx);
   drawData(radius, coords, x, y, config, ctx);
 }

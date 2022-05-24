@@ -7,11 +7,7 @@
     专 注 于 阅 读 的 博 客 园 主 题
   </p> 
 
-[文档](https://esofar.github.io/cnblogs-theme-silence/) | [演示](https://www.cnblogs.com/esofar/)
-
-[![GitHub release (latest by date including pre-releases)](https://img.shields.io/github/v/release/esofar/cnblogs-theme-silence?include_prereleases&style=flat-square)](https://github.com/esofar/cnblogs-theme-silence/releases)
-[![](https://data.jsdelivr.com/v1/package/gh/esofar/cnblogs-theme-silence/badge)](https://www.jsdelivr.com/package/gh/esofar/cnblogs-theme-silence)
-[![Gitter](https://img.shields.io/gitter/room/esofar/cnblogs-theme-silence?style=flat-square)](https://gitter.im/cnblogs-theme-silence/community)
+[文档](https://gitee.com/shiramashiro/cnblogs-theme-silence) | [演示](https://www.cnblogs.com/shiramashiro)
 
 </div>
 
@@ -39,23 +35,3 @@ npm install                                                     // 安装依赖
 npm start                                                       // 本地调试
 npm run build                                                   // 编译生成
 ```
-
-## 贡献
-
-若您在使用中发现 Bug 可以直接在 Github 仓库中直接提交 [Issue](https://github.com/esofar/cnblogs-theme-silence/issues)
-或者 [Pull Requests](https://github.com/esofar/cnblogs-theme-silence/pulls)
-。若您希望添加新的功能模块或者在使用体验方面有什么好的想法，可以在 [Gitter](https://gitter.im/cnblogs-theme-silence/community) 中讨论。
-
-## 案例
-
-您可以在 [演示案例](https://esofar.github.io/cnblogs-theme-silence/#/showcase) 中瞧瞧一些园友使用 Silence 主题的博客整体效果。
-
-## 赞赏
-
-如果您觉得 Silence 主题做的还不错，或者想对我微小的工作一点激励，欢迎赞赏支持。
-
-![](./docs/_media/sponsor.png)
-
-## 许可
-
-MIT © 2020 esofar

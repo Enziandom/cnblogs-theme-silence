@@ -1,0 +1,247 @@
+#sideBar {
+  width: 210px;
+  display: none;
+  font-weight: inherit;
+  min-height: 750px;
+  background-color: var(--card-bg-color);
+  border-radius: 10px;
+  padding: 20px;
+
+  #sideBarMain {
+    ul {
+      line-height: 1.6;
+    }
+  }
+
+  .newsItem { /* 圆龄、粉丝、关注 */
+    margin-bottom: 10px;
+
+    .catListTitle {
+      display: none;
+    }
+
+    #profile_block {
+      margin: 0;
+      font-size: 0;
+      display: flex;
+      flex-wrap: wrap;
+      text-align: left;
+      line-height: 1.6;
+
+      a {
+        box-sizing: border-box;
+
+        &:nth-child(1) {
+          font-size: 0;
+          font-weight: 700;
+          width: 100%;
+          display: block;
+          text-align: center;
+          margin-bottom: 14px;
+        }
+
+        &:nth-child(3):after {
+          content: "\56ed\9f84";
+        }
+
+        &:nth-child(5):after {
+          content: "\7c89\4e1d";
+        }
+
+        &:nth-child(7):after {
+          content: "\5173\6ce8";
+        }
+
+        &:nth-child(3),
+        &:nth-child(5),
+        &:nth-child(7) {
+          font-size: 14px;
+          width: 33.3333333%;
+          display: block;
+          padding: 0 4px;
+          white-space: nowrap;
+          text-overflow: ellipsis;
+          overflow: hidden;
+          text-align: center;
+
+          &:after {
+            color: #97979F;
+            font-size: 14px;
+            display: block;
+            text-overflow: ellipsis;
+            overflow: hidden;
+            width: 100%;
+          }
+        }
+      }
+
+      #p_b_follow {
+        margin: 15px 0 10px 0;
+        text-align: center;
+
+        a {
+          border: 1px solid var(--border-color);
+          font-size: 13px;
+          padding: 7px 0;
+          border-radius: 4px;
+          width: 230px;
+          font-weight: 300;
+
+          &:hover {
+            border-color: var(--theme-color);
+          }
+        }
+      }
+    }
+  }
+
+  #blog-calendar {
+    border-top: 1px solid var(--border-color);
+
+    .CalDayHeader {
+      font-weight: 500;
+    }
+
+    .CalTodayDay {
+      color: var(--theme-color);
+      font-weight: 600;
+    }
+  }
+
+  #sidebar_search {
+    #widget_my_zzk {
+      display: flex;
+      justify-content: space-between;
+
+      .input_my_zzk {
+        color: #314659;
+        border: solid 1px var(--border-color);
+        background-color: transparent;
+        width: 58%;
+        height: 32px;
+        padding: 0 7px;
+        font-size: 16px;
+        border-radius: 4px;
+
+        &:focus {
+          outline: none;
+        }
+      }
+
+      .btn_my_zzk {
+        height: 34px;
+        font-size: 13px;
+        font-weight: 300;
+        background-color: transparent;
+        color: var(--text-color);
+        cursor: pointer;
+        width: 30%;
+        outline: 0;
+        border: 1px solid var(--border-color);
+        border-radius: 4px;
+        transition: border 0.3s;
+
+        &:hover {
+          color: var(--theme-color);
+          border: 1px solid var(--theme-color);
+        }
+      }
+    }
+
+    #widget_my_google {
+      display: none;
+    }
+  }
+
+  #sidebar_toptags li {
+    font-size: 14px;
+    height: 16px;
+    line-height: 16px;
+    padding: 5px 8px;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    max-width: 210px;
+    border: 1px solid var(--border-color);
+    margin: 0 6px 6px 0;
+    display: inline-grid;
+    transition: all 0.3s ease;
+    border-radius: 4px;
+
+    a {
+      transition: inherit;
+
+      .tag-count {
+        display: none;
+      }
+    }
+
+    &:link,
+    &:visited,
+    &:active {
+      border-color: var(--border-color);
+    }
+
+    &:hover {
+      border-color: var(--theme-color);
+    }
+  }
+
+  #sidebar_shortcut li,
+  #sidebar_scorerank li,
+  #sidebar_categories li {
+    font-size: 15px;
+    height: 40px;
+    line-height: 30px;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    list-style: none;
+  }
+
+  #sidebar_recentposts li,
+  #sidebar_topviewedposts li,
+  #sidebar_topcommentedposts li,
+  #sidebar_topdiggedposts li {
+    font-size: 15px;
+    padding: 7px 0;
+    transition: all 0.3s;
+    text-align: justify;
+    border-bottom: 1px solid var(--border-color);
+
+    &:nth-child(1) {
+      border-top: 1px solid var(--border-color);
+    }
+  }
+
+  #sidebar_recentcomments {
+    li {
+      text-align: justify;
+    }
+
+    .recent_comment_title {
+      &:nth-child(n + 2) {
+        padding-top: 10px;
+      }
+
+      &:nth-child(1) {
+        border-top: 1px solid var(--border-color);
+        padding-top: 10px;
+      }
+    }
+
+    .recent_comment_body {
+      border-radius: 4px;
+      padding: 5px 10px;
+      margin: 5px 0;
+      background-color: var(--blockquote-bg-color);
+    }
+
+    .recent_comment_author {
+      margin-right: 0;
+      text-align: right;
+      padding-bottom: 10px;
+      border-bottom: 1px solid var(--border-color);
+    }
+  }
+}
