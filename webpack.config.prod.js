@@ -1,17 +1,20 @@
 const path = require("path");
 const MiniCssExtractPlugin = require("mini-css-extract-plugin");
+// 降低或最优化 CSS 文件
 const OptimizeCSSAssetsPlugin = require("optimize-css-assets-webpack-plugin");
+// 缩小或降低 JavaScript 代码的体积
 const TerserPlugin = require("terser-webpack-plugin");
+// 在打包之前使用这个插件尝试清除dist目录下的文件
 const { CleanWebpackPlugin } = require("clean-webpack-plugin");
 
 module.exports = {
   mode: "production",
   entry: "./src/index.js",
   output: {
-    filename: "silence.min.js",
-    path: path.resolve(__dirname, "dist")
+    filename: "silence.min.js"
   },
   optimization: {
+    minimize: true,
     minimizer: [
       new TerserPlugin(),
       new OptimizeCSSAssetsPlugin()
@@ -47,8 +50,8 @@ module.exports = {
   resolve: {
     alias: {
       "@": path.resolve("src"),
-      "@modules": path.resolve("src/modules"),
       "@consts": path.resolve("src/consts"),
+      "@modules": path.resolve("src/fragment"),
       "@templates": path.resolve("src/templates")
     }
   }

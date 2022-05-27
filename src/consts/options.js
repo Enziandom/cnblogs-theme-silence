@@ -5,7 +5,21 @@ const options = {
   github: null,
   defaultMode: "dark",
   defaultTheme: "a",
-  navbars: [],
+  customNavbarItemList: [ {
+    title: "标签",
+    url: "https://www.cnblogs.com/esofar/tag/"
+  }, {
+    title: "朋友",
+    chilren: [ {
+      title: "百度",
+      target: "_blank",
+      url: "https://www.baidu.com"
+    }, {
+      title: "谷歌",
+      target: "_blank",
+      url: "https://www.google.com"
+    } ]
+  } ],
   showNavAdmin: true,
   hljsln: false,
   catalog: {
@@ -40,16 +54,6 @@ const options = {
     }, {
       title: "vue", star: 4
     } ]
-  },
-  todolist: [ {
-    title: "学习 Flutter", isdone: false
-  }, {
-    title: "学习 Dart", isdone: false
-  }, {
-    title: "学习 HTML 画布", isdone: true
-  } ],
-  blogCover: {
-    src: "https://images.cnblogs.com/cnblogs_com/blogs/666252/galleries/1934022/o_220509150428_94756997_p0.jpg"
   },
   statusKey: "growing"
 };

@@ -1,6 +1,14 @@
 /* less 混合样式 */
 
-.atag-underline() {
+.NoUserSelect() {
+  -moz-user-select: none; /*mozilar*/
+  -webkit-user-select: none; /*webkit*/
+  -ms-user-select: none; /*IE*/
+  user-select: none;
+}
+
+/* a 标签下划线 */
+.ATagUnderline() {
   &:after {
     content: "";
     display: block;
@@ -20,52 +28,58 @@
   }
 }
 
-.flex-layout {
-  .space-between() {
+.FlexLayout {
+  .Start() {
+    display: flex;
+    align-items: center;
+    align-content: center;
+    justify-content: start;
+  }
+
+  .SpaceBetween() {
     display: flex;
     align-items: center;
     align-content: center;
     justify-content: space-between;
   }
 
-  .center() {
+  .Center() {
     display: flex;
     align-items: center;
     align-content: center;
     justify-content: center;
   }
 
-  .normal() {
-    display: flex;
+  .Normal() {
+    display: flex !important;
     align-items: center;
     align-content: center;
     justify-content: normal;
   }
 }
 
-.post-style {
-  .card() {
+.PostStyle {
+  .Card() {
     width: 100%;
     padding: 10px 20px;
     text-align: justify;
-    border-radius: 10px;
+    border-radius: var(--border-radius);
     margin-bottom: 10px;
     box-sizing: border-box;
     background-color: var(--card-bg-color);
-    /* border-bottom: 1px dotted var(--border-color); */
   }
 
-  .title() {
+  .Title() {
     font-size: 19px;
 
     & > a {
       position: relative;
 
-      .atag-underline();
+      .ATagUnderline();
     }
   }
 
-  .middle() {
+  .Summary() {
     font-size: 16px;
     padding: 10px 0;
 
@@ -93,7 +107,7 @@
     }
   }
 
-  .desc() {
+  .Desc() {
     text-align: right;
 
     & > a {

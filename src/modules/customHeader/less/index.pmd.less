@@ -1,0 +1,104 @@
+@import "../../../less/mixins.less";
+
+/* 屏幕 < 990px */
+@media only screen and (max-width: 990px) {
+  #header {
+    margin: 0;
+    width: 100%;
+    padding: 0 15px;
+    position: fixed;
+    box-sizing: border-box;
+    .FlexLayout.SpaceBetween();
+    flex-direction: row-reverse;
+
+    & > div.shira-mobile-menu { /* 手机屏幕下导航栏的菜单栏 */
+      top: 17px;
+      right: 20px;
+      display: block;
+      height: 25px;
+      width: 25px;
+      text-align: center;
+      line-height: 25px;
+      z-index: 9999;
+      font-size: 1.5em;
+      cursor: pointer;
+      color: var(--text-color);
+      border-radius: var(--border-radius);
+      .NoUserSelect();
+    }
+
+    #navigator {
+      display: none; /* 手机屏幕下的导航栏默认不显示，被收缩 */
+      position: absolute;
+      top: 60px;
+      left: 0;
+
+      #navList {
+        & > li { /* 没有子列表 */
+          position: relative;
+          height: 34px;
+          width: 120px;
+          background: var(--blog-bg-color);
+          border-right: 1px solid var(--border-color);
+          border-bottom: 1px solid var(--border-color);
+          .FlexLayout.Start();
+
+          & > a.menu {
+            padding: 0 15px;
+            .FlexLayout.Center();
+            box-sizing: border-box;
+          }
+        }
+
+        & > li.shira-has-subnavs { /* 有子列表 */
+
+          & > a.menu {
+            box-sizing: border-box;
+
+            svg.arrow {
+              margin-left: 10px;
+            }
+          }
+
+          & > div.shira-subnavs { /* 子列表的项 */
+            position: absolute;
+            display: none;
+            width: 130px;
+            left: 121px;
+            top: 0;
+
+            & > div {
+              width: 120px;
+              box-sizing: border-box;
+              background-color: var(--blog-bg-color);
+
+              & > div {
+                height: 20px;
+                padding: 7px;
+                border-bottom: 1px solid var(--border-color);
+                border-right: 1px solid var(--border-color);
+                .FlexLayout.Start();
+
+                & > a {
+                  .FlexLayout.Center();
+                  height: inherit;
+                }
+              }
+            }
+
+            svg.caret {
+              display: none !important;
+              position: relative;
+              top: 27.5px;
+              left: 0;
+            }
+
+            & > ul {
+              background-color: var(--card-bg-color);
+            }
+          }
+        }
+      }
+    }
+  }
+}

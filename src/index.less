@@ -1,12 +1,12 @@
 @import "less/mixins.less";
 @import "less/common.less";
 @import "index.mobile.less";
-@import "less/modules/main.less";
-@import "less/modules/topics.less";
-@import "less/modules/sidebar.less";
-@import "less/modules/taglist.less";
-@import "less/modules/essaylist.less";
-@import "less/modules/pager.less";
+@import "less/fragment/homepage.less";
+@import "less/fragment/sidebar.less";
+@import "less/fragment/entrylist.less";
+@import "less/fragment/taglist.less";
+@import "less/fragment/topics.less";
+@import "less/fragment/pager.less";
 @import url("https://cdn.bootcdn.net/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css");
 
 :root[mode="light"] {
@@ -25,9 +25,10 @@
   --text-color: #A7A7A7; /* 文字颜色 */
   --border-color: #494545; /* 边框颜色 */
   --catalog-bg-color: #252525; /*  */
-  --blockquote-bg-color: #252525; /* 引用背景颜色 */
+  --blockquote-bg-color: #2B2B2B; /* 引用背景颜色 */
   --code-bg-color: #3A3A3A;
-  --table-tg-bg-color: #333333; /* 表头背景顏色 */
+  --table-tg-bg-color: #2B2B2B; /* 表头背景顏色 */
+  --border-radius: 4px; /* 圆角半径 */
 }
 
 :root[theme="a"] {
@@ -129,8 +130,8 @@ h6 {
 }
 
 a {
-  color: var(--text-color);
   text-decoration: none;
+  color: var(--text-color);
   transition: all 0.3s ease;
 
   &:hover {
@@ -139,8 +140,8 @@ a {
 }
 
 ::selection {
-  background: var(--theme-color);
   color: #FFF;
+  background: var(--theme-color);
 }
 
 .navbar,
@@ -157,10 +158,7 @@ a {
 #green_channel,
 #comment_nav,
 .under-comment-nav,
-#comment_pager_top {
-  display: none;
-}
-
+#comment_pager_top,
 #ad_text_under_commentbox,
 #cnblogs_ch,
 #opt_under_post,
@@ -193,22 +191,7 @@ a {
   transition: all 378ms;
 }
 
-#header { /*博客头部*/
-  .flex-layout.normal();
-  -moz-user-select: none; /*mozilar*/
-  -webkit-user-select: none; /*webkit*/
-  -ms-user-select: none; /*IE*/
-  user-select: none;
-  position: relative;
-  justify-content: space-between;
-  background-color: var(--card-bg-color);
-  border-bottom-right-radius: 10px;
-  border-bottom-left-radius: 10px;
-  width: 1050px;
-  margin: 0 auto;
-  height: 60px;
-  z-index: 999;
-
+#header {
   #blogTitle { /*博客标题*/
     margin-left: 20px;
 
@@ -222,109 +205,6 @@ a {
       display: none;
     }
   }
-
-  #navigator { /*导航栏*/
-    margin-right: 5px;
-
-    #navList { /*导航栏选项*/
-      .flex-layout.normal();
-
-      & > li {
-        .flex-layout.normal();
-        position: relative;
-        line-height: 60px;
-        padding: 0 15px;
-        font-size: 17px;
-
-        &:hover i {
-          width: 100%;
-          left: 0;
-        }
-
-        & > a { /* li 标签的子元素 a 标签 */
-
-          &::after { /* a 标签的伪类 after */
-            content: "";
-            position: absolute;
-            bottom: 0;
-            left: 0;
-            width: 100%;
-            height: 4px;
-            background-color: var(--theme-color);
-            visibility: hidden; /* 默认时不可见 */
-            transform: scaleX(0);
-            transition: 0.4s ease-in-out;
-          }
-
-          &:hover {
-            &::after {
-              visibility: visible; /* a 标签可见 */
-              transform: scaleX(1); /* 当鼠标悬停时动画播放 */
-            }
-          }
-        }
-      }
-
-      .open {
-        transform: rotate(180deg) scaleX(-1);
-        transition-duration: 0.3s;
-      }
-
-      .esa-sub-navs {
-        display: none;
-        position: absolute;
-        width: 130px;
-        top: 60px;
-        left: calc(50% - 65px);
-
-        .caret {
-          width: 0;
-          position: relative;
-          left: calc(50% - 8px);
-          border-top: 0 solid transparent;
-          border-left: 8px solid transparent;
-          border-right: 8px solid transparent;
-          border-bottom: 8px solid var(--blog-bg-color);
-        }
-
-        ul {
-          text-align: center;
-          border-radius: 10px;
-          background-color: var(--card-bg-color);
-          box-shadow: 0 1px 15px rgba(27, 31, 35, 0.15);
-
-          li {
-            a {
-              width: 100%;
-              height: inherit;
-              display: block;
-              font-size: 15px;
-              color: var(--text-color);
-
-              &:hover {
-                color: var(--theme-color);
-              }
-            }
-          }
-        }
-      }
-    }
-  }
-}
-
-.entrylistDescription {
-  margin: 22px auto;
-  border-radius: 4px;
-  border-left: 4px solid var(--theme-color);
-  text-align: justify;
-  padding: 10px 0 10px 7px;
-}
-
-.day > .postSeparator { /* 同一天的文章分割线 */
-  border-bottom: 1px solid var(--border-color);
-  text-align: justify;
-  margin-bottom: 10px;
-  padding-bottom: 10px;
 }
 
 .toc-container-header { /* 目前还不知道这个样式有什么用 */
@@ -400,13 +280,6 @@ a {
   }
 }
 
-#footer {
-  border-top: 1px solid var(--border-color);
-  font-size: 13px;
-  text-align: center;
-  padding: 15px 0;
-}
-
 .louzhu {
   color: var(--theme-color);
   font-weight: 500;
@@ -451,52 +324,6 @@ a {
   }
 }
 
-#div_digg {
-  margin: 0;
-  width: auto;
-
-  .diggit,
-  .buryit {
-    height: auto;
-    width: auto;
-    min-width: 60px;
-    margin: 0;
-    font-size: 17px;
-    border-radius: 4px;
-    padding: 3px 10px;
-    background: var(--blockquote-bg-color) none;
-    transition: all 0.3s;
-
-    span {
-      font-size: inherit;
-      color: inherit;
-    }
-
-    &:hover {
-      color: #FFF;
-      background-color: var(--theme-color);
-    }
-  }
-
-  .diggit {
-    &::before {
-      content: "\f087";
-      font-family: FontAwesome, serif;
-      opacity: 0.7;
-    }
-  }
-
-  .buryit {
-    margin-left: 15px;
-
-    &::before {
-      content: "\f088";
-      font-family: FontAwesome, serif;
-      opacity: 0.7;
-    }
-  }
-}
-
 .topicListFooter {
   text-align: right;
   margin-top: 20px;
@@ -506,114 +333,6 @@ a {
 .feedback_area_title {
   font-size: 20px;
   border-bottom: 1px solid var(--border-color);
-  margin: 20px 0px;
+  margin: 20px 0;
   padding-bottom: 5px;
-}
-
-#commentform_title {
-  background-image: none;
-  padding-left: 0;
-  font-size: 20px;
-
-  & > a {
-    display: none;
-  }
-}
-
-.commentform {
-  #tip_comment {
-    color: var(--theme-color) !important;
-    margin: 15px 0;
-    display: block;
-  }
-
-  .comment_textarea {
-    width: 100%;
-    border: 1px solid var(--border-color);
-    background-color: transparent;
-    padding: 0;
-
-    &:focus {
-      outline: 0;
-    }
-  }
-
-  .commentbox_title {
-    border-bottom: 1px solid var(--border-color);
-
-    .commentbox_title_left {
-      .commentbox_tab {
-        margin: 0;
-        padding: 5px 15px;
-        color: var(--text-color);
-        border-bottom: none;
-      }
-
-      .active {
-        color: var(--theme-color);
-      }
-    }
-
-    .commentbox_title_right {
-      margin: 0 10px 0 0;
-
-      .comment_svg:hover,
-      .comment_svg_stroke:hover {
-        fill: var(--theme-color);
-        stroke: var(--theme-color);
-      }
-    }
-  }
-
-  #tbCommentBody,
-  #tbCommentBodyPreview {
-    padding: 10px 15px;
-    background: transparent;
-    color: var(--text-color);
-    font-weight: 300;
-  }
-
-  #tbCommentBodyPreviewBody {
-    margin-left: 0;
-    min-height: 235px;
-    background-color: transparent;
-  }
-
-  #btn_comment_submit {
-    width: auto;
-    height: auto;
-    border-width: 0px;
-    cursor: pointer;
-    color: #FFF;
-    background-color: var(--theme-color);
-    border-color: var(--theme-color);
-    font-weight: 300;
-    user-select: none;
-    padding: 5px 17px;
-    font-size: 13px;
-    border-radius: 4px;
-    outline: none;
-    transition: all 0.3s;
-
-    &:hover {
-      opacity: 0.7;
-    }
-  }
-
-  .comment_my_posted {
-    & > img {
-      display: none;
-    }
-  }
-
-  .bq_post_comment {
-    margin-top: 5px;
-    font-size: 13px;
-    display: block;
-    color: var(--text-color);
-    background-color: var(--border-color);
-    border: none;
-    border-radius: 4px;
-    padding: 1px 15px;
-  }
 }

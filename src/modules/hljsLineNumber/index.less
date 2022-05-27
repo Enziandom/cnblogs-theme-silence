@@ -1,13 +1,15 @@
 .cnblogs-markdown .hljs,
 .cnblogs-markdown .hljsln {
+  margin-left: 35px;
   display: block;
   overflow-x: auto;
-  padding: 0.7em 1em 0.7em 3em !important;
+  padding: 0.5em 0.7em 0.5em 0.7em !important;
   background: #2B2B2B !important;
   border: 1px solid #2C2A2A !important;
   color: #BABABA;
+  border-radius: var(--border-radius);
   font-family: Consolas, Monaco, "Andale Mono", "Ubuntu Mono", monospace !important;
-  font-size: 15px !important;
+  font-size: 14px !important;
 
   &::-webkit-scrollbar {
     height: 4px;
@@ -30,7 +32,8 @@
   width: 2.4em;
   height: 100%;
   background: #333;
-  border-radius: 4px 0 0 4px;
+  border-top-left-radius: var(--border-radius);
+  border-bottom-left-radius: var(--border-radius);
 }
 
 .ln-num {
@@ -42,7 +45,6 @@
   display: inline-block;
   -webkit-touch-callout: none;
   -webkit-user-select: none;
-  -khtml-user-select: none;
   -moz-user-select: none;
   -ms-user-select: none;
   user-select: none;

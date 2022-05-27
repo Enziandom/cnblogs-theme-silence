@@ -6,7 +6,7 @@
   font-weight: inherit;
   min-height: 750px;
   background-color: var(--card-bg-color);
-  border-radius: 10px;
+  border-radius: var(--border-radius);
   padding: 20px;
 
   #sideBarMain {
@@ -85,7 +85,7 @@
           border: 1px solid var(--border-color);
           font-size: 13px;
           padding: 7px 0;
-          border-radius: 4px;
+          border-radius: var(--border-radius);
           width: 230px;
           font-weight: 300;
 
@@ -115,15 +115,19 @@
       display: flex;
       justify-content: space-between;
 
-      .input_my_zzk {
-        color: #314659;
+      .input-common-style() {
+        border-radius: var(--border-radius);
         border: dotted 1px var(--border-color);
         background-color: transparent;
-        width: 58%;
+      }
+
+      .input_my_zzk {
         height: 32px;
+        width: 58%;
         padding: 0 7px;
         font-size: 16px;
-        border-radius: 4px;
+        color: #314659;
+        .input-common-style();
 
         &:focus {
           outline: none;
@@ -134,18 +138,16 @@
         height: 34px;
         font-size: 13px;
         font-weight: 300;
-        background-color: transparent;
-        color: var(--text-color);
         cursor: pointer;
         width: 30%;
         outline: 0;
-        border: 1px dotted var(--border-color);
-        border-radius: 4px;
+        color: var(--text-color);
         transition: border 0.3s;
+        .input-common-style();
 
         &:hover {
           color: var(--theme-color);
-          border: 1px solid var(--theme-color);
+          border: 1px dotted var(--theme-color);
         }
       }
     }
@@ -168,7 +170,7 @@
     margin: 0 6px 6px 0;
     display: inline-grid;
     transition: all 0.3s ease;
-    border-radius: 4px;
+    border-radius: var(--border-radius);
 
     a {
       transition: inherit;
@@ -233,7 +235,7 @@
     }
 
     .recent_comment_body {
-      border-radius: 4px;
+      border-radius: var(--border-radius);
       padding: 5px 10px;
       margin: 5px 0;
       background-color: var(--blockquote-bg-color);

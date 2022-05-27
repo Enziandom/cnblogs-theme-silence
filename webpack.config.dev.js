@@ -1,5 +1,4 @@
 const path = require("path");
-require("webpack");
 const HtmlWebpackPlugin = require("html-webpack-plugin");
 const MiniCssExtractPlugin = require("mini-css-extract-plugin");
 
@@ -60,7 +59,7 @@ module.exports = {
   resolve: {
     alias: {
       "@": path.resolve("src"),
-      "@modules": path.resolve("src/modules"),
+      "@modules": path.resolve("src/fragment"),
       "@consts": path.resolve("src/consts"),
       "@templates": path.resolve("src/templates")
     }

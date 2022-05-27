@@ -1,11 +1,11 @@
 @import "../mixins.less";
-/* 博客园标签页面 */
+/* 标签页面 */
 
 #taglist_main {
   margin-top: 0;
 
   #taglist {
-    .post-style.card();
+    .PostStyle.Card();
   }
 
   table {
@@ -40,40 +40,18 @@
   }
 }
 
-#myposts {
+#myposts { /* 按标签分类的文章页 */
   margin-left: 0;
 
   .PostList {
-    /* &:first-of-type {
-      border-top: 1px solid var(--border-color);
-    }
-
-    border-bottom: 1px solid var(--border-color);
-    padding: 0;
-    margin: 0; */
-
-    .post-style.card();
+    .PostStyle.Card(); /* 文章运用卡片样式 */
   }
 
   .postTitl2 {
-    font-size: 17px;
-    margin: 10px 0;
-    text-align: justify;
+    .PostStyle.Title(); /* 随笔分类的文章标题样式 */
   }
 
   .postDesc2 {
-    text-align: right;
-    margin-bottom: 10px;
-    font-size: 14px;
-
-    & > a {
-      display: none;
-    }
-
-    &::before {
-      font-family: FontAwesome, serif;
-      content: "\f017";
-      opacity: 0.7;
-    }
+    .PostStyle.Desc(); /* 随笔分类的文章简述样式 */
   }
 }

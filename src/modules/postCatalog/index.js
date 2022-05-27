@@ -2,7 +2,7 @@ import "./index.less";
 import options from "../../consts/options";
 
 const florFlowStyle = {
-  "background-color": "var(--card-bg-color)", "border-radius": "10px", "padding": "20px"
+  "background-color": "var(--card-bg-color)", "border-radius": "var(--border-radius)", "padding": "20px"
 };
 
 const esaCatalogFixed = {
