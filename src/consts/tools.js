@@ -44,6 +44,14 @@ export function justRootPage() {
   return !(isPaging() || isTagListPage() || isTagPostsPage() || isEssayListPage());
 }
 
+export function addAttrForATag() {
+  $("#cnblogs_post_body > p").each(function (index, el) {
+    if ( $(el).has("a").length ) {
+      $(el).children("a").addClass("shira-link");
+    }
+  });
+}
+
 /**
  * 显示左侧边栏。
  */
