@@ -45,9 +45,9 @@ export function justRootPage() {
 }
 
 export function addAttrForATag() {
-  $("#cnblogs_post_body > p").each(function (index, el) {
-    if ( $(el).has("a").length ) {
-      $(el).children("a").addClass("shira-link");
+  $("#cnblogs_post_body a").each(function (index, el) {
+    if ( !$(el).find("img").length ) {
+      $(el).addClass("shira-link");
     }
   });
 }
