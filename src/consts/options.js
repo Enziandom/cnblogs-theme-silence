@@ -7,18 +7,7 @@ const options = {
   defaultTheme: "a",
   customNavbarItemList: [ {
     title: "标签",
-    url: "https://www.cnblogs.com/esofar/tag/"
-  }, {
-    title: "朋友",
-    chilren: [ {
-      title: "百度",
-      target: "_blank",
-      url: "https://www.baidu.com"
-    }, {
-      title: "谷歌",
-      target: "_blank",
-      url: "https://www.google.com"
-    } ]
+    url: "https://www.cnblogs.com/shiramashiro/tag/"
   } ],
   showNavAdmin: true,
   hljsln: false,
@@ -35,14 +24,11 @@ const options = {
     enable: false, text: "Buy me a cup of coffee ☕.", paypal: null, wechat: null, alipay: null
   },
   radarMap: {
-    alpha: 0.85,
-    sides: 5,
-    layer: 5,
-    step: 16,
-    lineWidth: 1,
-    lineColor: "white",
-    textColor: "white",
-    textSize: 14,
+    alpha: 0.85, // 数据区域的透明度
+    totalSides: 5, // 多边形面数
+    radarLayers: 5, // 雷达层数
+    polygonPerStep: 16, // 每一层多边形距离多少
+    textColor: "white", // 文本颜色
     data: [ {
       title: "js", star: 4
     }, {

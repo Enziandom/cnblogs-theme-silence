@@ -5,20 +5,21 @@
   </h2>
   <p align="center">
     专 注 于 阅 读 的 博 客 园 主 题
-  </p> 
+  </p>
 
 [文档](https://gitee.com/shiramashiro/cnblogs-theme-silence) | [演示](https://www.cnblogs.com/shiramashiro)
 
 </div>
 
-## 安装
+# 安装
 
-页面定制 CSS 代码处：
+## 页面定制 CSS 代码处
+
 ```css
 @import url(https://shiramashiro.gitee.io/cnblogs-theme-silence/dist/silence.min.css);
 ```
 
-页首 HTML 代码处：
+## 页首 HTML 代码处
 
 ```html
 <div class="dark-loading">
@@ -29,85 +30,91 @@
 </div>
 ```
 
-侧边栏公告处：
+## 侧边栏公告处
 
 ```html
 <script>
 window.$silence = {
-    avatar: 'https://images.cnblogs.com/cnblogs_com/blogs/666252/galleries/1934022/o_210616040311shinamashiro.jpg',
-    github: 'https://github.com/shiramashiro',
-    favicon: 'https://images.cnblogs.com/cnblogs_com/blogs/666252/galleries/1934022/o_210616040608shiramashiro-round.png',
-    catalog: {
-        index: true,
-        enable: true,
-        levels: ['h1', 'h2', 'h3']
-    },
-    defaultMode: 'dark',
-    navbars: [{
-        title: '标签',
-        url: 'https://www.cnblogs.com/shiramashiro/tag/'
-    }],
-    hljsln: true,
-    radarMap: {
-        alpha: 0.88,
-        sides: 10,
-        layer: 5,
-        step: 14,
-        lineWidth: 1,
-        lineColor: 'white',
-        textColor: 'white',
-        textSize: 12,
-        data: [
-            {
-                title: 'html',
-                star: 5,
-            },
-            {
-                title: 'css',
-                star: 4,
-            },
-            {
-                title: 'js',
-                star: 4,
-            },
-            {
-                title: 'ts',
-                star: 1,
-            },
-            {
-                title: 'vue',
-                star: 3,
-            },
-            {
-                title: 'react',
-                star: 1,
-            },
-            {
-                title: 'angular',
-                star: 0,
-            },
-            {
-                title: 'nodejs',
-                star: 1,
-            },
-            {
-                title: '小程序',
-                star: 4,
-            },
-            {
-                title: 'flutter',
-                star: 3,
-            }
-        ]
-    }
-}
+  version: "3.0.0",
+  avatar: null,
+  favicon: null,
+  github: null,
+  defaultMode: "dark",
+  defaultTheme: "a",
+  customNavbarItemList: [ {
+    title: "标签",
+    url: "https://www.cnblogs.com/esofar/tag/"
+  } ],
+  showNavAdmin: true,
+  hljsln: true,
+  catalog: {
+    index: true, enbale: true, levels: [ "h1", "h2", "h3" ]
+  },
+  signature: {
+    enable: true,
+    author: null,
+    license: [ "署名-非商业性使用-相同方式共享 4.0 国际", "https://creativecommons.org/licenses/by-nc-sa/4.0/" ],
+    remark: null
+  },
+  sponsor: {
+    enable: false, text: "Buy me a cup of coffee ☕.", paypal: null, wechat: null, alipay: null
+  },
+  radarMap: {
+    alpha: 0.85, // 数据区域的透明度
+    totalSides: 5, // 多边形面数
+    radarLayers: 5, // 雷达层数
+    polygonPerStep: 16, // 每一层多边形距离多少
+    textColor: "white", // 文本颜色
+    data: [ {
+      title: "js", star: 4
+    }, {
+      title: "ts", star: 2
+    }, {
+      title: "html", star: 4
+    }, {
+      title: "css", star: 4
+    }, {
+      title: "vue", star: 4
+    } ]
+  },
+  statusKey: "growing" // 你的状态
+};
 </script>
 <script src="https://shiramashiro.gitee.io/cnblogs-theme-silence/dist/silence.min.js"></script>
 ```
 
-## 特性
+# 配置选项
 
-- 界面简洁优雅。
+## 头像状态
+
+`statusKey`是头像状态的配置项，其可选参数有：
+
+1. activity：活跃中，显示的颜色 rgba(66, 185, 131, 0.95)
+2. busyness：忙碌中，显示的颜色 rgba(255, 69, 0, 0.95)
+3. growing：升级中，显示的颜色 rgba(240,230,140, 0.95)
+4. idle：摸鱼中，显示的颜色 rgba(112,128,144, 0.95)
+
+比如：
+
+```js
+window.$silence = {
+  statusKey: 'idle'
+}
+```
+
+## 雷达图
+
+`radarMap`是雷达图的配置项，可选参数见上面的案例。
+
+## 其余配置项
+
+其他的配置项可以参考原版本主题文档：[cnblogs-theme-silence 部分参数选项参考文档](https://esofar.gitee.io/cnblogs-theme-silence/#/options)。
+
+# 特性
+
+本主题皮肤重构了原版本的主题，加入了本人的想法。在未来，使这个项目的代码更加趋于模块化，并修改布局，提升阅读。到目前为止<sup>2022年5月28日</sup>，修改了大量的细节，增加了一些有趣的功能，重构了项目。
+
+- 界面简洁优雅。(目前正在改造中...)
 - 响应式网页设计。(目前正在改造中...)
 - 容易使用并且轻量。
 - 代码简单且可高度定制。
@@ -118,7 +125,7 @@ window.$silence = {
 - 支持生成文章版权签名。
 - 提供赞赏功能。
 
-## 开发
+# 开发
 
 项目采用主流的前端模块化工具构建，熟悉前端开发的园友可参考下面的命令进行二次开发，定制化属于自己的独特主题风格。
 
