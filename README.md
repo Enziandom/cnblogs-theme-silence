@@ -13,6 +13,8 @@
 
 # 安装
 
+请按照以下几个步骤操作，简单几步就可以换上新皮肤。
+
 ## 页面定制 CSS 代码处
 
 ```css
@@ -60,12 +62,15 @@ window.$silence = {
     enable: false, text: "Buy me a cup of coffee ☕.", paypal: null, wechat: null, alipay: null
   },
   radarMap: {
-    alpha: 0.85, // 数据区域的透明度
-    totalSides: 5, // 多边形面数
-    radarLayers: 5, // 雷达层数
-    polygonPerStep: 16, // 每一层多边形距离多少
+    alpha: 0.85, // 数据区域透明度
+    sides: 5, // 多边形面数
+    layer: 5, // 雷达层数
+    step: 16, // 每一层多边形距离多少
+    lineWidth: 1, // 雷达图线宽
+    lineColor: "white", // 雷达图线颜色
+    textSize: 14, // 文本大小
     textColor: "white", // 文本颜色
-    data: [ {
+    data: [ { // 数据
       title: "js", star: 4
     }, {
       title: "ts", star: 2
@@ -77,7 +82,7 @@ window.$silence = {
       title: "vue", star: 4
     } ]
   },
-  statusKey: "growing" // 你的状态
+  statusKey: "growing" // 博主状态
 };
 </script>
 <script src="https://shiramashiro.gitee.io/cnblogs-theme-silence/dist/silence.min.js"></script>
@@ -108,11 +113,11 @@ window.$silence = {
 
 ## 其余配置项
 
-其他的配置项可以参考原版本主题文档：[cnblogs-theme-silence 部分参数选项参考文档](https://esofar.gitee.io/cnblogs-theme-silence/#/options)。
+其他的配置项可以参考原版本主题文档：[参数选项参考文档](https://esofar.gitee.io/cnblogs-theme-silence/#/options)。
 
 # 特性
 
-本主题皮肤重构了原版本的主题，加入了本人的想法。在未来，使这个项目的代码更加趋于模块化，并修改布局，提升阅读。到目前为止<sup>2022年5月28日</sup>，修改了大量的细节，增加了一些有趣的功能，重构了项目。
+本主题皮肤重构了原版本的主题。在未来，修改布局，提升阅读。到目前为止<sup>2022年5月28日</sup>，修改了大量的细节，增加了一些有趣的功能。
 
 - 界面简洁优雅。(目前正在改造中...)
 - 响应式网页设计。(目前正在改造中...)

@@ -12,7 +12,6 @@ export class RadarMapCreator {
     let axis = [];
     let radius = this.config.polygonPerStep;
     this.ctx.lineWidth = this.config.lineWidth;
-    console.log(this.config.lineWidth);
     this.ctx.strokeStyle = this.config.lineColor;
     for ( let j = 0; j < this.config.radarLayers; j++ ) {
       this.drawPolygon(radius, axis, j);
