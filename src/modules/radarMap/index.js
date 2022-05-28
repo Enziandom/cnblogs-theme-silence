@@ -138,6 +138,38 @@ function drawDataArea(radius, coords, x, y, config, ctx) {
   ctx.fill();
 
   drawDataAreaTop(axis, ctx);
+  drawMovablePanel(axis);
+}
+
+/**
+ * 绘制可移动的面板，显示详细信息
+ *
+ * @param coords 所有多边形（层）的坐标轴
+ */
+function drawMovablePanel(coords) {
+  let cnp = $("#radar-floating");
+  let timeout = null;
+  $("#radar-map").on({
+    mousemove: function (e) {
+      if ( timeout != null ) clearTimeout(timeout);
+      timeout = setTimeout(() => {
+        coords.forEach((v) => {
+          if ( (v.x >= e.offsetX - 5 && v.x < e.offsetX + 5) && (v.y >= e.offsetY - 5 && v.y < e.offsetY + 5) ) {
+            $(cnp).css({
+              "display": "block", "left": `${ e.offsetX }px`, "top": `${ e.offsetY }px`
+            });
+            $(cnp).empty().append(`
+              <div class="tech">技术栈：${ v.title }</div>
+              <div class="star">掌握程度：${ v.star } 颗星</div>
+            `);
+          }
+        });
+      }, 50);
+    },
+    mouseleave: () => {
+      $(cnp).css({ "display": "none" });
+    }
+  });
 }
 
 /**
