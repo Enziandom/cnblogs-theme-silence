@@ -18,7 +18,7 @@
 
       &:hover {
         &::after {
-          background-color: var(--theme-color);
+          border-bottom-color: var(--theme-color);
         }
       }
 
@@ -30,12 +30,11 @@
 
       &::after {
         content: "";
-        height: 0.5px;
         width: 100%;
         position: absolute;
         bottom: -2px;
         left: 0;
-        background-color: #BDBDBD;
+        border-bottom: 1px dotted var(--text-color);
       }
     }
 
@@ -225,7 +224,7 @@
 }
 
 #div_digg { /* 点赞 */
-  margin: 0 0 10px 0 !important;
+  margin: 10px 0 10px 0 !important;
   width: auto;
 
   .diggit,
