@@ -1,18 +1,6 @@
 import "./index.less";
 import options from "../../consts/options";
 
-const florFlowStyle = {
-  "background-color": "var(--card-bg-color)", "border-radius": "var(--border-radius)", "padding": "20px"
-};
-
-const esaCatalogFixed = {
-  "position": "fixed", "top": "0", "left": `${ $("#header")[0].offsetLeft }px`, "padding": "5px 20px 20px 20px"
-};
-
-const esaCatalogInitial = {
-  "position": "initial"
-};
-
 function shiftCatalog() {
   // 当前滑动的窗口距离顶部距离比上次的少就是往上滑动，反之往下滑动
   let lastWinScroTop = 0;
@@ -29,11 +17,18 @@ function shiftCatalog() {
 
     if ( nowWinScrollTop > lastWinScroTop ) {
       if ( sidebarItem1.offsetTop - nowWinScrollTop < 0 ) {
-        $(sidebarItem1).removeAttr("style").css(esaCatalogFixed);
+        $(sidebarItem1).removeAttr("style").css({
+          "padding": "5px 20px 20px 20px",
+          "position": "fixed",
+          "top": "0",
+          "left": `${ $("#header")[0].offsetLeft }px`
+        });
       }
     } else {
       if ( nowWinScrollTop < item0Height ) {
-        $(sidebarItem1).removeAttr("style").css(esaCatalogInitial);
+        $(sidebarItem1).removeAttr("style").css({
+          "position": "initial"
+        });
       }
     }
     lastWinScroTop = nowWinScrollTop;
@@ -41,6 +36,12 @@ function shiftCatalog() {
 }
 
 function rebuildSideBar() {
+  $("#mainContent .forFlow").css({
+    "background-color": "var(--card-bg-color)",
+    "border-radius": "var(--border-radius)",
+    "padding": "20px"
+  });
+
   let elements = $("#sideBarMain").children();
   $(elements).each((index, element) => {
     if ( index < elements.length - 2 ) {
@@ -50,7 +51,6 @@ function rebuildSideBar() {
 }
 
 function buildPostCatalog() {
-  $("#mainContent .forFlow").css(florFlowStyle);
   rebuildSideBar();
   shiftCatalog();
 
@@ -63,16 +63,18 @@ function buildPostCatalog() {
     const level3 = levels[2];
     let captions = $("#cnblogs_post_body").find(levels.join(","));
 
+    if ( captions.length <= 0 ) return;
+
     let h1c = 0;
     let h2c = 0;
     let h3c = 0;
 
     let catalogContents = `
-            <div id="esa-catalog-wrapper">
-                <div id='esa-catalog-inner'>
-                    <h3 class='catListTitle'>目录</h3>
-                    <ul id='esa-catalog'>
-        `;
+      <div id="esa-catalog-wrapper">
+        <div id='esa-catalog-inner'>
+          <h3 class='catListTitle'>目录</h3>
+            <ul id='esa-catalog'>
+    `;
 
     $.each(captions, (index, element) => {
       const tagName = element.tagName.toLowerCase();
@@ -112,12 +114,12 @@ function buildPostCatalog() {
       }
 
       catalogContents += `
-                <li class="${ tagName }" title="${ text }">
-                  <a class="esa-anchor-link" href="#${ href }">
-                    ${ titleIndex + titleContent }
-                  </a>
-                </li>
-            `;
+        <li class="${ tagName }" title="${ text }">
+          <a class="esa-anchor-link" href="#${ href }">
+            ${ titleIndex + titleContent }
+          </a>
+        </li>
+      `;
     });
 
     catalogContents += `</ul></div></div>`;
