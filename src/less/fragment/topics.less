@@ -15,26 +15,17 @@
       margin: 0 4px;
       position: relative;
       transition: none;
+      padding-bottom: 2px;
+      border-bottom: 1px dotted var(--text-color);
 
       &:hover {
-        &::after {
-          border-bottom-color: var(--theme-color);
-        }
+        border-bottom-color: var(--theme-color);
       }
 
       &::before {
         font-family: FontAwesome, serif;
         content: "\f0c1";
         margin-right: 2px;
-      }
-
-      &::after {
-        content: "";
-        width: 100%;
-        position: absolute;
-        bottom: -2px;
-        left: 0;
-        border-bottom: 1px dotted var(--text-color);
       }
     }
 
