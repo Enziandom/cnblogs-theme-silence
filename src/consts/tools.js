@@ -55,6 +55,8 @@ export function addAttrForATag() {
 export function followButtonHasChild() {
   if ( !(!!$("#p_b_follow").has("a").length) ) {
     $("#p_b_follow").addClass("self-blog");
+  } else {
+    $("#p_b_follow").removeClass("self-blog");
   }
 }
 
