@@ -2,7 +2,7 @@ import "./index.less";
 import options from "./consts/options";
 import {
   isPostPage, justRootPage, showSidebar, removeTitleTocButton,
-  addAttrForATag, followButtonHasChild
+  addAttrForATag
 } from "./consts/tools";
 import buildGithubCorner from "./modules/githubCorner";
 import buildCustomHeader from "./modules/customHeader";
@@ -31,7 +31,6 @@ class Silence {
     buildGithubCorner();
     buildProfile();
     buildToolbar();
-    followButtonHasChild();
     if ( isPostPage() ) { // 只是文章页
       buildPostCatalog();
       buildPostSponsor();

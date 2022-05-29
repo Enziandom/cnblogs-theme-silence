@@ -52,16 +52,6 @@ export function addAttrForATag() {
   });
 }
 
-export function followButtonHasChild() {
-  if ( (!!$("#p_b_follow").has("a").length) ) {
-    console.log('has node');
-    $("#p_b_follow").removeClass("self-blog");
-  } else {
-    $("#p_b_follow").addClass("self-blog");
-    console.log('not node');
-  }
-}
-
 /**
  * 显示左侧边栏。
  */
