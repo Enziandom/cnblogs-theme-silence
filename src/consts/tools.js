@@ -52,6 +52,12 @@ export function addAttrForATag() {
   });
 }
 
+export function followButtonHasChild() {
+  if ( !(!!$("#p_b_follow").has("a").length) ) {
+    $("#p_b_follow").addClass("self-blog");
+  }
+}
+
 /**
  * 显示左侧边栏。
  */

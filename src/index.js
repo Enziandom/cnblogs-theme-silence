@@ -1,6 +1,9 @@
 import "./index.less";
 import options from "./consts/options";
-import { isPostPage, justRootPage, showSidebar, removeTitleTocButton, addAttrForATag } from "./consts/tools";
+import {
+  isPostPage, justRootPage, showSidebar, removeTitleTocButton,
+  addAttrForATag, followButtonHasChild
+} from "./consts/tools";
 import buildGithubCorner from "./modules/githubCorner";
 import buildCustomHeader from "./modules/customHeader";
 import buildCustomFooter from "./modules/customFooter";
@@ -28,7 +31,7 @@ class Silence {
     buildGithubCorner();
     buildProfile();
     buildToolbar();
-    // buildDropdownPopup();
+    followButtonHasChild();
     if ( isPostPage() ) { // 只是文章页
       buildPostCatalog();
       buildPostSponsor();

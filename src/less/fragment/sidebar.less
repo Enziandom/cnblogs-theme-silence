@@ -34,6 +34,8 @@
         box-sizing: border-box;
 
         &:nth-child(1) {
+          margin-bottom: 15px;
+          font-size: 0;
           width: 100%;
           display: block;
           text-align: center;
@@ -74,12 +76,17 @@
         }
       }
 
+      #p_b_follow.self-blog {
+        margin: 0;
+      }
+
       #p_b_follow {
         width: 100%;
         margin: 15px 0 15px 0;
         text-align: center;
 
-        a {
+        & > a {
+          margin: 0;
           width: inherit;
           border: 1px dotted var(--border-color);
           font-size: 13px;
