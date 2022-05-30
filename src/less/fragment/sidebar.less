@@ -9,18 +9,10 @@
   border-radius: var(--border-radius);
   padding: 20px;
 
-  #sideBarMain {
-    ul {
-      line-height: 1.6;
-    }
-  }
-
   .newsItem { /* 圆龄、粉丝、关注 */
     margin-bottom: 10px;
 
-    .catListTitle {
-      display: none;
-    }
+    .catListTitle {display: none;}
 
     #profile_block {
       margin: 0;
@@ -41,15 +33,15 @@
           text-align: center;
         }
 
-        &:nth-child(3):after {
+        &:nth-child(3)::after {
           content: "\56ed\9f84";
         }
 
-        &:nth-child(5):after {
+        &:nth-child(5)::after {
           content: "\7c89\4e1d";
         }
 
-        &:nth-child(7):after {
+        &:nth-child(7)::after {
           content: "\5173\6ce8";
         }
 
@@ -65,7 +57,7 @@
           overflow: hidden;
           text-align: center;
 
-          &:after {
+          &::after {
             color: #97979F;
             font-size: 14px;
             display: block;
@@ -97,7 +89,7 @@
     }
   }
 
-  #blog-calendar {
+  #blog-calendar { /* 日历 */
     border-top: 1px dotted var(--border-color);
 
     .CalDayHeader {
@@ -107,6 +99,10 @@
     .CalTodayDay {
       color: var(--theme-color);
       font-weight: 600;
+
+      & > a {
+        color: var(--theme-color) !important;
+      }
     }
   }
 

@@ -1,5 +1,4 @@
 <div align="center">
-  <img align="center" src="./docs/_media/icon.svg">
   <h2 align="center">
     CNBLOGS THEME SILENCE
   </h2>

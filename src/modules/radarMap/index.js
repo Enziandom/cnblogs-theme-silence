@@ -247,7 +247,7 @@ function initRadarMap() {
       setTimeout(() => {
         drawRadarMap(options.radarMap, 100, 100, ctx);
         resolve();
-      }, 1200);
+      }, Math.random() * 2 * 1000);
     }).then(() => {
       $(".tech-radar > .radar-wrap-loading").css({ "display": "none" });
     });
