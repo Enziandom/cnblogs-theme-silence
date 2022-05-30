@@ -22,7 +22,7 @@ $(function () {
   listenWindowResize();
 
   $("#mainContent").insertAfter("#sideBar");
-  $("#sidebar_categories").appendTo(".sidebar-content");
+  $("#sidebar_categories").insertAfter(".personal-tech");
   $("#sideBarMain").append(`<div style="height: 70px"></div>`)
   $(".left-sidebar-wrap").append(`<div style="height: 70px"></div>`)
 });
