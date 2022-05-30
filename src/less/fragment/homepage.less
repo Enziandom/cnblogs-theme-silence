@@ -3,27 +3,23 @@
 
 @media only screen and (min-width: 990px) {
   #mainContent {
-    float: right;
-    margin-left: -25em;
     width: 100%;
   }
 }
 
 #main {
-  width: 1050px;
+  .FlexLayout.Normal();
   margin: 0 auto;
-  padding: 15px 0;
+  width: var(--content-main-width);
   transition: all 0.3s ease;
 
   #mainContent {
-    .forFlow {
-      margin: 0 auto 0 0;
-      max-width: 960px;
-    }
+    margin: 0 10px;
   }
 }
 
 .forFlow {
+  margin-top: 70px !important;
 
   .day {
     .PostStyle.Card();

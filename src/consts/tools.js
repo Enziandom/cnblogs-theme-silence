@@ -56,7 +56,6 @@ export function addAttrForATag() {
  * 显示左侧边栏。
  */
 export function showSidebar() {
-  $(".forFlow").css({ marginLeft: "260px" });
   $("#sideBar").show();
 }
 

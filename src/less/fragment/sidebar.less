@@ -1,13 +1,30 @@
 /* 博客园侧边栏 */
 
 #sideBar {
-  width: 210px;
   display: none;
+  width: var(--sidebar-width);
+  height: var(--window-height);
   font-weight: inherit;
-  min-height: 750px;
   background-color: var(--card-bg-color);
   border-radius: var(--border-radius);
-  padding: 20px;
+  box-sizing: border-box;
+
+  #sideBarMain {
+    box-sizing: border-box;
+    position: fixed;
+    top: 70px;
+    width: var(--sidebar-width);
+    height: var(--window-height);
+    overflow-y: auto;
+    z-index: 999;
+    background-color: inherit;
+    padding: 15px;
+    border-radius: inherit;
+
+    &::-webkit-scrollbar {
+      display: none;
+    }
+  }
 
   .newsItem { /* 圆龄、粉丝、关注 */
     margin-bottom: 10px;

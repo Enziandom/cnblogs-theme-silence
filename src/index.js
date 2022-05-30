@@ -1,12 +1,10 @@
 import "./index.less";
 import options from "./consts/options";
-import {
-  isPostPage, justRootPage, showSidebar, removeTitleTocButton,
-  addAttrForATag
-} from "./consts/tools";
+import { isPostPage, justRootPage, showSidebar, removeTitleTocButton, addAttrForATag } from "./consts/tools";
 import buildGithubCorner from "./modules/githubCorner";
 import buildCustomHeader from "./modules/customHeader";
-import buildCustomFooter from "./modules/customFooter";
+import buildCustomSideBar from "./modules/customSideBar";
+import buildCustomLeftSideBar from "./modules/customLeftSideBar";
 import buildProfile from "./modules/profile";
 import buildPostCatalog from "./modules/postCatalog";
 import buildPostLightbox from "./modules/postLightbox";
@@ -17,6 +15,14 @@ import buildHljsLineNumber from "./modules/hljsLineNumber";
 import buildToolbar from "./modules/toolbar";
 import buildRadarMap from "./modules/radarMap";
 import loader from "./modules/loader";
+import { listenWindowResize, setRootProperties } from "./utils/initialize-variable";
+
+$(function () {
+  setRootProperties($(window).width(), $(window).height());
+  listenWindowResize();
+
+  $("#mainContent").insertAfter("#sideBar");
+});
 
 class Silence {
   constructor() {
@@ -26,8 +32,9 @@ class Silence {
 
   building() {
     showSidebar();
+    buildCustomSideBar();
     buildCustomHeader();
-    buildCustomFooter();
+    buildCustomLeftSideBar();
     buildGithubCorner();
     buildProfile();
     buildToolbar();
