@@ -52,7 +52,6 @@ function rebuildSideBar() {
 
 function buildPostCatalog() {
   rebuildSideBar();
-  shiftCatalog();
 
   const catalogConfig = options.catalog;
 
@@ -124,7 +123,7 @@ function buildPostCatalog() {
 
     catalogContents += `</ul></div></div>`;
 
-    $("#sideBarMain").append(catalogContents);
+    $(".sidebar-content").prepend(catalogContents);
   }
 }
 
