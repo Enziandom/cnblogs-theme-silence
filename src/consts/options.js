@@ -41,7 +41,21 @@ const options = {
       title: "vue", star: 4
     } ]
   },
-  statusKey: "growing"
+  statusKey: "growing",
+  myLinks: [
+    {
+      title: "哔哩哔哩",
+      href: "https://www.bilibili.com/"
+    },
+    {
+      title: "Vue3",
+      href: "https://v3.cn.vuejs.org/"
+    },
+    {
+      title: "Element-Plus",
+      href: "https://element-plus.gitee.io/zh-CN/"
+    }
+  ]
 };
 
 export default options;

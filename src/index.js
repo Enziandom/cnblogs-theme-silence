@@ -4,7 +4,7 @@ import { isPostPage, justRootPage, showSidebar, removeTitleTocButton, addAttrFor
 import buildGithubCorner from "./modules/githubCorner";
 import buildCustomHeader from "./modules/customHeader";
 import buildCustomSideBar from "./modules/customSideBar";
-import buildCustomLeftSideBar from "./modules/customLeftSideBar";
+import buildCustomRightSideBar from "./modules/customRightSideBar";
 import buildProfile from "./modules/profile";
 import buildPostCatalog from "./modules/postCatalog";
 import buildPostLightbox from "./modules/postLightbox";
@@ -23,7 +23,7 @@ $(function () {
 
   $("#mainContent").insertAfter("#sideBar");
   $("#sideBarMain").append(`<div style="height: 70px"></div>`)
-  $(".left-sidebar-wrap").append(`<div style="height: 70px"></div>`)
+  $(".right-sidebar-wrap").append(`<div style="height: 70px"></div>`)
 });
 
 class Silence {
@@ -36,7 +36,7 @@ class Silence {
     showSidebar();
     buildCustomSideBar();
     buildCustomHeader();
-    buildCustomLeftSideBar();
+    buildCustomRightSideBar();
     buildGithubCorner();
     buildProfile();
     buildToolbar();

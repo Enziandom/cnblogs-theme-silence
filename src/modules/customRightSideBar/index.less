@@ -2,13 +2,13 @@
   display: none !important;
 }
 
-#left-sidebar {
+#right-sidebar {
   width: var(--sidebar-width);
   height: var(--window-height);
   background-color: var(--card-bg-color);
   box-sizing: border-box;
 
-  & > .left-sidebar-wrap {
+  & > .right-sidebar-wrap {
     height: inherit;
     width: inherit;
     top: 70px;
@@ -27,15 +27,5 @@
     & > .sidebar-content {
       height: 800px;
     }
-  }
-
-  #sidebar_categories li {
-    font-size: 15px;
-    height: 40px;
-    line-height: 30px;
-    white-space: nowrap;
-    overflow: hidden;
-    text-overflow: ellipsis;
-    list-style: none;
   }
 }

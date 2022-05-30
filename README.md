@@ -23,6 +23,7 @@
 ## 页首 HTML 代码处
 
 ```html
+
 <div class="dark-loading">
   <div class="box">
     <h2>Loading</h2>
@@ -34,55 +35,56 @@
 ## 侧边栏公告处
 
 ```html
+
 <script>
-window.$silence = {
-  version: "3.0.0",
-  avatar: null,
-  favicon: null,
-  github: null,
-  defaultMode: "dark",
-  defaultTheme: "a",
-  customNavbarItemList: [ {
-    title: "标签",
-    url: "https://www.cnblogs.com/esofar/tag/"
-  } ],
-  showNavAdmin: true,
-  hljsln: true,
-  catalog: {
-    index: true, enbale: true, levels: [ "h1", "h2", "h3" ]
-  },
-  signature: {
-    enable: true,
-    author: null,
-    license: [ "署名-非商业性使用-相同方式共享 4.0 国际", "https://creativecommons.org/licenses/by-nc-sa/4.0/" ],
-    remark: null
-  },
-  sponsor: {
-    enable: false, text: "Buy me a cup of coffee ☕.", paypal: null, wechat: null, alipay: null
-  },
-  radarMap: {
-    alpha: 0.85, // 数据区域透明度
-    sides: 5, // 多边形面数
-    layer: 5, // 雷达层数
-    step: 16, // 每一层多边形距离多少
-    lineWidth: 1, // 雷达图线宽
-    lineColor: "white", // 雷达图线颜色
-    textSize: 14, // 文本大小
-    textColor: "white", // 文本颜色
-    data: [ { // 数据
-      title: "js", star: 4
-    }, {
-      title: "ts", star: 2
-    }, {
-      title: "html", star: 4
-    }, {
-      title: "css", star: 4
-    }, {
-      title: "vue", star: 4
-    } ]
-  },
-  statusKey: "growing" // 博主状态
-};
+  window.$silence = {
+    version: "3.0.0",
+    avatar: null,
+    favicon: null,
+    github: null,
+    defaultMode: "dark",
+    defaultTheme: "a",
+    customNavbarItemList: [ {
+      title: "标签",
+      url: "https://www.cnblogs.com/esofar/tag/"
+    } ],
+    showNavAdmin: true,
+    hljsln: true,
+    catalog: {
+      index: true, enbale: true, levels: [ "h1", "h2", "h3" ]
+    },
+    signature: {
+      enable: true,
+      author: null,
+      license: [ "署名-非商业性使用-相同方式共享 4.0 国际", "https://creativecommons.org/licenses/by-nc-sa/4.0/" ],
+      remark: null
+    },
+    sponsor: {
+      enable: false, text: "Buy me a cup of coffee ☕.", paypal: null, wechat: null, alipay: null
+    },
+    radarMap: {
+      alpha: 0.85, // 数据区域透明度
+      sides: 5, // 多边形面数
+      layer: 5, // 雷达层数
+      step: 16, // 每一层多边形距离多少
+      lineWidth: 1, // 雷达图线宽
+      lineColor: "white", // 雷达图线颜色
+      textSize: 14, // 文本大小
+      textColor: "white", // 文本颜色
+      data: [ { // 数据
+        title: "js", star: 4
+      }, {
+        title: "ts", star: 2
+      }, {
+        title: "html", star: 4
+      }, {
+        title: "css", star: 4
+      }, {
+        title: "vue", star: 4
+      } ]
+    },
+    statusKey: "growing" // 博主状态
+  };
 </script>
 <script src="https://shiramashiro.gitee.io/cnblogs-theme-silence/dist/silence.min.js"></script>
 ```
@@ -109,6 +111,21 @@ window.$silence = {
 ## 雷达图
 
 `radarMap`是雷达图的配置项，可选参数见上面的案例。
+
+## 常用链接
+
+`myLinks`是常用链接的配置项，是一个数组，基本结构：
+
+```js
+myLinks: [
+  {
+    title: '',
+    href: ''
+  }
+]
+```
+
+`title`是链接标题、内容；`href`是链接的地址。
 
 ## 其余配置项
 

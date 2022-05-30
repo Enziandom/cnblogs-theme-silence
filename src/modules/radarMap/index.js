@@ -200,7 +200,7 @@ function buildRadarMap() {
 }
 
 function createRadarMapTemplate() {
-  $("#left-sidebar > .left-sidebar-wrap > .sidebar-content").append(`
+  $("#right-sidebar > .right-sidebar-wrap > .sidebar-content").prepend(`
     <!-- 技能雷达图 -->
     <div class="personal-tech">
       <h3 class="catListTitle">
