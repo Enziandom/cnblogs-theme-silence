@@ -22,6 +22,9 @@ $(function () {
   listenWindowResize();
 
   $("#mainContent").insertAfter("#sideBar");
+  $("#sidebar_categories").appendTo(".sidebar-content");
+  $("#sideBarMain").append(`<div style="height: 70px"></div>`)
+  $(".left-sidebar-wrap").append(`<div style="height: 70px"></div>`)
 });
 
 class Silence {
