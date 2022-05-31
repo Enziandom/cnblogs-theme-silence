@@ -1,0 +1,30 @@
+@import "../../../less/mixins.less";
+
+#nice-books {
+  .books {
+    cursor: pointer;
+
+    .wrap {
+      .FlexLayout.SpaceBetween();
+
+      .cover {
+        border-radius: var(--border-radius);
+        width: 25%;
+        height: 60px;
+      }
+
+      .info {
+        width: 70%;
+        font-size: 13px;
+
+        .author {
+          margin-top: 5px;
+        }
+      }
+    }
+
+    &:nth-child(2n) {
+      margin: 15px 0;
+    }
+  }
+}
