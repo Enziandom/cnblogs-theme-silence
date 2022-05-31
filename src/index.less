@@ -82,6 +82,7 @@
 * {
   margin: 0;
   padding: 0;
+  -webkit-overflow-scrolling: touch; /* 避免ios滑动滚动条卡顿 */
 }
 
 html {
@@ -134,7 +135,7 @@ a {
   }
 }
 
-::selection {/* ::selection 是用于用户选中文档时的样式 */
+::selection { /* ::selection 是用于用户选中文档时的样式 */
   color: #FFF;
   background: var(--theme-color);
 }
@@ -264,54 +265,8 @@ a {
   font-weight: 500;
 }
 
-.feedbackListSubtitle {
-  .sendMsg2This {
-    background: transparent;
-    padding-left: 0;
-    font-size: 15px;
-
-    &::before {
-      content: "✉️";
-    }
-  }
-}
-
-.feedbackManage {
-  float: right;
-}
-
-.feedbackItem .feedbackCon {
-  margin-bottom: 10px;
-  padding: 10px 0;
-  border-bottom: 1px solid var(--border-color);
-
-  .comment_vote {
-    margin-top: 12px;
-  }
-}
-
-.blog_comment_body {
-  width: auto;
-  border-radius: 4px;
-  padding: 12px;
-  margin-left: 50px;
-  background-color: var(--blockquote-bg-color);
-  min-height: 19px;
-
-  img {
-    border-radius: 3px;
-  }
-}
-
 .topicListFooter {
   text-align: right;
   margin-top: 20px;
   margin-right: 0;
-}
-
-.feedback_area_title {
-  font-size: 20px;
-  border-bottom: 1px solid var(--border-color);
-  margin: 20px 0;
-  padding-bottom: 5px;
 }

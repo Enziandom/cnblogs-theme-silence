@@ -1,9 +1,7 @@
 import "./index.less";
 import options from "./consts/options";
-import { isPostPage, justRootPage, showSidebar, removeTitleTocButton, addAttrForATag } from "./consts/tools";
 import buildGithubCorner from "./modules/githubCorner";
 import buildCustomHeader from "./modules/customHeader";
-import buildCustomSideBar from "./modules/customSideBar";
 import buildCustomRightSideBar from "./modules/customRightSideBar";
 import buildProfile from "./modules/profile";
 import buildPostCatalog from "./modules/postCatalog";
@@ -16,6 +14,7 @@ import buildToolbar from "./modules/toolbar";
 import buildRadarMap from "./modules/radarMap";
 import loader from "./modules/loader";
 import { initializer } from "./utils/initializer";
+import { isPostPage, justRootPage, showSidebar, removeTitleTocButton, addAttrForATag } from "./utils/page-helper";
 
 initializer();
 
@@ -23,7 +22,6 @@ class Silence {
   constructor() {
     $.extend(true, options, window.$silence);
     showSidebar();
-    buildCustomSideBar();
     buildCustomHeader();
     buildCustomRightSideBar();
     buildGithubCorner();
