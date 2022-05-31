@@ -1,7 +1,14 @@
 /* 博客园侧边栏 */
+@import "../mobile/sidebar.pmd.less";
+
+/* > 990 */
+@media only screen and (min-width: 990px) {
+  #sideBar {
+    display: block;
+  }
+}
 
 #sideBar {
-  display: none;
   width: var(--sidebar-width);
   height: var(--window-height);
   background-color: var(--card-bg-color);

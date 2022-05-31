@@ -1,6 +1,6 @@
-import "./index.less";
-import buildMyLinks from "./mylinks";
-import buildNiceBooks from "./niceBooks";
+import "./less/index.less";
+import buildMyLinks from "./modules/mylinks";
+import buildNiceBooks from "./modules/niceBooks";
 
 function buildCustomRightSideBar() {
   $("#main").append(`

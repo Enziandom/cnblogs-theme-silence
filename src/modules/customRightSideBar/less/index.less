@@ -1,0 +1,34 @@
+@import "./index.pc.less";
+@import "./index.pmd.less";
+
+#right-sidebar {
+  width: var(--sidebar-width);
+  height: var(--window-height);
+  background-color: var(--card-bg-color);
+  box-sizing: border-box;
+
+  & > .sidebar-wrap {
+    height: inherit;
+    width: inherit;
+    top: 70px;
+    position: fixed;
+    overflow-y: auto;
+    z-index: 999;
+    padding: 15px;
+    box-sizing: border-box;
+    background-color: inherit;
+    border-radius: var(--border-radius);
+
+    &::-webkit-scrollbar {
+      display: none;
+    }
+
+    & > .sidebar-content {
+      & > :first-child {
+        & .catListTitle {
+          margin: 0 0 20px 0 !important;
+        }
+      }
+    }
+  }
+}

@@ -1,8 +1,8 @@
-import "./index.less";
+import "./less/index.less";
 import options from "./consts/options";
 
 import buildGithubCorner from "./modules/githubCorner";
-import "./modules/customHeader";
+import buildCustomHeader from "./modules/customHeader";
 import buildCustomRightSideBar from "./modules/customRightSideBar";
 import buildProfile from "./modules/profile";
 import buildPostCatalog from "./modules/postCatalog";
@@ -16,8 +16,13 @@ import buildRadarMap from "./modules/radarMap";
 import loader from "./modules/loader";
 
 import { initializer } from "./utils/initializer";
-import { justPostPage, justRootPage, showSidebar, removeTitleTocButton, addAttrForATag } from "./utils/page-helper";
-import buildCustomHeader from "./modules/customHeader";
+import {
+  justPostPage,
+  justRootPage,
+  removeTitleTocButton,
+  addAttrForATag,
+  pageForFlow
+} from "./utils/page-helper";
 
 initializer();
 
@@ -28,7 +33,6 @@ class Silence {
   }
 
   init() {
-    showSidebar();
     buildCustomHeader();
     buildCustomRightSideBar();
     buildGithubCorner();
@@ -43,6 +47,7 @@ class Silence {
       buildPostCommentAvatars();
       removeTitleTocButton();
       addAttrForATag();
+      pageForFlow();
     } else { // 首页、标签页、文章页、分类页
       buildRadarMap();
       if ( justRootPage() ) { // 首页

@@ -3,6 +3,7 @@ const options = {
   avatar: null,
   favicon: null,
   github: null,
+  navs: [ { title: "标签", url: "https://www.cnblogs.com/shiramashiro/tag" } ],
   defaultMode: "dark",
   defaultTheme: "a",
   hljsln: false,
