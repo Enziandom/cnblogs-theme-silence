@@ -10,6 +10,7 @@ function buildCustomRightSideBar() {
           ${ buildMyLinks() }
           ${ buildNiceBooks() }
         </div>
+        <div style="height: 70px"></div>
       </div>
     </div>
   `);

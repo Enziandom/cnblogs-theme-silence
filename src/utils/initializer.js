@@ -26,7 +26,6 @@ export function initializer() {
     setProperties($(window).width(), $(window).height());
     $("#mainContent").insertAfter("#sideBar");
     $("#sideBarMain").append(`<div style="height: 70px"></div>`);
-    $(".right-sidebar-wrap").append(`<div style="height: 70px"></div>`);
   });
 
   $(window).on("resize", function () {
