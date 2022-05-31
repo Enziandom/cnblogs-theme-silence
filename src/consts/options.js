@@ -5,11 +5,6 @@ const options = {
   github: null,
   defaultMode: "dark",
   defaultTheme: "a",
-  customNavbarItemList: [ {
-    title: "标签",
-    url: "https://www.cnblogs.com/shiramashiro/tag/"
-  } ],
-  showNavAdmin: true,
   hljsln: false,
   catalog: {
     index: true, enbale: true, levels: [ "h1", "h2", "h3" ]
@@ -42,10 +37,6 @@ const options = {
     {
       title: "Vue3",
       href: "https://v3.cn.vuejs.org/"
-    },
-    {
-      title: "Element-Plus",
-      href: "https://element-plus.gitee.io/zh-CN/"
     }
   ],
   niceBooks: [

@@ -1,4 +1,4 @@
-export function isPostPage() {
+export function justPostPage() {
   return $("#topics").length > 0;
 }
 

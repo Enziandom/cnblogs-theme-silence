@@ -1,7 +1,7 @@
 import "./index.less";
 import options from "../../../consts/options";
 
-export function buildMyLinks() {
+function buildMyLinks() {
   let template = ``;
   if ( !options.myLinks ) return template;
 
@@ -29,3 +29,5 @@ export function buildMyLinks() {
     </div>
   `;
 }
+
+export default buildMyLinks;

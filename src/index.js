@@ -1,7 +1,8 @@
 import "./index.less";
 import options from "./consts/options";
+
 import buildGithubCorner from "./modules/githubCorner";
-import buildCustomHeader from "./modules/customHeader";
+import "./modules/customHeader";
 import buildCustomRightSideBar from "./modules/customRightSideBar";
 import buildProfile from "./modules/profile";
 import buildPostCatalog from "./modules/postCatalog";
@@ -13,21 +14,27 @@ import buildHljsLineNumber from "./modules/hljsLineNumber";
 import buildToolbar from "./modules/toolbar";
 import buildRadarMap from "./modules/radarMap";
 import loader from "./modules/loader";
+
 import { initializer } from "./utils/initializer";
-import { isPostPage, justRootPage, showSidebar, removeTitleTocButton, addAttrForATag } from "./utils/page-helper";
+import { justPostPage, justRootPage, showSidebar, removeTitleTocButton, addAttrForATag } from "./utils/page-helper";
+import buildCustomHeader from "./modules/customHeader";
 
 initializer();
 
 class Silence {
   constructor() {
     $.extend(true, options, window.$silence);
+    this.init();
+  }
+
+  init() {
     showSidebar();
     buildCustomHeader();
     buildCustomRightSideBar();
     buildGithubCorner();
     buildProfile();
     buildToolbar();
-    if ( isPostPage() ) { // 文章页
+    if ( justPostPage() ) { // 文章页
       buildPostCatalog();
       buildPostSponsor();
       buildPostLightbox();
@@ -38,7 +45,7 @@ class Silence {
       addAttrForATag();
     } else { // 首页、标签页、文章页、分类页
       buildRadarMap();
-      if ( justRootPage() ) {// 首页，不包括标签页、文章页、分类页
+      if ( justRootPage() ) { // 首页
       }
     }
     loader.hide();

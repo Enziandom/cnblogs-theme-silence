@@ -138,22 +138,22 @@ function drawDataArea(radius, coords, x, y, config, ctx) {
   ctx.fill();
 
   drawDataAreaTop(axis, ctx);
-  drawMovablePanel(axis);
+  drawFloatingPanel(axis);
 }
 
 /**
  * 绘制可移动的面板，显示详细信息
  *
- * @param coords 所有多边形（层）的坐标轴
+ * @param axis 所有多边形（层）的坐标轴
  */
-function drawMovablePanel(coords) {
+function drawFloatingPanel(axis) {
   let cnp = $("#radar-floating");
   let timeout = null;
   $("#radar-map").on({
     mousemove: function (e) {
       if ( timeout != null ) clearTimeout(timeout);
       timeout = setTimeout(() => {
-        coords.forEach((v) => {
+        axis.forEach((v) => {
           if ( (v.x >= e.offsetX - 5 && v.x < e.offsetX + 5) && (v.y >= e.offsetY - 5 && v.y < e.offsetY + 5) ) {
             $(cnp).css({
               "display": "block", "left": `${ e.offsetX }px`, "top": `${ e.offsetY }px`
@@ -189,14 +189,6 @@ function drawDataAreaTop(axis, ctx) {
     ctx.fillStyle = "white";
     ctx.fill();
   }
-}
-
-function buildRadarMap() {
-  fillColor = themeColors[getTheme()].color;
-  strokeColor = themeColors[getTheme()].color2;
-
-  createRadarMapTemplate();
-  radarMapSwitcher();
 }
 
 function createRadarMapTemplate() {
@@ -237,6 +229,20 @@ function foldIconSwitcher(thisArg, display, rotate, scaleX) {
   });
 }
 
+function radarMapSwitcher() {
+  $(".personal-tech > .catListTitle > .cat-list-title-wrap > .icon-wrap")
+    .on("click", function () {
+      let isFold = strToBool($(this)[0].dataset.isFold);
+      if ( isFold ) {
+        foldIconSwitcher(this, "none", 0, 1);
+      } else {
+        foldIconSwitcher(this, "block", 180, -1);
+        initRadarMap();
+      }
+      $(this)[0].dataset.isFold = boolToStr(!isFold);
+    });
+}
+
 function initRadarMap() {
   let radarMapDom = $("#radar-map");
   let isLoaded = strToBool($(radarMapDom)[0].dataset.isLoaded);
@@ -255,18 +261,12 @@ function initRadarMap() {
   }
 }
 
-function radarMapSwitcher() {
-  $(".personal-tech > .catListTitle > .cat-list-title-wrap > .icon-wrap")
-    .on("click", function () {
-      let isFold = strToBool($(this)[0].dataset.isFold);
-      if ( isFold ) {
-        foldIconSwitcher(this, "none", 0, 1);
-      } else {
-        foldIconSwitcher(this, "block", 180, -1);
-        initRadarMap();
-      }
-      $(this)[0].dataset.isFold = boolToStr(!isFold);
-    });
+function buildRadarMap() {
+  fillColor = themeColors[getTheme()].color;
+  strokeColor = themeColors[getTheme()].color2;
+
+  createRadarMapTemplate();
+  radarMapSwitcher();
 }
 
 export default buildRadarMap;

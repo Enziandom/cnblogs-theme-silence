@@ -8,7 +8,7 @@
     left: var(--header-left);
     .FlexLayout.SpaceBetween();
 
-    & > div.shira-mobile-menu { /* 移动端隐藏菜单栏 */
+    & > div.mobile-navs-menu {
       display: none;
     }
 
@@ -29,83 +29,6 @@
           padding: 0 15px;
           font-size: 17px;
           line-height: 60px;
-
-          &:hover i {
-            width: 100%;
-            left: 0;
-          }
-
-          & > a.menu { /* 导航栏项的超链接 */
-            width: 100%;
-            height: inherit;
-            display: block;
-            font-size: 17px;
-            color: var(--text-color);
-
-            &::after {
-              content: "";
-              position: absolute;
-              bottom: 0;
-              left: 0;
-              width: 100%;
-              height: 4px;
-              background-color: var(--theme-color);
-              visibility: hidden; /* 默认时不可见 */
-              transform: scaleX(0);
-              transition: 0.4s ease-in-out;
-            }
-
-            &:hover {
-              color: var(--theme-color);
-
-              &::after {
-                visibility: visible; /* a 标签可见 */
-                transform: scaleX(1); /* 当鼠标悬停时动画播放 */
-              }
-            }
-          }
-        }
-
-        & > li.shira-has-subnavs { /* 导航栏的子项列表 */
-          cursor: pointer;
-
-          & > a.menu {
-            .FlexLayout.Center();
-
-            svg.arrow {
-              margin-left: 5px;
-            }
-          }
-
-          div.shira-subnavs { /* 子项列表的项 */
-            position: absolute;
-            display: none;
-            width: 130px;
-            top: 10px;
-            left: calc(50% - 65px);
-
-            & > div {
-              padding: 10px;
-              border-radius: var(--border-radius);
-              background-color: var(--card-bg-color);
-
-              & > div {
-                height: 40px;
-                .FlexLayout.Center();
-
-                & > a {
-                  .FlexLayout.Center();
-                  height: inherit;
-                }
-              }
-            }
-
-            svg.caret {
-              position: relative;
-              left: 59px;
-              top: 27.5px;
-            }
-          }
         }
       }
     }

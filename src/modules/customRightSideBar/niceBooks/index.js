@@ -1,7 +1,7 @@
 import "./index.less";
 import options from "../../../consts/options";
 
-export function buildNiceBooks() {
+function buildNiceBooks() {
   let template = ``;
 
   if ( !options.niceBooks ) return template;
@@ -33,3 +33,5 @@ export function buildNiceBooks() {
     </div>
   `;
 }
+
+export default buildNiceBooks;

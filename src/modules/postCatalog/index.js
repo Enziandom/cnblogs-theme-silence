@@ -1,47 +1,7 @@
 import "./index.less";
 import options from "../../consts/options";
 
-function shiftCatalog() {
-  // 当前滑动的窗口距离顶部距离比上次的少就是往上滑动，反之往下滑动
-  let lastWinScroTop = 0;
-
-  $(window).scroll(() => {
-    // 侧边栏除目录以外的 DOM
-    let sidebarItem0 = $("#leftcontentcontainer")[0];
-    // 目录 DOM
-    let sidebarItem1 = $("#esa-catalog-wrapper")[0];
-    // sidebarItem0 元素的高度，元素距离顶部 + 元素本身的高度
-    let item0Height = sidebarItem0.offsetHeight + sidebarItem0.offsetTop;
-    // 当前窗口距离顶部的距离
-    let nowWinScrollTop = document.documentElement.scrollTop || document.body.scrollTop;
-
-    if ( nowWinScrollTop > lastWinScroTop ) {
-      if ( sidebarItem1.offsetTop - nowWinScrollTop < 0 ) {
-        $(sidebarItem1).removeAttr("style").css({
-          "padding": "5px 20px 20px 20px",
-          "position": "fixed",
-          "top": "0",
-          "left": `${ $("#header")[0].offsetLeft }px`
-        });
-      }
-    } else {
-      if ( nowWinScrollTop < item0Height ) {
-        $(sidebarItem1).removeAttr("style").css({
-          "position": "initial"
-        });
-      }
-    }
-    lastWinScroTop = nowWinScrollTop;
-  });
-}
-
 function rebuildSideBar() {
-  $("#mainContent .forFlow").css({
-    "background-color": "var(--card-bg-color)",
-    "border-radius": "var(--border-radius)",
-    "padding": "20px"
-  });
-
   let elements = $("#sideBarMain").children();
   $(elements).each((index, element) => {
     if ( index < elements.length - 2 ) {
@@ -82,8 +42,7 @@ function buildPostCatalog() {
       let href = $(element).attr("id");
       let titleIndex = "";
 
-      if ( catalogConfig.index ) {
-        // 显示索引值
+      if ( catalogConfig.index ) {/* 显示索引值 */
         if ( tagName === level1 ) {
           h1c++;
           h2c = 0;
@@ -97,8 +56,7 @@ function buildPostCatalog() {
           h3c++;
           titleIndex = `<span class="level3">${ h1c }.${ h2c }.${ h3c }. </span>`;
         }
-      } else {
-        // 不显示索引值
+      } else {/* 不显示索引值 */
         switch ( tagName ) {
           case level1:
             titleContent = `<span class="level1">${ text }</span>`;
