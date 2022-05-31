@@ -7,8 +7,17 @@ function setProperties(windowWidth, windowHeight) {
     "--content-height": `${ windowHeight }px`
   });
 
-  let contentWidth = windowWidth * 0.77;
-  let sidebarWidth = contentWidth * 0.16 + 40;
+  let contentWidth;
+  let mainContentWidth;
+  let sidebarWidth;
+  if ( !(windowWidth <= 990) ) {
+    contentWidth = windowWidth * 0.77;
+    sidebarWidth = contentWidth * 0.16 + 40;
+    mainContentWidth = contentWidth - (sidebarWidth * 2 + 20);
+  } else {
+    contentWidth = windowWidth;
+    mainContentWidth = windowWidth;
+  }
 
   setCssByElementName(":root", {
     "--content-width": `${ contentWidth }px`,
@@ -17,7 +26,7 @@ function setProperties(windowWidth, windowHeight) {
   });
 
   setCssByElementId("mainContent", {
-    "width": `${ contentWidth - (sidebarWidth * 2 + 20) }px`
+    "width": `${ mainContentWidth }px`
   });
 }
 
