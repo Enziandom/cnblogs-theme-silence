@@ -4,21 +4,20 @@
   display: none;
   width: var(--sidebar-width);
   height: var(--window-height);
-  font-weight: inherit;
   background-color: var(--card-bg-color);
   border-radius: var(--border-radius);
   box-sizing: border-box;
 
   #sideBarMain {
-    box-sizing: border-box;
     position: fixed;
     top: 70px;
-    width: var(--sidebar-width);
-    height: var(--window-height);
     overflow-y: auto;
     z-index: 999;
-    background-color: inherit;
     padding: 15px;
+    width: inherit;
+    height: inherit;
+    box-sizing: inherit;
+    background-color: inherit;
     border-radius: inherit;
 
     &::-webkit-scrollbar {
@@ -29,7 +28,9 @@
   .newsItem { /* 圆龄、粉丝、关注 */
     margin-bottom: 10px;
 
-    .catListTitle {display: none;}
+    .catListTitle {
+      display: none;
+    }
 
     #profile_block {
       margin: 0;
@@ -123,7 +124,8 @@
     }
   }
 
-  #sidebar_search {
+  #sidebar_search { /* 搜索 */
+
     #widget_my_zzk {
       display: flex;
       justify-content: space-between;
@@ -170,7 +172,7 @@
     }
   }
 
-  #sidebar_toptags li {
+  #sidebar_toptags li { /* 标签 */
     font-size: 14px;
     height: 16px;
     line-height: 16px;

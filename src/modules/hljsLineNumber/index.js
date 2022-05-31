@@ -24,11 +24,11 @@ function buildHljsLineNumber() {
 }
 
 function addLineNumbersFor(html) {
-  var text = html.replace(/<span[^>]*>|<\/span>/g, "");
+  let text = html.replace(/<span[^>]*>|<\/span>/g, "");
   if ( /\r|\n$/.test(text) ) {
     html += "<span class=\"ln-eof\"></span>";
   }
-  var num = 1;
+  let num = 1;
   html = html.replace(/\r\n|\r|\n/g, function (a) {
     num++;
     return a + "<span class=\"ln-num\" data-num=\"" + num + "\"></span>";

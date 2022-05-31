@@ -15,24 +15,13 @@ import buildHljsLineNumber from "./modules/hljsLineNumber";
 import buildToolbar from "./modules/toolbar";
 import buildRadarMap from "./modules/radarMap";
 import loader from "./modules/loader";
-import { listenWindowResize, setRootProperties } from "./utils/initialize-variable";
+import { initializer } from "./utils/initializer";
 
-$(function () {
-  setRootProperties($(window).width(), $(window).height());
-  listenWindowResize();
-
-  $("#mainContent").insertAfter("#sideBar");
-  $("#sideBarMain").append(`<div style="height: 70px"></div>`)
-  $(".right-sidebar-wrap").append(`<div style="height: 70px"></div>`)
-});
+initializer();
 
 class Silence {
   constructor() {
     $.extend(true, options, window.$silence);
-    this.building();
-  }
-
-  building() {
     showSidebar();
     buildCustomSideBar();
     buildCustomHeader();
@@ -40,7 +29,7 @@ class Silence {
     buildGithubCorner();
     buildProfile();
     buildToolbar();
-    if ( isPostPage() ) { // 只是文章页
+    if ( isPostPage() ) { // 文章页
       buildPostCatalog();
       buildPostSponsor();
       buildPostLightbox();
@@ -49,9 +38,9 @@ class Silence {
       buildPostCommentAvatars();
       removeTitleTocButton();
       addAttrForATag();
-    } else { // 包括首页、标签页、文章页、分类页
+    } else { // 首页、标签页、文章页、分类页
       buildRadarMap();
-      if ( justRootPage() ) {// 只是首页，不包括标签页、文章页、分类页
+      if ( justRootPage() ) {// 首页，不包括标签页、文章页、分类页
       }
     }
     loader.hide();
