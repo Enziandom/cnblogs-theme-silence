@@ -192,7 +192,7 @@ function drawDataAreaTop(axis, ctx) {
 }
 
 function createRadarMapTemplate() {
-  $("#right-sidebar > .right-sidebar-wrap > .sidebar-content").prepend(`
+  $("#right-sidebar > .sidebar-wrap > .sidebar-content").prepend(`
     <!-- 技能雷达图 -->
     <div class="personal-tech">
       <h3 class="catListTitle">

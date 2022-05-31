@@ -107,8 +107,17 @@
     }
   }
 
+  #blog-sidecolumn {
+    & > :first-child {
+      & .catListTitle {
+        margin: 0 0 20px 0 !important;
+      }
+    }
+  }
+
   #blog-calendar { /* 日历 */
     border-top: 1px dotted var(--border-color);
+    margin-bottom: 20px;
 
     td {
       padding: 2%;
