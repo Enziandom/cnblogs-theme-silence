@@ -59,8 +59,8 @@ module.exports = {
   resolve: {
     alias: {
       "@": path.resolve("src"),
-      "@modules": path.resolve("src/fragment"),
       "@consts": path.resolve("src/consts"),
+      "@modules": path.resolve("src/modules"),
       "@templates": path.resolve("src/templates")
     }
   }

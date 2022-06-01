@@ -1,6 +1,67 @@
 @import "mixins.less";
 /* 博客园所有元素公用样式 */
 
+* {
+  margin: 0;
+  padding: 0;
+  -webkit-overflow-scrolling: touch; /* 避免ios滑动滚动条卡顿 */
+}
+
+html {
+  height: 100%;
+}
+
+body {
+  height: 100%;
+  color: var(--text-color);
+  background: var(--blog-bg-color);
+  font-family: "Lato", "PingFang SC", "Microsoft YaHei", sans-serif;
+  font-size: 14px;
+  font-weight: 300;
+}
+
+table {
+  border-collapse: collapse;
+  border-spacing: 0;
+}
+
+td {
+  padding: 5px;
+}
+
+fieldset,
+img {
+  border: 0;
+}
+
+ul {
+  word-break: break-all;
+}
+
+li {
+  list-style: none;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  font-size: 100%;
+  font-weight: normal;
+}
+
+a {
+  text-decoration: none;
+  color: var(--text-color);
+  transition: all 0.3s ease;
+
+  &:hover {
+    color: var(--theme-color);
+  }
+}
+
+::selection { /* ::selection 是用于用户选中文档时的样式 */
+  color: #FFF;
+  background: var(--theme-color);
+}
+
 .catListTitle {
   display: block;
   text-align: left;

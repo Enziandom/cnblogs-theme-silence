@@ -1,4 +1,4 @@
-import { setCssByElementName, setCssByElementId } from "./style-injector";
+import { setCssByElementName, setCssByElementId } from "./css-helper";
 
 function setProperties(windowWidth, windowHeight) {
   setCssByElementName(":root", {
@@ -34,7 +34,7 @@ export function initializer() {
   $(window).ready(function () {
     setProperties($(window).width(), $(window).height());
     $("#mainContent").insertAfter("#sideBar");
-    $("#sideBarMain").append(`<div style="height: 70px"></div>`);
+    $("#sideBarMain").append(`<div style="height: 55px"></div>`);
   });
 
   $(window).on("resize", function () {

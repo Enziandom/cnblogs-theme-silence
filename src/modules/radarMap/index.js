@@ -1,7 +1,7 @@
 import "./index.less";
 import options from "../../consts/options";
 import { themeColors, getTheme } from "../../consts/tools";
-import { boolToStr, strToBool } from "../../utils/type-transfer";
+import { boolToStr, strToBool } from "../../utils/type-helper";
 
 let fillColor = "", strokeColor = "";
 
