@@ -24,7 +24,7 @@ export function justRootPage() {
 
 // 删除文章页文章标题的目录按钮
 export function removeTitleTocButton() {
-  $(".topics .postTitle .cnblogs-toc-button").remove();
+  $("#topics .postTitle .cnblogs-toc-button").remove();
 }
 
 export function addAttrForATag() {
