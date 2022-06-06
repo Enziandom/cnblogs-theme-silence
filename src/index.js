@@ -17,11 +17,11 @@ import loader from "./modules/loader";
 
 import { initializer } from "./utils/initializer";
 import {
-  justPostPage,
-  justRootPage,
-  removeTitleTocButton,
-  addAttrForATag,
-  pageForFlow
+  isPostPage,
+  isRootPage,
+  delPostBodyTitleTocButton,
+  setPostBodyExternalLink,
+  setPostBodyForFlowCss
 } from "./utils/page-helper";
 
 initializer();
@@ -38,19 +38,19 @@ class Silence {
     buildGithubCorner();
     buildProfile();
     buildToolbar();
-    if ( justPostPage() ) { // 文章页
+    if ( isPostPage() ) { // 文章页
       buildPostCatalog();
       buildPostSponsor();
       buildPostLightbox();
       buildPostSignature();
       buildHljsLineNumber();
       buildPostCommentAvatars();
-      removeTitleTocButton();
-      addAttrForATag();
-      pageForFlow();
+      delPostBodyTitleTocButton();
+      setPostBodyExternalLink();
+      setPostBodyForFlowCss();
     } else { // 首页、标签页、文章页、分类页
       buildRadarMap();
-      if ( justRootPage() ) { // 首页
+      if ( isRootPage() ) { // 首页
       }
     }
     loader.hide();
