@@ -6,7 +6,6 @@ import buildCustomHeader from "./modules/customHeader";
 import buildCustomRightSideBar from "./modules/customRightSideBar";
 import buildProfile from "./modules/profile";
 import buildPostCatalog from "./modules/postCatalog";
-import buildPostLightbox from "./modules/postLightbox";
 import buildPostSignature from "./modules/postSignature";
 import buildPostSponsor from "./modules/postSponsor";
 import buildPostCommentAvatars from "./modules/postCommentAvatars";
@@ -42,7 +41,6 @@ class Silence {
     if ( isPostPage() ) { // 文章页
       buildPostCatalog();
       buildPostSponsor();
-      buildPostLightbox();
       buildPostSignature();
       buildHljsLineNumber();
       buildPostCommentAvatars();
