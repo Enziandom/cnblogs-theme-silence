@@ -13,6 +13,7 @@ import buildPostCommentAvatars from "./modules/postCommentAvatars";
 import buildHljsLineNumber from "./modules/hljsLineNumber";
 import buildToolbar from "./modules/toolbar";
 import buildRadarMap from "./modules/radarMap";
+import buildTextImage from "./modules/textImage";
 import loader from "./modules/loader";
 
 import { initializer } from "./utils/initializer";
@@ -45,6 +46,7 @@ class Silence {
       buildPostSignature();
       buildHljsLineNumber();
       buildPostCommentAvatars();
+      buildTextImage();
       delPostBodyTitleTocButton();
       setPostBodyExternalLink();
       setPostBodyForFlowCss();

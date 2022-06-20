@@ -6,7 +6,7 @@ const options = {
   navs: [ { title: "标签", url: "https://www.cnblogs.com/shiramashiro/tag" } ],
   defaultMode: "dark",
   defaultTheme: "a",
-  hljsln: false,
+  hljsln: true,
   catalog: {
     index: true, enbale: true, levels: [ "h1", "h2", "h3" ]
   },
@@ -33,7 +33,7 @@ const options = {
       { title: "css", star: 4 }, { title: "vue", star: 4 }, { title: "JQ", star: 4 }
     ]
   },
-  statusKey: "growing",
+  statusKey: "busyness",
   myLinks: [
     {
       title: "Vue3",

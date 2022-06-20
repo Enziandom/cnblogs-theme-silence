@@ -591,15 +591,6 @@
       </div><!--end: mainContent 主体内容容器-->
       <div id="sideBar">
         <div id="sideBarMain">
-          <div class="profile-avatar-wrap">
-            <img class="esa-profile-avatar"
-                 src="https://img1.baidu.com/it/u=1927500645,1701823372&fm=253&fmt=auto&app=138&f=JPEG?w=500&h=500"
-                 alt="profile-avatar">
-            <div class="bloger-status">
-              <div class="bloger-status-icon" style="background-color: rgba(240,230,140, 0.95)"></div>
-              <div class="bloger-status-desc">升级中</div>
-            </div>
-          </div>
           <div id="sidebar_news" class="newsItem"><!--done-->
             <h3 class="catListTitle">公告</h3>
 
@@ -1080,73 +1071,54 @@
 
   <script type="text/javascript">
     window.$silence = {
-      avatar: "https://images.cnblogs.com/cnblogs_com/blogs/666252/galleries/1934022/o_210616040311shinamashiro.jpg",
-      github: "https://github.com/shiramashiro",
-      favicon: "https://images.cnblogs.com/cnblogs_com/blogs/666252/galleries/1934022/o_210616040608shiramashiro-round.png",
-      catalog: {
-        index: true,
-        enable: true,
-        levels: [ "h1", "h2", "h3" ]
-      },
+      version: "3.0.0",
+      avatar: null,
+      favicon: null,
+      github: null,
+      navs: [ { title: "标签", url: "https://www.cnblogs.com/shiramashiro/tag" } ],
       defaultMode: "dark",
-      navbars: [ {
-        title: "标签",
-        url: "https://www.cnblogs.com/shiramashiro/tag/"
-      } ],
+      defaultTheme: "a",
       hljsln: true,
+      catalog: {
+        index: true, enbale: true, levels: [ "h1", "h2", "h3" ]
+      },
+      signature: {
+        enable: true,
+        author: null,
+        license: [ "署名-非商业性使用-相同方式共享 4.0 国际", "https://creativecommons.org/licenses/by-nc-sa/4.0/" ],
+        remark: null
+      },
+      sponsor: {
+        enable: false, text: "Buy me a cup of coffee ☕.", paypal: null, wechat: null, alipay: null
+      },
       radarMap: {
-        alpha: 0.88,
-        sides: 10,
-        layer: 5,
-        step: 14,
-        lineWidth: 1,
-        lineColor: "white",
-        textColor: "white",
-        textSize: 12,
-        data: [
-          {
-            title: "html",
-            star: 5
-          },
-          {
-            title: "css",
-            star: 4
-          },
-          {
-            title: "js",
-            star: 4
-          },
-          {
-            title: "ts",
-            star: 1
-          },
-          {
-            title: "vue",
-            star: 3
-          },
-          {
-            title: "react",
-            star: 1
-          },
-          {
-            title: "angular",
-            star: 0
-          },
-          {
-            title: "nodejs",
-            star: 1
-          },
-          {
-            title: "小程序",
-            star: 4
-          },
-          {
-            title: "flutter",
-            star: 3
-          }
+        alpha: 0.85, // 数据区域透明度
+        sides: 6, // 多边形面数
+        layer: 5, // 雷达层数
+        step: 15, // 每一层多边形距离多少
+        lineWidth: 1, // 雷达图线宽
+        textSize: 14, // 文本大小
+        lineColor: "#A7A7A7", // 雷达图线颜色
+        textColor: "#A7A7A7", // 文本颜色
+        data: [ // 数据
+          { title: "js", star: 4 }, { title: "ts", star: 2 }, { title: "html", star: 4 },
+          { title: "css", star: 4 }, { title: "vue", star: 4 }, { title: "JQ", star: 4 }
         ]
       },
-      statusKey: "growing"
+      statusKey: "busyness",
+      myLinks: [
+        {
+          title: "Vue3",
+          href: "https://v3.cn.vuejs.org/"
+        }
+      ],
+      niceBooks: [
+        {
+          title: "《JavaScript权威指南》",
+          cover: "https://img0.baidu.com/it/u=3565672953,1063732653&fm=253&fmt=auto&app=138&f=JPEG?w=381&h=499",
+          author: "(美)弗拉纳根"
+        }
+      ]
     };
   </script>
   <iframe id="redeviation-bs-sidebar" class="notranslate" aria-hidden="true" data-theme="default"
