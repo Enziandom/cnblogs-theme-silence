@@ -1,12 +1,10 @@
 import "./index.less";
 
 function buildTextImage() {
-  $("#cnblogs_post_body a").each(function (index, el) {
-    if ( $(el).find("img").length ) {
-      let imgDesc = $(el).children("img").attr("desc");
-      if ( imgDesc ) {
-        $(el).append(`<p class="text-img-desc">${ imgDesc }</p>`);
-      }
+  $("#cnblogs_post_body img").each(function (index, el) {
+    let imgDesc = $(el).attr("desc");
+    if ( imgDesc ) {
+      $(el).after(`<p class="text-img-desc">${ imgDesc }</p>`);
     }
   });
 }
