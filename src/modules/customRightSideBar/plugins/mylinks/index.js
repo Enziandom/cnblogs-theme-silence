@@ -14,7 +14,9 @@ function createPluginAsMyLinks(data) {
       `;
   }
   blueprint += `</ul>`;
-  return blueprint;
+  return `
+    <div id="my-links">${ blueprint }</div>
+  `;
 }
 
 export default createPluginAsMyLinks;
