@@ -20,6 +20,7 @@ const options = {
     enable: false, text: "Buy me a cup of coffee ☕.", paypal: null, wechat: null, alipay: null
   },
   radarMap: {
+    iscollapse: false,
     alpha: 0.85, // 数据区域透明度
     sides: 6, // 多边形面数
     layer: 5, // 雷达层数
@@ -44,7 +45,7 @@ const options = {
     ]
   },
   niceBooks: {
-    iscollapse: true,
+    iscollapse: false,
     data: [
       {
         title: "《JavaScript权威指南》",

@@ -14,7 +14,7 @@ function createWidgetAsDropdown(mount, title, content, iscollapse) {
       <div class="widget-body" style="display: ${ iscollapse ? "none" : "block" }">${ content }</div>
     </div>
   `);
-  $(mount).append($blueprint);
+  mount($blueprint);
   changeIcon($blueprint, iscollapse);
 }
 

@@ -1,82 +1,32 @@
 @import "../../less/mixins.less";
 
-@keyframes fresh-icon-animation {
-  0% {transform: rotate(0deg);}
-  25% {transform: rotate(90deg);}
-  50% {transform: rotate(180deg);}
-  75% {transform: rotate(270deg);}
-  100% {transform: rotate(360deg);}
-}
-
-.personal-tech {
+.radar-wrap {
+  position: relative;
   width: inherit;
+  height: 210px;
+  box-sizing: border-box;
+  display: flex;
+  justify-content: center;
 
-  .catListTitle {
-    .cat-list-title-wrap {
-      .FlexLayout.SpaceBetween();
-
-      .icon-wrap {
-        cursor: pointer;
-
-        .FlexLayout.Normal();
-      }
-    }
+  #radar-map {
+    position: absolute;
+    cursor: pointer;
   }
 
-  .tech-radar {
-    position: relative;
+  #radar-floating {
+    position: absolute;
     display: none;
-
-    .radar-wrap-loading {
-      z-index: 999;
-      position: absolute;
-      width: 210px;
-      height: 210px;
-      top: 0;
-      left: 0;
-      box-sizing: border-box;
-
-      .loading-wrap {
-        height: inherit;
-        width: 100%;
-        .FlexLayout.Center();
-
-        .fresh-icon {
-          margin-right: 15px;
-          animation: fresh-icon-animation 1.8s linear infinite;
-        }
-      }
-    }
-  }
-
-  .radar-wrap {
-    position: relative;
-    width: inherit;
-    height: 210px;
-    box-sizing: border-box;
-    display: flex;
-    justify-content: center;
-
-    #radar-map {
-      position: absolute;
-      cursor: pointer;
-    }
-
-    #radar-floating {
-      position: absolute;
-      display: none;
-      border-style: solid;
-      white-space: nowrap;
-      z-index: 999;
-      transition: left 0.4s cubic-bezier(0.23, 1, 0.32, 1) 0s, top 0.4s cubic-bezier(0.23, 1, 0.32, 1) 0s;
-      background-color: rgba(50, 50, 50, 0.85);;
-      border-width: 0;
-      border-color: rgb(51, 51, 51);
-      border-radius: 10px;
-      color: var(--text-color);
-      font: 14px / 21px "Microsoft YaHei";
-      padding: 10px;
-      pointer-events: none;
-    }
+    border-style: solid;
+    white-space: nowrap;
+    z-index: 999;
+    transition: left 0.4s cubic-bezier(0.23, 1, 0.32, 1) 0s, top 0.4s cubic-bezier(0.23, 1, 0.32, 1) 0s;
+    background-color: rgba(50, 50, 50, 0.85);;
+    border-width: 0;
+    border-color: rgb(51, 51, 51);
+    border-radius: 10px;
+    color: var(--text-color);
+    font: 14px / 21px "Microsoft YaHei";
+    padding: 10px;
+    pointer-events: none;
   }
 }

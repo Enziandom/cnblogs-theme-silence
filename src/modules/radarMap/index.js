@@ -2,6 +2,7 @@ import "./index.less";
 import options from "../../consts/options";
 import { themeColors, getTheme } from "../../consts/tools";
 import { boolToStr, strToBool } from "../../utils/type-helper";
+import createWidgetAsDropdown from "../../widgets/dropdown";
 
 let fillColor = "", strokeColor = "";
 
@@ -191,82 +192,21 @@ function drawDataAreaTop(axis, ctx) {
   }
 }
 
-function createRadarMapTemplate() {
-  $("#right-sidebar > .sidebar-wrap > .sidebar-content").prepend(`
-    <!-- 技能雷达图 -->
-    <div class="personal-tech">
-      <h3 class="catListTitle">
-        <div class="cat-list-title-wrap">
-          <div class="title">技能雷达</div>
-          <div class="icon-wrap" data-is-fold="false">
-            ${ icons[0].icon }
-          </div>
-        </div>
-      </h3>
-      <div class="tech-radar">
-        <div class="radar-wrap-loading">
-          <div class="loading-wrap">
-            ${ icons[1].icon }
-            <div>loading...</div>
-          </div>
-        </div>
-        <div class="radar-wrap">
-          <canvas data-is-loaded="false" id="radar-map" width="200" height="200"></canvas>
-          <div id="radar-floating"></div>
-        </div>
-      </div>
-    </div>
-  `);
-}
-
-function foldIconSwitcher(thisArg, display, rotate, scaleX) {
-  $(".personal-tech > .tech-radar").css({
-    "display": `${ display }`
-  });
-  $(thisArg).find("svg").css({
-    "transform": `rotate(${ rotate }deg) scaleX(${ scaleX })`,
-    "transition-duration": "0.3s"
-  });
-}
-
-function radarMapSwitcher() {
-  $(".personal-tech > .catListTitle > .cat-list-title-wrap > .icon-wrap")
-    .on("click", function () {
-      let isFold = strToBool($(this)[0].dataset.isFold);
-      if ( isFold ) {
-        foldIconSwitcher(this, "none", 0, 1);
-      } else {
-        foldIconSwitcher(this, "block", 180, -1);
-        initRadarMap();
-      }
-      $(this)[0].dataset.isFold = boolToStr(!isFold);
-    });
-}
-
-function initRadarMap() {
-  let radarMapDom = $("#radar-map");
-  let isLoaded = strToBool($(radarMapDom)[0].dataset.isLoaded);
-
-  if ( !isLoaded ) {
-    new Promise(function (resolve, reject) {
-      let ctx = document.getElementById("radar-map").getContext("2d");
-      setTimeout(() => {
-        drawRadarMap(options.radarMap, 100, 100, ctx);
-        resolve();
-      }, Math.random() * 2 * 1000);
-    }).then(() => {
-      $(".tech-radar > .radar-wrap-loading").css({ "display": "none" });
-    });
-    $(radarMapDom)[0].dataset.isLoaded = boolToStr(!isLoaded);
-  }
-}
-
 function buildRadarMap() {
+  let $blueprint = $(`
+      <div class="radar-wrap">
+        <canvas id="radar-map" width="200" height="200"></canvas>
+        <div id="radar-floating"></div>
+      </div>
+  `);
+
+  createWidgetAsDropdown((e) => $("#right-sidebar > .sidebar-wrap > .sidebar-content").prepend(e), "技能雷达", $blueprint, options.radarMap.iscollapse);
+
   fillColor = themeColors[getTheme()].color;
   strokeColor = themeColors[getTheme()].color2;
 
-  createRadarMapTemplate();
-  radarMapSwitcher();
+  let ctx = document.getElementById("radar-map").getContext("2d");
+  drawRadarMap(options.radarMap, 100, 100, ctx);
 }
 
 export default buildRadarMap;

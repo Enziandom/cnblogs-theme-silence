@@ -18,10 +18,8 @@ function buildCustomRightSideBar() {
 
   let $sidebar = $(blueprint).find(".sidebar-content");
 
-  console.log(options);
-
-  createWidgetAsDropdown($sidebar, "常用链接", createPluginAsMyLinks(options.myLinks.data), options.myLinks.iscollapse);
-  createWidgetAsDropdown($sidebar, "推荐书籍", createPluginAsNiceBooks(options.niceBooks.data), options.niceBooks.iscollapse);
+  createWidgetAsDropdown((e) => $sidebar.append(e), "常用链接", createPluginAsMyLinks(options.myLinks.data), options.myLinks.iscollapse);
+  createWidgetAsDropdown((e) => $sidebar.append(e), "推荐书籍", createPluginAsNiceBooks(options.niceBooks.data), options.niceBooks.iscollapse);
 }
 
 export default buildCustomRightSideBar;
