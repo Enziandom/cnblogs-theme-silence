@@ -5,7 +5,7 @@ import createWidgetAsDropdown from "../../widgets/dropdown";
 import options from "../../consts/options";
 
 function buildCustomRightSideBar() {
-  let blueprint = $(`
+  let $blueprint = $(`
     <div id="right-sidebar">
       <div class="sidebar-wrap">
         <div class="sidebar-content"></div>
@@ -14,9 +14,9 @@ function buildCustomRightSideBar() {
     </div>
   `);
 
-  $("#main").append(blueprint);
+  $("#main").append($blueprint);
 
-  let $sidebar = $(blueprint).find(".sidebar-content");
+  let $sidebar = $($blueprint).find(".sidebar-content");
 
   createWidgetAsDropdown((e) => $sidebar.append(e), "常用链接", createPluginAsMyLinks(options.myLinks.data), options.myLinks.iscollapse);
   createWidgetAsDropdown((e) => $sidebar.append(e), "推荐书籍", createPluginAsNiceBooks(options.niceBooks.data), options.niceBooks.iscollapse);

@@ -1,7 +1,6 @@
 import "./index.less";
 import options from "../../consts/options";
 import { themeColors, getTheme } from "../../consts/tools";
-import { boolToStr, strToBool } from "../../utils/type-helper";
 import createWidgetAsDropdown from "../../widgets/dropdown";
 
 let fillColor = "", strokeColor = "";
@@ -200,13 +199,19 @@ function buildRadarMap() {
       </div>
   `);
 
-  createWidgetAsDropdown((e) => $("#right-sidebar > .sidebar-wrap > .sidebar-content").prepend(e), "技能雷达", $blueprint, options.radarMap.iscollapse);
-
   fillColor = themeColors[getTheme()].color;
   strokeColor = themeColors[getTheme()].color2;
 
-  let ctx = document.getElementById("radar-map").getContext("2d");
-  drawRadarMap(options.radarMap, 100, 100, ctx);
+  createWidgetAsDropdown(
+    (e) => {
+      $("#right-sidebar .sidebar-content").prepend(e);
+      let ctx = document.getElementById("radar-map").getContext("2d");
+      drawRadarMap(options.radarMap, 100, 100, ctx);
+    },
+    "技能雷达",
+    $blueprint,
+    options.radarMap.iscollapse
+  );
 }
 
 export default buildRadarMap;
