@@ -18,16 +18,7 @@ function buildMyLinks() {
   }
   template += `</ul>`;
 
-  return `
-    <div id="my-links">
-      <h3 class="catListTitle">
-        <div class="cat-list-title-wrap">
-          <div class="title">常用链接</div>
-        </div>
-      </h3>
-      ${ template }
-    </div>
-  `;
+  return template;
 }
 
 export default buildMyLinks;

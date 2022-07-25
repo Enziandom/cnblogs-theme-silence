@@ -24,11 +24,6 @@ function buildNiceBooks() {
 
   return `
     <div id="nice-books">
-      <h3 class="catListTitle">
-        <div class="cat-list-title-wrap">
-          <div class="title">推荐书籍</div>
-        </div>
-      </h3>
       ${ template }
     </div>
   `;
