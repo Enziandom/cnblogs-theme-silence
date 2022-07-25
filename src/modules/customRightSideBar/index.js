@@ -17,8 +17,8 @@ function buildCustomRightSideBar() {
 
   let $sidebar = $(blueprint).find(".sidebar-content");
 
-  createWidgetAsDropdown($sidebar, "常用链接", buildMyLinks());
-  createWidgetAsDropdown($sidebar, "推荐书籍", buildNiceBooks());
+  createWidgetAsDropdown($sidebar, "常用链接", buildMyLinks(), false);
+  createWidgetAsDropdown($sidebar, "推荐书籍", buildNiceBooks(), true);
 }
 
 export default buildCustomRightSideBar;
