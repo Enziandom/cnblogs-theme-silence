@@ -34,19 +34,25 @@ const options = {
     ]
   },
   statusKey: "busyness",
-  myLinks: [
-    {
-      title: "Vue3",
-      href: "https://v3.cn.vuejs.org/"
-    }
-  ],
-  niceBooks: [
-    {
-      title: "《JavaScript权威指南》",
-      cover: "https://img0.baidu.com/it/u=3565672953,1063732653&fm=253&fmt=auto&app=138&f=JPEG?w=381&h=499",
-      author: "(美)弗拉纳根"
-    }
-  ]
+  myLinks: {
+    iscollapse: false,
+    data: [
+      {
+        title: "Vue3",
+        href: "https://v3.cn.vuejs.org/"
+      }
+    ]
+  },
+  niceBooks: {
+    iscollapse: true,
+    data: [
+      {
+        title: "《JavaScript权威指南》",
+        cover: "https://img0.baidu.com/it/u=3565672953,1063732653&fm=253&fmt=auto&app=138&f=JPEG?w=381&h=499",
+        author: "(美)弗拉纳根"
+      }
+    ]
+  }
 };
 
 export default options;

@@ -1,7 +1,8 @@
 import "./less/index.less";
-import buildMyLinks from "./modules/mylinks";
-import buildNiceBooks from "./modules/niceBooks";
+import createPluginAsMyLinks from "./plugins/mylinks";
+import createPluginAsNiceBooks from "./plugins/niceBooks";
 import createWidgetAsDropdown from "../../widgets/dropdown";
+import options from "../../consts/options";
 
 function buildCustomRightSideBar() {
   let blueprint = $(`
@@ -17,8 +18,10 @@ function buildCustomRightSideBar() {
 
   let $sidebar = $(blueprint).find(".sidebar-content");
 
-  createWidgetAsDropdown($sidebar, "常用链接", buildMyLinks(), false);
-  createWidgetAsDropdown($sidebar, "推荐书籍", buildNiceBooks(), true);
+  console.log(options);
+
+  createWidgetAsDropdown($sidebar, "常用链接", createPluginAsMyLinks(options.myLinks.data), options.myLinks.iscollapse);
+  createWidgetAsDropdown($sidebar, "推荐书籍", createPluginAsNiceBooks(options.niceBooks.data), options.niceBooks.iscollapse);
 }
 
 export default buildCustomRightSideBar;
