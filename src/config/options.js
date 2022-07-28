@@ -36,7 +36,7 @@ const options = {
   },
   statusKey: "busyness",
   myLinks: {
-    iscollapse: false,
+    iscollapse: true,
     data: [
       {
         title: "Vue3",
@@ -45,7 +45,7 @@ const options = {
     ]
   },
   niceBooks: {
-    iscollapse: false,
+    iscollapse: true,
     data: [
       {
         title: "《JavaScript权威指南》",
