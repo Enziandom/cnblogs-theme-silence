@@ -32,17 +32,17 @@ module.exports = {
         test: /\.css$/,
         use: [
           MiniCssExtractPlugin.loader,
-          "css-loader",
-          "postcss-loader"
+          "css-Loader",
+          "postcss-Loader"
         ]
       },
       {
         test: /\.less$/,
         use: [
           MiniCssExtractPlugin.loader,
-          "css-loader",
-          "postcss-loader",
-          "less-loader"
+          "css-Loader",
+          "postcss-Loader",
+          "less-Loader"
         ]
       }
     ]
@@ -50,7 +50,7 @@ module.exports = {
   resolve: {
     alias: {
       "@": path.resolve("src"),
-      "@consts": path.resolve("src/consts"),
+      "@consts": path.resolve("src/config"),
       "@modules": path.resolve("src/plugins"),
       "@templates": path.resolve("src/templates")
     }
