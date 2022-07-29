@@ -8,11 +8,11 @@
     left: var(--header-left);
     .FlexLayout.SpaceBetween();
 
-    & > div.mobile-navs-menu {
+    .mobile-navs-menu {
       display: none;
     }
 
-    & > div#blogTitle {
+    #blogTitle {
       margin-left: 20px;
     }
 
@@ -23,7 +23,7 @@
       #navList { /* 导航栏列表 */
         .FlexLayout.Normal();
 
-        & > li { /* 导航栏项 */
+        li { /* 导航栏项 */
           .FlexLayout.Normal();
           position: relative;
           padding: 0 15px;
