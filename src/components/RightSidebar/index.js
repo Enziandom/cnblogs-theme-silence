@@ -1,7 +1,7 @@
 import "./less/index.less";
 import options from "../../config/options";
-import createPluginAsMyLinks from "./plugins/mylinks";
-import createPluginAsNiceBooks from "./plugins/niceBooks";
+import createPluginAsMyLinks from "./plugins/MyLinks";
+import createPluginAsNiceBooks from "./plugins/NiceBooks";
 import createWidgetAsDropdown from "../../widgets/Dropdown";
 
 function createComponentAsRightSidebar() {
