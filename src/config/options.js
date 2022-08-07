@@ -53,6 +53,10 @@ const options = {
         author: "(美)弗拉纳根"
       }
     ]
+  },
+  weather: {
+    isOpen: true,
+    city: "北京"
   }
 };
 

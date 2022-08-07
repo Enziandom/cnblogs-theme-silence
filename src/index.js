@@ -17,6 +17,7 @@ import { initializer } from "./utils/initializer";
 import {
   isPostPage, isRootPage, delPostBodyTitleTocButton, setPostBodyExternalLink, setPostBodyForFlowCss
 } from "./utils/page-helper";
+import createWeather from "./components/Weather";
 
 initializer();
 
@@ -28,6 +29,7 @@ class Silence {
 
   init() {
     createHeader();
+    if ( options.weather.isOpen ) createWeather();
     createRightSidebar();
     createGithubCorner();
     createProfile();
