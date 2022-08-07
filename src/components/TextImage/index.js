@@ -1,6 +1,6 @@
 import "./index.less";
 
-function createComponentAsTextImage() {
+function createTextImage() {
   $("#cnblogs_post_body img").each(function (index, el) {
     let imgDesc = $(el).attr("desc");
     if ( imgDesc ) {
@@ -9,4 +9,4 @@ function createComponentAsTextImage() {
   });
 }
 
-export default createComponentAsTextImage;
+export default createTextImage;

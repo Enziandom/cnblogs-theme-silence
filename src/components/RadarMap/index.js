@@ -1,7 +1,7 @@
 import "./index.less";
 import options from "../../config/options";
 import {themeColors, getTheme} from "../../utils/theme-helper";
-import createWidgetAsDropdown from "../../widgets/Dropdown";
+import createDropdown from "../../widgets/Dropdown";
 
 let fillColor = "", strokeColor = "";
 
@@ -170,7 +170,7 @@ function drawDataAreaTop(axis, ctx) {
     }
 }
 
-function createComponentAsRadarMap() {
+function createRadarMap() {
     let $blueprint = $(`
       <div class="radar-wrap">
         <canvas id="radar-map" width="200" height="200"></canvas>
@@ -181,11 +181,11 @@ function createComponentAsRadarMap() {
     fillColor = themeColors[getTheme()].color;
     strokeColor = themeColors[getTheme()].color2;
 
-    createWidgetAsDropdown((e) => {
+    createDropdown((e) => {
         $("#right-sidebar .sidebar-content").prepend(e);
         let ctx = document.getElementById("radar-map").getContext("2d");
         drawRadarMap(options.radarMap, 100, 100, ctx);
     }, "技能雷达", $blueprint, options.radarMap.iscollapse);
 }
 
-export default createComponentAsRadarMap;
+export default createRadarMap;

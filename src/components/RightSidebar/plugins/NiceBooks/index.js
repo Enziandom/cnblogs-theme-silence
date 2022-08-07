@@ -1,6 +1,6 @@
 import "./index.less";
 
-function createPluginAsNiceBooks(data) {
+function createNiceBooks(data) {
   let blueprint = ``;
   if ( !data ) return blueprint;
   blueprint = `<ul class="books-wrap">`;
@@ -24,4 +24,4 @@ function createPluginAsNiceBooks(data) {
   `;
 }
 
-export default createPluginAsNiceBooks;
+export default createNiceBooks;

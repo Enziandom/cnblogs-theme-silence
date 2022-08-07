@@ -1,6 +1,6 @@
 import "./index.less";
 
-function createComponentAsPostCommentAvatars() {
+function createPostCommentAvatars() {
   const postCommentBody = ".feedbackItem > .feedbackCon > .blog_comment_body";
   const builder = () => {
     $(postCommentBody).before(`<div class='esa-comment-avatar'><a target='_blank'><img /></a></div>`);
@@ -43,4 +43,4 @@ function createComponentAsPostCommentAvatars() {
   }
 }
 
-export default createComponentAsPostCommentAvatars;
+export default createPostCommentAvatars;

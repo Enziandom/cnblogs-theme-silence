@@ -1,7 +1,7 @@
 import "./index.less";
 import options from "../../config/options";
 
-function createComponentAsHljsLineNumber() {
+function createHljsLineNumber() {
   let $codes = $(".postBody .cnblogs-markdown").find("pre code");
   if ( !$codes.length ) {
     return false;
@@ -38,4 +38,4 @@ function addLineNumbersFor(html) {
   return html;
 }
 
-export default createComponentAsHljsLineNumber;
+export default createHljsLineNumber;

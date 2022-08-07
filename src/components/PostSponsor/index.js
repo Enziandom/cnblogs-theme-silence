@@ -1,7 +1,7 @@
 import "./index.less";
 import options from "../../config/options";
 
-function createComponentAsPostSponsor() {
+function createPostSponsor() {
   const config = options.sponsor;
 
   if ( !config.enable ) {
@@ -46,4 +46,4 @@ function createComponentAsPostSponsor() {
   });
 }
 
-export default createComponentAsPostSponsor;
+export default createPostSponsor;

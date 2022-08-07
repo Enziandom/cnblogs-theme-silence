@@ -1,17 +1,17 @@
 import "./less/index.less";
 import options from "./config/options";
-import createComponentAsGithubCorner from "./components/GithubCorner";
-import createComponentAsHeader from "./components/Header";
-import createComponentAsRightSidebar from "./components/RightSidebar";
-import createComponentAsProfile from "./components/Profile";
-import createComponentAsPostCatalog from "./components/PostCatalog";
-import createComponentAsPostSignature from "./components/PostSignature";
-import createComponentAsPostSponsor from "./components/PostSponsor";
-import createComponentAsPostCommentAvatars from "./components/PostCommentAvatars";
-import createComponentAsHljsLineNumber from "./components/HljsLineNumber";
-import createComponentAsToolbar from "./components/Toolbar";
-import createComponentAsRadarMap from "./components/RadarMap";
-import createComponentAsTextImage from "./components/TextImage";
+import createGithubCorner from "./components/GithubCorner";
+import createHeader from "./components/Header";
+import createRightSidebar from "./components/RightSidebar";
+import createProfile from "./components/Profile";
+import createPostCatalog from "./components/PostCatalog";
+import createPostSignature from "./components/PostSignature";
+import createPostSponsor from "./components/PostSponsor";
+import createPostCommentAvatars from "./components/PostCommentAvatars";
+import createHljsLineNumber from "./components/HljsLineNumber";
+import createToolbar from "./components/Toolbar";
+import createRadarMap from "./components/RadarMap";
+import createTextImage from "./components/TextImage";
 import Loader from "./components/Loader";
 import { initializer } from "./utils/initializer";
 import {
@@ -27,23 +27,23 @@ class Silence {
   }
 
   init() {
-    createComponentAsHeader();
-    createComponentAsRightSidebar();
-    createComponentAsGithubCorner();
-    createComponentAsProfile();
-    createComponentAsToolbar();
+    createHeader();
+    createRightSidebar();
+    createGithubCorner();
+    createProfile();
+    createToolbar();
     if ( isPostPage() ) { // 文章页
-      createComponentAsPostCatalog();
-      createComponentAsPostSponsor();
-      createComponentAsPostSignature();
-      createComponentAsHljsLineNumber();
-      createComponentAsPostCommentAvatars();
-      createComponentAsTextImage();
+      createPostCatalog();
+      createPostSponsor();
+      createPostSignature();
+      createHljsLineNumber();
+      createPostCommentAvatars();
+      createTextImage();
       delPostBodyTitleTocButton();
       setPostBodyExternalLink();
       setPostBodyForFlowCss();
     } else { // 首页、标签页、文章页、分类页
-      createComponentAsRadarMap();
+      createRadarMap();
       if ( isRootPage() ) { // 首页
       }
     }

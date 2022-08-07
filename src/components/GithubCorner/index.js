@@ -1,7 +1,7 @@
 import "./index.less";
 import options from "../../config/options";
 
-function createComponentAsGithubCorner() {
+function createGithubCorner() {
   let githubUrl = options.github;
   if ( githubUrl ) {
     $("body").append(`
@@ -16,4 +16,4 @@ function createComponentAsGithubCorner() {
   }
 }
 
-export default createComponentAsGithubCorner;
+export default createGithubCorner;

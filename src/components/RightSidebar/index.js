@@ -1,10 +1,10 @@
 import "./less/index.less";
 import options from "../../config/options";
-import createPluginAsMyLinks from "./plugins/MyLinks";
-import createPluginAsNiceBooks from "./plugins/NiceBooks";
-import createWidgetAsDropdown from "../../widgets/Dropdown";
+import createMyLinks from "./plugins/MyLinks";
+import createNiceBooks from "./plugins/NiceBooks";
+import createDropdown from "../../widgets/Dropdown";
 
-function createComponentAsRightSidebar() {
+function createRightSidebar() {
   let $blueprint = $(`
     <div id="right-sidebar">
       <div class="sidebar-wrap">
@@ -18,8 +18,8 @@ function createComponentAsRightSidebar() {
 
   let $sidebar = $($blueprint).find(".sidebar-content");
 
-  createWidgetAsDropdown((e) => $sidebar.append(e), "常用链接", createPluginAsMyLinks(options.myLinks.data), options.myLinks.iscollapse);
-  createWidgetAsDropdown((e) => $sidebar.append(e), "推荐书籍", createPluginAsNiceBooks(options.niceBooks.data), options.niceBooks.iscollapse);
+  createDropdown((e) => $sidebar.append(e), "常用链接", createMyLinks(options.myLinks.data), options.myLinks.iscollapse);
+  createDropdown((e) => $sidebar.append(e), "推荐书籍", createNiceBooks(options.niceBooks.data), options.niceBooks.iscollapse);
 }
 
-export default createComponentAsRightSidebar;
+export default createRightSidebar;

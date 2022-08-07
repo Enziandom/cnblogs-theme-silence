@@ -11,6 +11,7 @@
     line-height: 1.70;
 
     a.external-link {
+      font-size: 15px;
       margin: 0 4px;
       position: relative;
       transition: none;
@@ -19,11 +20,6 @@
 
       &:hover {
         border-bottom-color: var(--theme-color);
-      }
-
-      &::before {
-        font-family: FontAwesome, serif;
-        content: "\f0c1";
       }
     }
 
@@ -112,7 +108,15 @@
       border-radius: var(--border-radius);
 
       &::-webkit-scrollbar {
-        height: 4px !important;
+        width: 3px;
+      }
+
+      &::-webkit-scrollbar-thumb {
+        background-color: var(--text-color);
+      }
+
+      &::-webkit-scrollbar-track {
+        background-color: transparent;
       }
 
       th {

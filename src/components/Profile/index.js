@@ -1,7 +1,7 @@
 import "./index.less";
 import options from "../../config/options";
 
-function createComponentAsProfile() {
+function createProfile() {
   const avatar = options.avatar;
   const favicon = options.favicon;
   const statusKey = options.statusKey;
@@ -39,4 +39,4 @@ function createComponentAsProfile() {
   }
 }
 
-export default createComponentAsProfile;
+export default createProfile;

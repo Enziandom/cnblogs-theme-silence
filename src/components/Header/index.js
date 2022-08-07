@@ -3,7 +3,7 @@ import "./less/index.pc.less";
 import "./less/index.pmd.less";
 import options from "../../config/options";
 
-function createComponentAsHeader() {
+function createHeader() {
   if ( options.navs ) {
     let $navList = $("#navList");
 
@@ -31,4 +31,4 @@ function createComponentAsHeader() {
   });
 }
 
-export default createComponentAsHeader;
+export default createHeader;

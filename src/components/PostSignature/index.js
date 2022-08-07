@@ -1,7 +1,7 @@
 import "./index.less";
 import options from "../../config/options";
 
-function createComponentAsPostSignature() {
+function createPostSignature() {
   const config = options.signature;
   if ( config.enable ) {
     const postUrl = $("#cb_post_title_url").attr("href");
@@ -18,4 +18,4 @@ function createComponentAsPostSignature() {
   }
 }
 
-export default createComponentAsPostSignature;
+export default createPostSignature;

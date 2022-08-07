@@ -1,6 +1,6 @@
 import "./index.less";
 
-function createPluginAsMyLinks(data) {
+function createMyLinks(data) {
   let blueprint = ``;
   if ( !data ) return blueprint;
   blueprint = `<ul class="links-wrap">`;
@@ -19,4 +19,4 @@ function createPluginAsMyLinks(data) {
   `;
 }
 
-export default createPluginAsMyLinks;
+export default createMyLinks;

@@ -1,7 +1,7 @@
 import "./index.less";
 import options from "../../config/options";
 
-function rebuildSideBar() {
+function resetSideBar() {
   let elements = $("#sideBarMain").children();
   $(elements).each((index, element) => {
     if ( index < elements.length - 2 ) {
@@ -10,8 +10,8 @@ function rebuildSideBar() {
   });
 }
 
-function createComponentAsPostCatalog() {
-  rebuildSideBar();
+function createPostCatalog() {
+  resetSideBar();
 
   const catalogConfig = options.catalog;
 
@@ -85,4 +85,4 @@ function createComponentAsPostCatalog() {
   }
 }
 
-export default createComponentAsPostCatalog;
+export default createPostCatalog;

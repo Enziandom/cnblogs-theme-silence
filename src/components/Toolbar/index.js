@@ -29,7 +29,7 @@ const esaToolBar = `
 </div>
 `;
 
-function createComponentAsToolbar() {
+function createToolbar() {
   // 向页面中添加工具按钮节点
   $("body").append(esaToolBar);
   let htmlDom = $("html");
@@ -90,4 +90,4 @@ function createComponentAsToolbar() {
   $(barsDom).trigger("click");
 }
 
-export default createComponentAsToolbar;
+export default createToolbar;
