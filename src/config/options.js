@@ -55,7 +55,9 @@ const options = {
     ]
   },
   weather: {
-    isOpen: true,
+    isOpen: false,
+    appid: "",
+    appsecret: "",
     city: "北京"
   }
 };

@@ -4,7 +4,7 @@ import "./index.less";
 
 function createWeather() {
   axios
-    .get(`https://www.yiketianqi.com/free/day?appid=17593272&city=${ options.weather.city }&appsecret=5hMYdnuZ&unescape=1`)
+    .get(`https://www.yiketianqi.com/free/day?appid=${ options.weather.appid }&city=${ options.weather.city }&appsecret=${ options.weather.appsecret }&unescape=1`)
     .then(({ data }) => {
       let bluepoint = `
         <div class="weather">
