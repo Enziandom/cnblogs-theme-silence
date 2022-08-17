@@ -11,17 +11,17 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/shiramashiro/cnblogs-theme-silence.git"
+    "url": "https://github.com/Enziandom/cnblogs-theme-silence.git"
   },
   "keywords": [
     "cnblogs-theme"
   ],
-  "author": "shiramashiro",
+  "author": "Enziandom",
   "license": "MIT",
   "bugs": {
-    "url": "https://github.com/shiramashiro/cnblogs-theme-silence/issues"
+    "url": "https://github.com/Enziandom/cnblogs-theme-silence/issues"
   },
-  "homepage": "https://github.com/shiramashiro/cnblogs-theme-silence#readme",
+  "homepage": "https://github.com/Enziandom/cnblogs-theme-silence",
   "devDependencies": {
     "@babel/core": "^7.10.4",
     "@babel/preset-env": "^7.10.4",
