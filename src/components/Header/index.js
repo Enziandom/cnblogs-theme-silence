@@ -1,6 +1,6 @@
-import "./less/index.less";
-import "./less/index.pc.less";
-import "./less/index.pmd.less";
+import "./style/index.less";
+import "./style/index.pc.less";
+import "./style/index.pmd.less";
 import options from "../../config/options";
 
 function createHeader() {
@@ -26,7 +26,7 @@ function createHeader() {
 
   $("#header").prepend(`<div class="mobile-navs-menu"><i class="fa fa-bars"></i></div>`);
 
-  $(".mobile-navs-menu").on("click", () => {
+  $(".adaptation-navs-menu").on("click", () => {
     $("#navigator").fadeToggle();
   });
 }

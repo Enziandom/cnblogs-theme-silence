@@ -1,0 +1,31 @@
+@import "../mixins.less";
+
+/* entrylist 是随笔分类页的样式 */
+
+/* 随笔分类的文章运用卡片样式 */
+.entrylist .entrylistItem {
+  .PostStyle.Card();
+}
+
+/* 随笔分类的文章标题样式 */
+.entrylist .entrylistPosttitle {
+  .PostStyle.Title();
+}
+
+/* 随笔分类的文章摘要样式 */
+.entrylist .entrylistPostSummary {
+  .PostStyle.Summary();
+}
+
+/* 随笔分类的文章简述样式 */
+.entrylist .entrylistItemPostDesc {
+  .PostStyle.Desc();
+}
+
+/* 随笔分类的随笔说明样式 */
+.entrylistDescription {
+  margin: 20px auto;
+  border-radius: 4px;
+  border-left: 3px solid var(--theme-color);
+  padding: 10px 10px 10px 6px;
+}

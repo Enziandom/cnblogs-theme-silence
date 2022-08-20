@@ -1,4 +1,4 @@
-import "./less/index.less";
+import "./style/index.less";
 import options from "./config/options";
 import createGithubCorner from "./components/GithubCorner";
 import createHeader from "./components/Header";
@@ -15,7 +15,8 @@ import createTextImage from "./components/TextImage";
 import Loader from "./components/Loader";
 import { initializer } from "./utils/initializer";
 import {
-  isPostPage, isRootPage, delPostBodyTitleTocButton, setPostBodyExternalLink, setPostBodyForFlowCss
+  isPostPage, isRootPage, delPostBodyTitleTocButton, setPostBodyExternalLink,
+  setPostBodyForFlowCss
 } from "./utils/page-helper";
 import createWeather from "./components/Weather";
 

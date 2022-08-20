@@ -1,14 +1,13 @@
 @import "theme.less";
 @import "mixins.less";
-@import "common.less";
-@import "modules/index.less";
-@import "mobile/index.pmd.less";
+@import "normal/index.less";
+@import "adaptation/index.pmd.less";
 @import url("https://cdn.bootcdn.net/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css");
 
 * {
   margin: 0;
   padding: 0;
-  -webkit-overflow-scrolling: touch; /* 避免ios滑动滚动条卡顿 */
+  -webkit-overflow-scrolling: touch;
 }
 
 html {
@@ -22,6 +21,97 @@ body {
   font-family: "Lato", "PingFang SC", "Microsoft YaHei", sans-serif;
   font-size: 14px;
   font-weight: 300;
+}
+
+table {
+  border-collapse: collapse;
+  border-spacing: 0;
+}
+
+td {
+  padding: 5px;
+}
+
+fieldset,
+img {
+  border: 0;
+}
+
+ul {
+  word-break: break-all;
+}
+
+li {
+  list-style: none;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  font-size: 100%;
+  font-weight: normal;
+}
+
+a {
+  text-decoration: none;
+  color: var(--text-color);
+  transition: all 0.3s ease;
+
+  &:hover {
+    color: var(--theme-color);
+  }
+}
+
+::selection { /* ::selection 是用于用户选中文档时的样式 */
+  color: #FFF;
+  background: var(--theme-color);
+}
+
+.catListTitle {
+  display: block;
+  text-align: left;
+  margin: 20px 0;
+  font-size: 20px;
+  font-weight: inherit;
+  border-left: 4px solid var(--theme-color);
+  border-radius: 4px;
+  padding-left: 7px;
+}
+
+#main {
+  margin: 0 auto;
+  width: var(--content-width);
+  transition: all 0.3s ease;
+  .FlexLayout.Normal();
+}
+
+.forFlow {
+  margin-top: 70px !important;
+
+  .day {
+    .PostStyle.Card();
+  }
+
+  .day .postTitle {
+    .PostStyle.Title();
+  }
+
+  .day .postCon {
+    .PostStyle.Summary();
+  }
+
+  .day .postDesc {
+    .PostStyle.Desc();
+  }
+
+  .day > .postSeparator { /* 同一天的文章分割线 */
+    border-bottom: 1px solid var(--border-color);
+    text-align: justify;
+    margin-bottom: 20px;
+    padding-bottom: 20px;
+  }
+}
+
+#footer {
+  display: none !important;
 }
 
 .navbar,
@@ -147,10 +237,4 @@ body {
 .louzhu {
   color: var(--theme-color);
   font-weight: 500;
-}
-
-.topicListFooter {
-  text-align: right;
-  margin-top: 20px;
-  margin-right: 0;
 }

@@ -1,4 +1,4 @@
-import "./less/index.less";
+import "./style/index.less";
 import options from "../../config/options";
 import createMyLinks from "./plugins/MyLinks";
 import createNiceBooks from "./plugins/NiceBooks";
