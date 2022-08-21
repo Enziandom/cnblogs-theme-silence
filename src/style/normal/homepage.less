@@ -80,11 +80,16 @@
 }
 
 .entrylistTitle + .pager,
-.entrylistTitle + div + div {
+.entrylistTitle + div + div + div.pager {
   .PagerCommon();
 }
 
 .PostListTitle + .pager > .pager > .Pager,
 #myposts .pager .pager .Pager {
   .PagerCommon();
+}
+
+#myposts .pager {
+  text-align: initial !important;
+  margin: 0 !important;
 }
