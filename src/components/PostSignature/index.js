@@ -14,7 +14,7 @@ function createPostSignature() {
         <p>${ config.remark || "" }</p> 
       </div>
     `;
-    $("#MySignature").html(content).show();
+    $("#blog_post_info_block").after(content).show();
   }
 }
 
