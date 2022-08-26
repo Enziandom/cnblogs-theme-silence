@@ -55,34 +55,103 @@
       height: 100%;
       top: 0;
       left: 0;
-      z-index: 999;
+      z-index: 9999;
       background-color: rgba(0, 0, 0, 0.55);
     }
 
     #enzia-mobile-menu {
       box-sizing: border-box;
-      padding: 10px;
       .NoUserSelect();
-      position: fixed;
-      width: 65%;
-      height: 100%;
-      top: 0;
-      left: 0;
-      z-index: 9999;
-      background-color: var(--card-bg-color);
+
+      .wrapper {
+        overflow-y: auto;
+        box-sizing: border-box;
+        padding: 10px;
+        position: fixed;
+        width: 65%;
+        height: 100%;
+        top: 0;
+        left: 0;
+        z-index: 99999;
+        background-color: var(--card-bg-color);
+
+        &::-webkit-scrollbar {
+          width: 0 !important;
+        }
+      }
+
+      .clear {
+        margin-bottom: 35px;
+      }
+
+      .signature {
+        margin-bottom: 15px;
+        word-break: break-all;
+      }
 
       .profile {
         .FlexLayout.FlexStart();
+        margin-bottom: 15px;
+        font-size: 14px;
 
-        .avatar {
-          width: 45px;
-          height: 45px;
-          border-radius: 50%;
+        .avatar-box {
+          position: relative;
+
+          .avatar {
+            width: 55px;
+            height: 55px;
+            border-radius: 50%;
+          }
         }
 
-        .blog-name {
-          font-size: 16px;
+        .blog-info {
           margin-left: 10px;
+          .Text.Ellipsis();
+
+          .blog-ff {
+            .FlexLayout.FlexStart();
+
+            .blog-fans {
+              margin-right: 10px;
+            }
+          }
+        }
+      }
+
+      li:first-child {
+        margin: 0 0 8px 0;
+      }
+
+      li {
+        font-size: 15px;
+        margin: 8px 0;
+      }
+
+      .bottom-btns {
+        position: fixed;
+        bottom: 0;
+        left: 0;
+        z-index: 999;
+        width: inherit;
+        height: 35px;
+        background-color: var(--card-bg-color);
+        border-top: 1px solid var(--border-color);
+        box-sizing: border-box;
+        padding: 4px 2px;
+        display: flex;
+        flex-wrap: wrap;
+        flex-direction: row;
+        align-content: center;
+        justify-content: space-between;
+        align-items: center;
+
+        div {
+          padding: 2px 4px;
+          box-sizing: border-box;
+          border-style: dashed;
+          border-width: 1px;
+          border-color: var(--border-color);
+          border-radius: var(--border-radius);
         }
       }
     }

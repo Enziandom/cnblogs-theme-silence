@@ -3,9 +3,8 @@ const options = {
   avatar: null,
   favicon: null,
   github: null,
-  mobileMenu: {
-    avatar: "",
-    blogName: "Enziandom"
+  menu: {
+    signature: "Time tick away, dream faded away!"
   },
   navs: [{ title: "标签", url: "https://www.cnblogs.com/Enziandom/tag" }],
   defaultMode: "dark",
