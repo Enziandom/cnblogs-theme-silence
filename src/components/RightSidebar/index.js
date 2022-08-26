@@ -18,8 +18,8 @@ function createRightSidebar() {
 
   let $sidebar = $($blueprint).find(".sidebar-content");
 
-  createDropdown((e) => $sidebar.append(e), "常用链接", createMyLinks(options.myLinks.data), options.myLinks.iscollapse);
-  createDropdown((e) => $sidebar.append(e), "推荐书籍", createNiceBooks(options.niceBooks.data), options.niceBooks.iscollapse);
+  createDropdown(e => $sidebar.append(e), "常用链接", createMyLinks(options.myLinks.data), options.myLinks.iscollapse);
+  createDropdown(e => $sidebar.append(e), "推荐书籍", createNiceBooks(options.niceBooks.data), options.niceBooks.iscollapse);
 }
 
 export default createRightSidebar;

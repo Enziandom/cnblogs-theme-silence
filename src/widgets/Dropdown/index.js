@@ -8,10 +8,10 @@ function createDropdown(mount, title, content, iscollapse) {
   let $widgetBlueprint = $(`
     <div class="widget-dropdown">
       <h3 class="catListTitle">
-        <div class="title">${ title }</div>
-        ${ iscollapse ? collapseIcon : uncollapseIcon }
+        <div class="title">${title}</div>
+        ${iscollapse ? collapseIcon : uncollapseIcon}
       </h3>
-      <div class="widget-body" style="display: ${ iscollapse ? "none" : "block" }"></div>
+      <div class="widget-body" style="display: ${iscollapse ? "none" : "block"}"></div>
     </div>
   `);
   $widgetBlueprint.find(".widget-body").append(content);
@@ -20,13 +20,15 @@ function createDropdown(mount, title, content, iscollapse) {
 }
 
 function changeIcon(widget, iscollapse) {
-  $(widget).find(".collapse-icon").on("click", (e) => {
-    e.stopPropagation();
-    e.preventDefault();
-    let iconIsFold = strToBool($(e.currentTarget).attr("data-is-fold"));
-    iscollapse ? rotateIcon(widget, iconIsFold, 180) : rotateIcon(widget, iconIsFold, 0);
-    $(e.currentTarget).attr("data-is-fold", boolToStr(!iconIsFold));
-  });
+  $(widget)
+    .find(".collapse-icon")
+    .on("click", e => {
+      e.stopPropagation();
+      e.preventDefault();
+      let iconIsFold = strToBool($(e.currentTarget).attr("data-is-fold"));
+      iscollapse ? rotateIcon(widget, iconIsFold, 180) : rotateIcon(widget, iconIsFold, 0);
+      $(e.currentTarget).attr("data-is-fold", boolToStr(!iconIsFold));
+    });
 }
 
 function rotateIcon(widget, iscollapse, start) {
@@ -36,7 +38,7 @@ function rotateIcon(widget, iscollapse, start) {
 function changeCss(widget, collapse, rotate) {
   widget.find(".widget-body").css("display", collapse);
   widget.find(".catListTitle svg").css({
-    "transform": `rotate(${ rotate }deg)`,
+    transform: `rotate(${rotate}deg)`,
     "transition-duration": "0.3s"
   });
 }

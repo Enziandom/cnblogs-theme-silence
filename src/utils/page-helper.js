@@ -29,7 +29,7 @@ export function delPostBodyTitleTocButton() {
 
 export function setPostBodyExternalLink() {
   $("#cnblogs_post_body a").each(function (index, el) {
-    if ( !$(el).find("img").length ) {
+    if (!$(el).find("img").length) {
       $(el).addClass("external-link");
     }
   });
@@ -39,6 +39,6 @@ export function setPostBodyForFlowCss() {
   $(".forFlow").css({
     "background-color": "var(--card-bg-color)",
     "border-radius": "10px",
-    "padding": "20px"
+    padding: "20px"
   });
 }

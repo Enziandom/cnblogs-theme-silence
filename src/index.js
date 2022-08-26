@@ -14,10 +14,7 @@ import createRadarMap from "./components/RadarMap";
 import createTextImage from "./components/TextImage";
 import Loader from "./components/Loader";
 import { initializer } from "./utils/initializer";
-import {
-  isPostPage, isRootPage, delPostBodyTitleTocButton, setPostBodyExternalLink,
-  setPostBodyForFlowCss
-} from "./utils/page-helper";
+import { isPostPage, isRootPage, delPostBodyTitleTocButton, setPostBodyExternalLink, setPostBodyForFlowCss } from "./utils/page-helper";
 import createWeather from "./components/Weather";
 
 initializer();
@@ -30,12 +27,13 @@ class Silence {
 
   init() {
     createHeader();
-    if ( options.weather.isOpen ) createWeather();
+    createWeather();
     createRightSidebar();
     createGithubCorner();
     createProfile();
     createToolbar();
-    if ( isPostPage() ) { // 文章页
+    if (isPostPage()) {
+      // 文章页
       createPostCatalog();
       createPostSponsor();
       createPostSignature();
@@ -45,9 +43,11 @@ class Silence {
       delPostBodyTitleTocButton();
       setPostBodyExternalLink();
       setPostBodyForFlowCss();
-    } else { // 首页、标签页、文章页、分类页
+    } else {
+      // 首页、标签页、文章页、分类页
       createRadarMap();
-      if ( isRootPage() ) { // 首页
+      if (isRootPage()) {
+        // 首页
       }
     }
     Loader.hide();

@@ -39,20 +39,11 @@ module.exports = {
     rules: [
       {
         test: /\.css$/,
-        use: [
-          MiniCssExtractPlugin.loader,
-          "css-Loader",
-          "postcss-Loader"
-        ]
+        use: [MiniCssExtractPlugin.loader, "css-Loader", "postcss-Loader"]
       },
       {
         test: /\.less$/,
-        use: [
-          MiniCssExtractPlugin.loader,
-          "css-Loader",
-          "postcss-Loader",
-          "less-Loader"
-        ]
+        use: [MiniCssExtractPlugin.loader, "css-Loader", "postcss-Loader", "less-Loader"]
       }
     ]
   },

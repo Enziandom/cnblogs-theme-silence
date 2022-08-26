@@ -15,14 +15,14 @@ export function getCssByElementById(elementId, names) {
 }
 
 function setCss(dom, properties) {
-  for ( let key in properties ) {
+  for (let key in properties) {
     dom.style.setProperty(key, properties[key]);
   }
 }
 
 function getCss(dom, names) {
   let properties = [];
-  for ( let i = 0; i < names.length; i++ ) {
+  for (let i = 0; i < names.length; i++) {
     let value = dom.style.getPropertyValue(names[i]);
     properties.push({ name: names[i], value });
   }

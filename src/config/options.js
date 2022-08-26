@@ -3,12 +3,18 @@ const options = {
   avatar: null,
   favicon: null,
   github: null,
-  navs: [{ title: "标签", url: "https://www.cnblogs.com/shiramashiro/tag" }],
+  mobileMenu: {
+    avatar: "",
+    blogName: "Enziandom"
+  },
+  navs: [{ title: "标签", url: "https://www.cnblogs.com/Enziandom/tag" }],
   defaultMode: "dark",
   defaultTheme: "a",
   hljsln: true,
   catalog: {
-    index: true, enbale: true, levels: ["h1", "h2", "h3"]
+    index: true,
+    enbale: true,
+    levels: ["h1", "h2", "h3"]
   },
   signature: {
     enable: true,
@@ -17,7 +23,11 @@ const options = {
     remark: null
   },
   sponsor: {
-    enable: false, text: "Buy me a cup of coffee ☕.", paypal: null, wechat: null, alipay: null
+    enable: false,
+    text: "Buy me a cup of coffee ☕.",
+    paypal: null,
+    wechat: null,
+    alipay: null
   },
   radarMap: {
     iscollapse: false,
@@ -29,9 +39,14 @@ const options = {
     textSize: 14, // 文本大小
     lineColor: "#A7A7A7", // 雷达图线颜色
     textColor: "#A7A7A7", // 文本颜色
-    data: [ // 数据
-      { title: "js", star: 4 }, { title: "ts", star: 2 }, { title: "html", star: 4 },
-      { title: "css", star: 4 }, { title: "vue", star: 4 }, { title: "JQ", star: 4 }
+    data: [
+      // 数据
+      { title: "js", star: 4 },
+      { title: "ts", star: 2 },
+      { title: "html", star: 4 },
+      { title: "css", star: 4 },
+      { title: "vue", star: 4 },
+      { title: "jq", star: 4 }
     ]
   },
   statusKey: "busyness",

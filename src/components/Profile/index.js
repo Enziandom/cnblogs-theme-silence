@@ -14,27 +14,27 @@ function createProfile() {
 
   let nowBlogerStatus = {};
 
-  if ( avatar && statusKey ) {
-    for ( let key in blogerStatus ) {
-      if ( blogerStatus.hasOwnProperty(key) ) {
-        if ( statusKey === key ) {
+  if (avatar && statusKey) {
+    for (let key in blogerStatus) {
+      if (blogerStatus.hasOwnProperty(key)) {
+        if (statusKey === key) {
           nowBlogerStatus = blogerStatus[key];
         }
       }
     }
 
     $("#sideBarMain").prepend(`
-            <div class="profile-avatar-wrap">
-                <img class="esa-profile-avatar" src="${ avatar }" alt="profile-avatar"/>
-                <div class="bloger-status">
-                    <div class="bloger-status-icon" style="background-color: ${ nowBlogerStatus.color }"></div>
-                    <div class="bloger-status-desc">${ nowBlogerStatus.desc }</div>
-                </div>
-            </div>
-        `);
+      <div class="profile-avatar-wrap">
+        <img class="esa-profile-avatar" src="${avatar}" alt="profile-avatar"/>
+        <div class="bloger-status">
+          <div class="bloger-status-icon" style="background-color: ${nowBlogerStatus.color}"></div>
+          <div class="bloger-status-desc">${nowBlogerStatus.desc}</div>
+        </div>
+      </div>
+    `);
   }
 
-  if ( favicon ) {
+  if (favicon) {
     $("#favicon").attr("href", favicon);
   }
 }

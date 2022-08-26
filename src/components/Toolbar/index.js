@@ -45,9 +45,9 @@ function createToolbar() {
   let skinOptions = $("#esa-skin-popup");
 
   let isDisplayToolbar = true;
-  $(barsDom).on("click", (e) => {
+  $(barsDom).on("click", e => {
     e.stopPropagation();
-    if ( !isDisplayToolbar ) {
+    if (!isDisplayToolbar) {
       $(barsDom).addClass("bars-show");
       $(upDom).addClass("up-show");
       $(modeDom).addClass("mode-show");
@@ -62,27 +62,27 @@ function createToolbar() {
   });
 
   // 点击向上按钮，回到页面最顶端
-  $(upDom).on("click", (e) => {
+  $(upDom).on("click", e => {
     e.stopPropagation();
     $("html, body").animate({ scrollTop: 0 }, 450);
   });
 
   // 点击日夜模式按钮切换模式
-  $(modeDom).on("click", (e) => {
+  $(modeDom).on("click", e => {
     e.stopPropagation();
     setMode();
   });
 
   // 点击主题颜色按钮切换主题颜色
-  $(skinDom).on("click", (e) => {
+  $(skinDom).on("click", e => {
     e.stopPropagation();
     $(skinOptions).slideToggle();
   });
 
   // 选择主题颜色
-  $(skinOptions).on("click", (e) => {
+  $(skinOptions).on("click", e => {
     e.stopPropagation();
-    if ( e.target.nodeName === "BUTTON" ) {
+    if (e.target.nodeName === "BUTTON") {
       setTheme(e.target.dataset.theme);
     }
   });

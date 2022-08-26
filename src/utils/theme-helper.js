@@ -14,22 +14,22 @@ export const themeColors = {
 };
 
 export function getTheme() {
-  return sessionStorage.getItem(`silence-theme-${ currentBlogApp }`) || options.defaultTheme;
+  return sessionStorage.getItem(`silence-theme-${currentBlogApp}`) || options.defaultTheme;
 }
 
 export function getMode() {
   const hour = new Date().getHours();
-  return sessionStorage.getItem(`silence-mode-${ currentBlogApp }`) || (options.defaultMode === "auto" ? hour >= 6 && hour < 18 ? "light" : "dark" : options.defaultMode);
+  return sessionStorage.getItem(`silence-mode-${currentBlogApp}`) || (options.defaultMode === "auto" ? (hour >= 6 && hour < 18 ? "light" : "dark") : options.defaultMode);
 }
 
 export function setMode() {
   const htmlDom = $("html");
   const mode = $(htmlDom).attr("mode") === "light" ? "dark" : "light";
-  sessionStorage.setItem(`silence-mode-${ currentBlogApp }`, mode);
+  sessionStorage.setItem(`silence-mode-${currentBlogApp}`, mode);
   $(htmlDom).attr("mode", mode);
 }
 
 export function setTheme(theme) {
-  sessionStorage.setItem(`silence-theme-${ currentBlogApp }`, theme);
+  sessionStorage.setItem(`silence-theme-${currentBlogApp}`, theme);
   $("html").attr("theme", theme);
 }
