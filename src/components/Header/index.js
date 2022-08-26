@@ -30,10 +30,10 @@ function createHeader() {
 
   $("#header").prepend(`<div class="mobile-navs-menu"><i class="fa fa-bars"></i></div>`);
 
-  let $profile = $("#profile_block").find("a");
-  let $catListTag = $(".catListTag").find("ul");
-  let $topcisCategory = $("#sidebar_postcategory").find("ul");
-  let $calender = $("#blogCalendar");
+  let $profile = $("#profile_block").find("a").clone(true);
+  let $catListTag = $(".catListTag").find("ul").clone(true);
+  let $topcisCategory = $("#sidebar_postcategory").find("ul").clone(true);
+  let $calender = $("#blogCalendar").clone(true);
   let profileArr = [];
 
   for (let index = 0; index < $profile.length; index++) {
@@ -47,7 +47,7 @@ function createHeader() {
         <div class="signature">${options.menu.signature}</div>
         <div class="profile">
           <div class="avatar-box">
-            <img class="avatar" src="https://img0.baidu.com/it/u=4015738813,598225989&fm=253&fmt=auto&app=120&f=JPEG?w=600&h=600" alt="" />
+            <img class="avatar" src="${options.avatar}" alt="" />
           </div>
           <div class="blog-info">
             <div class="blog-name">昵称：${profileArr[0]}</div>

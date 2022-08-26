@@ -12,12 +12,10 @@ import createHljsLineNumber from "./components/HljsLineNumber";
 import createToolbar from "./components/Toolbar";
 import createRadarMap from "./components/RadarMap";
 import createTextImage from "./components/TextImage";
-import Loader from "./components/Loader";
-import { initializer } from "./utils/initializer";
-import { isPostPage, isRootPage, delPostBodyTitleTocButton, setPostBodyExternalLink, setPostBodyForFlowCss } from "./utils/page-helper";
 import createWeather from "./components/Weather";
-
-initializer();
+import Loader from "./components/Loader";
+import { isPostPage, isRootPage } from "./utils/page-helper";
+import { onRootPage, onPostPage, onHolePage, excludeHolePage } from "./utils/lifetime";
 
 class Silence {
   constructor() {
@@ -32,22 +30,20 @@ class Silence {
     createGithubCorner();
     createProfile();
     createToolbar();
+    onHolePage();
     if (isPostPage()) {
-      // 文章页
       createPostCatalog();
       createPostSponsor();
       createPostSignature();
       createHljsLineNumber();
       createPostCommentAvatars();
       createTextImage();
-      delPostBodyTitleTocButton();
-      setPostBodyExternalLink();
-      setPostBodyForFlowCss();
+      onPostPage();
     } else {
-      // 首页、标签页、文章页、分类页
       createRadarMap();
+      excludeHolePage();
       if (isRootPage()) {
-        // 首页
+        onRootPage();
       }
     }
     Loader.hide();
