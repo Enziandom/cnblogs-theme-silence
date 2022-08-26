@@ -4,6 +4,10 @@ import options from "../../config/options";
 function createPostCatalog() {
   const catalogConfig = options.catalog;
 
+  let catalogToolItem = $(`<span class="catalog tool-item"><i class="fa fa-align-justify" aria-hidden="true"></i></span>`);
+
+  $("#enzia-tools .canbe-fade").prepend(catalogToolItem);
+
   if (catalogConfig.enable) {
     const levels = catalogConfig.levels;
     const level1 = levels[0];
@@ -20,8 +24,7 @@ function createPostCatalog() {
     let catalogContents = `
       <div id="esa-catalog-wrapper">
         <div id='esa-catalog-inner'>
-          <h3 class='catListTitle'>目录</h3>
-            <ul id='esa-catalog'>
+          <ul id='esa-catalog'>
     `;
 
     $.each(captions, (index, element) => {
@@ -72,7 +75,11 @@ function createPostCatalog() {
 
     catalogContents += `</ul></div></div>`;
 
-    $(".sidebar-content").prepend(catalogContents);
+    $("body").append(catalogContents);
+
+    $(catalogToolItem).on("click", () => {
+      $("#esa-catalog-wrapper").fadeToggle();
+    });
   }
 }
 
