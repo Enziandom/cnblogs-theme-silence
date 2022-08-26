@@ -30,6 +30,10 @@ export function excludeHolePage() {
     $("#sideBarMain").append(`<div style="height: 55px"></div>`);
   });
 
+  $(".esa-toolbar").css({
+    bottom: "55px"
+  });
+
   $(window).on("resize", function () {
     setProperties($(window).width(), $(window).height(), true);
   });
