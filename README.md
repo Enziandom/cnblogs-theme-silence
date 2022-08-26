@@ -1,3 +1,5 @@
+# 主题介绍
+
 <div align="center">
   <h2 align="center">
     CNBLOGS THEME SILENCE
@@ -19,3 +21,7 @@ npm install                                                     // 安装依赖
 npm start                                                       // 本地调试
 npm run build                                                   // 编译生成
 ```
+
+# 开发日志
+
+【新功能】2022 年 8 月 26 日：删除原主题皮肤手机版菜单栏的功能，添加新版的菜单侧边功能，拥有更多的信息和可操作按钮。
