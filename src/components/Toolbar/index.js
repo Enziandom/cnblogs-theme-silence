@@ -1,7 +1,6 @@
 import "./index.less";
 import { getMode, getTheme, setMode, setTheme } from "../../utils/theme-helper";
 
-// 创建工具按钮模板
 const esaToolBar = `
 <div class="esa-toolbar">
   <div class="bars"><i class="fa fa-ellipsis-h"></i></div>
@@ -30,14 +29,10 @@ const esaToolBar = `
 `;
 
 function createToolbar() {
-  // 向页面中添加工具按钮节点
   $("body").append(esaToolBar);
   let htmlDom = $("html");
-  // 设置页面的日夜模式
   $(htmlDom).attr("mode", getMode());
-  // 设置页面主题颜色
   $(htmlDom).attr("theme", getTheme());
-  // 获取工具按钮中的 DOM 节点
   let barsDom = $(".bars");
   let upDom = $(".up");
   let modeDom = $(".mode");
@@ -61,25 +56,21 @@ function createToolbar() {
     isDisplayToolbar = !isDisplayToolbar;
   });
 
-  // 点击向上按钮，回到页面最顶端
   $(upDom).on("click", e => {
     e.stopPropagation();
     $("html, body").animate({ scrollTop: 0 }, 450);
   });
 
-  // 点击日夜模式按钮切换模式
   $(modeDom).on("click", e => {
     e.stopPropagation();
     setMode();
   });
 
-  // 点击主题颜色按钮切换主题颜色
   $(skinDom).on("click", e => {
     e.stopPropagation();
     $(skinOptions).slideToggle();
   });
 
-  // 选择主题颜色
   $(skinOptions).on("click", e => {
     e.stopPropagation();
     if (e.target.nodeName === "BUTTON") {

@@ -14,7 +14,7 @@ function createPostSignature() {
         <p>${config.remark || ""}</p> 
       </div>
     `;
-    $("#blog_post_info_block").after(content).show();
+    $("#cnblogs_post_body").after(content).show();
   }
 }
 
