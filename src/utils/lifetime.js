@@ -46,11 +46,12 @@ function setProperties(windowWidth, windowHeight, iscalcMainContent) {
   let mainContentWidth;
   let sidebarWidth;
   if (!(windowWidth <= 990)) {
-    // 不是手机屏幕
     contentWidth = windowWidth * 0.77;
     sidebarWidth = contentWidth * 0.16 + 40;
     if (iscalcMainContent) {
       mainContentWidth = contentWidth - (sidebarWidth * 2 + 20);
+    } else {
+      mainContentWidth = contentWidth;
     }
   } else {
     contentWidth = windowWidth;
