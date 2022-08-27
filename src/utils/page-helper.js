@@ -37,11 +37,11 @@ export function setPostBodyExternalLink() {
   });
 }
 
-export function setPostBodyForFlowCss() {
+export function setPostBodyForFlowCss(padding) {
   $(".forFlow").css({
     "background-color": "var(--card-bg-color)",
     "border-radius": "10px",
-    padding: "20px"
+    padding: padding
   });
 }
 

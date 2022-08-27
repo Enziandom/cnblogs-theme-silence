@@ -14,6 +14,7 @@ import createRadarMap from "./components/RadarMap";
 import createTextImage from "./components/TextImage";
 import createWeather from "./components/Weather";
 import createMenu from "./components/Menu";
+import createPostTitle from "./components/PostTitle";
 import Loader from "./components/Loader";
 import { isPostPage, isHomePage } from "./utils/page-helper";
 import { loadHomePageComponents, loadPostPageComponents, loadCommonComponents, loadExcludePostPageComponents } from "./utils/lifetime";
@@ -40,6 +41,7 @@ class Silence {
       createHljsLineNumber();
       createPostCommentAvatars();
       createTextImage();
+      createPostTitle();
       loadPostPageComponents();
     } else {
       createRadarMap();

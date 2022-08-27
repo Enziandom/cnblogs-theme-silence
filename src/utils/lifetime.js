@@ -1,12 +1,18 @@
 import { delPostBodyTitleTocButton, setPostBodyExternalLink, setPostBodyForFlowCss, setProperties } from "./page-helper";
 import { getMode, getTheme } from "../utils/theme-helper";
+import { isMobile } from "../utils/device-helper";
 
 export function loadHomePageComponents() {}
 
 export function loadPostPageComponents() {
   delPostBodyTitleTocButton();
   setPostBodyExternalLink();
-  setPostBodyForFlowCss();
+
+  if (isMobile()) {
+    setPostBodyForFlowCss("20px");
+  } else {
+    setPostBodyForFlowCss("20px 30px 20px 30px");
+  }
 
   $("#sideBar").css({ display: "none" });
   $("#right-sidebar").css({ display: "none" });
@@ -21,9 +27,7 @@ export function loadPostPageComponents() {
   });
 
   let $menu = $(`<span class="menu tool-item" title="侧边菜单"><i class="fa fa-bars"></i></span>`);
-
   $("#enzia-tools .canbe-fade").append($menu);
-
   $($menu).on("click", e => {
     $("#enzia-mobile-menu-mask").fadeIn();
     $("#enzia-mobile-menu").fadeIn();
@@ -37,10 +41,6 @@ export function loadCommonComponents() {
 }
 
 export function loadExcludePostPageComponents() {
-  $(".esa-toolbar").css({
-    bottom: "55px"
-  });
-
   $(window).ready(function () {
     setProperties($(window).width(), $(window).height(), true);
     $("#mainContent").insertAfter("#sideBar");
