@@ -43,9 +43,9 @@ function createMenu() {
         <div class="clear"></div>
         <div class="bottom-btns">
           <div><a href="https://www.cnblogs.com/${profiles[0]}">首页</a></div>
-          <div><a href="https://i.cnblogs.com/">管理</a></div>
-          <div><a href="https://i.cnblogs.com/EditPosts.aspx?opt=1">新随笔</a></div>
-          <div><a href="https://www.cnblogs.com/">博客园</a></div>
+          <div><a href="https://i.cnblogs.com/" target="_blank">管理</a></div>
+          <div><a href="https://i.cnblogs.com/EditPosts.aspx?opt=1" target="_blank">新随笔</a></div>
+          <div><a href="https://www.cnblogs.com/" target="_blank">博客园</a></div>
         </div>
       </div>
     </div>
@@ -91,7 +91,7 @@ function renderRepository(url, icon, uppers, alias) {
     bluepoint = `
       <div class="${icon}">
         <span><i class="fa fa-${icon}" aria-hidden="true"></i></span>
-        <span><a href="${options.github}">${upperStr(icon, uppers, alias)}</a></span>
+        <span><a href="${options.github}" target="_blank">${upperStr(icon, uppers, alias)}</a></span>
       </div>
     `;
   }
