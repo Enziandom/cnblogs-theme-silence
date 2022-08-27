@@ -1,4 +1,5 @@
 import { setCssByElementName, setCssByElementId } from "./css-helper";
+import options from "../config/options";
 
 export function isPostPage() {
   return $("#topics").length > 0;
@@ -55,8 +56,8 @@ export function setProperties(windowWidth, windowHeight, iscalcMainContent) {
   let mainContentWidth;
   let sidebarWidth;
   if (!(windowWidth <= 990)) {
-    contentWidth = windowWidth * 0.77;
-    sidebarWidth = contentWidth * 0.16 + 40;
+    contentWidth = windowWidth * options.pageOps.contentWidth;
+    sidebarWidth = contentWidth * options.pageOps.siderbarWidth + 40;
     if (iscalcMainContent) {
       mainContentWidth = contentWidth - (sidebarWidth * 2 + 20);
     } else {

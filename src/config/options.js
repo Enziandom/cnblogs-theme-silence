@@ -5,6 +5,10 @@ const options = {
   github: null,
   gitlab: null,
   gitee: null,
+  pageOps: {
+    contentWidth: 0.65,
+    siderbarWidth: 0.18
+  },
   menu: {
     signature: "Time tick away, dream faded away!"
   },
