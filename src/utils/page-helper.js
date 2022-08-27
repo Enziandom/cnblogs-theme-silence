@@ -1,3 +1,5 @@
+import { setCssByElementName, setCssByElementId } from "./css-helper";
+
 export function isPostPage() {
   return $("#topics").length > 0;
 }
@@ -18,11 +20,10 @@ function isEssayListPage() {
   return $(".forFlow .entrylistTitle").length > 0;
 }
 
-export function isRootPage() {
+export function isHomePage() {
   return !(isPaging() || isTagListPage() || isTagPostsPage() || isEssayListPage());
 }
 
-// 删除文章页文章标题的目录按钮
 export function delPostBodyTitleTocButton() {
   $("#topics .postTitle .cnblogs-toc-button").remove();
 }
@@ -40,5 +41,39 @@ export function setPostBodyForFlowCss() {
     "background-color": "var(--card-bg-color)",
     "border-radius": "10px",
     padding: "20px"
+  });
+}
+
+export function setProperties(windowWidth, windowHeight, iscalcMainContent) {
+  setCssByElementName(":root", {
+    "--window-width": `${windowWidth}px`,
+    "--window-height": `${windowHeight}px`,
+    "--content-height": `${windowHeight}px`
+  });
+
+  let contentWidth;
+  let mainContentWidth;
+  let sidebarWidth;
+  if (!(windowWidth <= 990)) {
+    contentWidth = windowWidth * 0.77;
+    sidebarWidth = contentWidth * 0.16 + 40;
+    if (iscalcMainContent) {
+      mainContentWidth = contentWidth - (sidebarWidth * 2 + 20);
+    } else {
+      mainContentWidth = contentWidth;
+    }
+  } else {
+    contentWidth = windowWidth;
+    mainContentWidth = windowWidth;
+  }
+
+  setCssByElementName(":root", {
+    "--content-width": `${contentWidth}px`,
+    "--header-left": `${(windowWidth - contentWidth) / 2}px`,
+    "--sidebar-width": `${sidebarWidth}px`
+  });
+
+  setCssByElementId("mainContent", {
+    width: `${mainContentWidth}px`
   });
 }

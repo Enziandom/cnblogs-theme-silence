@@ -14,8 +14,8 @@ import createRadarMap from "./components/RadarMap";
 import createTextImage from "./components/TextImage";
 import createWeather from "./components/Weather";
 import Loader from "./components/Loader";
-import { isPostPage, isRootPage } from "./utils/page-helper";
-import { onRootPage, onPostPage, onHolePage, excludeHolePage } from "./utils/lifetime";
+import { isPostPage, isHomePage } from "./utils/page-helper";
+import { loadHomePageComponents, loadPostPageComponents, loadCommonComponents, loadExcludePostPageComponents } from "./utils/lifetime";
 
 class Silence {
   constructor() {
@@ -30,7 +30,7 @@ class Silence {
     createGithubCorner();
     createProfile();
     createToolbar();
-    onHolePage();
+    loadCommonComponents();
     if (isPostPage()) {
       createPostCatalog();
       createPostSponsor();
@@ -38,12 +38,12 @@ class Silence {
       createHljsLineNumber();
       createPostCommentAvatars();
       createTextImage();
-      onPostPage();
+      loadPostPageComponents();
     } else {
       createRadarMap();
-      excludeHolePage();
-      if (isRootPage()) {
-        onRootPage();
+      loadExcludePostPageComponents();
+      if (isHomePage()) {
+        loadHomePageComponents();
       }
     }
     Loader.hide();
