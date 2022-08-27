@@ -4,7 +4,7 @@ import options from "../../config/options";
 function createPostCatalog() {
   const catalogConfig = options.catalog;
 
-  let catalogToolItem = $(`<span class="catalog tool-item"><i class="fa fa-align-justify" aria-hidden="true"></i></span>`);
+  let catalogToolItem = $(`<span class="catalog tool-item" title="文章目录"><i class="fa fa-list" aria-hidden="true"></i></span>`);
 
   $("#enzia-tools .canbe-fade").prepend(catalogToolItem);
 

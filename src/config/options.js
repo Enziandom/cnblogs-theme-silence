@@ -3,6 +3,8 @@ const options = {
   avatar: null,
   favicon: null,
   github: null,
+  gitlab: null,
+  gitee: null,
   menu: {
     signature: "Time tick away, dream faded away!"
   },

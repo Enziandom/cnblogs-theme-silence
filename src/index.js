@@ -13,6 +13,7 @@ import createToolbar from "./components/Toolbar";
 import createRadarMap from "./components/RadarMap";
 import createTextImage from "./components/TextImage";
 import createWeather from "./components/Weather";
+import createMenu from "./components/Menu";
 import Loader from "./components/Loader";
 import { isPostPage, isHomePage } from "./utils/page-helper";
 import { loadHomePageComponents, loadPostPageComponents, loadCommonComponents, loadExcludePostPageComponents } from "./utils/lifetime";
@@ -30,6 +31,7 @@ class Silence {
     createGithubCorner();
     createProfile();
     createToolbar();
+    createMenu();
     loadCommonComponents();
     if (isPostPage()) {
       createPostCatalog();
