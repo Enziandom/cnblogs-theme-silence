@@ -10,55 +10,55 @@ function createMenu() {
   let $catListTag = $(".catListTag").find("ul").clone(true);
   let $topcisCategory = $("#sidebar_postcategory").find("ul").clone(true);
   let $calender = $("#blogCalendar").clone(true);
-  let profileArr = [];
+  let profiles = [];
 
   for (let index = 0; index < $profile.length; index++) {
-    profileArr.push($.trim($profile[index].innerText));
+    profiles.push($.trim($profile[index].innerText));
   }
 
-  let bluepoint = $(`
-      <div id="enzia-mobile-menu-mask" style="display: none;"></div>
-      <div id="enzia-mobile-menu" style="display: none;">
-        <div class="wrapper">
-          <div class="signature">${options.menu.signature}</div>
-          <div class="profile">
-            <div class="avatar-box">
-              <img class="avatar" src="${options.avatar}" alt="" />
-            </div>
-            <div class="blog-info">
-              <div class="blog-name">昵称：${profileArr[0]}</div>
-              <div class="blog-age">园龄：${profileArr[1]}</div>
-              <div class="blog-ff">
-                <div class="blog-fans">粉丝：${profileArr[2]}</div>
-                <div class="blog-follows">关注：${profileArr[3]}</div>
-              </div>
-            </div>
+  let $bluepoint = $(`
+    <div id="enzia-mobile-menu-mask" style="display: none;"></div>
+    <div id="enzia-mobile-menu" style="display: none;">
+      <div class="wrapper">
+        <div class="signature">${options.menu.signature}</div>
+        <div class="profile">
+          <div class="avatar-box">
+            <img class="avatar" src="${options.avatar}" alt="" />
           </div>
-          ${renderRepositories()}
-          <div class="datetime"></div>
-          <div class="tags"></div>
-          <div class="topics"></div>
-          <div class="links"></div>
-          <div class="books"></div>
-          <div class="clear"></div>
-          <div class="bottom-btns">
-            <div><a href="https://www.cnblogs.com/${profileArr[0]}">首页</a></div>
-            <div><a href="https://i.cnblogs.com/">管理</a></div>
-            <div><a href="https://i.cnblogs.com/EditPosts.aspx?opt=1">新随笔</a></div>
-            <div><a href="https://www.cnblogs.com/">博客园</a></div>
+          <div class="blog-info">
+            <div class="blog-name">昵称：${profiles[0]}</div>
+            <div class="blog-age">园龄：${profiles[1]}</div>
+            <div class="blog-ff">
+              <div class="blog-fans">粉丝：${profiles[2]}</div>
+              <div class="blog-follows">关注：${profiles[3]}</div>
+            </div>
           </div>
         </div>
+        ${renderRepositories()}
+        <div class="datetime"></div>
+        <div class="tags"></div>
+        <div class="topics"></div>
+        <div class="links"></div>
+        <div class="books"></div>
+        <div class="clear"></div>
+        <div class="bottom-btns">
+          <div><a href="https://www.cnblogs.com/${profiles[0]}">首页</a></div>
+          <div><a href="https://i.cnblogs.com/">管理</a></div>
+          <div><a href="https://i.cnblogs.com/EditPosts.aspx?opt=1">新随笔</a></div>
+          <div><a href="https://www.cnblogs.com/">博客园</a></div>
+        </div>
       </div>
-    `);
+    </div>
+  `);
 
-  $("#home").append(bluepoint);
+  $("#home").append($bluepoint);
 
-  bluepoint.find(".datetime").append($calender);
-  createDropdown(e => bluepoint.find(".tags").append(e), "我的标签", $catListTag, true, "margin: 15px 0 10px 0; font-size: 16px;");
-  createDropdown(e => bluepoint.find(".topics").append(e), "我的随笔", $topcisCategory, true, "margin: 10px 0; font-size: 16px;");
-  createDropdown(e => bluepoint.find(".links").append(e), "常用链接", createMyLinks(options.myLinks.data), options.myLinks.iscollapse, "margin: 10px 0; font-size: 16px;");
-  createDropdown(e => bluepoint.find(".books").append(e), "推荐书籍", createNiceBooks(options.niceBooks.data), options.niceBooks.iscollapse, "margin: 10px 0; font-size: 16px;");
-  createStatus(bluepoint.find(".avatar-box"), false);
+  $bluepoint.find(".datetime").append($calender);
+  createDropdown(e => $bluepoint.find(".tags").append(e), "我的标签", $catListTag, true, "margin: 15px 0 10px 0; font-size: 16px;");
+  createDropdown(e => $bluepoint.find(".topics").append(e), "我的随笔", $topcisCategory, true, "margin: 10px 0; font-size: 16px;");
+  createDropdown(e => $bluepoint.find(".links").append(e), "常用链接", createMyLinks(options.myLinks.data), options.myLinks.iscollapse, "margin: 10px 0; font-size: 16px;");
+  createDropdown(e => $bluepoint.find(".books").append(e), "推荐书籍", createNiceBooks(options.niceBooks.data), options.niceBooks.iscollapse, "margin: 10px 0; font-size: 16px;");
+  createStatus($bluepoint.find(".avatar-box"), false);
 
   $(".mobile-navs-menu").on("click", () => {
     $("#enzia-mobile-menu-mask").fadeIn();
@@ -71,39 +71,27 @@ function createMenu() {
   });
 }
 
-function renderGitHub() {
-  let bluepoint = ``;
-  if (options.github) {
-    bluepoint = `
-      <div class="github">
-        <span><i class="fa fa-github" aria-hidden="true"></i></span>
-        <span><a href="${options.github}">GitHub</a></span>
-      </div>
-    `;
+function upperStr(str, uppers, alias) {
+  let res = "";
+  let strs = [];
+  if (alias) {
+    strs = alias.split("");
+  } else {
+    strs = str.split("");
   }
-  return bluepoint;
+  for (let i in uppers) {
+    strs[uppers[i]] = strs[uppers[i]].toUpperCase();
+  }
+  return res.concat(...strs);
 }
 
-function renderGitLab() {
+function renderRepository(url, icon, uppers, alias) {
   let bluepoint = ``;
-  if (options.gitlab) {
+  if (url) {
     bluepoint = `
-      <div class="gitlab">
-        <span><i class="fa fa-gitlab" aria-hidden="true"></i></span>
-        <span><a href="${options.gitlab}">GitHub</a></span>
-      </div>
-    `;
-  }
-  return bluepoint;
-}
-
-function renderGitee() {
-  let bluepoint = ``;
-  if (options.gitee) {
-    bluepoint = `
-      <div class="gitee">
-        <span><i class="fa fa-git" aria-hidden="true"></i></span>
-        <span><a href="${options.gitee}">GitHub</a></span>
+      <div class="${icon}">
+        <span><i class="fa fa-${icon}" aria-hidden="true"></i></span>
+        <span><a href="${options.github}">${upperStr(icon, uppers, alias)}</a></span>
       </div>
     `;
   }
@@ -114,9 +102,9 @@ function renderRepositories() {
   if (options.gitee || options.github || options.gitlab) {
     return `
       <div class="repositories">
-        ${renderGitHub()}
-        ${renderGitLab()}
-        ${renderGitee()}
+        ${renderRepository(options.github, "github", [0, 3])}
+        ${renderRepository(options.gitlab, "gitlab", [0, 3])}
+        ${renderRepository(options.gitee, "git", [0], "gitee")}
       </div>
     `;
   } else {
