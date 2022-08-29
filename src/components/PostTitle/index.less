@@ -1,3 +1,5 @@
+@import "../../style/mixins.less";
+
 @media only screen and (min-width: 990px) {
   .enzia-post-desc {
     justify-content: flex-start;
@@ -27,7 +29,10 @@
 
 .post {
   .postTitle {
+    .NoUserSelect();
+
     svg {
+      cursor: pointer;
       margin-left: 5px;
     }
   }
