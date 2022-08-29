@@ -80,6 +80,10 @@ function createPostCatalog() {
     $(catalogToolItem).on("click", () => {
       $("#esa-catalog-wrapper").fadeToggle();
     });
+
+    if (catalogConfig.autoOpen) {
+      $(catalogToolItem).click();
+    }
   }
 }
 

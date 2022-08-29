@@ -3,20 +3,12 @@ const options = {
   avatar: null,
   favicon: null,
   github: null,
-  gitlab: null,
-  gitee: null,
-  pageOps: {
-    contentWidth: 0.65,
-    siderbarWidth: 0.18
-  },
-  menu: {
-    signature: "Time tick away, dream faded away!"
-  },
   navs: [{ title: "标签", url: "https://www.cnblogs.com/Enziandom/tag" }],
-  defaultMode: "dark",
+  defaultMode: "auto",
   defaultTheme: "a",
   hljsln: true,
   catalog: {
+    autoOpen: false,
     index: true,
     enbale: true,
     levels: ["h1", "h2", "h3"]
@@ -79,7 +71,21 @@ const options = {
     appid: "",
     appsecret: "",
     city: "北京"
-  }
+  },
+  pageOps: {
+    contentWidth: 0.65,
+    siderbarWidth: 0.18
+  },
+  postFontSize: {
+    min: 16,
+    max: 20
+  },
+  menu: {
+    signature: "Time tick away, dream faded away!",
+    width: 247
+  },
+  gitlab: null,
+  gitee: null
 };
 
 export default options;

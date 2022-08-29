@@ -18,7 +18,7 @@ function createMenu() {
 
   let $bluepoint = $(`
     <div id="enzia-mobile-menu-mask" style="display: none;"></div>
-    <div id="enzia-mobile-menu" style="display: none;">
+    <div id="enzia-mobile-menu" style="display: none; width: ${options.menu.width}px;">
       <div class="wrapper">
         <div class="signature">${options.menu.signature}</div>
         <div class="profile">
@@ -91,7 +91,7 @@ function renderRepository(url, icon, uppers, alias) {
     bluepoint = `
       <div class="${icon}">
         <span><i class="fa fa-${icon}" aria-hidden="true"></i></span>
-        <span><a href="${options.github}" target="_blank">${upperStr(icon, uppers, alias)}</a></span>
+        <span><a href="${url}" target="_blank">${upperStr(icon, uppers, alias)}</a></span>
       </div>
     `;
   }
