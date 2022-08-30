@@ -5,12 +5,8 @@ import "./index.less";
 function createWeather() {
   if (!options.weather.isOpen) return;
 
-  axios
-    .get(
-      `https://www.yiketianqi.com/free/day?appid=${options.weather.appid}&city=${options.weather.city}&appsecret=${options.weather.appsecret}&unescape=1`
-    )
-    .then(({ data }) => {
-      let bluepoint = `
+  axios.get(`https://www.yiketianqi.com/free/day?appid=${options.weather.appid}&city=${options.weather.city}&appsecret=${options.weather.appsecret}&unescape=1`).then(({ data }) => {
+    let bluepoint = `
         <div class="weather">
           <div class="city">${options.weather.city}</div>
           <div class="data">
@@ -20,8 +16,8 @@ function createWeather() {
           </div>
         </div>
       `;
-      $("#navList").prepend(bluepoint);
-    });
+    $("#navList").prepend(bluepoint);
+  });
 }
 
 export default createWeather;
