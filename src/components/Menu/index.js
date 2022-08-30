@@ -2,8 +2,8 @@ import "./index.less";
 import options from "../../config/options";
 import createDropdown from "../../widgets/Dropdown/index";
 import createStatus from "../../widgets/Status/index";
-import createMyLinks from "../RightSidebar/plugins/MyLinks";
-import createNiceBooks from "../RightSidebar/plugins/NiceBooks";
+import createMyLinks from "../../widgets/MyLinks";
+import createNiceBooks from "../../widgets/NiceBooks";
 
 function createMenu() {
   let $profile = $("#profile_block").find("a").clone(true);
