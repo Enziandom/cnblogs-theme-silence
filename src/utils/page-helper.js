@@ -1,4 +1,4 @@
-import { setCssByElementName, setCssByElementId } from "./css-helper";
+import { setCss } from "./css-helper";
 import { isMobile } from "./device-helper";
 import options from "../config/options";
 
@@ -53,9 +53,7 @@ export function insertClassForPostPage() {
 }
 
 export function insertCssForPostPage() {
-  $("#sideBar").css({ display: "none" });
-  $("#right-sidebar").css({ display: "none" });
-  $("#mainContent").css({ margin: "initial" });
+  setCss([{ "#sideBar": { display: "none" } }, { "#right-sidebar": { display: "none" } }, { "#mainContent": { margin: "initial" } }]);
 
   if (isMobile()) {
     setPostForFlowCss("20px");
@@ -75,13 +73,6 @@ export function setPostForFlowCss(padding) {
 export function setGlobalPageCssVars(iscalcMainContent) {
   let windowWidth = $(window).width();
   let windowHeight = $(window).height();
-
-  setCssByElementName(":root", {
-    "--window-width": `${windowWidth}px`,
-    "--window-height": `${windowHeight}px`,
-    "--content-height": `${windowHeight}px`
-  });
-
   let contentWidth = 0;
   let mainContentWidth = 0;
   let sidebarWidth = 0;
@@ -99,13 +90,19 @@ export function setGlobalPageCssVars(iscalcMainContent) {
     mainContentWidth = windowWidth;
   }
 
-  setCssByElementName(":root", {
-    "--content-width": `${contentWidth}px`,
-    "--header-left": `${(windowWidth - contentWidth) / 2}px`,
-    "--sidebar-width": `${sidebarWidth}px`
-  });
-
-  setCssByElementId("mainContent", {
-    width: `${mainContentWidth}px`
-  });
+  setCss([
+    {
+      ":root": {
+        "--window-height": `${windowHeight}px`,
+        "--content-width": `${contentWidth}px`,
+        "--header-left": `${(windowWidth - contentWidth) / 2}px`,
+        "--sidebar-width": `${sidebarWidth}px`
+      }
+    },
+    {
+      "#mainContent": {
+        width: `${mainContentWidth}px`
+      }
+    }
+  ]);
 }

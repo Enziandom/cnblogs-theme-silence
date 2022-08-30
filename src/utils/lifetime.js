@@ -1,6 +1,5 @@
-import { insertClassForPostPage, deleteDomForPostPage, setPostForFlowCss, setGlobalPageCssVars, insertCssForPostPage, insertDomForPostPage, insertDomForExcludePostPage } from "./page-helper";
+import { insertClassForPostPage, deleteDomForPostPage, setGlobalPageCssVars, insertCssForPostPage, insertDomForPostPage, insertDomForExcludePostPage } from "./page-helper";
 import { getMode, getTheme } from "../utils/theme-helper";
-import { isMobile } from "../utils/device-helper";
 
 export function loadHomePageComponents() {}
 
