@@ -23,10 +23,10 @@ export function getMode() {
 }
 
 export function setMode() {
-  const htmlDom = $("html");
-  const mode = $(htmlDom).attr("mode") === "light" ? "dark" : "light";
+  const $html = $("html");
+  const mode = $($html).attr("mode") === "light" ? "dark" : "light";
   sessionStorage.setItem(`silence-mode-${currentBlogApp}`, mode);
-  $(htmlDom).attr("mode", mode);
+  $($html).attr("mode", mode);
 }
 
 export function setTheme(theme) {

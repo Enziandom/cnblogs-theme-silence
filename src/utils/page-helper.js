@@ -1,4 +1,5 @@
 import { setCssByElementName, setCssByElementId } from "./css-helper";
+import { isMobile } from "./device-helper";
 import options from "../config/options";
 
 export function isPostPage() {
@@ -25,11 +26,25 @@ export function isHomePage() {
   return !(isPaging() || isTagListPage() || isTagPostsPage() || isEssayListPage());
 }
 
-export function delPostBodyTitleTocButton() {
+export function deleteDomForPostPage() {
   $("#topics .postTitle .cnblogs-toc-button").remove();
 }
 
-export function setPostBodyExternalLink() {
+export function insertDomForPostPage() {
+  let $menu = $(`<span class="menu tool-item" title="侧边菜单"><i class="fa fa-bars"></i></span>`);
+  $("#enzia-tools .canbe-fade").append($menu);
+  $($menu).on("click", e => {
+    $("#enzia-mobile-menu-mask").fadeIn();
+    $("#enzia-mobile-menu").fadeIn();
+  });
+}
+
+export function insertDomForExcludePostPage() {
+  $("#mainContent").insertAfter("#sideBar");
+  $("#sideBarMain").append(`<div style="height: 55px"></div>`);
+}
+
+export function insertClassForPostPage() {
   $("#cnblogs_post_body a").each(function (index, el) {
     if (!$(el).find("img").length) {
       $(el).addClass("external-link");
@@ -37,7 +52,19 @@ export function setPostBodyExternalLink() {
   });
 }
 
-export function setPostBodyForFlowCss(padding) {
+export function insertCssForPostPage() {
+  $("#sideBar").css({ display: "none" });
+  $("#right-sidebar").css({ display: "none" });
+  $("#mainContent").css({ margin: "initial" });
+
+  if (isMobile()) {
+    setPostForFlowCss("20px");
+  } else {
+    setPostForFlowCss("20px 30px 20px 30px");
+  }
+}
+
+export function setPostForFlowCss(padding) {
   $(".forFlow").css({
     "background-color": "var(--card-bg-color)",
     "border-radius": "10px",
@@ -45,16 +72,20 @@ export function setPostBodyForFlowCss(padding) {
   });
 }
 
-export function setProperties(windowWidth, windowHeight, iscalcMainContent) {
+export function setGlobalPageCssVars(iscalcMainContent) {
+  let windowWidth = $(window).width();
+  let windowHeight = $(window).height();
+
   setCssByElementName(":root", {
     "--window-width": `${windowWidth}px`,
     "--window-height": `${windowHeight}px`,
     "--content-height": `${windowHeight}px`
   });
 
-  let contentWidth;
-  let mainContentWidth;
-  let sidebarWidth;
+  let contentWidth = 0;
+  let mainContentWidth = 0;
+  let sidebarWidth = 0;
+
   if (!(windowWidth <= 990)) {
     contentWidth = windowWidth * options.pageOps.contentWidth;
     sidebarWidth = contentWidth * options.pageOps.siderbarWidth + 40;
