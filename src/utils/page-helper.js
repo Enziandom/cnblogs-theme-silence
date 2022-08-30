@@ -54,20 +54,18 @@ export function insertClassForPostPage() {
 
 export function insertCssForPostPage() {
   setCss([{ "#sideBar": { display: "none" } }, { "#right-sidebar": { display: "none" } }, { "#mainContent": { margin: "initial" } }]);
-
   if (isMobile()) {
-    setPostForFlowCss("20px");
+    $(".forFlow").css({
+      "background-color": "var(--card-bg-color)",
+      "border-radius": "10px"
+    });
   } else {
-    setPostForFlowCss("20px 30px 20px 30px");
+    $(".forFlow").css({
+      "background-color": "var(--card-bg-color)",
+      "border-radius": "10px",
+      padding: "20px 30px 20px 30px"
+    });
   }
-}
-
-export function setPostForFlowCss(padding) {
-  $(".forFlow").css({
-    "background-color": "var(--card-bg-color)",
-    "border-radius": "10px",
-    padding: padding
-  });
 }
 
 export function setGlobalPageCssVars(iscalcMainContent) {
