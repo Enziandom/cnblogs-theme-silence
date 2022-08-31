@@ -8,6 +8,7 @@ function createPostTitle() {
   let $as = $postDesc.find("a").clone();
 
   let bluepoint = $(`
+    <div class="post-tag-category"></div>
     <div class="enzia-post-desc">
         <div class="user item"><span><i class="fa fa-user-o" aria-hidden="true"></i></span><a href="${$as[0].href}">${$as[0].innerText}</a></div>
         <div class="post-date item"><span><i class="fa fa-clock-o" aria-hidden="true"></i></span>${$spans[0].innerText}</div>
@@ -38,6 +39,8 @@ function createPostTitle() {
       "font-size": fontSize + "px"
     });
   });
+
+  $(".post-tag-category").append($("#BlogPostCategory")).append($("#EntryTag"));
 }
 
 export default createPostTitle;
