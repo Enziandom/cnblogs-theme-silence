@@ -8,7 +8,7 @@ const options = {
   defaultTheme: "a",
   hljsln: true,
   catalog: {
-    autoOpen: false,
+    autoOpen: true,
     index: true,
     enbale: true,
     levels: ["h1", "h2", "h3"]

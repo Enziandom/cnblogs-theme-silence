@@ -78,16 +78,16 @@ function createPostCatalog() {
 
     $("body").append(catalogContents);
 
-    if (catalogConfig.autoOpen) {
-      $(catalogToolItem).click();
-    }
-
     let $catalogs = $(".catalog-li");
     let lastCatalog = null;
 
     $(catalogToolItem).on("click", () => {
       $("#esa-catalog-wrapper").fadeToggle();
     });
+
+    if (catalogConfig.autoOpen) {
+      $(catalogToolItem).click();
+    }
 
     $(window).on("scroll", function () {
       for (let i = 0; i < captions.length; i++) {
