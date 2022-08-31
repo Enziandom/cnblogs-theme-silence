@@ -63,7 +63,7 @@ export function insertCssForPostPage() {
     $(".forFlow").css({
       "background-color": "var(--card-bg-color)",
       "border-radius": "10px",
-      padding: "20px 30px 20px 30px"
+      padding: "20px 30px"
     });
   }
 }
