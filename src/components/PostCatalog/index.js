@@ -4,7 +4,7 @@ import options from "../../config/options";
 function createPostCatalog() {
   const catalogConfig = options.catalog;
 
-  let catalogToolItem = $(`<span class="catalog tool-item" title="文章目录"><i class="fa fa-list" aria-hidden="true"></i></span>`);
+  let catalogToolItem = $(`<span class="catalog tool-item" title="文章目录"><i class="fa fa-map-marker" aria-hidden="true"></i></span>`);
 
   $("#enzia-tools .canbe-fade").prepend(catalogToolItem);
 
@@ -78,17 +78,16 @@ function createPostCatalog() {
 
     $("body").append(catalogContents);
 
-    $(catalogToolItem).on("click", () => {
-      $("#esa-catalog-wrapper").fadeToggle();
-    });
-
     if (catalogConfig.autoOpen) {
       $(catalogToolItem).click();
     }
 
     let $catalogs = $(".catalog-li");
-
     let lastCatalog = null;
+
+    $(catalogToolItem).on("click", () => {
+      $("#esa-catalog-wrapper").fadeToggle();
+    });
 
     $(window).on("scroll", function () {
       for (let i = 0; i < captions.length; i++) {
