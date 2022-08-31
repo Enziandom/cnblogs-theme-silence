@@ -24,6 +24,7 @@ function createPostCatalog() {
     let catalogContents = `
       <div id="esa-catalog-wrapper">
         <div id='esa-catalog-inner'>
+          <h2 class="catalog-title"><i class="fa fa-thumb-tack" aria-hidden="true"></i>文章目录</h3>
           <ul id='esa-catalog'>
     `;
 
@@ -65,7 +66,7 @@ function createPostCatalog() {
       }
 
       catalogContents += `
-        <li class="${tagName}" title="${text}">
+        <li class="${tagName} catalog-li" title="${text}">
           <a class="esa-anchor-link" href="#${href}">
             ${titleIndex + titleContent}
           </a>
@@ -84,6 +85,24 @@ function createPostCatalog() {
     if (catalogConfig.autoOpen) {
       $(catalogToolItem).click();
     }
+
+    let $catalogs = $(".catalog-li");
+
+    let lastCatalog = null;
+
+    $(window).on("scroll", function () {
+      for (let i = 0; i < captions.length; i++) {
+        let $level = $(captions[i]);
+        let top = $level.offset().top;
+        if (window.scrollY > top - 10 && window.scrollY < top + 10) {
+          if (lastCatalog) {
+            $(lastCatalog).removeClass("current-li");
+          }
+          $($catalogs[i]).addClass("current-li");
+          lastCatalog = $catalogs[i];
+        }
+      }
+    });
   }
 }
 
