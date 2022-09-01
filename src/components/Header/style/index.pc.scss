@@ -1,12 +1,12 @@
-@import "../../../style/mixins.less";
+@import "../../../style/mixins.scss";
 
 /* 屏幕 > 990 */
 @media only screen and (min-width: 990px) {
   #header {
-    width: var(--content-width); /* 与内容宽度保持一致 */
     position: fixed;
     left: var(--header-left);
-    .FlexLayout.SpaceBetween();
+    width: var(--content-width);
+    @include flex(space-between);
 
     .mobile-navs-menu {
       display: none;
@@ -17,17 +17,14 @@
     }
 
     #navigator {
-      /* 显示 PC 端的导航栏 */
       display: block;
       margin-right: 5px;
 
       #navList {
-        /* 导航栏列表 */
-        .FlexLayout.Normal();
+        @include flex(normal);
 
         li {
-          /* 导航栏项 */
-          .FlexLayout.Normal();
+          @include flex(normal);
           position: relative;
           padding: 0 15px;
           font-size: 17px;

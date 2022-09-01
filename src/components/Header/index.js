@@ -1,6 +1,6 @@
-import "./style/index.less";
-import "./style/index.pc.less";
-import "./style/index.pmd.less";
+import "./style/index.scss";
+import "./style/index.pc.scss";
+import "./style/index.pmd.scss";
 import options from "../../config/options";
 
 function createHeader() {

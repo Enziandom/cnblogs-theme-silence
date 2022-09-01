@@ -1,4 +1,5 @@
-import "./index.less";
+import "./index.scss";
+import "./index.pmd.scss";
 import options from "../../config/options";
 
 function createGithubCorner() {

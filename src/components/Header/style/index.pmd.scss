@@ -1,4 +1,4 @@
-@import "../../../style/mixins.less";
+@import "../../../style/mixins.scss";
 
 @media only screen and (max-width: 990px) {
   #header {
@@ -7,8 +7,7 @@
     padding: 0 15px;
     position: fixed;
     box-sizing: border-box;
-    .FlexLayout.SpaceBetween();
-    flex-direction: row-reverse;
+    @include flex($justify: space-between, $row: row-reverse);
 
     & > div.mobile-navs-menu {
       top: 17px;
@@ -23,11 +22,11 @@
       cursor: pointer;
       color: var(--text-color);
       border-radius: var(--border-radius);
-      .NoUserSelect();
+      @include noselect();
     }
 
     #navigator {
-      display: none; /* 手机屏幕下的导航栏默认不显示，被收缩 */
+      display: none;
       position: absolute;
       top: 60px;
       left: 0;
@@ -39,7 +38,7 @@
           background: var(--blog-bg-color);
           border-right: 1px solid var(--border-color);
           border-bottom: 1px solid var(--border-color);
-          .FlexLayout.Start();
+          @include flex(flex-start);
         }
       }
     }

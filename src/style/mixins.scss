@@ -7,7 +7,7 @@
   flex-direction: $row;
 }
 
-@mixin card() {
+@mixin card {
   width: 100%;
   padding: 10px 20px;
   text-align: justify;
@@ -27,7 +27,7 @@
   }
 }
 
-@mixin summary() {
+@mixin summary {
   padding: 10px 0;
   font-size: 15px;
 
@@ -55,7 +55,7 @@
   }
 }
 
-@mixin desc() {
+@mixin desc {
   text-align: right;
 
   a {
@@ -63,7 +63,7 @@
   }
 }
 
-@mixin underline() {
+@mixin underline {
   & {
     position: relative;
   }
@@ -98,4 +98,17 @@
   font-family: consolas, serif !important;
   border-radius: var(--border-radius) !important;
   background-color: var(--code-bg-color) !important;
+}
+
+@mixin ellipsis {
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  overflow: hidden;
+}
+
+@mixin noselect {
+  -moz-user-select: none;
+  -webkit-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
 }

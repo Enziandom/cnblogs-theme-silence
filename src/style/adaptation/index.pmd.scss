@@ -1,13 +1,6 @@
-@import "../mixins.less";
-@import "homepage.pmd.less";
-@import "sidebar.pmd.less";
-
-// < 1365px
-@media only screen and (max-width: 1365px) {
-  .github-corner {
-    display: none;
-  }
-}
+@import "../mixins.scss";
+@import "homepage.pmd.scss";
+@import "sidebar.pmd.scss";
 
 // < 900px
 @media only screen and (max-width: 990px) {
