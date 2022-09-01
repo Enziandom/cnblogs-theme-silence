@@ -20,11 +20,11 @@ function createProfile() {
     }
 
     $("#sideBarMain").prepend(`
-      <div class="profile-avatar-wrap">
-        <img class="enzia-profile-avatar" src="${avatar}" alt="profile-avatar"/>
-        <div class="bloger-status">
-          <div class="bloger-status-icon" style="background-color: ${state.color}"></div>
-          <div class="bloger-status-desc">${state.desc}</div>
+      <div class="enzia-profile">
+        <img class="avatar" src="${avatar}" alt="profile-avatar"/>
+        <div class="status">
+          <div class="status-icon" style="background-color: ${state.color}"></div>
+          <div class="status-desc">${state.desc}</div>
         </div>
       </div>
     `);
