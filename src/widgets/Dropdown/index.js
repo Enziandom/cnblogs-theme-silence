@@ -1,4 +1,4 @@
-import "./index.less";
+import "./index.scss";
 import { boolToStr, strToBool } from "../../utils/type-helper";
 
 function createDropdown(mountTo, title, content, iscollapse, style) {

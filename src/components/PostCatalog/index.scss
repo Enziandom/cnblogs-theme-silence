@@ -1,6 +1,7 @@
+@import "../../style/mixins.scss";
+
 #esa-catalog-wrapper {
   box-sizing: border-box;
-  display: block;
   padding: 10px;
   border: 1px solid var(--border-color);
   display: none;
@@ -34,9 +35,7 @@
       li {
         margin: 8px 0;
         cursor: pointer;
-        overflow: hidden;
-        white-space: nowrap;
-        text-overflow: ellipsis;
+        @include ellipsis();
 
         .level1 {
           margin-left: 0;
@@ -56,11 +55,13 @@
 
         & > a {
           span {
-            border-left-color: var(--theme-color);
-            border-left-style: solid;
-            border-left-width: 4px;
-            border-radius: 2px;
             padding-left: 7px;
+            border: {
+              left-color: var(--theme-color);
+              left-style: solid;
+              left-width: 4px;
+              radius: 2px;
+            }
           }
         }
       }

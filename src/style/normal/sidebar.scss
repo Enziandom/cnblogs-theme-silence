@@ -131,18 +131,7 @@
       font-weight: 500;
     }
 
-    .CalOtherMonthDay {
-      color: var(--calendar-other-month-color);
-    }
-
-    .CalTodayDay {
-      color: var(--theme-color);
-      font-weight: 600;
-
-      & > a {
-        color: var(--theme-color) !important;
-      }
-    }
+    @include calendar();
   }
 
   #sidebar_search {

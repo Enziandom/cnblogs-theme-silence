@@ -1,19 +1,13 @@
+@import "../../style/mixins.scss";
+
 .enzia-profile {
   width: calc(var(--sidebar-width) - 30px);
   height: calc(var(--sidebar-width) - 30px);
   position: relative;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  align-content: center;
+  @include flex();
 
   .status {
-    display: flex;
-    flex-wrap: nowrap;
-    flex-direction: row;
-    align-content: center;
-    justify-content: center;
-    align-items: center;
+    @include flex($wrap: nowrap);
     padding: 4px;
     border-radius: 10px;
     background-color: var(--bloger-status-bg-color);

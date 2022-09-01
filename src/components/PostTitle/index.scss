@@ -1,4 +1,4 @@
-@import "../../style/mixins.less";
+@import "../../style/mixins.scss";
 
 @media only screen and (min-width: 990px) {
   .enzia-post-desc {
@@ -29,7 +29,7 @@
 
 .post {
   .postTitle {
-    .NoUserSelect();
+    @include noselect();
 
     svg {
       cursor: pointer;

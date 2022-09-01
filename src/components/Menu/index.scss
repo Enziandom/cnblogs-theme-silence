@@ -1,4 +1,4 @@
-@import "../../style/mixins.less";
+@import "../../style/mixins.scss";
 
 #home {
   position: relative;
@@ -15,7 +15,7 @@
 
   #enzia-mobile-menu {
     box-sizing: border-box;
-    .NoUserSelect();
+    @include noselect();
 
     .wrapper {
       overflow-y: auto;
@@ -35,18 +35,7 @@
     }
 
     .datetime {
-      .CalTodayDay {
-        color: var(--theme-color);
-        font-weight: 600;
-
-        & > a {
-          color: var(--theme-color) !important;
-        }
-      }
-
-      .CalOtherMonthDay {
-        color: var(--calendar-other-month-color);
-      }
+      @include calendar();
     }
 
     .clear {
@@ -59,7 +48,7 @@
     }
 
     .profile {
-      .FlexLayout.FlexStart();
+      @include flex(flex-start);
       margin-bottom: 15px;
       font-size: 14px;
 
@@ -76,10 +65,10 @@
 
       .blog-info {
         margin-left: 10px;
-        .Text.Ellipsis();
+        @include ellipsis();
 
         .blog-ff {
-          .FlexLayout.FlexStart();
+          @include flex(flex-start);
 
           .blog-fans {
             margin-right: 10px;
@@ -89,7 +78,7 @@
     }
 
     .repositories {
-      .FlexLayout.SpaceBetween();
+      @include flex(space-between);
       margin: 15px 0;
     }
 
@@ -113,12 +102,7 @@
       border-top: 1px solid var(--border-color);
       box-sizing: border-box;
       padding: 10px;
-      display: flex;
-      flex-wrap: wrap;
-      flex-direction: row;
-      align-content: center;
-      justify-content: space-between;
-      align-items: center;
+      @include flex(space-between);
 
       div {
         padding: 2px 4px;

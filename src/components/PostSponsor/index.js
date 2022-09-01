@@ -1,4 +1,4 @@
-import "./index.less";
+import "./index.scss";
 import options from "../../config/options";
 
 function createPostSponsor() {

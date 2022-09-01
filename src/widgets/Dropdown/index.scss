@@ -1,10 +1,10 @@
-@import "../../style/mixins.less";
+@import "../../style/mixins.scss";
 
 .widget-dropdown {
-  .NoUserSelect();
+  @include noselect();
 
   .catListTitle {
-    .FlexLayout.SpaceBetween();
+    @include flex(space-between);
 
     & {
       svg {

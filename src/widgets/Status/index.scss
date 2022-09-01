@@ -1,3 +1,5 @@
+@import "../../style/mixins.scss";
+
 .bloger-status {
   padding: 4px;
   border-radius: 10px;
@@ -5,10 +7,7 @@
   position: absolute;
   right: 5px;
   bottom: 4px;
-  display: flex;
-  justify-content: center;
-  align-content: center;
-  align-items: center;
+  @include flex();
 
   .bloger-status-icon {
     width: 8px;

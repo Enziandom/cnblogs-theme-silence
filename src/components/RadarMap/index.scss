@@ -1,4 +1,4 @@
-@import "../../style/mixins.less";
+@import "../../style/mixins.scss";
 
 .radar-wrap {
   position: relative;
@@ -16,17 +16,20 @@
   #radar-floating {
     position: absolute;
     display: none;
-    border-style: solid;
     white-space: nowrap;
     z-index: 999;
     transition: left 0.4s cubic-bezier(0.23, 1, 0.32, 1) 0s, top 0.4s cubic-bezier(0.23, 1, 0.32, 1) 0s;
     background-color: rgba(50, 50, 50, 0.85);
-    border-width: 0;
-    border-color: rgb(51, 51, 51);
-    border-radius: 10px;
     color: var(--text-color);
     font: 14px / 21px "Microsoft YaHei";
     padding: 10px;
     pointer-events: none;
+
+    border: {
+      style: solid;
+      width: 0;
+      color: rgb(51, 51, 51);
+      radius: 10px;
+    }
   }
 }

@@ -1,4 +1,4 @@
-import "./index.less";
+import "./index.scss";
 
 function createPostCommentAvatars() {
   const postCommentBody = ".feedbackItem > .feedbackCon > .blog_comment_body";

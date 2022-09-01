@@ -1,4 +1,4 @@
-import "./index.less";
+import "./index.scss";
 
 function createTextImage() {
   $("#cnblogs_post_body img").each(function (index, el) {

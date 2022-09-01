@@ -1,4 +1,4 @@
-import "./style/index.less";
+import "./style/index.scss";
 import options from "../../config/options";
 import createMyLinks from "../../widgets/MyLinks";
 import createNiceBooks from "../../widgets/NiceBooks";

@@ -1,4 +1,4 @@
-import "./index.less";
+import "./index.scss";
 
 export function message(content) {
   $("body").prepend(`<div class="esa-layer"><span class="content">${content}</span></div>`);

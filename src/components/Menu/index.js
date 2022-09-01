@@ -1,4 +1,4 @@
-import "./index.less";
+import "./index.scss";
 import options from "../../config/options";
 import createDropdown from "../../widgets/Dropdown/index";
 import createStatus from "../../widgets/Status/index";

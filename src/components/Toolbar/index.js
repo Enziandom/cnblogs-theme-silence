@@ -1,4 +1,4 @@
-import "./style/index.less";
+import "./style/index.scss";
 import { setMode, setTheme } from "../../utils/theme-helper";
 
 function createToolbar() {

@@ -112,3 +112,18 @@
   -ms-user-select: none;
   user-select: none;
 }
+
+@mixin calendar {
+  .CalTodayDay {
+    color: var(--theme-color);
+    font-weight: 600;
+
+    & > a {
+      color: var(--theme-color) !important;
+    }
+  }
+
+  .CalOtherMonthDay {
+    color: var(--calendar-other-month-color);
+  }
+}

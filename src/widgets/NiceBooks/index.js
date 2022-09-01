@@ -1,4 +1,4 @@
-import "./index.less";
+import "./index.scss";
 
 function createNiceBooks(data) {
   let blueprint = ``;

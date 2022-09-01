@@ -1,11 +1,11 @@
-@import "../../style/mixins.less";
+@import "../../style/mixins.scss";
 
 #nice-books {
   .books {
     cursor: pointer;
 
     .wrap {
-      .FlexLayout.SpaceBetween();
+      @include flex(space-between);
 
       .cover {
         border-radius: var(--border-radius);

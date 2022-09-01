@@ -1,4 +1,4 @@
-import "./index.less";
+import "./index.scss";
 import options from "../../config/options";
 import { themeColors, getTheme } from "../../utils/theme-helper";
 import createDropdown from "../../widgets/Dropdown";
