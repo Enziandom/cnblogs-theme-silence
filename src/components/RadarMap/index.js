@@ -193,8 +193,7 @@ function createRadarMap() {
     },
     "技能雷达",
     $blueprint,
-    options.radarMap.iscollapse,
-    "margin: 0 0 20px 0"
+    options.radarMap.iscollapse
   );
 }
 

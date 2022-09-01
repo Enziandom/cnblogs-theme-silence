@@ -1,3 +1,5 @@
+@import "../mixins.scss";
+
 /* > 990 */
 @media only screen and (min-width: 990px) {
   #sideBar {
@@ -6,6 +8,8 @@
 }
 
 #sideBar {
+  @include noselect();
+
   #sideBarMain {
     width: var(--sidebar-width);
     height: calc(var(--window-height) - 70px);

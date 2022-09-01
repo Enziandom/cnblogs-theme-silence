@@ -22,16 +22,14 @@
   padding: 15px;
   border-radius: var(--border-radius);
 
-  & > .sidebar-wrap {
-    &::-webkit-scrollbar {
-      display: none;
-    }
+  &::-webkit-scrollbar {
+    display: none;
+  }
 
-    & > .sidebar-content {
-      & > :first-child {
-        & .catListTitle {
-          margin: 0 0 20px 0 !important;
-        }
+  .sidebar-content {
+    & > :first-child {
+      & .catListTitle {
+        margin: 0 0 20px 0 !important;
       }
     }
   }
