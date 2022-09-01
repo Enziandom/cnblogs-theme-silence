@@ -52,7 +52,13 @@ export function insertClassForPostPage() {
 }
 
 export function insertCssForPostPage() {
-  setCss([{ "#sideBar": { display: "none" } }, { "#right-sidebar": { display: "none" } }, { "#mainContent": { margin: "0", left: "var(--header-left)" } }]);
+  setCss([
+    { "#sideBar": { display: "none" } },
+    { "#right-sidebar": { display: "none" } },
+    { "#mainContent": { margin: "0", left: "var(--header-left)" } },
+    { ".forFlow": { "margin-bottom": "10px" } }
+  ]);
+
   if (isMobile()) {
     $(".forFlow").css({
       "background-color": "var(--card-bg-color)",
