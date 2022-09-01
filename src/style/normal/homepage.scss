@@ -48,23 +48,15 @@
   }
 }
 
-#nav_next_page {
-  margin: 10px 0;
-
-  a {
-    @include atag() {
-      @include atag-hover();
-    }
+@mixin pager-mixin($isopen: true) {
+  @if $isopen == true {
+    @include flex(flex-end);
+    color: var(--text-color);
+    text-align: initial !important;
+    line-height: initial !important;
+  } @else {
+    @content;
   }
-
-  @include atag-pat();
-}
-
-.PagerCommon {
-  @include flex(flex-end);
-  color: var(--text-color);
-  text-align: initial !important;
-  line-height: initial !important;
 
   a {
     @include flex();
@@ -76,18 +68,24 @@
   @include atag-pat();
 }
 
+#nav_next_page {
+  @include pager-mixin(false) {
+    margin: 10px 0;
+  }
+}
+
 .topicListFooter > .pager {
-  @include atag();
+  @include pager-mixin();
 }
 
 .entrylistTitle + .pager,
 .entrylistTitle + div + div + div.pager {
-  @include atag();
+  @include pager-mixin();
 }
 
 .PostListTitle + .pager > .pager > .Pager,
 #myposts .pager .pager .Pager {
-  @include atag();
+  @include pager-mixin();
 }
 
 #myposts .pager .pager .Pager {
