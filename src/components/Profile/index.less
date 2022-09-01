@@ -8,7 +8,7 @@
   .bloger-status {
     padding: 4px;
     border-radius: 10px;
-    background-color: rgba(50, 50, 50, 0.65);
+    background-color: var(--bloger-status-bg-color);
     position: absolute;
     right: 5px;
     bottom: 4px;
@@ -21,9 +21,9 @@
       margin-right: 5px;
       width: 8px;
       height: 8px;
-      border: 3px solid gainsboro;
+      border: 3px solid var(--text-color);
       border-radius: 50%;
-      background-color: #2D8CF0;
+      background-color: #2d8cf0;
     }
 
     .bloger-status-desc {
@@ -35,7 +35,7 @@
   .enzia-profile-avatar {
     border-radius: 10px;
     width: 100%;
-    height: 200px;
+    height: calc(var(--sidebar-width) - 30);
     object-fit: cover;
   }
 }
