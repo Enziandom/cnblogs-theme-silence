@@ -42,7 +42,7 @@ function createToolbar() {
 
   $($up).on("click", e => {
     e.stopPropagation();
-    $("html, body").animate({ scrollTop: 0 }, 450);
+    $("#mainContent").animate({ scrollTop: 0 }, 750, "linear");
   });
 
   $($mode).on("click", e => {
