@@ -1,4 +1,5 @@
 @import "./index.pmd.scss";
+@import "../../../style/mixins.scss";
 
 /* > 990 */
 @media only screen and (min-width: 990px) {
@@ -8,6 +9,7 @@
 }
 
 #right-sidebar {
+  @include noselect();
   width: var(--sidebar-width);
   height: calc(var(--window-height) - 70px);
   background-color: var(--card-bg-color);
