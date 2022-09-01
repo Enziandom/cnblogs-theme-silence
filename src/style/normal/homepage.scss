@@ -11,7 +11,6 @@
   }
 }
 
-/* 底部分页的 BOX */
 .topicListFooter {
   margin: 0 !important;
 }
@@ -22,33 +21,24 @@
   box-sizing: border-box;
   color: var(--text-color);
   padding: 3px 6px;
-  border: 1px solid var(--border-color);
-  border-radius: var(--border-radius);
-
-  @content;
-}
-
-@mixin atag-hover() {
-  &:last-child {
-    margin: 0 0 0 3px !important;
+  border: {
+    width: 1px;
+    style: solid;
+    color: var(--border-color);
+    radius: var(--border-radius);
   }
 
-  &:first-child {
-    margin: 0 3px 0 0 !important;
-  }
-}
-
-@mixin atag-pat() {
-  a:last-child {
-    margin: 0 0 0 3px !important;
-  }
-
-  a:first-child {
-    margin: 0 3px 0 0 !important;
+  &:hover {
+    color: var(--theme-color);
+    border: {
+      width: 1px;
+      style: solid;
+      color: var(--theme-color);
+    }
   }
 }
 
-@mixin pager-mixin($isopen: true) {
+@mixin pager-mixin($isopen: true, $isflex: true) {
   @if $isopen == true {
     @include flex(flex-end);
     color: var(--text-color);
@@ -59,17 +49,24 @@
   }
 
   a {
-    @include flex();
-    @include atag() {
-      @include atag-hover();
+    @if $isflex == true {
+      @include flex();
     }
+
+    @include atag();
   }
 
-  @include atag-pat();
+  a:last-child {
+    margin: 0 0 0 3px !important;
+  }
+
+  a:first-child {
+    margin: 0 3px 0 0 !important;
+  }
 }
 
 #nav_next_page {
-  @include pager-mixin(false) {
+  @include pager-mixin(false, false) {
     margin: 10px 0;
   }
 }
