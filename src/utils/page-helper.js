@@ -41,7 +41,6 @@ export function insertDomForPostPage() {
 
 export function insertDomForExcludePostPage() {
   $("#mainContent").insertAfter("#sideBar");
-  $("#sideBarMain").append(`<div style="height: 55px"></div>`);
 }
 
 export function insertClassForPostPage() {
@@ -53,7 +52,7 @@ export function insertClassForPostPage() {
 }
 
 export function insertCssForPostPage() {
-  setCss([{ "#sideBar": { display: "none" } }, { "#right-sidebar": { display: "none" } }, { "#mainContent": { margin: "initial" } }]);
+  setCss([{ "#sideBar": { display: "none" } }, { "#right-sidebar": { display: "none" } }, { "#mainContent": { margin: "0", left: "var(--header-left)" } }]);
   if (isMobile()) {
     $(".forFlow").css({
       "background-color": "var(--card-bg-color)",
@@ -91,6 +90,7 @@ export function setGlobalPageCssVars(iscalcMainContent) {
   setCss([
     {
       ":root": {
+        "--window-width": `${windowWidth}px`,
         "--window-height": `${windowHeight}px`,
         "--content-width": `${contentWidth}px`,
         "--header-left": `${(windowWidth - contentWidth) / 2}px`,

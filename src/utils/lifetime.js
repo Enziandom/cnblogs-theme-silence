@@ -4,9 +4,9 @@ import { getMode, getTheme } from "../utils/theme-helper";
 export function loadHomePageComponents() {}
 
 export function loadPostPageComponents() {
-  insertClassForPostPage();
   deleteDomForPostPage();
   insertDomForPostPage();
+  insertClassForPostPage();
   insertCssForPostPage();
 
   $(window).ready(function () {

@@ -7,10 +7,7 @@ import createDropdown from "../../widgets/Dropdown";
 function createRightSidebar() {
   let $blueprint = $(`
     <div id="right-sidebar">
-      <div class="sidebar-wrap">
-        <div class="sidebar-content"></div>
-        <div style="height: 55px"></div>
-      </div>
+      <div class="sidebar-content"></div>
     </div>
   `);
 

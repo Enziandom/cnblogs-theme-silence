@@ -6,23 +6,18 @@
 }
 
 #sideBar {
-  width: var(--sidebar-width);
-  height: var(--window-height);
-  background-color: var(--card-bg-color);
-  border-radius: var(--border-radius);
-  box-sizing: border-box;
-
   #sideBarMain {
+    width: var(--sidebar-width);
+    height: calc(var(--window-height) - 70px);
+    background-color: var(--card-bg-color);
+    border-radius: var(--border-radius);
+    box-sizing: border-box;
     position: fixed;
     top: 70px;
+    left: var(--header-left);
     overflow-y: auto;
     z-index: 20;
     padding: 15px;
-    width: inherit;
-    height: inherit;
-    box-sizing: inherit;
-    background-color: inherit;
-    border-radius: inherit;
 
     &::-webkit-scrollbar {
       display: none;

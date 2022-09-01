@@ -98,11 +98,11 @@ function createPostCatalog() {
       }
     }
 
-    $(window).on("scroll", function () {
+    $("#mainContent").on("scroll", function () {
       for (let i = 0; i < captions.length; i++) {
         let $level = $(captions[i]);
         let top = $level.offset().top;
-        if (window.scrollY > top - 10 && window.scrollY < top + 10) {
+        if (window.scrollY >= top - 80 && window.scrollY <= top) {
           if (lastCatalog) {
             $(lastCatalog).removeClass("current-li");
           }

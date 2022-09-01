@@ -9,22 +9,18 @@
 
 #right-sidebar {
   width: var(--sidebar-width);
-  height: var(--window-height);
+  height: calc(var(--window-height) - 70px);
   background-color: var(--card-bg-color);
   box-sizing: border-box;
+  top: 70px;
+  right: var(--header-left);
+  position: fixed;
+  overflow-y: auto;
+  z-index: 20;
+  padding: 15px;
+  border-radius: var(--border-radius);
 
   & > .sidebar-wrap {
-    height: inherit;
-    width: inherit;
-    top: 70px;
-    position: fixed;
-    overflow-y: auto;
-    z-index: 20;
-    padding: 15px;
-    box-sizing: border-box;
-    background-color: inherit;
-    border-radius: var(--border-radius);
-
     &::-webkit-scrollbar {
       display: none;
     }
