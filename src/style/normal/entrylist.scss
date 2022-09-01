@@ -1,25 +1,23 @@
-@import "../mixins.less";
-
-/* entrylist 是随笔分类页的样式 */
+@import "../mixins.scss";
 
 /* 随笔分类的文章运用卡片样式 */
 .entrylist .entrylistItem {
-  .PostStyle.Card();
+  @include card();
 }
 
 /* 随笔分类的文章标题样式 */
 .entrylist .entrylistPosttitle {
-  .PostStyle.Title();
+  @include title();
 }
 
 /* 随笔分类的文章摘要样式 */
 .entrylist .entrylistPostSummary {
-  .PostStyle.Summary();
+  @include summary();
 }
 
 /* 随笔分类的文章简述样式 */
 .entrylist .entrylistItemPostDesc {
-  .PostStyle.Desc();
+  @include desc();
 }
 
 /* 随笔分类的随笔说明样式 */

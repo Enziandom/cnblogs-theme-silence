@@ -1,4 +1,4 @@
-@import "../mixins.less";
+@import "../mixins.scss";
 
 #topics {
   .postTitle {
@@ -150,34 +150,16 @@
     h5 code,
     h6 code,
     table code {
-      margin: 0 3px;
-      line-height: 1.2;
-      vertical-align: middle;
-      border: none !important;
-      color: #bdbdbd;
-      font-size: 14px !important;
-      padding: 0.2em 0.3em !important;
-      font-family: consolas, serif !important;
-      border-radius: var(--border-radius) !important;
-      background-color: var(--code-bg-color) !important;
+      @include code();
     }
 
     li > code,
     p > code {
-      margin: 0 3px;
-      line-height: 1.2;
-      vertical-align: middle;
-      border: none !important;
-      color: var(--text-color);
-      font-size: 14px !important;
-      padding: 0.2em 0.3em !important;
-      font-family: consolas, serif !important;
-      border-radius: var(--border-radius) !important;
-      background-color: var(--code-bg-color) !important;
+      @include code(var(--text-color));
     }
 
     details {
-      & > summary {
+      summary {
         cursor: pointer;
         -moz-user-select: none; /*mozilar*/
         -webkit-user-select: none; /*webkit*/
@@ -203,14 +185,14 @@
   #EntryTag {
     font-size: 14px;
     margin-bottom: 10px;
-    .FlexLayout.FlexStart();
+    // .FlexLayout.FlexStart();
     flex-wrap: wrap;
     flex-direction: row;
 
     a {
       font-size: 13px;
       border-radius: 4px;
-      padding: 0 4px;
+      padding: 1px 5px;
       background-color: var(--blockquote-bg-color);
       margin-right: 5px;
       transform: none;
@@ -229,7 +211,7 @@
     a:first-child {
       font-size: 13px;
       border-radius: 4px;
-      padding: 4px 6px;
+      padding: 1px 5px;
       background-color: var(--blockquote-bg-color);
       margin: 0 5px;
       transform: none;

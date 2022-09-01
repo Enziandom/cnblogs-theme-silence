@@ -1,6 +1,4 @@
-@import "../mixins.less";
-
-/* homepage 是首页的样式 */
+@import "../mixins.scss";
 
 /* > 990px */
 @media only screen and (min-width: 990px) {
@@ -18,7 +16,7 @@
   margin: 0 !important;
 }
 
-.PagerATagCommon {
+@mixin atag() {
   height: 28px;
   margin: 0 3px;
   box-sizing: border-box;
@@ -26,9 +24,21 @@
   padding: 3px 6px;
   border: 1px solid var(--border-color);
   border-radius: var(--border-radius);
+
+  @content;
 }
 
-.PagerATagPseudoClassCommon {
+@mixin atag-hover() {
+  &:last-child {
+    margin: 0 0 0 3px !important;
+  }
+
+  &:first-child {
+    margin: 0 3px 0 0 !important;
+  }
+}
+
+@mixin atag-pat() {
   a:last-child {
     margin: 0 0 0 3px !important;
   }
@@ -38,59 +48,46 @@
   }
 }
 
-.PagerATagHoverCommon {
-  &:hover {
-    color: var(--theme-color);
-    border: 1px solid var(--theme-color);
-  }
-}
-
 #nav_next_page {
   margin: 10px 0;
 
   a {
-    .PagerATagCommon();
-    .PagerATagHoverCommon();
+    @include atag() {
+      @include atag-hover();
+    }
   }
 
-  .PagerATagPseudoClassCommon();
+  @include atag-pat();
 }
 
 .PagerCommon {
-  display: flex;
-  flex-wrap: wrap;
-  flex-direction: row;
-  align-content: center;
-  justify-content: flex-end;
-  align-items: center;
+  @include flex(flex-end);
   color: var(--text-color);
   text-align: initial !important;
   line-height: initial !important;
 
   a {
-    display: flex;
-    align-content: center;
-    align-items: center;
-    justify-content: center;
-    .PagerATagCommon();
-    .PagerATagHoverCommon();
+    @include flex();
+    @include atag() {
+      @include atag-hover();
+    }
   }
 
-  .PagerATagPseudoClassCommon();
+  @include atag-pat();
 }
 
 .topicListFooter > .pager {
-  .PagerCommon();
+  @include atag();
 }
 
 .entrylistTitle + .pager,
 .entrylistTitle + div + div + div.pager {
-  .PagerCommon();
+  @include atag();
 }
 
 .PostListTitle + .pager > .pager > .Pager,
 #myposts .pager .pager .Pager {
-  .PagerCommon();
+  @include atag();
 }
 
 #myposts .pager .pager .Pager {

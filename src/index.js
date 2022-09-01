@@ -1,4 +1,4 @@
-import "./style/index.less";
+import "./style/index.scss";
 import options from "./config/options";
 import createGithubCorner from "./components/GithubCorner";
 import createHeader from "./components/Header";
@@ -12,7 +12,6 @@ import createHljsLineNumber from "./components/HljsLineNumber";
 import createToolbar from "./components/Toolbar";
 import createRadarMap from "./components/RadarMap";
 import createTextImage from "./components/TextImage";
-import createWeather from "./components/Weather";
 import createMenu from "./components/Menu";
 import createPostTitle from "./components/PostTitle";
 import Loader from "./components/Loader";
@@ -27,7 +26,6 @@ class Silence {
 
   init() {
     createHeader();
-    createWeather();
     createRightSidebar();
     createGithubCorner();
     createProfile();

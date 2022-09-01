@@ -67,12 +67,6 @@ const options = {
       }
     ]
   },
-  weather: {
-    isOpen: false,
-    appid: "",
-    appsecret: "",
-    city: "北京"
-  },
   pageOps: {
     contentWidth: 0.65,
     siderbarWidth: 0.18

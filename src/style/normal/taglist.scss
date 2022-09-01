@@ -1,10 +1,10 @@
-@import "../mixins.less";
+@import "../mixins.scss";
 
 #taglist_main {
   margin-top: 0;
 
   #taglist {
-    .PostStyle.Card();
+    @include card();
   }
 
   table {
@@ -40,20 +40,19 @@
 }
 
 #myposts {
-  /* 按标签分类的文章页 */
   margin-left: 0;
 
   .PostList {
-    .PostStyle.Card(); /* 文章运用卡片样式 */
+    @include card();
   }
 
   .postTitl2 {
     margin-bottom: 15px !important;
-    .PostStyle.Title(); /* 随笔分类的文章标题样式 */
+    @include title();
   }
 
   .postDesc2 {
     font-size: 14px !important;
-    .PostStyle.Desc(); /* 随笔分类的文章简述样式 */
+    @include desc();
   }
 }

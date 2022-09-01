@@ -30,7 +30,6 @@
   }
 
   .newsItem {
-    /* 圆龄、粉丝、关注 */
     margin-bottom: 10px;
 
     .catListTitle {
@@ -121,7 +120,6 @@
   }
 
   #blog-calendar {
-    /* 日历 */
     border-top: 1px dotted var(--border-color);
     margin-bottom: 20px;
 
@@ -148,13 +146,11 @@
   }
 
   #sidebar_search {
-    /* 搜索 */
-
     #widget_my_zzk {
       display: flex;
       justify-content: space-between;
 
-      .input-common-style() {
+      @mixin input {
         border-radius: var(--border-radius);
         border: dotted 1px var(--border-color);
         background-color: transparent;
@@ -166,7 +162,7 @@
         padding: 0 7px;
         font-size: 16px;
         color: #314659;
-        .input-common-style();
+        @include input();
 
         &:focus {
           outline: none;
@@ -182,7 +178,7 @@
         outline: 0;
         color: var(--text-color);
         transition: border 0.3s;
-        .input-common-style();
+        @include input();
 
         &:hover {
           color: var(--theme-color);
@@ -197,7 +193,6 @@
   }
 
   #sidebar_toptags li {
-    /* 标签 */
     font-size: 14px;
     height: 16px;
     line-height: 16px;
