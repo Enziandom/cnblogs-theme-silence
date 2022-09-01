@@ -1,5 +1,6 @@
 import "./index.less";
 import options from "../../config/options";
+import { isMobile } from "../../utils/device-helper";
 
 function createPostCatalog() {
   const catalogConfig = options.catalog;
@@ -85,8 +86,16 @@ function createPostCatalog() {
       $("#esa-catalog-wrapper").fadeToggle();
     });
 
-    if (catalogConfig.autoOpen) {
-      $(catalogToolItem).click();
+    if (catalogConfig.pmdAutoOpen) {
+      if (isMobile()) {
+        $(catalogToolItem).click();
+      }
+    }
+
+    if (catalogConfig.pcAutoOpen) {
+      if (!isMobile()) {
+        $(catalogToolItem).click();
+      }
     }
 
     $(window).on("scroll", function () {
