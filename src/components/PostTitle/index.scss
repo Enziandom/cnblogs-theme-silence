@@ -29,9 +29,8 @@
 
 .post {
   .postTitle {
-    @include noselect();
-
     svg {
+      @include noselect();
       cursor: pointer;
       margin-left: 5px;
     }

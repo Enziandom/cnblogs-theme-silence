@@ -8,23 +8,9 @@
 }
 
 #sideBar {
-  @include noselect();
-
   #sideBarMain {
-    width: var(--sidebar-width);
-    height: calc(var(--window-height) - 70px);
-    background-color: var(--card-bg-color);
-    border-radius: var(--border-radius);
-    box-sizing: border-box;
-    position: fixed;
-    top: 70px;
-    left: var(--header-left);
-    overflow-y: auto;
-    z-index: 20;
-    padding: 15px;
-
-    &::-webkit-scrollbar {
-      display: none;
+    @include sidebar() {
+      left: var(--header-left);
     }
   }
 
@@ -214,16 +200,24 @@
     }
   }
 
-  #sidebar_shortcut li,
-  #sidebar_scorerank li,
-  #sidebar_categories li {
+  .sidebar-li-common {
     font-size: 15px;
-    height: 40px;
     line-height: 30px;
     white-space: nowrap;
     overflow: hidden;
     text-overflow: ellipsis;
     list-style: none;
+  }
+
+  #sidebar_shortcut li,
+  #sidebar_scorerank li {
+    @extend .sidebar-li-common;
+    height: 40px;
+  }
+
+  #sidebar_categories li {
+    @extend .sidebar-li-common;
+    height: 33px;
   }
 
   #sidebar_recentposts li,

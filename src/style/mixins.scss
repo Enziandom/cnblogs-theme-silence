@@ -127,3 +127,22 @@
     color: var(--calendar-other-month-color);
   }
 }
+
+@mixin sidebar {
+  @include noselect();
+  width: var(--sidebar-width);
+  height: calc(var(--window-height) - 70px);
+  background-color: var(--card-bg-color);
+  box-sizing: border-box;
+  top: 70px;
+  @content;
+  position: fixed;
+  overflow-y: auto;
+  z-index: 20;
+  padding: 15px;
+  border-radius: var(--border-radius);
+
+  &::-webkit-scrollbar {
+    display: none;
+  }
+}
