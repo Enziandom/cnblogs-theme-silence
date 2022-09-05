@@ -73,6 +73,17 @@ export function insertCssForPostPage() {
   }
 }
 
+export function insertCssForExcludePostPage() {
+  if (isMobile()) {
+    setCss([
+      { "#sideBar": { display: "none" } },
+      { "#right-sidebar": { display: "none" } },
+      { "#mainContent": { margin: "0", left: "var(--header-left)" } },
+      { ".forFlow": { "margin-bottom": "10px", padding: "0" } }
+    ]);
+  }
+}
+
 export function setGlobalPageCssVars(iscalcMainContent) {
   let windowWidth = $(window).width();
   let windowHeight = $(window).height();
