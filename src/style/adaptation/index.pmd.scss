@@ -14,10 +14,10 @@
 
   #main {
     .forFlow {
-      margin-left: 0 !important;
+      padding: 10px 15px 10px 15px;
 
       #post_detail {
-        padding: 10px 15px 0 15px;
+        padding: 0 !important;
       }
 
       .postBody {
@@ -29,7 +29,7 @@
       }
 
       #comment_form {
-        padding: 0 15px 15px 15px !important;
+        padding: 0 !important;
       }
 
       .commentform {
