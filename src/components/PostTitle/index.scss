@@ -29,6 +29,10 @@
 
 .post {
   .postTitle {
+    font-size: 30px;
+    margin-bottom: 10px;
+    @include flex(flex-start);
+
     svg {
       @include noselect();
       cursor: pointer;
