@@ -1,9 +1,15 @@
-.text-img-desc {
-  cursor: initial;
-  font-family: inherit;
-  color: #828282;
-  margin: 0 !important;
-  padding: 0 !important;
-  text-align: center;
-  font-size: 13px;
+@import "../../style/mixins.scss";
+
+.enzia-img {
+  @include flex($wrap: nowrap, $row: column);
+
+  .enzia-img-desc {
+    cursor: initial;
+    font-family: inherit;
+    color: #828282;
+    margin: 5px 0 0 0 !important;
+    padding: 0 !important;
+    text-align: center;
+    font-size: 15px;
+  }
 }
