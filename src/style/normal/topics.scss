@@ -179,14 +179,14 @@
     flex-wrap: wrap;
     flex-direction: row;
 
-    a {
+    @mixin aStyle {
       font-size: 13px;
       border-radius: 4px;
       padding: 5px 5px;
       background-color: var(--blockquote-bg-color);
-      margin-right: 5px;
       transform: none;
       color: var(--text-color);
+      @content;
 
       &:hover {
         color: #fff;
@@ -198,22 +198,15 @@
       }
     }
 
-    a:first-child {
-      font-size: 13px;
-      border-radius: 4px;
-      padding: 1px 5px;
-      background-color: var(--blockquote-bg-color);
-      margin: 0 5px;
-      transform: none;
-      color: var(--text-color);
-
-      &:hover {
-        color: #fff;
-        background-color: var(--theme-color);
+    a {
+      @include aStyle() {
+        margin-right: 5px;
       }
+    }
 
-      &::after {
-        content: none;
+    a:first-child {
+      @include aStyle() {
+        margin: 0 5px;
       }
     }
   }
