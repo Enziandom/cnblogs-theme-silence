@@ -155,11 +155,7 @@
 
     details {
       summary {
-        cursor: pointer;
-        -moz-user-select: none; /*mozilar*/
-        -webkit-user-select: none; /*webkit*/
-        -ms-user-select: none; /*IE*/
-        user-select: none;
+        @include noselect();
       }
     }
 
@@ -180,14 +176,13 @@
   #EntryTag {
     font-size: 14px;
     margin-bottom: 10px;
-    // .FlexLayout.FlexStart();
     flex-wrap: wrap;
     flex-direction: row;
 
     a {
       font-size: 13px;
       border-radius: 4px;
-      padding: 1px 5px;
+      padding: 5px 5px;
       background-color: var(--blockquote-bg-color);
       margin-right: 5px;
       transform: none;
@@ -237,7 +232,6 @@
 }
 
 #div_digg {
-  /* 点赞 */
   margin: 10px 0 10px 0 !important;
   width: auto;
 
