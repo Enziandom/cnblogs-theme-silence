@@ -10,6 +10,7 @@
   --border-radius: 4px; /* 圆角半径 */
   --calendar-other-month-color: #cacaca;
   --bloger-status-bg-color: rgba(233, 233, 233, 0.5);
+  --img-desc-color: #9d9d9d;
 }
 
 :root[mode="dark"] {
@@ -24,6 +25,7 @@
   --border-radius: 4px; /* 圆角半径 */
   --calendar-other-month-color: #828282; /* 日历非本月日期颜色 */
   --bloger-status-bg-color: rgba(50, 50, 50, 0.65);
+  --img-desc-color: #8d8d8d;
 }
 
 :root[theme="a"] {
