@@ -101,11 +101,21 @@
       background-color: var(--card-bg-color);
       border-top: 1px solid var(--border-color);
       box-sizing: border-box;
-      padding: 10px;
-      @include flex(space-between);
+      @include flex(space-between, $wrap: nowrap);
+      overflow-x: auto;
+      white-space: nowrap;
+
+      &::-webkit-scrollbar {
+        width: 0;
+        height: 3px;
+      }
+
+      &::-webkit-scrollbar-thumb {
+        background-color: var(--text-color);
+      }
 
       div {
-        padding: 2px 4px;
+        margin: 2px 4px;
         box-sizing: border-box;
       }
     }

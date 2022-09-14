@@ -41,16 +41,21 @@ function createMenu() {
         <div class="links"></div>
         <div class="books"></div>
         <div class="clear"></div>
-        <div class="bottom-btns">
-          <div><a href="https://www.cnblogs.com/${profiles[0]}">首页</a></div>
-          <div><a href="https://i.cnblogs.com/" target="_blank">管理</a></div>
-          <div><a href="https://i.cnblogs.com/EditPosts.aspx?opt=1" target="_blank">新随笔</a></div>
-          <div><a href="https://www.cnblogs.com/" target="_blank">博客园</a></div>
-        </div>
       </div>
     </div>
   `);
 
+  let $bottombtns = $(`
+    <div class="bottom-btns">
+      <div><a href="https://www.cnblogs.com/${profiles[0]}">首页</a></div>
+      <div><a href="https://i.cnblogs.com/" target="_blank">管理</a></div>
+      <div><a href="https://i.cnblogs.com/EditPosts.aspx?opt=1" target="_blank">新随笔</a></div>
+      <div><a href="https://www.cnblogs.com/" target="_blank">博客园</a></div>
+      ${renderBottomBtns()}
+    </div>
+  `);
+
+  $bluepoint.find(".clear").after($bottombtns);
   $("#home").append($bluepoint);
 
   $bluepoint.find(".datetime").append($calender);
@@ -68,6 +73,23 @@ function createMenu() {
   $("#enzia-mobile-menu-mask").on("click", () => {
     $("#enzia-mobile-menu-mask").fadeOut();
     $("#enzia-mobile-menu").fadeOut();
+  });
+
+  let scrollLeft = 0;
+
+  $bottombtns.on("mousewheel", e => {
+    let scrollWidth = e.delegateTarget.scrollWidth - e.delegateTarget.offsetWidth;
+    if (e.originalEvent.deltaY < 0) {
+      if (scrollLeft > 0) {
+        scrollLeft -= 20;
+        $(e.delegateTarget).animate({ scrollLeft: scrollLeft }, 100, "linear");
+      }
+    } else {
+      if (scrollLeft <= scrollWidth) {
+        scrollLeft += 20;
+        $(e.delegateTarget).animate({ scrollLeft: scrollLeft }, 100, "linear");
+      }
+    }
   });
 }
 
@@ -107,6 +129,19 @@ function renderRepositories() {
         ${renderRepository(options.gitee, "git", [0], "gitee")}
       </div>
     `;
+  } else {
+    return ``;
+  }
+}
+
+function renderBottomBtns() {
+  let $reulst = ``;
+  let btns = options.menu.bottomBtns;
+  if (btns && btns.length > 0) {
+    for (let i = 0; i < btns.length; i++) {
+      $reulst += `<div><a href="${btns[i].url}" target="_blank">${btns[i].name}</a></div>`;
+    }
+    return $reulst;
   } else {
     return ``;
   }

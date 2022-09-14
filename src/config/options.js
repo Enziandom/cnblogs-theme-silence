@@ -77,7 +77,8 @@ const options = {
   },
   menu: {
     signature: "Time tick away, dream faded away!",
-    width: 247
+    width: 247,
+    bottomBtns: []
   },
   gitlab: null,
   gitee: null
