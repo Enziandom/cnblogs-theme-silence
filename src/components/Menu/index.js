@@ -4,6 +4,7 @@ import createDropdown from "../../widgets/Dropdown/index";
 import createStatus from "../../widgets/Status/index";
 import createMyLinks from "../../widgets/MyLinks";
 import createNiceBooks from "../../widgets/NiceBooks";
+import { isMobile } from "../../utils/device-helper";
 
 function createMenu() {
   let $profile = $("#profile_block").find("a").clone(true);
@@ -75,22 +76,24 @@ function createMenu() {
     $("#enzia-mobile-menu").fadeOut();
   });
 
-  let scrollLeft = 0;
-
-  $bottombtns.on("mousewheel", e => {
-    let scrollWidth = e.delegateTarget.scrollWidth - e.delegateTarget.offsetWidth;
-    if (e.originalEvent.deltaY < 0) {
-      if (scrollLeft > 0) {
-        scrollLeft -= 20;
-        $(e.delegateTarget).animate({ scrollLeft: scrollLeft }, 100, "linear");
+  if (!isMobile()) {
+    $bottombtns.on("mousewheel", e => {
+      console.log(e.originalEvent);
+      let scrollLeft = e.delegateTarget.scrollLeft;
+      let scrollWidth = e.delegateTarget.scrollWidth - e.delegateTarget.offsetWidth;
+      if (e.originalEvent.deltaY < 0) {
+        if (scrollLeft >= 0) {
+          scrollLeft -= 20;
+          $(e.delegateTarget).animate({ scrollLeft }, 50, "linear");
+        }
+      } else {
+        if (scrollLeft <= scrollWidth) {
+          scrollLeft += 20;
+          $(e.delegateTarget).animate({ scrollLeft }, 50, "linear");
+        }
       }
-    } else {
-      if (scrollLeft <= scrollWidth) {
-        scrollLeft += 20;
-        $(e.delegateTarget).animate({ scrollLeft: scrollLeft }, 100, "linear");
-      }
-    }
-  });
+    });
+  }
 }
 
 function upperStr(str, uppers, alias) {
