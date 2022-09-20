@@ -5,7 +5,7 @@
 
   svg {
     fill: var(--theme-color);
-    z-index: 999;
+    z-index: -1;
     cursor: pointer;
     position: fixed;
     top: 0;
