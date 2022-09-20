@@ -78,7 +78,6 @@ function createMenu() {
 
   if (!isMobile()) {
     $bottombtns.on("mousewheel", e => {
-      console.log(e.originalEvent);
       let scrollLeft = e.delegateTarget.scrollLeft;
       let scrollWidth = e.delegateTarget.scrollWidth - e.delegateTarget.offsetWidth;
       if (e.originalEvent.deltaY < 0) {
