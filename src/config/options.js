@@ -82,7 +82,11 @@ const options = {
   gitlab: null,
   gitee: null,
   backgroundOps: {
-    url: "https://gimg2.baidu.com/image_search/src=http%3A%2F%2Fpic.netbian.com%2Fuploads%2Fallimg%2F171119%2F201449-15110936893e55.jpg&refer=http%3A%2F%2Fpic.netbian.com&app=2002&size=f9999,10000&q=a80&n=0&g=0n&fmt=auto?sec=1666245447&t=620a20cac5ef37b36f485d7dd9ee0e68",
+    urls: [
+      "https://gimg2.baidu.com/image_search/src=http%3A%2F%2Fpic.netbian.com%2Fuploads%2Fallimg%2F171119%2F201449-15110936893e55.jpg&refer=http%3A%2F%2Fpic.netbian.com&app=2002&size=f9999,10000&q=a80&n=0&g=0n&fmt=auto?sec=1666245447&t=620a20cac5ef37b36f485d7dd9ee0e68",
+      "https://gimg2.baidu.com/image_search/src=http%3A%2F%2Fimg.jj20.com%2Fup%2Fallimg%2F1114%2F121R0120545%2F20121Q20545-5-1200.jpg&refer=http%3A%2F%2Fimg.jj20.com&app=2002&size=f9999,10000&q=a80&n=0&g=0n&fmt=auto?sec=1666251827&t=b12e9343fa99d92a72340e182531995b",
+      "https://gimg2.baidu.com/image_search/src=http%3A%2F%2Fi0.hdslb.com%2Fbfs%2Farticle%2F338eeb153a215d5600111c768b988a86a9fd10d9.jpg&refer=http%3A%2F%2Fi0.hdslb.com&app=2002&size=f9999,10000&q=a80&n=0&g=0n&fmt=auto?sec=1666251835&t=f093a207f7b6d7f3ae1612cc5ac29def"
+    ],
     opacity: 0.2,
     mainOpacity: 0.95,
     objectFit: "cover"
