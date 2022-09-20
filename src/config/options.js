@@ -84,7 +84,8 @@ const options = {
   backgroundOps: {
     url: "https://gimg2.baidu.com/image_search/src=http%3A%2F%2Fpic.netbian.com%2Fuploads%2Fallimg%2F171119%2F201449-15110936893e55.jpg&refer=http%3A%2F%2Fpic.netbian.com&app=2002&size=f9999,10000&q=a80&n=0&g=0n&fmt=auto?sec=1666245447&t=620a20cac5ef37b36f485d7dd9ee0e68",
     opacity: 0.2,
-    mainOpacity: 0.95
+    mainOpacity: 0.95,
+    objectFit: "cover"
   }
 };
 
