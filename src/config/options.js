@@ -29,16 +29,15 @@ const options = {
   },
   radarMap: {
     iscollapse: false,
-    alpha: 0.85, // 数据区域透明度
-    sides: 6, // 多边形面数
-    layer: 5, // 雷达层数
-    step: 15, // 每一层多边形距离多少
-    lineWidth: 1, // 雷达图线宽
-    textSize: 14, // 文本大小
-    lineColor: "#A7A7A7", // 雷达图线颜色
-    textColor: "#A7A7A7", // 文本颜色
+    alpha: 0.85,
+    sides: 6,
+    layer: 5,
+    step: 15,
+    lineWidth: 1,
+    textSize: 14,
+    lineColor: "#A7A7A7",
+    textColor: "#A7A7A7",
     data: [
-      // 数据
       { title: "js", star: 4 },
       { title: "ts", star: 2 },
       { title: "html", star: 4 },
@@ -71,17 +70,22 @@ const options = {
     contentWidth: 0.65,
     siderbarWidth: 0.18
   },
-  postFontSize: {
+  postFontOps: {
     min: 16,
     max: 20
   },
-  menu: {
+  menuOps: {
     signature: "Time tick away, dream faded away!",
     width: 247,
     bottomBtns: []
   },
   gitlab: null,
-  gitee: null
+  gitee: null,
+  backgroundOps: {
+    url: "https://gimg2.baidu.com/image_search/src=http%3A%2F%2Fpic.netbian.com%2Fuploads%2Fallimg%2F171119%2F201449-15110936893e55.jpg&refer=http%3A%2F%2Fpic.netbian.com&app=2002&size=f9999,10000&q=a80&n=0&g=0n&fmt=auto?sec=1666245447&t=620a20cac5ef37b36f485d7dd9ee0e68",
+    opacity: 0.2,
+    mainOpacity: 0.95
+  }
 };
 
 export default options;

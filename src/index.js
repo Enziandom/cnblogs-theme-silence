@@ -15,6 +15,7 @@ import createTextImage from "./components/TextImage";
 import createMenu from "./components/Menu";
 import createPostTitle from "./components/PostTitle";
 import Loader from "./components/Loader";
+import createBackground from "./components/Background";
 import { isPostPage, isHomePage } from "./utils/page-helper";
 import { loadHomePageComponents, loadPostPageComponents, loadCommonComponents, loadExcludePostPageComponents } from "./utils/lifetime";
 
@@ -31,6 +32,7 @@ class Silence {
     createProfile();
     createToolbar();
     createMenu();
+    createBackground();
     loadCommonComponents();
     if (isPostPage()) {
       createPostCatalog();

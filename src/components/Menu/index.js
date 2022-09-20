@@ -11,27 +11,27 @@ function createMenu() {
   let $catListTag = $(".catListTag").find("ul").clone(true);
   let $topcisCategory = $("#sidebar_postcategory").find("ul").clone(true);
   let $calender = $("#blogCalendar").clone(true);
-  let profiles = [];
+  let resume = [];
 
   for (let index = 0; index < $profile.length; index++) {
-    profiles.push($.trim($profile[index].innerText));
+    resume.push($.trim($profile[index].innerText));
   }
 
   let $bluepoint = $(`
     <div id="enzia-mobile-menu-mask" style="display: none;"></div>
-    <div id="enzia-mobile-menu" style="display: none; width: ${options.menu.width}px;">
+    <div id="enzia-mobile-menu" style="display: none; width: ${options.menuOps.width}px;">
       <div class="wrapper">
-        <div class="signature">${options.menu.signature}</div>
+        <div class="signature">${options.menuOps.signature}</div>
         <div class="profile">
           <div class="avatar-box">
             <img class="avatar" src="${options.avatar}" alt="" />
           </div>
           <div class="blog-info">
-            <div class="blog-name">昵称：${profiles[0]}</div>
-            <div class="blog-age">园龄：${profiles[1]}</div>
+            <div class="blog-name">昵称：${resume[0]}</div>
+            <div class="blog-age">园龄：${resume[1]}</div>
             <div class="blog-ff">
-              <div class="blog-fans">粉丝：${profiles[2]}</div>
-              <div class="blog-follows">关注：${profiles[3]}</div>
+              <div class="blog-fans">粉丝：${resume[2]}</div>
+              <div class="blog-follows">关注：${resume[3]}</div>
             </div>
           </div>
         </div>
@@ -48,7 +48,7 @@ function createMenu() {
 
   let $bottombtns = $(`
     <div class="bottom-btns">
-      <div><a href="https://www.cnblogs.com/${profiles[0]}">首页</a></div>
+      <div><a href="https://www.cnblogs.com/${resume[0]}">首页</a></div>
       <div><a href="https://i.cnblogs.com/" target="_blank">管理</a></div>
       <div><a href="https://i.cnblogs.com/EditPosts.aspx?opt=1" target="_blank">新随笔</a></div>
       <div><a href="https://www.cnblogs.com/" target="_blank">博客园</a></div>
@@ -138,7 +138,7 @@ function renderRepositories() {
 
 function renderBottomBtns() {
   let $reulst = ``;
-  let btns = options.menu.bottomBtns;
+  let btns = options.menuOps.bottomBtns;
   if (btns && btns.length > 0) {
     for (let i = 0; i < btns.length; i++) {
       $reulst += `<div><a href="${btns[i].url}" target="_blank">${btns[i].name}</a></div>`;
