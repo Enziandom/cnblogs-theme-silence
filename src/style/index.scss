@@ -6,7 +6,7 @@
 
 #home {
   width: 100%;
-  height: calc(var(--window-height) - 1px);
+  height: 100%;
   transition: all 378ms;
 }
 
@@ -27,6 +27,7 @@ body {
   font-family: "Lato", "PingFang SC", "Microsoft YaHei", sans-serif;
   font-size: 14px;
   font-weight: 300;
+  overflow-y: hidden;
 }
 
 table {

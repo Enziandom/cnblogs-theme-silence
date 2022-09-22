@@ -86,7 +86,8 @@ const options = {
       "https://gimg2.baidu.com/image_search/src=http%3A%2F%2Fi0.hdslb.com%2Fbfs%2Farticle%2F0cbf525b685389879005f3fb449816acb737cc59.jpg&refer=http%3A%2F%2Fi0.hdslb.com&app=2002&size=f9999,10000&q=a80&n=0&g=0n&fmt=auto?sec=1666410782&t=e16c9ed476292671ced6105d77fb8ca4"
     ],
     blur: 4,
-    mainOpacity: 0.85
+    mainOpacity: 0.90,
+    objectFit: "cover"
   }
 };
 
