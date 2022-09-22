@@ -77,7 +77,7 @@ function createPostCatalog() {
 
     catalogContents += `</ul></div></div>`;
 
-    $("body").append(catalogContents);
+    $("#home").append(catalogContents);
 
     let $catalogs = $(".catalog-li");
     let lastCatalog = null;

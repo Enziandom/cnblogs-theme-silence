@@ -4,7 +4,7 @@ import options from "../../config/options";
 
 function createGithubCorner() {
   if (!options.github) return;
-  $("body").append(`
+  $("#home").append(`
     <a href="${options.github}" class="github-corner" title="GitHub" target="_blank">
       <svg width="60" height="60" viewBox="0 0 250 250" style="color:#fff" aria-hidden="true">
           <path d="M0,0 L115,115 L130,115 L142,142 L250,250 L250,0 Z"></path>

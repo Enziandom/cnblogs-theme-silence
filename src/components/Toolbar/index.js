@@ -31,7 +31,7 @@ function createToolbar() {
     </div>
   `);
 
-  $("body").append($bluepoint);
+  $("#home").append($bluepoint);
   let $up = $(".up");
   let $mode = $(".mode");
   let $skin = $(".skin");
