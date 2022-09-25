@@ -10,7 +10,7 @@
 
 #right-sidebar {
   @include sidebar() {
-    right: var(--header-left);
+    right: 12.5vw;
   }
 
   .sidebar-content {

@@ -20,7 +20,7 @@ function createBackground() {
     let imgFit = "cover";
     if (isQua) imgFit = ops.objectFit;
     let $img = $(`
-      <div class="matte-container" style="--bg-blur: ${ops.blur}px">
+      <div class="matte-container" style="--bg-blur: ${ops.blur}px; opacity: ${ops.bgOpacity}">
         <img class="matte-img" src="${ops.urls[random]}" style="object-fit: ${imgFit}" />
       </div>
     `);

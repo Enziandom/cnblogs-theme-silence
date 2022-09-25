@@ -4,8 +4,8 @@
 @media only screen and (min-width: 990px) {
   #header {
     position: fixed;
-    left: var(--header-left);
-    width: var(--content-width);
+    left: 12.5vw;
+    width: 75vw;
     @include flex(space-between);
 
     .mobile-navs-menu {

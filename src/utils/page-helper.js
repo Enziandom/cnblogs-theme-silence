@@ -52,12 +52,7 @@ export function insertClassForPostPage() {
 }
 
 export function insertCssForPostPage() {
-  setCss([
-    { "#sideBar": { display: "none" } },
-    { "#right-sidebar": { display: "none" } },
-    { "#mainContent": { margin: "0", left: "var(--header-left)" } },
-    { ".forFlow": { "margin-bottom": "10px" } }
-  ]);
+  setCss([{ "#sideBar": { display: "none" } }, { "#right-sidebar": { display: "none" } }, { ".forFlow": { "margin-bottom": "10px" } }]);
 
   if (isMobile()) {
     $(".forFlow").css({
@@ -75,51 +70,8 @@ export function insertCssForPostPage() {
 
 export function insertCssForExcludePostPage() {
   if (isMobile()) {
-    setCss([
-      { "#sideBar": { display: "none" } },
-      { "#right-sidebar": { display: "none" } },
-      { "#mainContent": { margin: "0", left: "var(--header-left)" } },
-      { ".forFlow": { "margin-bottom": "10px", padding: "0" } }
-    ]);
+    setCss([{ "#sideBar": { display: "none" } }, { "#right-sidebar": { display: "none" } }, { ".forFlow": { "margin-bottom": "10px", padding: "0" } }]);
   }
-}
-
-export function setGlobalPageCssVars(iscalcMainContent) {
-  let windowWidth = $(window).width();
-  let windowHeight = $(window).height();
-  let contentWidth = 0;
-  let mainContentWidth = 0;
-  let sidebarWidth = 0;
-
-  if (!(windowWidth <= 990)) {
-    contentWidth = windowWidth * options.pageOps.contentWidth;
-    sidebarWidth = contentWidth * options.pageOps.siderbarWidth + 40;
-    if (iscalcMainContent) {
-      mainContentWidth = contentWidth - (sidebarWidth * 2 + 20);
-    } else {
-      mainContentWidth = contentWidth;
-    }
-  } else {
-    contentWidth = windowWidth;
-    mainContentWidth = windowWidth;
-  }
-
-  setCss([
-    {
-      ":root": {
-        "--window-width": `${windowWidth}px`,
-        "--window-height": `${windowHeight}px`,
-        "--content-width": `${contentWidth}px`,
-        "--header-left": `${(windowWidth - contentWidth) / 2}px`,
-        "--sidebar-width": `${sidebarWidth}px`
-      }
-    },
-    {
-      "#mainContent": {
-        width: `${mainContentWidth}px`
-      }
-    }
-  ]);
 }
 
 export function debounce(fn, wait) {

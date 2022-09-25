@@ -3,10 +3,10 @@
 /* > 990px */
 @media only screen and (min-width: 990px) {
   #main {
-    margin: 0 auto;
-
     #mainContent {
-      margin: 0 10px;
+      width: 45vw;
+      left: 27.5vw;
+      padding: 0 10px;
     }
   }
 }

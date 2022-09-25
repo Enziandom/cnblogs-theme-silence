@@ -130,8 +130,8 @@
 
 @mixin sidebar {
   @include noselect();
-  width: var(--sidebar-width);
-  height: calc(var(--window-height) - 70px);
+  width: 15vw;
+  height: calc(100vh - 70px);
   background-color: var(--card-bg-color);
   box-sizing: border-box;
   top: 70px;

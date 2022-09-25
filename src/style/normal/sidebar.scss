@@ -10,7 +10,7 @@
 #sideBar {
   #sideBarMain {
     @include sidebar() {
-      left: var(--header-left);
+      left: 12.5vw;
     }
   }
 
