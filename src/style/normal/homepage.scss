@@ -66,12 +66,16 @@
   @include pager-mixin(false, false);
 }
 
+.pager {
+  margin: 0 !important;
+}
+
 #mainContent {
   #homepage_top_pager {
     margin-bottom: 10px 0 0 0 !important;
   }
 
-  & > .topicListFooter {
+  & > .topicListFooter > .pager {
     @include pager-mixin();
   }
 
