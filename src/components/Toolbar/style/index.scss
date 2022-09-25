@@ -13,7 +13,6 @@
     border-radius: 4px;
     box-shadow: 0 2px 4px 1px rgba(0, 0, 0, 0.2);
     background-color: var(--blockquote-bg-color);
-    transition: all 0.3s ease;
     z-index: 990;
     @include flex();
 
@@ -82,7 +81,6 @@
       margin: 2.5px;
       flex-shrink: 0;
       justify-self: center;
-      transition: all 0.15s;
       overflow: hidden;
       background: transparent;
       z-index: 1;

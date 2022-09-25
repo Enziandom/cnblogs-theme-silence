@@ -144,7 +144,6 @@
         width: 30%;
         outline: 0;
         color: var(--text-color);
-        transition: border 0.3s;
         @include input();
 
         &:hover {
@@ -171,12 +170,9 @@
     border: 1px dotted var(--border-color);
     margin: 0 6px 6px 0;
     display: inline-grid;
-    transition: all 0.3s ease;
     border-radius: var(--border-radius);
 
     a {
-      transition: inherit;
-
       .tag-count {
         display: none;
       }
@@ -219,7 +215,6 @@
   #sidebar_topdiggedposts li {
     font-size: 15px;
     padding: 7px 0;
-    transition: all 0.3s;
     text-align: justify;
     border-bottom: 1px solid var(--border-color);
 
