@@ -1,4 +1,4 @@
-import { insertClassForPostPage, insertCssForExcludePostPage, deleteDomForPostPage, insertCssForPostPage, insertDomForPostPage } from "./page-helper";
+import { insertClassForPostPage, deleteDomForPostPage, insertCssForPostPage, insertDomForPostPage } from "./page-helper";
 import { getMode, getTheme } from "../utils/theme-helper";
 
 export function loadHomePageComponents() {}
@@ -17,14 +17,11 @@ export function loadCommonComponents() {
 }
 
 export function loadExcludePostPageComponents() {
-  insertCssForExcludePostPage();
-
-  // let $pagers = $("div.topicListFooter");
-
-  // if ($pagers.length >= 3) {
-  //   $("#mainContent").prepend($pagers[0]);
-  //   $("#mainContent").append($pagers[2]);
-  // } else {
-  //   $("#mainContent").append($pagers[0]);
-  // }
+  let $pagers = $("div.topicListFooter");
+  if ($pagers.length >= 3) {
+    $("#mainContent").prepend($pagers[0]);
+    $("#mainContent").append($pagers[2]);
+  } else {
+    $("#mainContent").append($pagers[0]);
+  }
 }
