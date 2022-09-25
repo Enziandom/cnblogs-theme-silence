@@ -11,11 +11,8 @@
   }
 }
 
-.topicListFooter {
-  margin: 0 !important;
-}
-
 @mixin atag() {
+  background-color: var(--card-bg-color);
   height: 28px;
   margin: 0 3px;
   box-sizing: border-box;
@@ -66,24 +63,23 @@
 }
 
 #nav_next_page {
-  @include pager-mixin(false, false) {
-    margin: 10px 0;
+  @include pager-mixin(false, false);
+}
+
+#mainContent {
+  #homepage_top_pager {
+    margin-bottom: 10px 0 0 0 !important;
   }
-}
 
-.topicListFooter > .pager {
-  @include pager-mixin();
-}
+  & > .topicListFooter {
+    @include pager-mixin();
+  }
 
-#mainContent .pager {
-  @include pager-mixin();
-}
+  & .pager > .pager > .Pager {
+    @include pager-mixin();
+  }
 
-#mainContent .pager > .pager > .Pager {
-  @include pager-mixin();
-}
-
-#mainContent .pager {
-  text-align: initial !important;
-  margin: 0 !important;
+  & > .pager {
+    @include pager-mixin();
+  }
 }
