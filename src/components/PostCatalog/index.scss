@@ -2,16 +2,7 @@
 
 #esa-catalog-wrapper {
   box-sizing: border-box;
-  padding: 10px;
-  border: 1px solid var(--border-color);
-  display: none;
-  width: 210px;
-  position: fixed;
-  top: 70px;
-  right: 50px;
-  font-weight: inherit;
-  background-color: var(--card-bg-color);
-  border-radius: var(--border-radius);
+  width: 100%;
 
   #esa-catalog-inner {
     .catalog-title {

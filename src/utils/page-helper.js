@@ -1,7 +1,3 @@
-import { setCss } from "./css-helper";
-import { isMobile } from "./device-helper";
-import options from "../config/options";
-
 export function isPostPage() {
   return $("#topics").length > 0;
 }
@@ -27,7 +23,8 @@ export function isHomePage() {
 }
 
 export function deleteDomForPostPage() {
-  $("#topics .postTitle .cnblogs-toc-button").remove();
+  $("#sideBarMain .enzia-profile").remove();
+  $("#sideBarMain #sidebar_news").remove();
 }
 
 export function insertDomForPostPage() {
@@ -39,10 +36,6 @@ export function insertDomForPostPage() {
   });
 }
 
-export function insertDomForExcludePostPage() {
-  $("#mainContent").insertAfter("#sideBar");
-}
-
 export function insertClassForPostPage() {
   $("#cnblogs_post_body a").each(function (index, el) {
     if (!$(el).find("img").length) {
@@ -52,34 +45,5 @@ export function insertClassForPostPage() {
 }
 
 export function insertCssForPostPage() {
-  setCss([{ "#sideBar": { display: "none" } }, { "#right-sidebar": { display: "none" } }, { ".forFlow": { "margin-bottom": "10px" } }]);
-
-  if (isMobile()) {
-    $(".forFlow").css({
-      "background-color": "var(--card-bg-color)",
-      "border-radius": "10px"
-    });
-  } else {
-    $(".forFlow").css({
-      "background-color": "var(--card-bg-color)",
-      "border-radius": "10px",
-      padding: "20px 30px"
-    });
-  }
-}
-
-export function insertCssForExcludePostPage() {
-  if (isMobile()) {
-    setCss([{ "#sideBar": { display: "none" } }, { "#right-sidebar": { display: "none" } }, { ".forFlow": { "margin-bottom": "10px", padding: "0" } }]);
-  }
-}
-
-export function debounce(fn, wait) {
-  var timer = null;
-  return function () {
-    if (timer !== null) {
-      clearTimeout(timer);
-    }
-    timer = setTimeout(fn, wait);
-  };
+  $(".forFlow").css({ padding: "10px 15px 10px 15px" });
 }

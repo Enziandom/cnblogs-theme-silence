@@ -1,13 +1,11 @@
 import "./index.scss";
 import options from "../../config/options";
-import { isMobile } from "../../utils/device-helper";
+import createDropdown from "../../widgets/Dropdown";
 
 function createPostCatalog() {
   const catalogConfig = options.catalog;
 
-  let catalogToolItem = $(`<span class="catalog tool-item" title="文章目录"><i class="fa fa-map-marker" aria-hidden="true"></i></span>`);
-
-  $("#enzia-tools .canbe-fade").prepend(catalogToolItem);
+  $("#enzia-tools .canbe-fade").prepend(`<span class="catalog tool-item" title="文章目录"><i class="fa fa-map-marker" aria-hidden="true"></i></span>`);
 
   if (catalogConfig.enable) {
     const levels = catalogConfig.levels;
@@ -25,7 +23,6 @@ function createPostCatalog() {
     let catalogContents = `
       <div id="esa-catalog-wrapper">
         <div id='esa-catalog-inner'>
-          <h2 class="catalog-title"><i class="fa fa-thumb-tack" aria-hidden="true"></i>文章目录</h3>
           <ul id='esa-catalog'>
     `;
 
@@ -37,7 +34,6 @@ function createPostCatalog() {
       let titleIndex = "";
 
       if (catalogConfig.index) {
-        /* 显示索引值 */
         if (tagName === level1) {
           h1c++;
           h2c = 0;
@@ -52,7 +48,6 @@ function createPostCatalog() {
           titleIndex = `<span class="level3">${h1c}.${h2c}.${h3c}. </span>`;
         }
       } else {
-        /* 不显示索引值 */
         switch (tagName) {
           case level1:
             titleContent = `<span class="level1">${text}</span>`;
@@ -77,26 +72,10 @@ function createPostCatalog() {
 
     catalogContents += `</ul></div></div>`;
 
-    $("#home").append(catalogContents);
+    createDropdown(e => $("#right-sidebar .sidebar-content").prepend(e), "文章目录", catalogContents);
 
     let $catalogs = $(".catalog-li");
     let lastCatalog = null;
-
-    $(catalogToolItem).on("click", () => {
-      $("#esa-catalog-wrapper").fadeToggle();
-    });
-
-    if (catalogConfig.pmdAutoOpen) {
-      if (isMobile()) {
-        $(catalogToolItem).click();
-      }
-    }
-
-    if (catalogConfig.pcAutoOpen) {
-      if (!isMobile()) {
-        $(catalogToolItem).click();
-      }
-    }
 
     $("#mainContent").on("scroll", function () {
       for (let i = 0; i < captions.length; i++) {
