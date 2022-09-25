@@ -32,10 +32,10 @@ export function loadExcludePostPageComponents() {}
 
 // 加载标签分类页的组件
 export function loadTagListPageComponents() {
-  let $pagers = $("div.pager").parent();
+  // let $pagers = $("div.pager").parent();
 
-  $("#mainContent").prepend($pagers[1]);
-  $("#mainContent").append($pagers[3]);
+  // $("#mainContent").prepend($pagers[1]);
+  // $("#mainContent").append($pagers[3]);
 }
 
 // 加载文章所属标签的组件
@@ -43,8 +43,8 @@ export function loadTagPostsPageComponents() {}
 
 // 加载文章分类页的组件
 export function loadEssayListPageComponents() {
-  let $pagers = $("div.pager");
+  // let $pagers = $("div.pager");
 
-  $("#mainContent").prepend($pagers[0]);
-  $("#mainContent").append($pagers[1]);
+  // $("#mainContent").prepend($pagers[0]);
+  // $("#mainContent").append($pagers[1]);
 }
