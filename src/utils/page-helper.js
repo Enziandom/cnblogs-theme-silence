@@ -11,7 +11,7 @@ function isTagListPage() {
   return $("#taglist_main").length > 0;
 }
 
-// 是否为标签文章页
+// 是否为标签文章页，包含日记页
 function isTagPostsPage() {
   return $(".forFlow .PostListTitle").length > 0;
 }
