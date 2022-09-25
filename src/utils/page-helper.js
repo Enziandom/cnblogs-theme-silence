@@ -6,20 +6,24 @@ function isPaging() {
   return $("#homepage_top_pager").length > 0;
 }
 
+// 是否为标签页
 function isTagListPage() {
   return $("#taglist_main").length > 0;
 }
 
+// 是否为标签文章页
 function isTagPostsPage() {
   return $(".forFlow .PostListTitle").length > 0;
 }
 
+// 是否为文章分类页
 function isEssayListPage() {
   return $(".forFlow .entrylistTitle").length > 0;
 }
 
+// 是否为首页
 export function isHomePage() {
-  return !(isPaging() || isTagListPage() || isTagPostsPage() || isEssayListPage());
+  return !(isTagListPage() || isTagPostsPage() || isEssayListPage());
 }
 
 export function deleteDomForPostPage() {
@@ -45,5 +49,5 @@ export function insertClassForPostPage() {
 }
 
 export function insertCssForPostPage() {
-  $(".forFlow").css({ padding: "10px 15px 10px 15px" });
+  $(".forFlow").css({ padding: "10px 15px 10px 15px", "background-color": "var(--card-bg-color)" });
 }

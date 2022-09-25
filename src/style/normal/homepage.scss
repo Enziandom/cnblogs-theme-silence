@@ -75,21 +75,15 @@
   @include pager-mixin();
 }
 
-.entrylistTitle + .pager,
-.entrylistTitle + div + div + div.pager {
+#mainContent .pager {
   @include pager-mixin();
 }
 
-.PostListTitle + .pager > .pager > .Pager,
-#myposts .pager .pager .Pager {
+#mainContent .pager > .pager > .Pager {
   @include pager-mixin();
 }
 
-#myposts .pager .pager .Pager {
-  margin: 10px 0 !important;
-}
-
-#myposts .pager {
+#mainContent .pager {
   text-align: initial !important;
   margin: 0 !important;
 }

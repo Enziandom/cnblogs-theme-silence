@@ -16,7 +16,7 @@ import createMenu from "./components/Menu";
 import createPostTitle from "./components/PostTitle";
 import Loader from "./components/Loader";
 import createBackground from "./components/Background";
-import { isPostPage, isHomePage } from "./utils/page-helper";
+import { isTagListPage, isTagPostsPage, isEssayListPage, isPostPage, isHomePage } from "./utils/page-helper";
 import { loadHomePageComponents, loadPostPageComponents, loadCommonComponents, loadExcludePostPageComponents } from "./utils/lifetime";
 
 class Silence {
@@ -46,8 +46,15 @@ class Silence {
     } else {
       createRadarMap();
       loadExcludePostPageComponents();
+
       if (isHomePage()) {
         loadHomePageComponents();
+      } else if (isTagListPage()) {
+        loadTagListPageComponents();
+      } else if (isTagPostsPage()) {
+        loadTagPostsPageComponents();
+      } else if (isEssayListPage()) {
+        loadEssayListPageComponents();
       }
     }
     Loader.hide();
