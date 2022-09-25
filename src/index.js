@@ -17,7 +17,15 @@ import createPostTitle from "./components/PostTitle";
 import Loader from "./components/Loader";
 import createBackground from "./components/Background";
 import { isTagListPage, isTagPostsPage, isEssayListPage, isPostPage, isHomePage } from "./utils/page-helper";
-import { loadHomePageComponents, loadPostPageComponents, loadCommonComponents, loadExcludePostPageComponents } from "./utils/lifetime";
+import {
+  loadTagListPageComponents,
+  loadTagPostsPageComponents,
+  loadEssayListPageComponents,
+  loadHomePageComponents,
+  loadPostPageComponents,
+  loadCommonComponents,
+  loadExcludePostPageComponents
+} from "./utils/lifetime";
 
 class Silence {
   constructor() {
