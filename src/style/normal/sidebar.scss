@@ -97,8 +97,12 @@
     }
   }
 
+  #sidebar_news {
+    border-bottom: 1px dotted var(--border-color);
+    padding-bottom: 10px;
+  }
+
   #blog-calendar {
-    border-top: 1px dotted var(--border-color);
     margin-bottom: 20px;
 
     td {
