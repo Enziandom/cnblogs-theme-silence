@@ -2,22 +2,22 @@ export function isPostPage() {
   return $("#topics").length > 0;
 }
 
-function isPaging() {
+export function isPaging() {
   return $("#homepage_top_pager").length > 0;
 }
 
 // 是否为标签页
-function isTagListPage() {
+export function isTagListPage() {
   return $("#taglist_main").length > 0;
 }
 
 // 是否为标签文章页，包含日记页
-function isTagPostsPage() {
+export function isTagPostsPage() {
   return $(".forFlow .PostListTitle").length > 0;
 }
 
 // 是否为文章分类页
-function isEssayListPage() {
+export function isEssayListPage() {
   return $(".forFlow .entrylistTitle").length > 0;
 }
 

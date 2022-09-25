@@ -31,20 +31,19 @@ export function loadCommonComponents() {
 export function loadExcludePostPageComponents() {}
 
 // 加载标签分类页的组件
-export function loadTagListPageComponents() {
-  // let $pagers = $("div.pager").parent();
-
-  // $("#mainContent").prepend($pagers[1]);
-  // $("#mainContent").append($pagers[3]);
-}
+export function loadTagListPageComponents() {}
 
 // 加载文章所属标签的组件
-export function loadTagPostsPageComponents() {}
+export function loadTagPostsPageComponents() {
+  let $pagers = $("div.pager").parent();
+
+  $("#mainContent").prepend($pagers[1]);
+  $("#mainContent").append($pagers[3]);
+}
 
 // 加载文章分类页的组件
 export function loadEssayListPageComponents() {
-  // let $pagers = $("div.pager");
-
-  // $("#mainContent").prepend($pagers[0]);
-  // $("#mainContent").append($pagers[1]);
+  let $pagers = $("div.pager");
+  $("#mainContent").prepend($pagers[0]);
+  $("#mainContent").append($pagers[1]);
 }
