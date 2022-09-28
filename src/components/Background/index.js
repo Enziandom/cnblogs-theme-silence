@@ -14,7 +14,7 @@ function createBackground() {
   let ops = options.backgroundOps;
 
   if (ops && ops.urls) {
-    if (ops.urls.length > 0) return;
+    if (ops.urls.length <= 0) return;
     let random = randomUint(ops.urls.length);
     let quaSynx = ["cover", "contain", "fill", "inherit", "initial", "none", "revert", "scale-down", "unset"];
     let isQua = find(quaSynx, ops.objectFit);
