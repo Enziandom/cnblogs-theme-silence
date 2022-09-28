@@ -1,52 +1,36 @@
 <!DOCTYPE html>
-<html lang="zh-cn" style="--olcb-folder-code-block-max-height: 80vh">
+<html lang="zh-cn">
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <meta name="referrer" content="origin-when-cross-origin" />
-    <meta http-equiv="Cache-Control" content="no-transform" />
-    <meta http-equiv="Cache-Control" content="no-siteapp" />
+    <meta name="referrer" content="origin" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <title>Enziandom - 博客园</title>
+    <link id="favicon" rel="shortcut icon" href="//common.cnblogs.com/favicon.ico?v=20200522" type="image/x-icon" />
+    <link rel="stylesheet" href="https://www.cnblogs.com/css/blog-common.min.css" />
+    <link id="mobile-style" media="only screen and (max-width: 767px)" type="text/css" rel="stylesheet" href="https://www.cnblogs.com/skins/custom/bundle-custom-mobile.min.css" />
+    <link type="application/rss+xml" rel="alternate" href="https://www.cnblogs.com/esofar/rss" />
+    <link type="application/rsd+xml" rel="EditURI" href="https://www.cnblogs.com/esofar/rsd.xml" />
+    <link type="application/wlwmanifest+xml" rel="wlwmanifest" href="https://www.cnblogs.com/esofar/wlwmanifest.xml" />
+    <script src="https://cdn.bootcdn.net/ajax/libs/jquery/2.2.0/jquery.js"></script>
+    <script src="https://www.cnblogs.com/js/blog-common.min.js"></script>
     <script>
-      var currentBlogId = 666252;
+      var currentBlogId = 235702;
       var currentBlogApp = "Enziandom";
+      var cb_enable_mathjax = false;
       var isLogined = true;
-      var isBlogOwner = true;
       var skinName = "Custom";
-      var visitorUserId = "e77e74a1-96fd-4735-9d33-08d8ae5f7194";
-      var hasCustomScript = true;
-      try {
-        if (hasCustomScript && document.referrer && document.referrer.indexOf("baidu.com") >= 0) {
-          Object.defineProperty(document, "referrer", { value: "" });
-          Object.defineProperty(Document.prototype, "referrer", {
-            get: function () {
-              return "";
-            }
-          });
-        }
-      } catch (error) {}
-      window.cb_enable_mathjax = true;
-      window.mathEngine = 0;
-      window.codeHighlightEngine = 1;
-      window.enableCodeLineNumber = false;
-      window.codeHighlightTheme = "atom-one-dark";
-      window.darkModeCodeHighlightTheme = "vs2015";
-      window.isDarkCodeHighlightTheme = true;
-      window.isDarkModeCodeHighlightThemeDark = true;
-      window.isDisableCodeHighlighter = false;
-      window.enableCodeThemeTypeFollowSystem = false;
     </script>
-    <script src="https://cdn.bootcdn.net/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
   </head>
-  <body class="skin-custom has-navbar mathjax2">
+  <body class="skin-custom has-navbar">
+    <div id="MathJax_Message" style="display: none"></div>
     <a name="top"></a>
     <div id="top_nav" class="navbar forpc">
       <nav id="nav_main" class="navbar-main">
         <ul id="nav_left" class="navbar-list navbar-left">
           <li class="navbar-branding">
             <a href="https://www.cnblogs.com/" title="开发者的网上家园" role="banner">
-              <img src="//common.cnblogs.com/logo.svg" alt="博客园Logo" />
+              <img src="/images/logo.svg?v=R9M0WmLAIPVydmdzE2keuvnjl-bPR7_35oHqtiBzGsM" alt="博客园Logo" />
             </a>
           </li>
           <li>
@@ -59,7 +43,7 @@
             <a href="https://q.cnblogs.com/" onclick="countClicks('nav', 'skin-navbar-q')">博问</a>
           </li>
           <li>
-            <a id="nav_brandzone" href="https://brands.cnblogs.com/" onclick="countClicks('nav', 'skin-navbar-brands')">专区</a>
+            <a id="nav_brandzone" href="https://brands.cnblogs.com/huawei" onclick="countClicks('nav', 'skin-navbar-brands')">专区</a>
           </li>
           <li>
             <a href="https://ing.cnblogs.com/" onclick="countClicks('nav', 'skin-navbar-ing')">闪存</a>
@@ -73,30 +57,30 @@
             <form id="zzk_search" class="navbar-search" action="https://zzk.cnblogs.com/s" method="get" role="search">
               <input name="w" id="zzk_search_input" placeholder="代码改变世界" type="search" tabindex="3" />
               <button type="submit" id="zzk_search_button">
-                <img src="//common.cnblogs.com/images/blog/search.svg" alt="搜索" />
+                <img src="/images/aggsite/search.svg" alt="搜索" />
               </button>
             </form>
           </li>
           <li id="navbar_login_status" class="navbar-list">
             <a class="navbar-user-info navbar-blog" href="https://i.cnblogs.com/EditPosts.aspx?opt=1" alt="写随笔" title="写随笔" style="display: inline">
-              <img id="new_post_icon" class="navbar-icon" src="//common.cnblogs.com/images/blog/newpost.svg" alt="写随笔" />
+              <img id="new_post_icon" class="navbar-icon" src="/images/aggsite/newpost.svg" alt="写随笔" />
             </a>
-            <a id="navblog-myblog-icon" class="navbar-user-info navbar-blog" href="https://www.cnblogs.com/Enziandom/" alt="我的博客" title="我的博客" style="display: inline">
-              <img id="myblog_icon" class="navbar-icon" src="//common.cnblogs.com/images/blog/myblog.svg" alt="我的博客" />
+            <a id="navblog-myblog-icon" class="navbar-user-info navbar-blog" href="https://www.cnblogs.com/shiramashiro/" alt="我的博客" title="我的博客" style="display: inline">
+              <img id="myblog_icon" class="navbar-icon" src="/images/aggsite/myblog.svg" alt="我的博客" />
             </a>
             <a class="navbar-user-info navbar-message navbar-icon-wrapper" href="https://msg.cnblogs.com/" alt="短消息" title="短消息" style="display: inline">
-              <img id="msg_icon" class="navbar-icon" src="//common.cnblogs.com/images/blog/message.svg" alt="短消息" />
+              <img id="msg_icon" class="navbar-icon" src="/images/aggsite/message.svg?v=J0WS2P2iPgaIVgXxcAhliw4AFZIpaTWxtdoNAv9eiCA" alt="短消息" />
               <span id="msg_count" style="display: none"></span>
             </a>
             <a id="navbar_lite_mode_indicator" data-current-page="blog" style="display: none" href="javascript:void(0)" alt="简洁模式" title="简洁模式启用，您在访问他人博客时会使用简洁款皮肤展示">
-              <img class="navbar-icon" src="//common.cnblogs.com/images/blog/lite-mode-on.svg" alt="简洁模式" />
+              <img class="navbar-icon" src="/images/aggsite/lite-mode-on.svg" alt="简洁模式" />
             </a>
             <div id="user_info" class="navbar-user-info dropdown" style="display: block">
-              <a class="dropdown-button" href="https://home.cnblogs.com/u/Enziandom">
-                <img id="user_icon" class="navbar-avatar" src="//pic.cnblogs.com/face/2271881/20220825013027.png" alt="用户头像" />
+              <a class="dropdown-button" href="https://home.cnblogs.com/u/shiramashiro">
+                <img id="user_icon" class="navbar-avatar" src="//pic.cnblogs.com/face/2271881/20210617130249.png" alt="用户头像" />
               </a>
               <div class="dropdown-menu">
-                <a id="navblog-myblog-text" href="https://www.cnblogs.com/Enziandom/">我的博客</a>
+                <a id="navblog-myblog-text" href="https://www.cnblogs.com/shiramashiro/">我的博客</a>
                 <a href="https://home.cnblogs.com/">我的园子</a>
                 <a href="https://account.cnblogs.com/settings/account">账号设置</a>
                 <a href="javascript:void(0)" id="navbar_lite_mode_toggle" title="简洁模式会使用简洁款皮肤显示所有博客">
@@ -112,40 +96,50 @@
       </nav>
     </div>
 
+    <div id="page_begin_html">
+      <div class="dark-loading" style="display: none">
+        <div class="box">
+          <h2>Loading</h2>
+          <span></span><span></span><span></span><span></span><span></span><span></span><span></span>
+        </div>
+      </div>
+    </div>
     <!--done-->
     <div id="home">
       <div id="header">
         <div id="blogTitle">
-          <a id="lnkBlogLogo" href="https://www.cnblogs.com/Enziandom/"><img id="blogLogo" src="/skins/custom/images/logo.gif" alt="返回主页" /></a>
+          <a id="lnkBlogLogo" href="https://www.cnblogs.com/shiramashiro/"><img id="blogLogo" src="/skins/custom/images/logo.gif" alt="返回主页" /></a>
 
           <!--done-->
-          <h1><a id="Header1_HeaderTitle" class="headermaintitle HeaderMainTitle" href="https://www.cnblogs.com/Enziandom/">Enziandom</a></h1>
+          <h1><a id="Header1_HeaderTitle" class="headermaintitle HeaderMainTitle" href="https://www.cnblogs.com/shiramashiro/">Enziandom</a></h1>
           <h2></h2>
         </div>
         <!--end: blogTitle 博客的标题和副标题 -->
         <div id="navigator">
           <ul id="navList">
+            <li><a id="blog_nav_sitehome" class="menu" href="https://www.cnblogs.com/"> 博客园</a></li>
             <li></li>
             <li>
-              <a id="blog_nav_myhome" class="menu" href="https://www.cnblogs.com/Enziandom/"> 首页</a>
+              <a id="blog_nav_myhome" class="menu" href="https://www.cnblogs.com/shiramashiro/"> 首页</a>
             </li>
+            <li>
+              <a class="menu" target="_self" href="https://www.cnblogs.com/shiramashiro/tag/"> 标签 </a>
+            </li>
+
             <li>
               <a id="blog_nav_newpost" class="menu" href="https://i.cnblogs.com/EditPosts.aspx?opt=1"> 新随笔</a>
             </li>
-            <li></li>
-            <li>
-              <!--<partial name="./Shared/_XmlLink.cshtml" model="Model" /></li>-->
-            </li>
+
             <li>
               <a id="blog_nav_admin" class="menu" href="https://i.cnblogs.com/"> 管理</a>
             </li>
           </ul>
 
           <div class="blogStats">
-            <span id="stats_post_count">随笔 - 308&nbsp; </span>
+            <span id="stats_post_count">随笔 - 227&nbsp; </span>
             <span id="stats_article_count">文章 - 0&nbsp; </span>
-            <span id="stats-comment_count">评论 - 7&nbsp; </span>
-            <span id="stats-total-view-count">阅读 - <span title="总阅读数: 56111"> 56111</span></span>
+            <span id="stats-comment_count">评论 - 5&nbsp; </span>
+            <span id="stats-total-view-count">阅读 - <span title="总阅读数: 29099"> 29099</span></span>
           </div>
           <!--end: blogStats -->
         </div>
@@ -155,281 +149,315 @@
       <div id="main">
         <div id="mainContent">
           <div class="forFlow">
-            <div class="day" role="article" aria-describedby="postlist_description_16659316">
+            <div class="day" role="article" aria-describedby="postlist_description_16329011">
               <div class="dayTitle">
-                <a href="https://www.cnblogs.com/Enziandom/archive/2022/09/05.html">2022年9月5日</a>
+                <a href="https://www.cnblogs.com/Enziandom/archive/2022/05/31.html">2022年5月31日</a>
               </div>
 
               <div class="postTitle" role="heading" aria-level="2">
-                <a class="postTitle2 vertical-middle pinned-post" href="https://www.cnblogs.com/Enziandom/p/16659316.html">
+                <a class="postTitle2 vertical-middle pinned-post" href="https://www.cnblogs.com/Enziandom/p/16329011.html">
                   <span>
                     <span class="pinned-post-mark">[置顶]</span>
-                    概述软件开发的技术
+                    博客园主题皮肤-Rebuild From Silence Theme
                   </span>
                 </a>
               </div>
               <div class="postCon">
-                <div class="c_b_p_desc" id="postlist_description_16659316">
-                  摘要： 前言 对技术方向和所学技术应用场景比较模糊，通过这篇随笔希望理清楚软件开发。软件开发方向多，一个方向也有许多的技术，所以在有限的时间里，尽可能地精通一个方向（Web
-                  前端），了解多个方向。 Web 前端开发 Web 前端开发是创建 Web 页面或 App 等前端界面呈现给用户的过程，主要就是 JS、
-                  <a href="https://www.cnblogs.com/Enziandom/p/16659316.html" class="c_b_p_desc_readmore">阅读全文</a>
-                </div>
+                <div class="c_b_p_desc" id="postlist_description_16329011">摘要： 博客园皮肤 <a href="https://www.cnblogs.com/Enziandom/p/16329011.html" class="c_b_p_desc_readmore">阅读全文</a></div>
               </div>
               <div class="clear"></div>
               <div class="postDesc">
-                posted @ 2022-09-05 23:45 Enziandom
-                <span data-post-id="16659316" class="post-view-count">阅读(18)</span>
-                <span data-post-id="16659316" class="post-comment-count">评论(0)</span>
-                <span data-post-id="16659316" class="post-digg-count">推荐(1)</span>
-                <a href="https://i.cnblogs.com/EditPosts.aspx?postid=16659316" rel="nofollow"> 编辑 </a>
+                posted @ 2022-05-31 14:43 Enziandom
+                <span data-post-id="16329011" class="post-view-count">阅读(525)</span>
+                <span data-post-id="16329011" class="post-comment-count">评论(0)</span>
+                <span data-post-id="16329011" class="post-digg-count">推荐(3)</span>
+                <a href="https://i.cnblogs.com/EditPosts.aspx?postid=16329011" rel="nofollow"> 编辑 </a>
               </div>
               <div class="clear"></div>
             </div>
 
-            <div class="day" role="article" aria-describedby="postlist_description_16728357">
+            <div class="day" role="article" aria-describedby="postlist_description_16010513">
               <div class="dayTitle">
-                <a href="https://www.cnblogs.com/Enziandom/archive/2022/09/25.html">2022年9月25日</a>
+                <a href="https://www.cnblogs.com/Enziandom/archive/2022/03/15.html">2022年3月15日</a>
               </div>
 
               <div class="postTitle" role="heading" aria-level="2">
-                <a class="postTitle2 vertical-middle" href="https://www.cnblogs.com/Enziandom/p/16728357.html">
-                  <span> rem 和 px 之间的换算关系 </span>
+                <a class="postTitle2 vertical-middle pinned-post" href="https://www.cnblogs.com/Enziandom/p/16010513.html">
+                  <span>
+                    <span class="pinned-post-mark">[置顶]</span>
+                    ✨博客园随笔索引
+                  </span>
                 </a>
               </div>
               <div class="postCon">
-                <div class="c_b_p_desc" id="postlist_description_16728357">
-                  摘要： :mag_right:rem rem 是 CSS3 新增的一个相对单位（root em）。在根节点 html 里面给 font-size 属性设置一个确定的 16px。假设，h1 的字体大小是 1rem，那么这个元素的字体大小相当于
-                  16px，2rem 就是 32px。rem 是根据 html 里面 <a href="https://www.cnblogs.com/Enziandom/p/16728357.html" class="c_b_p_desc_readmore">阅读全文</a>
+                <div class="c_b_p_desc" id="postlist_description_16010513">
+                  摘要： 本博客园随笔索引，对各类系列文章以及对本人以为的质量较高的文章进行索引。 <a href="https://www.cnblogs.com/Enziandom/p/16010513.html" class="c_b_p_desc_readmore">阅读全文</a>
                 </div>
               </div>
               <div class="clear"></div>
               <div class="postDesc">
-                posted @ 2022-09-25 17:42 Enziandom
-                <span data-post-id="16728357" class="post-view-count">阅读(0)</span>
-                <span data-post-id="16728357" class="post-comment-count">评论(0)</span>
-                <span data-post-id="16728357" class="post-digg-count">推荐(0)</span>
-                <a href="https://i.cnblogs.com/EditPosts.aspx?postid=16728357" rel="nofollow"> 编辑 </a>
+                posted @ 2022-03-15 21:25 Enziandom
+                <span data-post-id="16010513" class="post-view-count">阅读(40)</span>
+                <span data-post-id="16010513" class="post-comment-count">评论(0)</span>
+                <span data-post-id="16010513" class="post-digg-count">推荐(1)</span>
+                <a href="https://i.cnblogs.com/EditPosts.aspx?postid=16010513" rel="nofollow"> 编辑 </a>
               </div>
               <div class="clear"></div>
             </div>
 
-            <div class="day" role="article" aria-describedby="postlist_description_16724830">
+            <div class="day" role="article" aria-describedby="postlist_description_16646067">
               <div class="dayTitle">
-                <a href="https://www.cnblogs.com/Enziandom/archive/2022/09/24.html">2022年9月24日</a>
+                <a href="https://www.cnblogs.com/Enziandom/archive/2022/09/01.html">2022年9月1日</a>
               </div>
 
               <div class="postTitle" role="heading" aria-level="2">
-                <a class="postTitle2 vertical-middle" href="https://www.cnblogs.com/Enziandom/p/16726975.html">
-                  <span> 关于 find 指令的 +n、-n、n </span>
+                <a class="postTitle2 vertical-middle" href="https://www.cnblogs.com/Enziandom/p/16647224.html">
+                  <span> 删除一个依赖包之后，再次运行 webpack 打包项目出现：'webpack' 不是内部或外部命令，也不是可运行的程序 或批处理文件。 </span>
                 </a>
               </div>
               <div class="postCon">
-                <div class="c_b_p_desc" id="postlist_description_16726975">
-                  摘要： :pushpin:描述 :blue_book:find 指令查找文件时可以通过时间来锁定或缩小搜查范围。其中需要利用到文件的三个时间?：Access Time（atime）、Modify Time（mtime） 和 Change
-                  Time（ctime）。 通常会指定在 atime 的几天前或最近几天 <a href="https://www.cnblogs.com/Enziandom/p/16726975.html" class="c_b_p_desc_readmore">阅读全文</a>
+                <div class="c_b_p_desc" id="postlist_description_16647224">
+                  摘要： 问题原因 删除某个依赖包的时候，再次运行 webpack 打包脚本出现报错信息： 分析问题 有可能是没有清除缓存，也有可能是没有把以前的node_modules删除重新安装依赖包。 解决步骤
+                  先把项目的node_modules删除掉，因为这个文件夹很大，不推荐右键丢尽回收站删除，使用rimraf来删
+                  <a href="https://www.cnblogs.com/Enziandom/p/16647224.html" class="c_b_p_desc_readmore">阅读全文</a>
                 </div>
               </div>
               <div class="clear"></div>
               <div class="postDesc">
-                posted @ 2022-09-24 23:24 Enziandom
-                <span data-post-id="16726975" class="post-view-count">阅读(2)</span>
-                <span data-post-id="16726975" class="post-comment-count">评论(0)</span>
-                <span data-post-id="16726975" class="post-digg-count">推荐(0)</span>
-                <a href="https://i.cnblogs.com/EditPosts.aspx?postid=16726975" rel="nofollow"> 编辑 </a>
+                posted @ 2022-09-01 17:15 Enziandom
+                <span data-post-id="16647224" class="post-view-count">阅读(1)</span>
+                <span data-post-id="16647224" class="post-comment-count">评论(0)</span>
+                <span data-post-id="16647224" class="post-digg-count">推荐(0)</span>
+                <a href="https://i.cnblogs.com/EditPosts.aspx?postid=16647224" rel="nofollow"> 编辑 </a>
               </div>
               <div class="clear"></div>
               <div class="postSeparator"></div>
               <div class="postTitle" role="heading" aria-level="2">
-                <a class="postTitle2 vertical-middle" href="https://www.cnblogs.com/Enziandom/p/16726801.html">
-                  <span> touch 修改文件的时间 </span>
+                <a class="postTitle2 vertical-middle" href="https://www.cnblogs.com/Enziandom/p/16646067.html">
+                  <span> calc() 计算的宽度设置之后没有生效 </span>
                 </a>
               </div>
               <div class="postCon">
-                <div class="c_b_p_desc" id="postlist_description_16726801">
-                  摘要： 修改本文件的时间 |参数|描述|例子| |:--:|:--:|:--:| |-a|只修改访问时间（Access Time）|touch -a hello.txt| |-m|只更新修改时间（Modify Time）|touch -m hello.txt|
-                  |-d|使用合法的日期格式修改 atime 或 <a href="https://www.cnblogs.com/Enziandom/p/16726801.html" class="c_b_p_desc_readmore">阅读全文</a>
+                <div class="c_b_p_desc" id="postlist_description_16646067">
+                  摘要： 在计算的时候一定不要忘记加上单位，也不要忘记运算符之间要有空格。 下面是错误的例子： .error { width: calc(var(--sidebar-width)-30); } 下面是正确的例子： .correct { width:
+                  calc(var(--sidebar-width) - 30 <a href="https://www.cnblogs.com/Enziandom/p/16646067.html" class="c_b_p_desc_readmore">阅读全文</a>
                 </div>
               </div>
               <div class="clear"></div>
               <div class="postDesc">
-                posted @ 2022-09-24 22:32 Enziandom
-                <span data-post-id="16726801" class="post-view-count">阅读(2)</span>
-                <span data-post-id="16726801" class="post-comment-count">评论(0)</span>
-                <span data-post-id="16726801" class="post-digg-count">推荐(0)</span>
-                <a href="https://i.cnblogs.com/EditPosts.aspx?postid=16726801" rel="nofollow"> 编辑 </a>
+                posted @ 2022-09-01 12:02 Enziandom
+                <span data-post-id="16646067" class="post-view-count">阅读(1)</span>
+                <span data-post-id="16646067" class="post-comment-count">评论(0)</span>
+                <span data-post-id="16646067" class="post-digg-count">推荐(0)</span>
+                <a href="https://i.cnblogs.com/EditPosts.aspx?postid=16646067" rel="nofollow"> 编辑 </a>
+              </div>
+              <div class="clear"></div>
+            </div>
+
+            <div class="day" role="article" aria-describedby="postlist_description_16644730">
+              <div class="dayTitle">
+                <a href="https://www.cnblogs.com/Enziandom/archive/2022/08/31.html">2022年8月31日</a>
+              </div>
+
+              <div class="postTitle" role="heading" aria-level="2">
+                <a class="postTitle2 vertical-middle" href="https://www.cnblogs.com/Enziandom/p/16644730.html">
+                  <span> JSON.stringify() 的妙用 </span>
+                </a>
+              </div>
+              <div class="postCon">
+                <div class="c_b_p_desc" id="postlist_description_16644730">
+                  摘要： 描述 JSON.stringify()的作用就是把 JavaScript 对象或数组或其他简单值转换为字符串。它还可以用于对象的深拷贝；对 JSON 字符串进行格式化（缩进）；在转换之前对值进行替换操作。
+                  特殊类型的处理 JSON.stringify()遇到函数、日期等类型的值会进行特殊处理。为了让 <a href="https://www.cnblogs.com/Enziandom/p/16644730.html" class="c_b_p_desc_readmore">阅读全文</a>
+                </div>
+              </div>
+              <div class="clear"></div>
+              <div class="postDesc">
+                posted @ 2022-08-31 22:14 Enziandom
+                <span data-post-id="16644730" class="post-view-count">阅读(12)</span>
+                <span data-post-id="16644730" class="post-comment-count">评论(0)</span>
+                <span data-post-id="16644730" class="post-digg-count">推荐(0)</span>
+                <a href="https://i.cnblogs.com/EditPosts.aspx?postid=16644730" rel="nofollow"> 编辑 </a>
+              </div>
+              <div class="clear"></div>
+            </div>
+
+            <div class="day" role="article" aria-describedby="postlist_description_16637916">
+              <div class="dayTitle">
+                <a href="https://www.cnblogs.com/Enziandom/archive/2022/08/30.html">2022年8月30日</a>
+              </div>
+
+              <div class="postTitle" role="heading" aria-level="2">
+                <a class="postTitle2 vertical-middle" href="https://www.cnblogs.com/Enziandom/p/16641048.html">
+                  <span> 工具函数（JavaScript）——如何判断设备是不是移动端 </span>
+                </a>
+              </div>
+              <div class="postCon">
+                <div class="c_b_p_desc" id="postlist_description_16641048">
+                  摘要： 浏览器有一个 Navigator 接口，表示用户代理的状态和标识。Navigator.userAgent 可以知道客户端的设备类型。
+                  请求的请求标头有一个user-agent字段，内容中包含了设备型号的信息。如下图所示： 只需要用正则表达式匹配内容是否包含我们要判断的设备类型就可以了。 移动端： f
+                  <a href="https://www.cnblogs.com/Enziandom/p/16641048.html" class="c_b_p_desc_readmore">阅读全文</a>
+                </div>
+              </div>
+              <div class="clear"></div>
+              <div class="postDesc">
+                posted @ 2022-08-30 22:01 Enziandom
+                <span data-post-id="16641048" class="post-view-count">阅读(4)</span>
+                <span data-post-id="16641048" class="post-comment-count">评论(0)</span>
+                <span data-post-id="16641048" class="post-digg-count">推荐(0)</span>
+                <a href="https://i.cnblogs.com/EditPosts.aspx?postid=16641048" rel="nofollow"> 编辑 </a>
               </div>
               <div class="clear"></div>
               <div class="postSeparator"></div>
               <div class="postTitle" role="heading" aria-level="2">
-                <a class="postTitle2 vertical-middle" href="https://www.cnblogs.com/Enziandom/p/16726180.html">
-                  <span> 关于 Linux 三个时间 atime、mtime、ctime </span>
+                <a class="postTitle2 vertical-middle" href="https://www.cnblogs.com/Enziandom/p/16637916.html">
+                  <span> 个人对 JavaScript 闭包的理解 </span>
                 </a>
               </div>
               <div class="postCon">
-                <div class="c_b_p_desc" id="postlist_description_16726180">
-                  摘要： 三个时间 Linux 的文件属性中有：访问时间（Access Time）、修改时间（Modify Time）、改变时间（Change Time）： 访问时间（Access
-                  Time）：对文件进行一次读操作，它的访问时间就“有可能”会被更新。例如 cat 指令查看文件内容。 修改时间（Modify T
-                  <a href="https://www.cnblogs.com/Enziandom/p/16726180.html" class="c_b_p_desc_readmore">阅读全文</a>
+                <div class="c_b_p_desc" id="postlist_description_16637916">
+                  摘要： 作用域的概念 同级作用域 在一个作用域中声明相同名称的变量会发生变量名冲突的问题。假如在作用域 A 中声明一个变量 a，作用域 B 也声明一个变量 a，两个作用域的变量都互不影响。 //
+                  作用域 A { let a = 0; console.log(a); } // 作用域 B { let a = <a href="https://www.cnblogs.com/Enziandom/p/16637916.html" class="c_b_p_desc_readmore">阅读全文</a>
                 </div>
               </div>
               <div class="clear"></div>
               <div class="postDesc">
-                posted @ 2022-09-24 18:19 Enziandom
-                <span data-post-id="16726180" class="post-view-count">阅读(0)</span>
-                <span data-post-id="16726180" class="post-comment-count">评论(0)</span>
-                <span data-post-id="16726180" class="post-digg-count">推荐(0)</span>
-                <a href="https://i.cnblogs.com/EditPosts.aspx?postid=16726180" rel="nofollow"> 编辑 </a>
+                posted @ 2022-08-30 00:56 Enziandom
+                <span data-post-id="16637916" class="post-view-count">阅读(37)</span>
+                <span data-post-id="16637916" class="post-comment-count">评论(0)</span>
+                <span data-post-id="16637916" class="post-digg-count">推荐(0)</span>
+                <a href="https://i.cnblogs.com/EditPosts.aspx?postid=16637916" rel="nofollow"> 编辑 </a>
+              </div>
+              <div class="clear"></div>
+            </div>
+
+            <div class="day" role="article" aria-describedby="postlist_description_16634615">
+              <div class="dayTitle">
+                <a href="https://www.cnblogs.com/Enziandom/archive/2022/08/29.html">2022年8月29日</a>
+              </div>
+
+              <div class="postTitle" role="heading" aria-level="2">
+                <a class="postTitle2 vertical-middle" href="https://www.cnblogs.com/Enziandom/p/16634615.html">
+                  <span> VSCode 国内镜像下载地址 </span>
+                </a>
+              </div>
+              <div class="postCon">
+                <div class="c_b_p_desc" id="postlist_description_16634615">
+                  摘要： 镜像地址https://vscode.cdn.azure.cn/stable/，后面加上 VSCode 版本号，比如： https://vscode.cdn.azure.cn/stable/e4503b30fc78200f846c62cf8091b76ff5547662/VSCodeUserSetu
+                  <a href="https://www.cnblogs.com/Enziandom/p/16634615.html" class="c_b_p_desc_readmore">阅读全文</a>
+                </div>
+              </div>
+              <div class="clear"></div>
+              <div class="postDesc">
+                posted @ 2022-08-29 01:19 Enziandom
+                <span data-post-id="16634615" class="post-view-count">阅读(30)</span>
+                <span data-post-id="16634615" class="post-comment-count">评论(0)</span>
+                <span data-post-id="16634615" class="post-digg-count">推荐(0)</span>
+                <a href="https://i.cnblogs.com/EditPosts.aspx?postid=16634615" rel="nofollow"> 编辑 </a>
+              </div>
+              <div class="clear"></div>
+            </div>
+
+            <div class="day" role="article" aria-describedby="postlist_description_16622923">
+              <div class="dayTitle">
+                <a href="https://www.cnblogs.com/Enziandom/archive/2022/08/25.html">2022年8月25日</a>
+              </div>
+
+              <div class="postTitle" role="heading" aria-level="2">
+                <a class="postTitle2 vertical-middle" href="https://www.cnblogs.com/Enziandom/p/16625423.html">
+                  <span> 工具函数（JavaScript）——JSON 字符串代码高亮 </span>
+                </a>
+              </div>
+              <div class="postCon">
+                <div class="c_b_p_desc" id="postlist_description_16625423">
+                  摘要： JSON 字段转换 HTML function formatJson(json) { let regexp = /("(\\u[a-zA-Z0-9]{4}|\\[^u]|[^\\"])*"(\s*:)?|\b(true|false|null)\b|-?\d+(?:\.\d*)?(?:[eE][+\-
+                  <a href="https://www.cnblogs.com/Enziandom/p/16625423.html" class="c_b_p_desc_readmore">阅读全文</a>
+                </div>
+              </div>
+              <div class="clear"></div>
+              <div class="postDesc">
+                posted @ 2022-08-25 19:03 Enziandom
+                <span data-post-id="16625423" class="post-view-count">阅读(6)</span>
+                <span data-post-id="16625423" class="post-comment-count">评论(0)</span>
+                <span data-post-id="16625423" class="post-digg-count">推荐(0)</span>
+                <a href="https://i.cnblogs.com/EditPosts.aspx?postid=16625423" rel="nofollow"> 编辑 </a>
               </div>
               <div class="clear"></div>
               <div class="postSeparator"></div>
               <div class="postTitle" role="heading" aria-level="2">
-                <a class="postTitle2 vertical-middle" href="https://www.cnblogs.com/Enziandom/p/16724830.html">
-                  <span> 关于 VirtualBox Ubuntu 增强功能的坑 </span>
+                <a class="postTitle2 vertical-middle" href="https://www.cnblogs.com/Enziandom/p/16622923.html">
+                  <span> Vue 监听器和计算属性到底有什么不同？ </span>
                 </a>
               </div>
               <div class="postCon">
-                <div class="c_b_p_desc" id="postlist_description_16724830">
-                  摘要： VirtualBox 是一个免费的虚拟机软件，我在上面安装过 CentOS 和 Ubuntu，VirtualBox 给 CentOS 安装“增强功能”是完全没问题的，复制双向、拖拽双向、屏幕自适应功能都可以正常工作。
-                  Ubuntu 只有屏幕自适应偶尔正常，复制双向、拖拽双向都完全不起作用，甚至有时候 <a href="https://www.cnblogs.com/Enziandom/p/16724830.html" class="c_b_p_desc_readmore">阅读全文</a>
+                <div class="c_b_p_desc" id="postlist_description_16622923">
+                  摘要： 难以区别
+                  计算属性和监听器之间的区别是，计算属性有“临时快照”机制，而监听器没有。监听器能做的事情，计算属性也可以做。所以，这一节标题取的就是“难以区别”，但是深入理解的话还是能看出不一样的，也就决定了它们之间的适用场景。
+                  以下都是个人观点。计算属性的作用就是计算然后返回值，简化模板取值等；监听器更 <a href="https://www.cnblogs.com/Enziandom/p/16622923.html" class="c_b_p_desc_readmore">阅读全文</a>
                 </div>
               </div>
               <div class="clear"></div>
               <div class="postDesc">
-                posted @ 2022-09-24 02:13 Enziandom
-                <span data-post-id="16724830" class="post-view-count">阅读(0)</span>
-                <span data-post-id="16724830" class="post-comment-count">评论(0)</span>
-                <span data-post-id="16724830" class="post-digg-count">推荐(0)</span>
-                <a href="https://i.cnblogs.com/EditPosts.aspx?postid=16724830" rel="nofollow"> 编辑 </a>
+                posted @ 2022-08-25 01:36 Enziandom
+                <span data-post-id="16622923" class="post-view-count">阅读(222)</span>
+                <span data-post-id="16622923" class="post-comment-count">评论(0)</span>
+                <span data-post-id="16622923" class="post-digg-count">推荐(3)</span>
+                <a href="https://i.cnblogs.com/EditPosts.aspx?postid=16622923" rel="nofollow"> 编辑 </a>
               </div>
               <div class="clear"></div>
             </div>
 
-            <div class="day" role="article" aria-describedby="postlist_description_16721704">
+            <div class="day" role="article" aria-describedby="postlist_description_16622474">
               <div class="dayTitle">
-                <a href="https://www.cnblogs.com/Enziandom/archive/2022/09/23.html">2022年9月23日</a>
+                <a href="https://www.cnblogs.com/Enziandom/archive/2022/08/24.html">2022年8月24日</a>
               </div>
 
               <div class="postTitle" role="heading" aria-level="2">
-                <a class="postTitle2 vertical-middle" href="https://www.cnblogs.com/Enziandom/p/16721704.html">
-                  <span> TextView 走马灯效果不生效 </span>
+                <a class="postTitle2 vertical-middle" href="https://www.cnblogs.com/Enziandom/p/16622474.html">
+                  <span> Vue 计算属性与普通的函数有什么区别？ </span>
                 </a>
               </div>
               <div class="postCon">
-                <div class="c_b_p_desc" id="postlist_description_16721704">
-                  摘要： TextView 控件需要添加以下必要的属性： &lt;TextView android:ellipsize="marquee" android:focusable="true" android:focusableInTouchMode="true" android:marqueeRepeatLimit=
-                  <a href="https://www.cnblogs.com/Enziandom/p/16721704.html" class="c_b_p_desc_readmore">阅读全文</a>
+                <div class="c_b_p_desc" id="postlist_description_16622474">
+                  摘要： 计算属性的优势
+                  计算属性的作用是计算复杂的逻辑，并返回一个结果，提供给模板多次使用；只要依赖的响应式数据没有改变，计算属性就不会重新执行，而是直接返回它存储的缓存。所以，节省不必要的开销。
+                  模板语法的模板取值可以在里面进行运算，但是终究不适合做过于复杂的运算，模板取值就应该做它本质的工作： &lt;div
+                  <a href="https://www.cnblogs.com/Enziandom/p/16622474.html" class="c_b_p_desc_readmore">阅读全文</a>
                 </div>
               </div>
               <div class="clear"></div>
               <div class="postDesc">
-                posted @ 2022-09-23 09:59 Enziandom
-                <span data-post-id="16721704" class="post-view-count">阅读(0)</span>
-                <span data-post-id="16721704" class="post-comment-count">评论(0)</span>
-                <span data-post-id="16721704" class="post-digg-count">推荐(0)</span>
-                <a href="https://i.cnblogs.com/EditPosts.aspx?postid=16721704" rel="nofollow"> 编辑 </a>
+                posted @ 2022-08-24 22:17 Enziandom
+                <span data-post-id="16622474" class="post-view-count">阅读(23)</span>
+                <span data-post-id="16622474" class="post-comment-count">评论(0)</span>
+                <span data-post-id="16622474" class="post-digg-count">推荐(1)</span>
+                <a href="https://i.cnblogs.com/EditPosts.aspx?postid=16622474" rel="nofollow"> 编辑 </a>
               </div>
               <div class="clear"></div>
             </div>
 
-            <div class="day" role="article" aria-describedby="postlist_description_16717775">
+            <div class="day" role="article" aria-describedby="postlist_description_16613006">
               <div class="dayTitle">
-                <a href="https://www.cnblogs.com/Enziandom/archive/2022/09/22.html">2022年9月22日</a>
+                <a href="https://www.cnblogs.com/Enziandom/archive/2022/08/22.html">2022年8月22日</a>
               </div>
 
               <div class="postTitle" role="heading" aria-level="2">
-                <a class="postTitle2 vertical-middle" href="https://www.cnblogs.com/Enziandom/p/16717775.html">
-                  <span> TypeScript 函数重载 </span>
+                <a class="postTitle2 vertical-middle" href="https://www.cnblogs.com/Enziandom/p/16613006.html">
+                  <span> 常用的 Prettier 配置项 </span>
                 </a>
               </div>
               <div class="postCon">
-                <div class="c_b_p_desc" id="postlist_description_16717775">
-                  摘要： 函数参数的类型可以使用联合类型?，让我们传递的值可以有多种类型的情况。下面是写的一个简单函数，参数 x 可以有 number、string 两种类型，返回值也是。 function reverse(x: number |
-                  string): number | string { if (typeof x <a href="https://www.cnblogs.com/Enziandom/p/16717775.html" class="c_b_p_desc_readmore">阅读全文</a>
+                <div class="c_b_p_desc" id="postlist_description_16613006">
+                  摘要： 📄.prettierrc.json： { "semi": true, // 在每一个语句后面都添加一个分号 "tabWidth": 2, // 缩进 "doubleQuote": true, // 是否使用双引号 "bracketSpacing": true, //
+                  对象（花括号）两边是否空格 " <a href="https://www.cnblogs.com/Enziandom/p/16613006.html" class="c_b_p_desc_readmore">阅读全文</a>
                 </div>
               </div>
               <div class="clear"></div>
               <div class="postDesc">
-                posted @ 2022-09-22 00:49 Enziandom
-                <span data-post-id="16717775" class="post-view-count">阅读(2)</span>
-                <span data-post-id="16717775" class="post-comment-count">评论(0)</span>
-                <span data-post-id="16717775" class="post-digg-count">推荐(0)</span>
-                <a href="https://i.cnblogs.com/EditPosts.aspx?postid=16717775" rel="nofollow"> 编辑 </a>
-              </div>
-              <div class="clear"></div>
-            </div>
-
-            <div class="day" role="article" aria-describedby="postlist_description_16714244">
-              <div class="dayTitle">
-                <a href="https://www.cnblogs.com/Enziandom/archive/2022/09/21.html">2022年9月21日</a>
-              </div>
-
-              <div class="postTitle" role="heading" aria-level="2">
-                <a class="postTitle2 vertical-middle" href="https://www.cnblogs.com/Enziandom/p/16714244.html">
-                  <span> 为什么使用 Pinia（Vuex） </span>
-                </a>
-              </div>
-              <div class="postCon">
-                <div class="c_b_p_desc" id="postlist_description_16714244">
-                  摘要： Pinia 定义 Pinia（Vuex?） 是一个独立于组件的全局状态，每一个组件都可以读取和写入。 Pinia 有三个重要的概念：state、getters、actions。state 等价于组件中的 data、getters
-                  等价于组件中的 computed、methods 等价于组件中的 ac <a href="https://www.cnblogs.com/Enziandom/p/16714244.html" class="c_b_p_desc_readmore">阅读全文</a>
-                </div>
-              </div>
-              <div class="clear"></div>
-              <div class="postDesc">
-                posted @ 2022-09-21 01:12 Enziandom
-                <span data-post-id="16714244" class="post-view-count">阅读(3)</span>
-                <span data-post-id="16714244" class="post-comment-count">评论(0)</span>
-                <span data-post-id="16714244" class="post-digg-count">推荐(0)</span>
-                <a href="https://i.cnblogs.com/EditPosts.aspx?postid=16714244" rel="nofollow"> 编辑 </a>
-              </div>
-              <div class="clear"></div>
-            </div>
-
-            <div class="day" role="article" aria-describedby="postlist_description_16712115">
-              <div class="dayTitle">
-                <a href="https://www.cnblogs.com/Enziandom/archive/2022/09/20.html">2022年9月20日</a>
-              </div>
-
-              <div class="postTitle" role="heading" aria-level="2">
-                <a class="postTitle2 vertical-middle" href="https://www.cnblogs.com/Enziandom/p/16714140.html">
-                  <span> VueRouter 报错：inject() can only be used inside setup() or functional components </span>
-                </a>
-              </div>
-              <div class="postCon">
-                <div class="c_b_p_desc" id="postlist_description_16714140">
-                  摘要： 单独创建的一个文件，封装了登录函数的业务逻辑，出现了一个警告，紧接着就是报错：说不能读取到路由的 push 函数。路由必须在组件里面使用，不能在 ts 或 js 文件中使用。
-                  还要注意的点是，在使用路由之前，要通过useRouter()函数创建一个变量： const router = useRout
-                  <a href="https://www.cnblogs.com/Enziandom/p/16714140.html" class="c_b_p_desc_readmore">阅读全文</a>
-                </div>
-              </div>
-              <div class="clear"></div>
-              <div class="postDesc">
-                posted @ 2022-09-20 23:51 Enziandom
-                <span data-post-id="16714140" class="post-view-count">阅读(4)</span>
-                <span data-post-id="16714140" class="post-comment-count">评论(0)</span>
-                <span data-post-id="16714140" class="post-digg-count">推荐(0)</span>
-                <a href="https://i.cnblogs.com/EditPosts.aspx?postid=16714140" rel="nofollow"> 编辑 </a>
-              </div>
-              <div class="clear"></div>
-              <div class="postSeparator"></div>
-              <div class="postTitle" role="heading" aria-level="2">
-                <a class="postTitle2 vertical-middle" href="https://www.cnblogs.com/Enziandom/p/16712115.html">
-                  <span> JavaScript 工具函数：随机取自然数 </span>
-                </a>
-              </div>
-              <div class="postCon">
-                <div class="c_b_p_desc" id="postlist_description_16712115">
-                  摘要： function randomUint(max) { return Math.floor(Math.random() * max); } Math.random() * max 返回的是大于 0 的浮点数，不能四舍五入取整。用Math.floor()对上一个结果向下取整：
-                  <a href="https://www.cnblogs.com/Enziandom/p/16712115.html" class="c_b_p_desc_readmore">阅读全文</a>
-                </div>
-              </div>
-              <div class="clear"></div>
-              <div class="postDesc">
-                posted @ 2022-09-20 18:37 Enziandom
-                <span data-post-id="16712115" class="post-view-count">阅读(0)</span>
-                <span data-post-id="16712115" class="post-comment-count">评论(0)</span>
-                <span data-post-id="16712115" class="post-digg-count">推荐(0)</span>
-                <a href="https://i.cnblogs.com/EditPosts.aspx?postid=16712115" rel="nofollow"> 编辑 </a>
+                posted @ 2022-08-22 15:40 Enziandom
+                <span data-post-id="16613006" class="post-view-count">阅读(3)</span>
+                <span data-post-id="16613006" class="post-comment-count">评论(0)</span>
+                <span data-post-id="16613006" class="post-digg-count">推荐(1)</span>
+                <a href="https://i.cnblogs.com/EditPosts.aspx?postid=16613006" rel="nofollow"> 编辑 </a>
               </div>
               <div class="clear"></div>
             </div>
@@ -439,34 +467,74 @@
                 <a href="https://www.cnblogs.com/Enziandom/default.html?page=2"> 下一页 </a>
               </div>
             </div>
+
+            <script>
+              updatePostStats(
+                $(".post-view-count")
+                  .map(function () {
+                    return this.dataset.postId;
+                  })
+                  .get(),
+                function (id, count) {
+                  $(".post-view-count[data-post-id=" + id + "]").text("阅读(" + count + ")");
+                },
+                function (id, count) {
+                  $(".post-comment-count[data-post-id=" + id + "]").text("评论(" + count + ")");
+                },
+                function (id, count) {
+                  $(".post-digg-count[data-post-id=" + id + "]").text("推荐(" + count + ")");
+                }
+              );
+            </script>
           </div>
-          <!--end: forFlow -->
         </div>
-        <!--end: mainContent 主体内容容器-->
         <div id="sideBar">
           <div id="sideBarMain">
+            <div class="enzia-profile">
+              <img
+                class="avatar"
+                src="https://gimg2.baidu.com/image_search/src=http%3A%2F%2Fc-ssl.dtstatic.com%2Fuploads%2Fitem%2F201808%2F24%2F20180824134521_psvid.thumb.1000_0.jpg&refer=http%3A%2F%2Fc-ssl.dtstatic.com&app=2002&size=f9999,10000&q=a80&n=0&g=0n&fmt=auto?sec=1664634611&t=d64ca79a9fac9e809a65094a4c102ee1"
+                alt="profile-avatar" />
+              <div class="status">
+                <div class="status-icon" style="background-color: rgba(66, 185, 131, 0.95)"></div>
+                <div class="status-desc">活跃中</div>
+              </div>
+            </div>
             <div id="sidebar_news" class="newsItem">
               <!--done-->
               <h3 class="catListTitle">公告</h3>
 
               <div id="blog-news">
-                <!-- <div style="display: none" id="__document_write_ajax_div-1"></div><script>window['__document_write_ajax_callbacks__']['1']();</script> -->
-                <!-- <div style="display: none" id="__document_write_ajax_div-2"></div><script >window['__document_write_ajax_callbacks__']['2']();</script> -->
+                <script type="text/javascript">
+                  window["__document_write_ajax_callbacks__"]["4"]();
+                </script>
+                <script>
+                  window["__document_write_ajax_callbacks__"]["1"]();
+                </script>
+                <script type="text/javascript">
+                  window["__document_write_ajax_callbacks__"]["5"]();
+                </script>
+                <script type="text/javascript">
+                  window["__document_write_ajax_callbacks__"]["6"]();
+                </script>
+                <script>
+                  window["__document_write_ajax_callbacks__"]["2"]();
+                </script>
                 <div id="profile_block">
                   昵称：
-                  <a href="https://home.cnblogs.com/u/Enziandom/"> Enziandom </a>
+                  <a href="https://home.cnblogs.com/u/shiramashiro/"> shiramashiro </a>
                   <br />
                   园龄：
-                  <a href="https://home.cnblogs.com/u/Enziandom/" title="入园时间：2021-01-05"> 1年8个月 </a>
+                  <a href="https://home.cnblogs.com/u/shiramashiro/" title="入园时间：2021-01-05"> 1年4个月 </a>
                   <br />
                   粉丝：
-                  <a class="follower-count" href="https://home.cnblogs.com/u/Enziandom/followers/"> 14 </a>
+                  <a href="https://home.cnblogs.com/u/shiramashiro/followers/"> 7 </a>
                   <br />
                   关注：
-                  <a class="folowing-count" href="https://home.cnblogs.com/u/Enziandom/followees/"> 9 </a>
-                  <div id="p_b_follow" class="follow-tip"></div>
+                  <a href="https://home.cnblogs.com/u/shiramashiro/followees/"> 7 </a>
+                  <div id="p_b_follow" class="self-blog"></div>
                   <script type="text/javascript">
-                    window["__document_write_ajax_callbacks__"]["4"]();
+                    window["__document_write_ajax_callbacks__"]["7"]();
                   </script>
                   <script>
                     window["__document_write_ajax_callbacks__"]["3"]();
@@ -484,11 +552,11 @@
                         <tbody>
                           <tr>
                             <td class="CalNextPrev">
-                              <a href="javascript:void(0);" onclick="loadBlogCalendar('2022/08/25'); return false;">&lt;</a>
+                              <a href="javascript:void(0);" onclick="loadBlogCalendar('2022/04/30'); return false;">&lt;</a>
                             </td>
-                            <td align="center">2022年9月</td>
+                            <td align="center">2022年5月</td>
                             <td align="right" class="CalNextPrev">
-                              <a href="javascript:void(0);" onclick="loadBlogCalendar('2022/10/25'); return false;">&gt;</a>
+                              <a href="javascript:void(0);" onclick="loadBlogCalendar('2022/06/30'); return false;">&gt;</a>
                             </td>
                           </tr>
                         </tbody>
@@ -505,102 +573,82 @@
                     <th class="CalDayHeader" align="center" abbr="六" scope="col">六</th>
                   </tr>
                   <tr>
-                    <td class="CalOtherMonthDay" align="center">28</td>
-                    <td class="CalOtherMonthDay" align="center">29</td>
-                    <td class="CalOtherMonthDay" align="center">30</td>
-                    <td class="CalOtherMonthDay" align="center">31</td>
-                    <td class="" align="center">
-                      <a href="https://www.cnblogs.com/Enziandom/archive/2022/09/01.html"><u>1</u></a>
-                    </td>
-                    <td class="" align="center">
-                      <a href="https://www.cnblogs.com/Enziandom/archive/2022/09/02.html"><u>2</u></a>
-                    </td>
                     <td class="CalWeekendDay" align="center">
-                      <a href="https://www.cnblogs.com/Enziandom/archive/2022/09/03.html"><u>3</u></a>
+                      <a href="https://www.cnblogs.com/shiramashiro/archive/2022/05/01.html"><u>1</u></a>
                     </td>
+                    <td class="" align="center">2</td>
+                    <td class="" align="center">
+                      <a href="https://www.cnblogs.com/shiramashiro/archive/2022/05/03.html"><u>3</u></a>
+                    </td>
+                    <td class="" align="center">
+                      <a href="https://www.cnblogs.com/shiramashiro/archive/2022/05/04.html"><u>4</u></a>
+                    </td>
+                    <td class="" align="center">5</td>
+                    <td class="" align="center">
+                      <a href="https://www.cnblogs.com/shiramashiro/archive/2022/05/06.html"><u>6</u></a>
+                    </td>
+                    <td class="CalWeekendDay" align="center">7</td>
+                  </tr>
+                  <tr>
+                    <td class="CalWeekendDay" align="center">8</td>
+                    <td class="" align="center">9</td>
+                    <td class="" align="center">10</td>
+                    <td class="" align="center">11</td>
+                    <td class="" align="center">12</td>
+                    <td class="" align="center">13</td>
+                    <td class="CalWeekendDay" align="center">14</td>
                   </tr>
                   <tr>
                     <td class="CalWeekendDay" align="center">
-                      <a href="https://www.cnblogs.com/Enziandom/archive/2022/09/04.html"><u>4</u></a>
+                      <a href="https://www.cnblogs.com/shiramashiro/archive/2022/05/15.html"><u>15</u></a>
+                    </td>
+                    <td class="" align="center">16</td>
+                    <td class="" align="center">17</td>
+                    <td class="" align="center">18</td>
+                    <td class="" align="center">
+                      <a href="https://www.cnblogs.com/shiramashiro/archive/2022/05/19.html"><u>19</u></a>
                     </td>
                     <td class="" align="center">
-                      <a href="https://www.cnblogs.com/Enziandom/archive/2022/09/05.html"><u>5</u></a>
+                      <a href="https://www.cnblogs.com/shiramashiro/archive/2022/05/20.html"><u>20</u></a>
                     </td>
-                    <td class="" align="center">6</td>
-                    <td class="" align="center">
-                      <a href="https://www.cnblogs.com/Enziandom/archive/2022/09/07.html"><u>7</u></a>
-                    </td>
-                    <td class="" align="center">8</td>
-                    <td class="" align="center">
-                      <a href="https://www.cnblogs.com/Enziandom/archive/2022/09/09.html"><u>9</u></a>
-                    </td>
-                    <td class="CalWeekendDay" align="center">
-                      <a href="https://www.cnblogs.com/Enziandom/archive/2022/09/10.html"><u>10</u></a>
-                    </td>
+                    <td class="CalWeekendDay" align="center">21</td>
                   </tr>
                   <tr>
                     <td class="CalWeekendDay" align="center">
-                      <a href="https://www.cnblogs.com/Enziandom/archive/2022/09/11.html"><u>11</u></a>
+                      <a href="https://www.cnblogs.com/shiramashiro/archive/2022/05/22.html"><u>22</u></a>
                     </td>
                     <td class="" align="center">
-                      <a href="https://www.cnblogs.com/Enziandom/archive/2022/09/12.html"><u>12</u></a>
+                      <a href="https://www.cnblogs.com/shiramashiro/archive/2022/05/23.html"><u>23</u></a>
                     </td>
-                    <td class="" align="center">
-                      <a href="https://www.cnblogs.com/Enziandom/archive/2022/09/13.html"><u>13</u></a>
-                    </td>
-                    <td class="" align="center">
-                      <a href="https://www.cnblogs.com/Enziandom/archive/2022/09/14.html"><u>14</u></a>
-                    </td>
-                    <td class="" align="center">
-                      <a href="https://www.cnblogs.com/Enziandom/archive/2022/09/15.html"><u>15</u></a>
-                    </td>
-                    <td class="" align="center">
-                      <a href="https://www.cnblogs.com/Enziandom/archive/2022/09/16.html"><u>16</u></a>
-                    </td>
-                    <td class="CalWeekendDay" align="center">
-                      <a href="https://www.cnblogs.com/Enziandom/archive/2022/09/17.html"><u>17</u></a>
-                    </td>
-                  </tr>
-                  <tr>
-                    <td class="CalWeekendDay" align="center">
-                      <a href="https://www.cnblogs.com/Enziandom/archive/2022/09/18.html"><u>18</u></a>
-                    </td>
-                    <td class="" align="center">19</td>
-                    <td class="" align="center">
-                      <a href="https://www.cnblogs.com/Enziandom/archive/2022/09/20.html"><u>20</u></a>
-                    </td>
-                    <td class="" align="center">
-                      <a href="https://www.cnblogs.com/Enziandom/archive/2022/09/21.html"><u>21</u></a>
-                    </td>
-                    <td class="" align="center">
-                      <a href="https://www.cnblogs.com/Enziandom/archive/2022/09/22.html"><u>22</u></a>
-                    </td>
-                    <td class="" align="center">
-                      <a href="https://www.cnblogs.com/Enziandom/archive/2022/09/23.html"><u>23</u></a>
-                    </td>
-                    <td class="CalWeekendDay" align="center">
-                      <a href="https://www.cnblogs.com/Enziandom/archive/2022/09/24.html"><u>24</u></a>
-                    </td>
-                  </tr>
-                  <tr>
-                    <td class="CalTodayDay" align="center">
-                      <a href="https://www.cnblogs.com/Enziandom/archive/2022/09/25.html"><u>25</u></a>
-                    </td>
+                    <td class="" align="center">24</td>
+                    <td class="" align="center">25</td>
                     <td class="" align="center">26</td>
                     <td class="" align="center">27</td>
-                    <td class="" align="center">28</td>
-                    <td class="" align="center">29</td>
-                    <td class="" align="center">30</td>
-                    <td class="CalOtherMonthDay" align="center">1</td>
+                    <td class="CalWeekendDay" align="center">
+                      <a href="https://www.cnblogs.com/shiramashiro/archive/2022/05/28.html"><u>28</u></a>
+                    </td>
                   </tr>
                   <tr>
+                    <td class="CalWeekendDay" align="center">
+                      <a href="https://www.cnblogs.com/shiramashiro/archive/2022/05/29.html"><u>29</u></a>
+                    </td>
+                    <td class="CalTodayDay" align="center">
+                      <a href="https://www.cnblogs.com/shiramashiro/archive/2022/05/30.html"><u>30</u></a>
+                    </td>
+                    <td class="" align="center">31</td>
+                    <td class="CalOtherMonthDay" align="center">1</td>
                     <td class="CalOtherMonthDay" align="center">2</td>
                     <td class="CalOtherMonthDay" align="center">3</td>
                     <td class="CalOtherMonthDay" align="center">4</td>
+                  </tr>
+                  <tr>
                     <td class="CalOtherMonthDay" align="center">5</td>
                     <td class="CalOtherMonthDay" align="center">6</td>
                     <td class="CalOtherMonthDay" align="center">7</td>
                     <td class="CalOtherMonthDay" align="center">8</td>
+                    <td class="CalOtherMonthDay" align="center">9</td>
+                    <td class="CalOtherMonthDay" align="center">10</td>
+                    <td class="CalOtherMonthDay" align="center">11</td>
                   </tr>
                 </tbody>
               </table>
@@ -610,7 +658,6 @@
             </script>
             <div id="leftcontentcontainer">
               <div id="blog-sidecolumn">
-                <!-- 搜索 -->
                 <div id="sidebar_search" class="sidebar-block">
                   <div id="sidebar_search" class="mySearch">
                     <h3 class="catListTitle">搜索</h3>
@@ -626,155 +673,278 @@
                     </div>
                   </div>
                 </div>
-
-                <!-- 常用链接 -->
-
-                <!-- 最新随笔 -->
-
-                <!-- 我的标签 -->
                 <div id="sidebar_toptags" class="sidebar-block">
                   <div class="catListTag">
                     <h3 class="catListTitle">我的标签</h3>
                     <ul>
                       <li>
-                        <a href="https://www.cnblogs.com/Enziandom/tag/%E8%8B%B1%E8%AF%AD/">英语<span class="tag-count">(40)</span></a>
+                        <a href="https://www.cnblogs.com/shiramashiro/tag/%E8%8B%B1%E8%AF%AD/">英语<span class="tag-count">(40)</span></a>
                       </li>
                       <li>
-                        <a href="https://www.cnblogs.com/Enziandom/tag/Excel/">Excel<span class="tag-count">(28)</span></a>
+                        <a href="https://www.cnblogs.com/shiramashiro/tag/Excel/">Excel<span class="tag-count">(28)</span></a>
                       </li>
                       <li>
-                        <a href="https://www.cnblogs.com/Enziandom/tag/JavaScript/">JavaScript<span class="tag-count">(24)</span></a>
+                        <a href="https://www.cnblogs.com/shiramashiro/tag/JavaScript/">JavaScript<span class="tag-count">(27)</span></a>
                       </li>
                       <li>
-                        <a href="https://www.cnblogs.com/Enziandom/tag/%E8%AF%AD%E6%96%87/">语文<span class="tag-count">(20)</span></a>
+                        <a href="https://www.cnblogs.com/shiramashiro/tag/HTML/">HTML<span class="tag-count">(25)</span></a>
                       </li>
                       <li>
-                        <a href="https://www.cnblogs.com/Enziandom/tag/Linux/">Linux<span class="tag-count">(18)</span></a>
+                        <a href="https://www.cnblogs.com/shiramashiro/tag/%E8%AF%AD%E6%96%87/">语文<span class="tag-count">(20)</span></a>
                       </li>
                       <li>
-                        <a href="https://www.cnblogs.com/Enziandom/tag/%E9%97%AE%E9%A2%98%E8%A7%A3%E5%86%B3/">问题解决<span class="tag-count">(16)</span></a>
+                        <a href="https://www.cnblogs.com/shiramashiro/tag/Word/">Word<span class="tag-count">(12)</span></a>
                       </li>
                       <li>
-                        <a href="https://www.cnblogs.com/Enziandom/tag/HTML/">HTML<span class="tag-count">(15)</span></a>
+                        <a href="https://www.cnblogs.com/shiramashiro/tag/CSS/">CSS<span class="tag-count">(11)</span></a>
                       </li>
                       <li>
-                        <a href="https://www.cnblogs.com/Enziandom/tag/Word/">Word<span class="tag-count">(12)</span></a>
+                        <a href="https://www.cnblogs.com/shiramashiro/tag/Canvas/">Canvas<span class="tag-count">(10)</span></a>
                       </li>
                       <li>
-                        <a href="https://www.cnblogs.com/Enziandom/tag/CSS/">CSS<span class="tag-count">(12)</span></a>
+                        <a href="https://www.cnblogs.com/shiramashiro/tag/Flutter/">Flutter<span class="tag-count">(9)</span></a>
                       </li>
                       <li>
-                        <a href="https://www.cnblogs.com/Enziandom/tag/Vue.js/">Vue.js<span class="tag-count">(12)</span></a>
+                        <a href="https://www.cnblogs.com/shiramashiro/tag/JQuery/">JQuery<span class="tag-count">(7)</span></a>
                       </li>
                       <li>
-                        <a href="https://www.cnblogs.com/Enziandom/tag/Bash%20Shell/">Bash Shell<span class="tag-count">(9)</span></a>
+                        <a href="https://www.cnblogs.com/shiramashiro/tag/Linux/">Linux<span class="tag-count">(7)</span></a>
                       </li>
                       <li>
-                        <a href="https://www.cnblogs.com/Enziandom/tag/Flutter/">Flutter<span class="tag-count">(9)</span></a>
+                        <a href="https://www.cnblogs.com/shiramashiro/tag/%E9%B8%BF%E8%92%99%E5%BA%94%E7%94%A8%E5%BC%80%E5%8F%91/">鸿蒙应用开发<span class="tag-count">(6)</span></a>
                       </li>
                       <li>
-                        <a href="https://www.cnblogs.com/Enziandom/tag/Canvas/">Canvas<span class="tag-count">(8)</span></a>
+                        <a href="https://www.cnblogs.com/shiramashiro/tag/Dart/">Dart<span class="tag-count">(5)</span></a>
                       </li>
                       <li>
-                        <a href="https://www.cnblogs.com/Enziandom/tag/TypeScript/">TypeScript<span class="tag-count">(7)</span></a>
+                        <a href="https://www.cnblogs.com/shiramashiro/tag/%E8%A7%A3%E5%86%B3%E6%96%B9%E6%A1%88/">解决方案<span class="tag-count">(5)</span></a>
                       </li>
                       <li>
-                        <a href="https://www.cnblogs.com/Enziandom/tag/Node.js/">Node.js<span class="tag-count">(7)</span></a>
+                        <a href="https://www.cnblogs.com/shiramashiro/tag/Vue.js/">Vue.js<span class="tag-count">(5)</span></a>
                       </li>
                       <li>
-                        <a href="https://www.cnblogs.com/Enziandom/tag/%E9%B8%BF%E8%92%99%E5%BA%94%E7%94%A8%E5%BC%80%E5%8F%91/">鸿蒙应用开发<span class="tag-count">(6)</span></a>
+                        <a href="https://www.cnblogs.com/shiramashiro/tag/TCP%2FIP/">TCP/IP<span class="tag-count">(4)</span></a>
                       </li>
                       <li>
-                        <a href="https://www.cnblogs.com/Enziandom/tag/C%2FC%2B%2B/">C/C++<span class="tag-count">(5)</span></a>
+                        <a href="https://www.cnblogs.com/shiramashiro/tag/Node.js/">Node.js<span class="tag-count">(4)</span></a>
                       </li>
                       <li>
-                        <a href="https://www.cnblogs.com/Enziandom/tag/%E5%B7%A5%E5%85%B7%E5%87%BD%E6%95%B0/">工具函数<span class="tag-count">(5)</span></a>
+                        <a href="https://www.cnblogs.com/shiramashiro/tag/Java/">Java<span class="tag-count">(3)</span></a>
                       </li>
                       <li>
-                        <a href="https://www.cnblogs.com/Enziandom/tag/Dart/">Dart<span class="tag-count">(5)</span></a>
+                        <a href="https://www.cnblogs.com/shiramashiro/tag/Git/">Git<span class="tag-count">(3)</span></a>
                       </li>
                       <li>
-                        <a href="https://www.cnblogs.com/Enziandom/tag/Webpack/">Webpack<span class="tag-count">(5)</span></a>
+                        <a href="https://www.cnblogs.com/shiramashiro/tag/%E5%B0%8F%E7%A8%8B%E5%BA%8F%E5%BC%80%E5%8F%91/">小程序开发<span class="tag-count">(3)</span></a>
                       </li>
                       <li>
-                        <a href="https://www.cnblogs.com/Enziandom/tag/">更多</a>
+                        <a href="https://www.cnblogs.com/shiramashiro/tag/Webpack/">Webpack<span class="tag-count">(3)</span></a>
+                      </li>
+                      <li>
+                        <a href="https://www.cnblogs.com/shiramashiro/tag/HTTP/">HTTP<span class="tag-count">(2)</span></a>
+                      </li>
+                      <li>
+                        <a href="https://www.cnblogs.com/shiramashiro/tag/%E5%AD%97%E7%AC%A6%E7%BC%96%E7%A0%81/">字符编码<span class="tag-count">(2)</span></a>
+                      </li>
+                      <li>
+                        <a href="https://www.cnblogs.com/shiramashiro/tag/PowerPoint/">PowerPoint<span class="tag-count">(2)</span></a>
+                      </li>
+                      <li>
+                        <a href="https://www.cnblogs.com/shiramashiro/tag/%E4%B8%AA%E4%BA%BA%E8%AE%A1%E5%88%92/">个人计划<span class="tag-count">(2)</span></a>
+                      </li>
+                      <li>
+                        <a href="https://www.cnblogs.com/shiramashiro/tag/MongoDB/">MongoDB<span class="tag-count">(2)</span></a>
+                      </li>
+                      <li>
+                        <a href="https://www.cnblogs.com/shiramashiro/tag/Less/">Less<span class="tag-count">(1)</span></a>
+                      </li>
+                      <li>
+                        <a href="https://www.cnblogs.com/shiramashiro/tag/Windows/">Windows<span class="tag-count">(1)</span></a>
+                      </li>
+                      <li>
+                        <a href="https://www.cnblogs.com/shiramashiro/tag/Android%20Studio/">Android Studio<span class="tag-count">(1)</span></a>
+                      </li>
+                      <li>
+                        <a href="https://www.cnblogs.com/shiramashiro/tag/%E5%AE%89%E5%8D%93%E5%BA%94%E7%94%A8%E5%BC%80%E5%8F%91/">安卓应用开发<span class="tag-count">(1)</span></a>
+                      </li>
+                      <li>
+                        <a href="https://www.cnblogs.com/shiramashiro/tag/">更多</a>
                       </li>
                     </ul>
                   </div>
                 </div>
 
-                <!-- 积分与排名 -->
-
-                <!-- 随笔分类、随笔档案、文章分类、新闻分类、相册、链接 -->
                 <div id="sidebar_categories">
                   <div id="sidebar_postcategory" class="catListPostCategory sidebar-block">
                     <h3 class="catListTitle">
-                      <a class="sidebar-card-title-a" href="https://www.cnblogs.com/Enziandom/categories">随笔分类</a>
-                      <span class="sidebar-category-item-count"> (311) </span>
+                      <a class="sidebar-card-title-a" href="https://www.cnblogs.com/shiramashiro/categories">随笔分类</a>
+                      <span class="sidebar-category-item-count"> (229) </span>
                     </h3>
 
                     <ul>
                       <li data-category-list-item-visible="true" style="display: block">
-                        <a href="https://www.cnblogs.com/Enziandom/category/2133419.html" class="category-item-link" rel="" target="">Office(41)</a>
+                        <a href="https://www.cnblogs.com/shiramashiro/category/2133419.html" class="category-item-link" rel="" target="">Office(39)</a>
                       </li>
                       <li data-category-list-item-visible="true" style="display: block">
-                        <a href="https://www.cnblogs.com/Enziandom/category/2111689.html" class="category-item-link" rel="" target="">Web 应用开发(72)</a>
+                        <a href="https://www.cnblogs.com/shiramashiro/category/2111689.html" class="category-item-link" rel="" target="">Web 应用开发(36)</a>
                       </li>
                       <li data-category-list-item-visible="true" style="display: block">
-                        <a href="https://www.cnblogs.com/Enziandom/category/2067671.html" class="category-item-link" rel="" target="">编程语言(31)</a>
+                        <a href="https://www.cnblogs.com/shiramashiro/category/2067671.html" class="category-item-link" rel="" target="">编程语言(11)</a>
                       </li>
                       <li data-category-list-item-visible="true" style="display: block">
-                        <a href="https://www.cnblogs.com/Enziandom/category/2217999.html" class="category-item-link" rel="" target="">操作系统(20)</a>
+                        <a href="https://www.cnblogs.com/shiramashiro/category/2060604.html" class="category-item-link" rel="" target="">计算机基础(37)</a>
                       </li>
                       <li data-category-list-item-visible="true" style="display: block">
-                        <a href="https://www.cnblogs.com/Enziandom/category/2060604.html" class="category-item-link" rel="" target="">计算机基础(36)</a>
+                        <a href="https://www.cnblogs.com/shiramashiro/category/2133433.html" class="category-item-link" rel="" target="">计算机网络(8)</a>
                       </li>
                       <li data-category-list-item-visible="true" style="display: block">
-                        <a href="https://www.cnblogs.com/Enziandom/category/2133433.html" class="category-item-link" rel="" target="">计算机网络(10)</a>
+                        <a href="https://www.cnblogs.com/shiramashiro/category/2111762.html" class="category-item-link" rel="" target="">其他(19)</a>
                       </li>
                       <li data-category-list-item-visible="true" style="display: block">
-                        <a href="https://www.cnblogs.com/Enziandom/category/2111762.html" class="category-item-link" rel="" target="">其他(19)</a>
+                        <a href="https://www.cnblogs.com/shiramashiro/category/2125969.html" class="category-item-link" rel="" target="">数据库(2)</a>
                       </li>
                       <li data-category-list-item-visible="true" style="display: block">
-                        <a href="https://www.cnblogs.com/Enziandom/category/2125969.html" class="category-item-link" rel="" target="">数据库(1)</a>
+                        <a href="https://www.cnblogs.com/shiramashiro/category/2111686.html" class="category-item-link" rel="" target="">移动应用开发(19)</a>
                       </li>
                       <li data-category-list-item-visible="true" style="display: block">
-                        <a href="https://www.cnblogs.com/Enziandom/category/2111686.html" class="category-item-link" rel="" target="">移动应用开发(23)</a>
-                      </li>
-                      <li data-category-list-item-visible="true" style="display: block">
-                        <a href="https://www.cnblogs.com/Enziandom/category/2133424.html" class="category-item-link" rel="" target="">自然语言(58)</a>
+                        <a href="https://www.cnblogs.com/shiramashiro/category/2133424.html" class="category-item-link" rel="" target="">自然语言(58)</a>
                       </li>
                     </ul>
                   </div>
                 </div>
-
-                <!-- 最新评论 -->
-
-                <!-- 阅读排行榜 -->
-
-                <!-- 评论排行榜 -->
-
-                <!-- 推荐排行榜 -->
               </div>
               <script>
                 loadBlogSideColumn();
               </script>
             </div>
           </div>
-          <!--end: sideBarMain -->
         </div>
-        <!--end: sideBar 侧边栏容器 -->
         <div class="clear"></div>
       </div>
-      <!--end: main -->
       <div class="clear"></div>
-      <div id="footer">
-        <!--done-->
-        Copyright © 2022 Enziandom
-        <br /><span id="poweredby">Powered by .NET 6 on Kubernetes</span>
-      </div>
-      <!--end: footer -->
+      <div id="footer"></div>
     </div>
-    <!--end: home 自定义的最大容器 -->
+
+    <input
+      type="hidden"
+      id="antiforgery_token"
+      value="CfDJ8AuMt_3FvyxIgNOR82PHE4mqGEU-_MLn5znY_BqaNotbY6lZkpllNRPfOyb3afy3wvI-SdwbcIbtaUPfaI2FBaDM9IsM9yHnDyhwxmuLPIS7ucHpoXJPwmC1T3_sRjNXar1kein7O5KfdMeTCUluWHkoixM7UUdMMkTsNC_FHzWPQtuTtwxZQl-Iad9GyljpbQ" />
+    <script async="" src="https://www.googletagmanager.com/gtag/js?id=UA-476124-1"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+
+      function gtag() {
+        dataLayer.push(arguments);
+      }
+
+      gtag("js", new Date());
+      var kv = getGACustom();
+      if (kv) {
+        gtag("set", kv);
+      }
+      gtag("config", "UA-476124-1");
+    </script>
+    <script defer="" src="https://hm.baidu.com/hm.js?866c9be12d4a814454792b1fd0fed295"></script>
+
+    <script type="text/javascript">
+      window.$silence = {
+        version: "3.0.0",
+        avatar: null,
+        favicon: null,
+        github: null,
+        navs: [{ title: "标签", url: "https://www.cnblogs.com/Enziandom/tag" }],
+        defaultMode: "auto",
+        defaultTheme: "a",
+        hljsln: true,
+        catalog: {
+          pcAutoOpen: true,
+          pmdAutoOpen: false,
+          index: true,
+          enbale: true,
+          levels: ["h1", "h2", "h3"]
+        },
+        signature: {
+          enable: true,
+          author: null,
+          license: ["署名-非商业性使用-相同方式共享 4.0 国际", "https://creativecommons.org/licenses/by-nc-sa/4.0/"],
+          remark: null
+        },
+        sponsor: {
+          enable: false,
+          text: "Buy me a cup of coffee ☕.",
+          paypal: null,
+          wechat: null,
+          alipay: null
+        },
+        radarMap: {
+          iscollapse: false,
+          alpha: 0.85, // 数据区域透明度
+          sides: 6, // 多边形面数
+          layer: 5, // 雷达层数
+          step: 15, // 每一层多边形距离多少
+          lineWidth: 1, // 雷达图线宽
+          textSize: 14, // 文本大小
+          lineColor: "#A7A7A7", // 雷达图线颜色
+          textColor: "#A7A7A7", // 文本颜色
+          data: [
+            // 数据
+            { title: "js", star: 4 },
+            { title: "ts", star: 2 },
+            { title: "html", star: 4 },
+            { title: "css", star: 4 },
+            { title: "vue", star: 4 },
+            { title: "jq", star: 4 }
+          ]
+        },
+        statusKey: "busyness",
+        myLinks: {
+          iscollapse: true,
+          data: [
+            {
+              title: "Vue3",
+              href: "https://v3.cn.vuejs.org/"
+            }
+          ]
+        },
+        niceBooks: {
+          iscollapse: true,
+          data: [
+            {
+              title: "《JavaScript权威指南》",
+              cover: "https://img0.baidu.com/it/u=3565672953,1063732653&fm=253&fmt=auto&app=138&f=JPEG?w=381&h=499",
+              author: "(美)弗拉纳根"
+            }
+          ]
+        },
+        pageOps: {
+          contentWidth: 0.65,
+          siderbarWidth: 0.18
+        },
+        postFontSize: {
+          min: 16,
+          max: 20
+        },
+        menu: {
+          signature: "Time tick away, dream faded away!",
+          width: 247
+        },
+        gitlab: null,
+        gitee: null
+      };
+    </script>
+    <a href="https://github.com/shiramashiro" class="github-corner" title="GitHub" target="_blank">
+      <svg width="60" height="60" viewBox="0 0 250 250" style="color: #fff" aria-hidden="true">
+        <path d="M0,0 L115,115 L130,115 L142,142 L250,250 L250,0 Z"></path>
+        <path
+          d="M128.3,109.0 C113.8,99.7 119.0,89.6 119.0,89.6 C122.0,82.7 120.5,78.6 120.5,78.6 C119.2,72.0 123.4,76.3 123.4,76.3 C127.3,80.9 125.5,87.3 125.5,87.3 C122.9,97.6 130.6,101.9 134.4,103.2"
+          fill="currentColor"
+          style="transform-origin: 130px 106px"
+          class="octo-arm"></path>
+        <path
+          d="M115.0,115.0 C114.9,115.1 118.7,116.5 119.8,115.4 L133.7,101.6 C136.9,99.2 139.9,98.4 142.2,98.6 C133.8,88.0 127.5,74.4 143.8,58.0 C148.5,53.4 154.0,51.2 159.7,51.0 C160.3,49.4 163.2,43.6 171.4,40.1 C171.4,40.1 176.1,42.5 178.8,56.2 C183.1,58.6 187.2,61.8 190.9,65.4 C194.5,69.0 197.7,73.2 200.1,77.6 C213.8,80.2 216.3,84.9 216.3,84.9 C212.7,93.1 206.9,96.0 205.4,96.6 C205.1,102.4 203.0,107.8 198.3,112.5 C181.9,128.9 168.3,122.5 157.7,114.1 C157.9,116.9 156.7,120.9 152.7,124.9 L141.0,136.5 C139.8,137.7 141.6,141.9 141.8,141.8 Z"
+          fill="currentColor"
+          class="octo-body"></path>
+      </svg>
+    </a>
   </body>
 </html>
