@@ -13,7 +13,7 @@ function find(arr, _el) {
 function createBackground() {
   let ops = options.backgroundOps;
 
-  if (ops && ops.urls.length > 0) {
+  if (ops && ops.urls.length > 0 && ops.urls) {
     let random = randomUint(ops.urls.length);
     let quaSynx = ["cover", "contain", "fill", "inherit", "initial", "none", "revert", "scale-down", "unset"];
     let isQua = find(quaSynx, ops.objectFit);
