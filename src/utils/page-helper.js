@@ -34,14 +34,7 @@ export function deleteDomForPostPage() {
 }
 
 // 给文章页插入一些节点
-export function insertDomForPostPage() {
-  let $menu = $(`<span class="menu tool-item" title="侧边菜单"><i class="fa fa-bars"></i></span>`);
-  $("#enzia-tools .canbe-fade").append($menu);
-  $($menu).on("click", e => {
-    $("#enzia-mobile-menu-mask").fadeIn();
-    $("#enzia-mobile-menu").fadeIn();
-  });
-}
+export function insertDomForPostPage() {}
 
 // 给文章页插入一些类名
 export function insertClassForPostPage() {

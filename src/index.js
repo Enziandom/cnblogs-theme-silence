@@ -16,6 +16,7 @@ import createMenu from "./components/Menu";
 import createPostTitle from "./components/PostTitle";
 import Loader from "./components/Loader";
 import createBackground from "./components/Background";
+import createPostContentMod from "./components/PostContentMod";
 import { isTagListPage, isTagPostsPage, isEssayListPage, isPostPage, isHomePage } from "./utils/page-helper";
 import {
   loadTagListPageComponents,
@@ -41,6 +42,7 @@ class Silence {
     createToolbar();
     createMenu();
     createBackground();
+    createPostContentMod();
     loadCommonComponents();
     if (isPostPage()) {
       createPostCatalog();

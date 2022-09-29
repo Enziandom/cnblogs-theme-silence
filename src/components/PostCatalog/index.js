@@ -5,8 +5,6 @@ import createDropdown from "../../widgets/Dropdown";
 function createPostCatalog() {
   const catalogConfig = options.catalog;
 
-  $("#enzia-tools .canbe-fade").prepend(`<span class="catalog tool-item" title="文章目录"><i class="fa fa-map-marker" aria-hidden="true"></i></span>`);
-
   if (catalogConfig.enable) {
     const levels = catalogConfig.levels;
     const level1 = levels[0];

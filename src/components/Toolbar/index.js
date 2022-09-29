@@ -5,6 +5,8 @@ function createToolbar() {
   const $bluepoint = $(`
     <div id="enzia-tools">
       <div class="canbe-fade">
+        <span class="menu tool-item" title="Mini菜单"><i class="fa fa-bars"></i></span>
+        <span class="folding tool-item" title="收起侧边"><i class="fa fa-exchange"></i></span>
         <span class="up tool-item" title="返回顶部"><i class="fa fa-paper-plane"></i></span>
         <span class="mode tool-item" title="切换模式"><i class="fa fa-adjust"></i></span>
         <span class="skin tool-item" title="主题设置"><i class="fa fa-cog"></i></span>
@@ -32,24 +34,44 @@ function createToolbar() {
   `);
 
   $("#home").append($bluepoint);
-  let $up = $(".up");
-  let $mode = $(".mode");
-  let $skin = $(".skin");
-  let $chevron = $(".chevron");
-  let $menu = $(".menu.tool-item");
-  let $canbeFade = $(".canbe-fade");
-  let $enziaSkinPopup = $("#enzia-skin-popup");
 
-  $($up).on("click", e => {
-    e.stopPropagation();
+  const $up = $(".up.tool-item");
+  $up.on("click", e => {
     $("#mainContent").animate({ scrollTop: 0 }, 750, "linear");
   });
 
+  const $menu = $(".menu.tool-item");
+  $menu.on("click", e => {
+    $("#enzia-mobile-menu-mask").fadeIn();
+    $("#enzia-mobile-menu").fadeIn();
+  });
+
+  let isFolded = false;
+  const $folding = $(".folding.tool-item");
+  $folding.on("click", e => {
+    if (isFolded) {
+      $("#sideBarMain").css({ display: "block" });
+      $("#mainContent").css({
+        left: "27vw",
+        width: "46vw"
+      });
+    } else {
+      $("#sideBarMain").css({ display: "none" });
+      $("#mainContent").css({
+        left: "12.5vw",
+        width: "60.5vw"
+      });
+    }
+    isFolded = !isFolded;
+  });
+
+  const $mode = $(".mode");
   $($mode).on("click", e => {
     e.stopPropagation();
     setMode();
   });
 
+  const $skin = $(".skin");
   $($skin).on("click", e => {
     e.stopPropagation();
     $($enziaSkinPopup).slideToggle();
@@ -57,6 +79,8 @@ function createToolbar() {
 
   let isHide = false;
 
+  const $chevron = $(".chevron");
+  const $canbeFade = $(".canbe-fade");
   $($chevron).on("click", e => {
     e.stopPropagation();
     $($canbeFade).fadeToggle();
@@ -73,11 +97,7 @@ function createToolbar() {
     isHide = !isHide;
   });
 
-  $($menu).on("click", e => {
-    $("#enzia-mobile-menu-mask").fadeIn();
-    $("#enzia-mobile-menu").fadeIn();
-  });
-
+  const $enziaSkinPopup = $("#enzia-skin-popup");
   $($enziaSkinPopup).on("click", e => {
     e.stopPropagation();
     if (e.target.nodeName === "BUTTON") {
