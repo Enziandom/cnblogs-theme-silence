@@ -42,18 +42,8 @@
       }
 
       .current-li {
-        background-color: var(--blockquote-bg-color);
-
         & > a {
-          span {
-            padding-left: 7px;
-            border: {
-              left-color: var(--theme-color);
-              left-style: solid;
-              left-width: 4px;
-              radius: 2px;
-            }
-          }
+          color: var(--theme-color);
         }
       }
     }
