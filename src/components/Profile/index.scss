@@ -1,8 +1,8 @@
 @import "../../style/mixins.scss";
 
 .enzia-profile {
-  width: calc(15vw - 30px);
-  height: calc(15vw - 30px);
+  width: calc(14vw - 30px);
+  height: calc(14vw - 30px);
   position: relative;
   @include flex();
 
