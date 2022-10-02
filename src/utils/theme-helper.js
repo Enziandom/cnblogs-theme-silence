@@ -17,6 +17,11 @@ export function getTheme() {
   return sessionStorage.getItem(`silence-theme-${currentBlogApp}`) || options.defaultTheme;
 }
 
+export function setTheme(theme) {
+  sessionStorage.setItem(`silence-theme-${currentBlogApp}`, theme);
+  $("html").attr("theme", theme);
+}
+
 export function getMode() {
   const hour = new Date().getHours();
   return sessionStorage.getItem(`silence-mode-${currentBlogApp}`) || (options.defaultMode === "auto" ? (hour >= 6 && hour < 18 ? "light" : "dark") : options.defaultMode);
@@ -24,12 +29,7 @@ export function getMode() {
 
 export function setMode() {
   const $html = $("html");
-  const mode = $($html).attr("mode") === "light" ? "dark" : "light";
+  const mode = $html.attr("mode") === "light" ? "dark" : "light";
   sessionStorage.setItem(`silence-mode-${currentBlogApp}`, mode);
-  $($html).attr("mode", mode);
-}
-
-export function setTheme(theme) {
-  sessionStorage.setItem(`silence-theme-${currentBlogApp}`, theme);
-  $("html").attr("theme", theme);
+  $html.attr("mode", mode);
 }

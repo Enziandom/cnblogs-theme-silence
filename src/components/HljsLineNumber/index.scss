@@ -22,7 +22,15 @@
   }
 
   &::-webkit-scrollbar {
-    height: 3px;
+    display: none;
+  }
+
+  &:hover {
+    &::-webkit-scrollbar {
+      display: block;
+      width: 3px !important;
+      height: 4px !important;
+    }
   }
 
   &::-webkit-scrollbar-thumb {

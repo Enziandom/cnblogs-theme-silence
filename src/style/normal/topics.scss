@@ -110,18 +110,6 @@
       overflow-x: auto;
       border-radius: var(--border-radius);
 
-      &::-webkit-scrollbar {
-        width: 3px;
-      }
-
-      &::-webkit-scrollbar-thumb {
-        background-color: var(--text-color);
-      }
-
-      &::-webkit-scrollbar-track {
-        background-color: transparent;
-      }
-
       th {
         font-weight: 400;
         min-width: 100px;
@@ -135,6 +123,22 @@
         padding: 4px 15px;
         min-width: 100px;
         border: 1px solid var(--border-color);
+      }
+
+      &::-webkit-scrollbar {
+        display: none;
+      }
+
+      &:hover {
+        &::-webkit-scrollbar {
+          display: block;
+          width: 3px !important;
+          height: 4px !important;
+        }
+      }
+
+      &::-webkit-scrollbar-thumb {
+        background-color: var(--text-color);
       }
     }
 

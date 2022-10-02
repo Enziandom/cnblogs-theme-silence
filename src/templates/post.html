@@ -211,6 +211,54 @@
                   </blockquote>
                   <div class="table-wrapper">
                     <table>
+                    <thead>
+                    <tr>
+                    <th style="text-align: center">八进制</th>
+                    <th style="text-align: center">二进制</th>
+                    <th style="text-align: center">权限</th>
+                    <th style="text-align: center">八进制</th>
+                    <th style="text-align: center">二进制</th>
+                    <th style="text-align: center">权限</th>
+                    </tr>
+                    </thead>
+                    <tbody>
+                    <tr>
+                    <td style="text-align: center">0</td>
+                    <td style="text-align: center">000</td>
+                    <td style="text-align: center">---</td>
+                    <td style="text-align: center">4</td>
+                    <td style="text-align: center">100</td>
+                    <td style="text-align: center">r--</td>
+                    </tr>
+                    <tr>
+                    <td style="text-align: center">1</td>
+                    <td style="text-align: center">001</td>
+                    <td style="text-align: center">--x</td>
+                    <td style="text-align: center">5</td>
+                    <td style="text-align: center">101</td>
+                    <td style="text-align: center">r-x</td>
+                    </tr>
+                    <tr>
+                    <td style="text-align: center">2</td>
+                    <td style="text-align: center">010</td>
+                    <td style="text-align: center">-w-</td>
+                    <td style="text-align: center">6</td>
+                    <td style="text-align: center">110</td>
+                    <td style="text-align: center">rw-</td>
+                    </tr>
+                    <tr>
+                    <td style="text-align: center">3</td>
+                    <td style="text-align: center">011</td>
+                    <td style="text-align: center">-wx</td>
+                    <td style="text-align: center">7</td>
+                    <td style="text-align: center">111</td>
+                    <td style="text-align: center">rwx</td>
+                    </tr>
+                    </tbody>
+                    </table>
+                  </div>
+                  <div class="table-wrapper">
+                    <table>
                       <thead>
                       <tr>
                         <th style="text-align: left">阶段</th>
@@ -272,48 +320,25 @@
                   <h3 id="离开阶段">离开阶段
                     <button class="cnblogs-toc-button" title="显示目录导航" aria-expanded="false"></button>
                   </h3>
-                  <pre class="highlighter-hljs code-theme-dark" highlighted="true"><code
-                          class="language-html highlighter-hljs hljs language-xml hljsln" data-dark-theme="true"><span
-                          class="ln-bg"></span><span class="ln-num" data-num="1"></span><span class="hljs-tag">&lt;<span
-                          class="hljs-name">template</span>&gt;</span>
-<span class="ln-num" data-num="2"></span>	<span class="hljs-tag">&lt;<span class="hljs-name">button</span> @<span
-                            class="hljs-attr">click</span>=<span class="hljs-string">"show = !show"</span>&gt;</span>Click<span
-                            class="hljs-tag">&lt;/<span class="hljs-name">button</span>&gt;</span>
-<span class="ln-num" data-num="3"></span>	<span class="hljs-tag">&lt;<span
-                            class="hljs-name">Transition</span>&gt;</span>
-<span class="ln-num" data-num="4"></span>		<span class="hljs-tag">&lt;<span class="hljs-name">p</span> <span
-                            class="hljs-attr">v-if</span>=<span
-                            class="hljs-string">"show"</span>&gt;</span>Hello Vue!<span class="hljs-tag">&lt;/<span
-                            class="hljs-name">p</span>&gt;</span>
-<span class="ln-num" data-num="5"></span>	<span class="hljs-tag">&lt;/<span
-                            class="hljs-name">Transition</span>&gt;</span>
-<span class="ln-num" data-num="6"></span><span class="hljs-tag">&lt;/<span class="hljs-name">template</span>&gt;</span>
-<span class="ln-num" data-num="7"></span>
-<span class="ln-num" data-num="8"></span><span class="hljs-tag">&lt;<span class="hljs-name">style</span> <span
-                            class="hljs-attr">scoped</span>&gt;</span><span class="language-css">
-<span class="ln-num" data-num="9"></span><span class="hljs-selector-class">.v-leave-active</span> {
-<span class="ln-num" data-num="10"></span>  <span class="hljs-attribute">transition</span>: all <span
-                            class="hljs-number">0.8s</span> <span class="hljs-built_in">cubic-bezier</span>(<span
-                            class="hljs-number">1</span>, <span class="hljs-number">0.5</span>, <span
-                            class="hljs-number">0.8</span>, <span class="hljs-number">1</span>);
-<span class="ln-num" data-num="11"></span>}
-<span class="ln-num" data-num="12"></span>
-<span class="ln-num" data-num="13"></span><span class="hljs-selector-class">.v-leave-from</span> {
-<span class="ln-num" data-num="14"></span>  <span class="hljs-attribute">transform</span>: <span class="hljs-built_in">translateX</span>(<span
-                            class="hljs-number">0px</span>);
-<span class="ln-num" data-num="15"></span>  <span class="hljs-attribute">opacity</span>: <span
-                            class="hljs-number">1</span>;
-<span class="ln-num" data-num="16"></span>}
-<span class="ln-num" data-num="17"></span>
-<span class="ln-num" data-num="18"></span><span class="hljs-selector-class">.v-leave-to</span> {
-<span class="ln-num" data-num="19"></span>  <span class="hljs-attribute">transform</span>: <span class="hljs-built_in">translateX</span>(<span
-                            class="hljs-number">100px</span>);
-<span class="ln-num" data-num="20"></span>  <span class="hljs-attribute">opacity</span>: <span
-                            class="hljs-number">0</span>;
-<span class="ln-num" data-num="21"></span>}
-<span class="ln-num" data-num="22"></span></span><span class="hljs-tag">&lt;/<span
-                            class="hljs-name">style</span>&gt;</span>
-<span class="ln-eof"></span></code></pre>
+                  <pre class="highlighter-hljs code-theme-dark" highlighted="true"><code class="language-java highlighter-hljs hljs hljsln" data-dark-theme="true"><span class="ln-bg"></span><span class="ln-num" data-num="1"></span><span class="hljs-keyword">public</span> <span class="hljs-keyword">class</span> <span class="hljs-title class_">TimePickerFragment</span> <span class="hljs-keyword">extends</span> <span class="hljs-title class_">DialogFragment</span> <span class="hljs-keyword">implements</span> <span class="hljs-title class_">DatePickerDialog</span>.OnDateSetListener {
+                    <span class="ln-num" data-num="2"></span>
+                    <span class="ln-num" data-num="3"></span>  <span class="hljs-meta">@NonNull</span>
+                    <span class="ln-num" data-num="4"></span>  <span class="hljs-meta">@Override</span>
+                    <span class="ln-num" data-num="5"></span>  <span class="hljs-keyword">public</span> Dialog <span class="hljs-title function_">onCreateDialog</span><span class="hljs-params">(<span class="hljs-meta">@Nullable</span> Bundle savedInstanceState)</span> {
+                    <span class="ln-num" data-num="6"></span>    <span class="hljs-keyword">final</span> <span class="hljs-type">Calendar</span> <span class="hljs-variable">c</span> <span class="hljs-operator">=</span> Calendar.getInstance();
+                    <span class="ln-num" data-num="7"></span>    <span class="hljs-type">int</span> <span class="hljs-variable">year</span> <span class="hljs-operator">=</span> c.get(Calendar.YEAR);
+                    <span class="ln-num" data-num="8"></span>    <span class="hljs-type">int</span> <span class="hljs-variable">month</span> <span class="hljs-operator">=</span> c.get(Calendar.MONTH);
+                    <span class="ln-num" data-num="9"></span>    <span class="hljs-type">int</span> <span class="hljs-variable">day</span> <span class="hljs-operator">=</span> c.get(Calendar.DAY_OF_MONTH);
+                    <span class="ln-num" data-num="10"></span>    <span class="hljs-keyword">return</span> <span class="hljs-keyword">new</span> <span class="hljs-title class_">DatePickerDialog</span>(getActivity(), <span class="hljs-built_in">this</span>, year, month + <span class="hljs-number">1</span>, day);
+                    <span class="ln-num" data-num="11"></span>  }
+                    <span class="ln-num" data-num="12"></span>
+                    <span class="ln-num" data-num="13"></span>  <span class="hljs-meta">@Override</span>
+                    <span class="ln-num" data-num="14"></span>  <span class="hljs-keyword">public</span> <span class="hljs-keyword">void</span> <span class="hljs-title function_">onDateSet</span><span class="hljs-params">(DatePicker datePicker, <span class="hljs-type">int</span> i, <span class="hljs-type">int</span> i1, <span class="hljs-type">int</span> i2)</span> {
+                    <span class="ln-num" data-num="15"></span>    <span class="hljs-type">TimePickerViewModel</span> <span class="hljs-variable">vm</span> <span class="hljs-operator">=</span> <span class="hljs-keyword">new</span> <span class="hljs-title class_">ViewModelProvider</span>(requireActivity()).get(TimePickerViewModel.class);
+                    <span class="ln-num" data-num="16"></span>    vm.setDateValue(i + <span class="hljs-string">"-"</span> + i1 + <span class="hljs-string">"-"</span> + i2);
+                    <span class="ln-num" data-num="17"></span>  }
+                    <span class="ln-num" data-num="18"></span>}
+                    <span class="ln-eof"></span></code></pre>
                   <p><code>&lt;Transition&gt;</code>内置组件中包裹了一个 p 标签。当我们点击按钮时，若 show 是 false，那么该标签从页面上消失，即离开阶段，也就是
                     v-leave-to、v-leave-from、v-leave-active。</p>
                   <img src="https://img2022.cnblogs.com/blog/2271881/202208/2271881-20220804163055384-1340757590.gif"

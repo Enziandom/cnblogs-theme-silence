@@ -75,7 +75,7 @@ const options = {
     max: 20
   },
   menuOps: {
-    signature: "Time tick away, dream faded away!",
+    signature: "这个人很懒，什么也没有留下！",
     width: 247,
     bottomBtns: []
   },

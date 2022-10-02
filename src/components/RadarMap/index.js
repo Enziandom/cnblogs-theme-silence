@@ -143,7 +143,7 @@ function drawFloatingPanel(axis) {
             });
             $(cnp).empty().append(`
               <div class="tech">技术栈：${v.title}</div>
-              <div class="star">掌握程度：${v.star} 颗星</div>
+              <div class="star">掌握程度：${v.star}</div>
             `);
           }
         });
@@ -186,9 +186,9 @@ function createRadarMap() {
   strokeColor = themeColors[getTheme()].color2;
 
   createDropdown(
-    e => {
-      $("#right-sidebar .sidebar-content").prepend(e);
-      let ctx = document.getElementById("radar-map").getContext("2d");
+    blueprint => {
+      $("#right-sidebar .sidebar-content").prepend(blueprint);
+      const ctx = document.getElementById("radar-map").getContext("2d");
       drawRadarMap(options.radarMap, 100, 100, ctx);
     },
     "技能雷达",
