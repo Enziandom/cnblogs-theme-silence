@@ -100,12 +100,28 @@
       box-shadow: 0 1px 15px rgba(27, 31, 35, 0.15), 0 0 1px rgba(106, 115, 125, 0.35);
     }
 
+    .table-wrapper {
+      &::-webkit-scrollbar {
+        display: none;
+      }
+
+      &:hover {
+        &::-webkit-scrollbar {
+          display: block;
+          width: 3px !important;
+          height: 4px !important;
+        }
+      }
+
+      &::-webkit-scrollbar-thumb {
+        background-color: var(--text-color);
+      }
+    }
+
     table {
       width: 100%;
       border: none;
-      display: block;
       font-size: 15px;
-      overflow-x: auto;
       border-radius: var(--border-radius);
 
       th {
@@ -121,22 +137,6 @@
         padding: 4px 15px;
         min-width: 100px;
         border: 1px solid var(--border-color);
-      }
-
-      &::-webkit-scrollbar {
-        display: none;
-      }
-
-      &:hover {
-        &::-webkit-scrollbar {
-          display: block;
-          width: 3px !important;
-          height: 4px !important;
-        }
-      }
-
-      &::-webkit-scrollbar-thumb {
-        background-color: var(--text-color);
       }
     }
 
