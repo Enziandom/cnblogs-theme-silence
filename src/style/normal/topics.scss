@@ -147,12 +147,12 @@
     h5 code,
     h6 code,
     table code {
-      @include code();
+      @include code(var(--theme-color));
     }
 
     li > code,
     p > code {
-      @include code(var(--text-color));
+      @include code(var(--theme-color));
     }
 
     details {
