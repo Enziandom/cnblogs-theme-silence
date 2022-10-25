@@ -8,14 +8,12 @@ const options = {
   defaultTheme: "a",
   hljsln: true,
   catalog: {
-    pcAutoOpen: true,
-    pmdAutoOpen: false,
     index: true,
     enbale: true,
     levels: ["h1", "h2", "h3"]
   },
   signature: {
-    enable: true,
+    enable: false,
     author: null,
     license: ["署名-非商业性使用-相同方式共享 4.0 国际", "https://creativecommons.org/licenses/by-nc-sa/4.0/"],
     remark: null
