@@ -1,5 +1,6 @@
 import { insertClassForPostPage, deleteDomForPostPage, insertCssForPostPage, insertDomForPostPage } from "./page-helper";
 import { getMode, getTheme } from "../utils/theme-helper";
+import options from "../config/options";
 
 // 加载首页的组件
 export function loadHomePageComponents() {
@@ -19,6 +20,10 @@ export function loadPostPageComponents() {
   insertDomForPostPage();
   insertClassForPostPage();
   insertCssForPostPage();
+
+  if (options.sideToggle.post) {
+    $(".folding.tool-item").trigger('click');
+  }
 }
 
 // 加载所有页面都需要的组件
@@ -27,16 +32,15 @@ export function loadCommonComponents() {
   $("html").attr("theme", getTheme());
 }
 
-// 加载除文章页以外的页面所需要额组件
+// 加载除文章页以外的组件
 export function loadExcludePostPageComponents() {}
 
 // 加载标签分类页的组件
 export function loadTagListPageComponents() {}
 
-// 加载文章所属标签的组件
+// 加载标签页的组件
 export function loadTagPostsPageComponents() {
   let $pagers = $("div.pager").parent();
-
   $("#mainContent").prepend($pagers[1]);
   $("#mainContent").append($pagers[3]);
 }

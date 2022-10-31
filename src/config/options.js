@@ -3,6 +3,8 @@ const options = {
   avatar: null,
   favicon: null,
   github: null,
+  gitlab: null,
+  gitee: null,
   navs: [{ title: "标签", url: "https://www.cnblogs.com/Enziandom/tag" }],
   defaultMode: "auto",
   defaultTheme: "a",
@@ -77,14 +79,17 @@ const options = {
     width: 247,
     bottomBtns: []
   },
-  gitlab: null,
-  gitee: null,
   backgroundOps: {
     urls: null,
     blur: 4,
     bgOpacity: 1,
     mainOpacity: 0.9,
     objectFit: "cover"
+  },
+  sideToggle: {
+    index: false,
+    post: true,
+    tags: false
   }
 };
 
