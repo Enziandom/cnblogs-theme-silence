@@ -1,5 +1,6 @@
 import { insertClassForPostPage, deleteDomForPostPage, insertCssForPostPage, insertDomForPostPage } from "./page-helper";
 import { getMode, getTheme } from "../utils/theme-helper";
+import { isMobile } from "../utils/device-helper";
 import options from "../config/options";
 
 // 加载首页的组件
@@ -21,8 +22,8 @@ export function loadPostPageComponents() {
   insertClassForPostPage();
   insertCssForPostPage();
 
-  if (options.sideToggle.post) {
-    $(".folding.tool-item").trigger('click');
+  if (options.sideToggle.post && !isMobile()) {
+    $(".folding.tool-item").trigger("click");
   }
 }
 

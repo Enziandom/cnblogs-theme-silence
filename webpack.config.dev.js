@@ -30,8 +30,13 @@ module.exports = {
       hash: true
     }),
     new HtmlWebpackPlugin({
-      template: "./src/templates/archive.html",
-      filename: "archive.html",
+      template: "./src/templates/indexNext.html",
+      filename: "indexNext.html",
+      hash: true
+    }),
+    new HtmlWebpackPlugin({
+      template: "./src/templates/tagPage.html",
+      filename: "tagPage.html",
       hash: true
     })
   ],
