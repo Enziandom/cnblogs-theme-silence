@@ -25,7 +25,7 @@ import {
   loadPostPageComponents,
   loadCommonComponents,
   loadExcludePostPageComponents
-} from "./utils/lifetime";
+} from "./utils/load-comps-helper";
 
 class Silence {
   constructor() {

@@ -1,9 +1,5 @@
-import { insertClassForPostPage, deleteDomForPostPage, insertCssForPostPage, insertDomForPostPage } from "./page-helper";
 import { getMode, getTheme, getToggle, setToggle } from "./localStorage-helper";
-import { isMobile } from "../utils/device-helper";
-import options from "../config/options";
 
-// 加载首页的组件
 export function loadHomePageComponents() {
   let $pagers = $("div.topicListFooter");
 
@@ -15,15 +11,20 @@ export function loadHomePageComponents() {
   }
 }
 
-// 加载文章的组件
 export function loadPostPageComponents() {
-  deleteDomForPostPage();
-  insertDomForPostPage();
-  insertClassForPostPage();
-  insertCssForPostPage();
+  $("#sideBarMain .enzia-profile").remove();
+  $("#sideBarMain #sidebar_news").remove();
+  $("#sideBarMain #blog-calendar").remove();
+
+  $("#cnblogs_post_body a").each(function (index, el) {
+    if (!$(el).find("img").length) {
+      $(el).addClass("external-link");
+    }
+  });
+
+  $(".forFlow").css({ padding: "10px 15px 10px 15px", "background-color": "var(--card-bg-color)" });
 }
 
-// 加载所有页面都需要的组件
 export function loadCommonComponents() {
   $("html").attr("mode", getMode());
   $("html").attr("theme", getTheme());
@@ -38,20 +39,16 @@ export function loadCommonComponents() {
   }
 }
 
-// 加载除文章页以外的组件
 export function loadExcludePostPageComponents() {}
 
-// 加载标签分类页的组件
 export function loadTagListPageComponents() {}
 
-// 加载标签页的组件
 export function loadTagPostsPageComponents() {
   let $pagers = $("div.pager").parent();
   $("#mainContent").prepend($pagers[1]);
   $("#mainContent").append($pagers[3]);
 }
 
-// 加载文章分类页的组件
 export function loadEssayListPageComponents() {
   let $pagers = $("div.pager");
   $("#mainContent").prepend($pagers[0]);
