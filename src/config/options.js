@@ -85,11 +85,6 @@ const options = {
     bgOpacity: 1,
     mainOpacity: 0.9,
     objectFit: "cover"
-  },
-  sideToggle: {
-    index: false,
-    post: true,
-    tags: false
   }
 };
 

@@ -1,5 +1,5 @@
 import "./style/index.scss";
-import { setMode, setTheme } from "../../utils/theme-helper";
+import { getToggle, setMode, setTheme, setToggle } from "../../utils/localStorage-helper";
 
 function createToolbar() {
   const $bluepoint = $(`
@@ -35,55 +35,49 @@ function createToolbar() {
 
   $("#home").append($bluepoint);
 
-  const $up = $(".up.tool-item");
-  $up.on("click", e => {
+  $(".up.tool-item").on("click", e => {
     $("#mainContent").animate({ scrollTop: 0 }, 750, "linear");
   });
 
-  const $menu = $(".menu.tool-item");
-  $menu.on("click", e => {
+  $(".menu.tool-item").on("click", e => {
     $("#enzia-mobile-menu-mask").fadeIn();
     $("#enzia-mobile-menu").fadeIn();
   });
 
-  let isFolded = false;
-  const $folding = $(".folding.tool-item");
-  $folding.on("click", e => {
-    if (isFolded) {
+  $(".folding.tool-item").on("click", e => {
+    if (getToggle() === "none") {
       $("#sideBarMain").css({ display: "block" });
       $("#mainContent").css({
         left: "27vw",
         width: "46vw"
       });
-    } else {
+      setToggle("block");
+    } else if (getToggle() === "block") {
       $("#sideBarMain").css({ display: "none" });
       $("#mainContent").css({
         left: "12.5vw",
         width: "60.5vw"
       });
+      setToggle("none");
     }
-    isFolded = !isFolded;
   });
 
-  const $mode = $(".mode");
-  $($mode).on("click", e => {
+  $(".mode").on("click", e => {
     e.stopPropagation();
     setMode();
   });
 
-  const $skin = $(".skin");
-  $($skin).on("click", e => {
+  $(".skin").on("click", e => {
     e.stopPropagation();
-    $($enziaSkinPopup).slideToggle();
+    $("#enzia-skin-popup").slideToggle();
   });
 
   let isHide = false;
-
   const $chevron = $(".chevron");
-  const $canbeFade = $(".canbe-fade");
+
   $($chevron).on("click", e => {
     e.stopPropagation();
-    $($canbeFade).fadeToggle();
+    $(".canbe-fade").fadeToggle();
 
     if (isHide) {
       $($chevron).css({
@@ -97,13 +91,12 @@ function createToolbar() {
     isHide = !isHide;
   });
 
-  const $enziaSkinPopup = $("#enzia-skin-popup");
-  $($enziaSkinPopup).on("click", e => {
+  $("#enzia-skin-popup").on("click", e => {
     e.stopPropagation();
     if (e.target.nodeName === "BUTTON") {
       setTheme(e.target.dataset.theme);
     }
-    $($enziaSkinPopup).slideToggle();
+    $("#enzia-skin-popup").slideToggle();
   });
 }
 

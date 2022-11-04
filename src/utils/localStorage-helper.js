@@ -33,3 +33,11 @@ export function setMode() {
   sessionStorage.setItem(`silence-mode-${currentBlogApp}`, mode);
   $html.attr("mode", mode);
 }
+
+export function setToggle(switcher) {
+  sessionStorage.setItem(`toggle-switcher`, switcher);
+}
+
+export function getToggle() {
+  return sessionStorage.getItem(`toggle-switcher`);
+}

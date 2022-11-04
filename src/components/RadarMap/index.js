@@ -1,6 +1,6 @@
 import "./index.scss";
 import options from "../../config/options";
-import { themeColors, getTheme } from "../../utils/theme-helper";
+import { themeColors, getTheme } from "../../utils/localStorage-helper";
 import createDropdown from "../../widgets/Dropdown";
 
 let fillColor = "",

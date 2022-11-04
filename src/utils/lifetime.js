@@ -1,5 +1,5 @@
 import { insertClassForPostPage, deleteDomForPostPage, insertCssForPostPage, insertDomForPostPage } from "./page-helper";
-import { getMode, getTheme } from "../utils/theme-helper";
+import { getMode, getTheme, getToggle, setToggle } from "./localStorage-helper";
 import { isMobile } from "../utils/device-helper";
 import options from "../config/options";
 
@@ -21,16 +21,21 @@ export function loadPostPageComponents() {
   insertDomForPostPage();
   insertClassForPostPage();
   insertCssForPostPage();
-
-  if (options.sideToggle.post && !isMobile()) {
-    $(".folding.tool-item").trigger("click");
-  }
 }
 
 // 加载所有页面都需要的组件
 export function loadCommonComponents() {
   $("html").attr("mode", getMode());
   $("html").attr("theme", getTheme());
+
+  if (getToggle() !== "block") {
+    $("#sideBarMain").css({ display: "none" });
+    $("#mainContent").css({
+      left: "12.5vw",
+      width: "60.5vw"
+    });
+    setToggle("none");
+  }
 }
 
 // 加载除文章页以外的组件
