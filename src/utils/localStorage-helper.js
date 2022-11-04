@@ -14,30 +14,30 @@ export const themeColors = {
 };
 
 export function getTheme() {
-  return sessionStorage.getItem(`silence-theme-${currentBlogApp}`) || options.defaultTheme;
+  return localStorage.getItem(`silence-theme-${currentBlogApp}`) || options.defaultTheme;
 }
 
 export function setTheme(theme) {
-  sessionStorage.setItem(`silence-theme-${currentBlogApp}`, theme);
+  localStorage.setItem(`silence-theme-${currentBlogApp}`, theme);
   $("html").attr("theme", theme);
 }
 
 export function getMode() {
   const hour = new Date().getHours();
-  return sessionStorage.getItem(`silence-mode-${currentBlogApp}`) || (options.defaultMode === "auto" ? (hour >= 6 && hour < 18 ? "light" : "dark") : options.defaultMode);
+  return localStorage.getItem(`silence-mode-${currentBlogApp}`) || (options.defaultMode === "auto" ? (hour >= 6 && hour < 18 ? "light" : "dark") : options.defaultMode);
 }
 
 export function setMode() {
   const $html = $("html");
   const mode = $html.attr("mode") === "light" ? "dark" : "light";
-  sessionStorage.setItem(`silence-mode-${currentBlogApp}`, mode);
+  localStorage.setItem(`silence-mode-${currentBlogApp}`, mode);
   $html.attr("mode", mode);
 }
 
 export function setToggle(switcher) {
-  sessionStorage.setItem(`toggle-switcher`, switcher);
+  localStorage.setItem(`toggle-switcher`, switcher);
 }
 
 export function getToggle() {
-  return sessionStorage.getItem(`toggle-switcher`);
+  return localStorage.getItem(`toggle-switcher`);
 }
