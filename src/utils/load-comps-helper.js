@@ -29,13 +29,13 @@ export function loadCommonComponents() {
   $("html").attr("mode", getMode());
   $("html").attr("theme", getTheme());
 
-  if (getToggle() !== "block") {
-    $("#sideBarMain").css({ display: "none" });
+  if (getToggle() !== "none") {
+    $("#sideBarMain").css({ display: "block" });
     $("#mainContent").css({
       left: "12.5vw",
       width: "60.5vw"
     });
-    setToggle("none");
+    setToggle("block");
   }
 }
 
