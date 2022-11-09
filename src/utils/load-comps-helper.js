@@ -1,4 +1,5 @@
-import { getMode, getTheme, getToggle, setToggle } from "./localStorage-helper";
+import { getMode, getTheme, getToggle } from "./storage-helper";
+import { isMobile } from "./device-helper";
 
 export function loadHomePageComponents() {
   let $pagers = $("div.topicListFooter");
@@ -29,13 +30,20 @@ export function loadCommonComponents() {
   $("html").attr("mode", getMode());
   $("html").attr("theme", getTheme());
 
-  if (getToggle() !== "none") {
-    $("#sideBarMain").css({ display: "block" });
-    $("#mainContent").css({
-      left: "12.5vw",
-      width: "60.5vw"
-    });
-    setToggle("block");
+  if (!isMobile()) {
+    if (getToggle() === "none") {
+      $("#sideBarMain").css({ display: "none" });
+      $("#mainContent").css({
+        left: "12.5vw",
+        width: "60.5vw"
+      });
+    } else if (getToggle() === "block") {
+      $("#sideBarMain").css({ display: "block" });
+      $("#mainContent").css({
+        left: "27vw",
+        width: "46vw"
+      });
+    }
   }
 }
 

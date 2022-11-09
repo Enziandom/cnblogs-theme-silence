@@ -1,5 +1,5 @@
 import "./style/index.scss";
-import { getToggle, setMode, setTheme, setToggle } from "../../utils/localStorage-helper";
+import { getToggle, setMode, setTheme, setToggle } from "../../utils/storage-helper";
 
 function createToolbar() {
   const $bluepoint = $(`
