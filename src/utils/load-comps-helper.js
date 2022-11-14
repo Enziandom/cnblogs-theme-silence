@@ -1,4 +1,4 @@
-import { getMode, getTheme, getToggle } from "./storage-helper";
+import { getMode, getTheme, getToggle, setToggle } from "./storage-helper";
 import { isMobile } from "./device-helper";
 
 export function loadHomePageComponents() {
@@ -31,6 +31,8 @@ export function loadCommonComponents() {
   $("html").attr("theme", getTheme());
 
   if (!isMobile()) {
+    if (!getToggle()) setToggle("block");
+
     if (getToggle() === "none") {
       $("#sideBarMain").css({ display: "none" });
       $("#mainContent").css({
