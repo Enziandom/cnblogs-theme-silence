@@ -1,5 +1,5 @@
 import "./style/index.scss";
-import { getToggle, setMode, setTheme, setToggle } from "../../utils/storage-helper";
+import { getToggle, setMode, getMode, setTheme, setToggle } from "../../utils/storage-helper";
 
 function createToolbar() {
   const $bluepoint = $(`
@@ -8,7 +8,7 @@ function createToolbar() {
         <span class="menu tool-item" title="Mini菜单"><i class="fa fa-bars"></i></span>
         <span class="folding tool-item" title="收起侧边"><i class="fa fa-exchange"></i></span>
         <span class="up tool-item" title="返回顶部"><i class="fa fa-paper-plane"></i></span>
-        <span class="mode tool-item" title="切换模式"><i class="fa fa-adjust"></i></span>
+        <span class="mode tool-item" title="切换模式"><i class=""></i></span>
         <span class="skin tool-item" title="主题设置"><i class="fa fa-cog"></i></span>
       </div>
       <span class="chevron tool-item" title="收起工具"><i class="fa fa-chevron-right" aria-hidden="true"></i></span>
@@ -34,6 +34,17 @@ function createToolbar() {
   `);
 
   $("#home").append($bluepoint);
+
+  let modeItem = $(".mode");
+  let modeI = $(modeItem).children("i");
+
+  if (getMode() === "auto") {
+    $(modeI).addClass("fa fa-clock-o");
+  } else if (getMode() === "dark") {
+    $(modeI).addClass("fa fa-moon-o");
+  } else if (getMode() === "light") {
+    $(modeI).addClass("fa fa-sun-o");
+  }
 
   $(".up.tool-item").on("click", e => {
     $("#mainContent").animate({ scrollTop: 0 }, 750, "linear");
@@ -62,9 +73,23 @@ function createToolbar() {
     }
   });
 
-  $(".mode").on("click", e => {
+  $(modeItem).on("click", e => {
     e.stopPropagation();
-    setMode();
+
+    $(modeI).removeClass();
+    if (getMode() === "auto") {
+      $(modeI).addClass("fa fa-moon-o");
+      $(modeItem).attr("title", "黑夜模式");
+      setMode("dark");
+    } else if (getMode() === "dark") {
+      $(modeI).addClass("fa fa-sun-o");
+      $(modeItem).attr("title", "白昼模式");
+      setMode("light");
+    } else if (getMode() === "light") {
+      $(modeI).addClass("fa fa-clock-o");
+      $(modeItem).attr("title", "昼夜自动切换");
+      setMode("auto");
+    }
   });
 
   $(".skin").on("click", e => {

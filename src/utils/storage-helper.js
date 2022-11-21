@@ -22,16 +22,23 @@ export function setTheme(theme) {
   $("html").attr("theme", theme);
 }
 
-export function getMode() {
-  const hour = new Date().getHours();
-  return localStorage.getItem(`silence-mode-${currentBlogApp}`) || (options.defaultMode === "auto" ? (hour >= 6 && hour < 18 ? "light" : "dark") : options.defaultMode);
+export function getAutoMode() {
+  if (!getMode()) setMode("auto");
+
+  if (getMode() === "auto") {
+    const hour = new Date().getHours();
+    return hour >= 6 && hour < 18 ? "light" : "dark";
+  } else return getMode();
 }
 
-export function setMode() {
-  const $html = $("html");
-  const mode = $html.attr("mode") === "light" ? "dark" : "light";
-  localStorage.setItem(`silence-mode-${currentBlogApp}`, mode);
-  $html.attr("mode", mode);
+export function getMode() {
+  return localStorage.getItem("silence-mode");
+}
+
+export function setMode(mode) {
+  localStorage.setItem("silence-mode", mode);
+  if (mode === "auto") $("html").attr("mode", getAutoMode());
+  else $("html").attr("mode", mode);
 }
 
 export function setToggle(switcher) {

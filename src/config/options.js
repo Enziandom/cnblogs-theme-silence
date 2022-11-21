@@ -6,7 +6,6 @@ const options = {
   gitlab: null,
   gitee: null,
   navs: [{ title: "标签", url: "https://www.cnblogs.com/Enziandom/tag" }],
-  defaultMode: "auto",
   defaultTheme: "a",
   hljsln: true,
   catalog: {
