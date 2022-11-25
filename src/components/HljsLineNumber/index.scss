@@ -6,13 +6,13 @@
   display: block;
   overflow-x: auto;
   padding: 0.5em 0.7em 0.5em 0.7em !important;
-  background: #2b2b2b !important;
+  background: var(--blockquote-bg-color) !important;
   color: #bababa;
 
   border: {
-    width: 1px;
-    style: solid;
-    color: #2c2a2a !important;
+    width: 0;
+    // style: solid;
+    // color: #2c2a2a !important;
     radius: var(--border-radius);
   }
 
@@ -53,7 +53,7 @@
   left: 0;
   width: 2.4em;
   height: 100%;
-  background: #333;
+  background: var(--blockquote-ln-bg-color);
   border-top-left-radius: var(--border-radius);
   border-bottom-left-radius: var(--border-radius);
 }

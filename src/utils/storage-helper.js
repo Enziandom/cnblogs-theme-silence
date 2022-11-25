@@ -22,7 +22,7 @@ export function setTheme(theme) {
   $("html").attr("theme", theme);
 }
 
-export function getAutoMode() {
+export function calcMode() {
   if (!getMode()) setMode("auto");
 
   if (getMode() === "auto") {
@@ -37,7 +37,7 @@ export function getMode() {
 
 export function setMode(mode) {
   localStorage.setItem("silence-mode", mode);
-  if (mode === "auto") $("html").attr("mode", getAutoMode());
+  if (mode === "auto") $("html").attr("mode", calcMode());
   else $("html").attr("mode", mode);
 }
 

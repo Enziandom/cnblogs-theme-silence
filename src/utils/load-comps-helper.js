@@ -1,4 +1,4 @@
-import { getAutoMode, getTheme, getToggle, setToggle } from "./storage-helper";
+import { calcMode, getTheme, getToggle, setToggle } from "./storage-helper";
 import { isMobile } from "./device-helper";
 
 export function loadHomePageComponents() {
@@ -27,7 +27,7 @@ export function loadPostPageComponents() {
 }
 
 export function loadCommonComponents() {
-  $("html").attr("mode", getAutoMode());
+  $("html").attr("mode", calcMode());
   $("html").attr("theme", getTheme());
 
   if (!isMobile()) {

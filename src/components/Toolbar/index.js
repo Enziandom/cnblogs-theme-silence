@@ -98,18 +98,18 @@ function createToolbar() {
   });
 
   let isHide = false;
-  const $chevron = $(".chevron");
+  const chevron = $(".chevron");
 
-  $($chevron).on("click", e => {
+  $(chevron).on("click", e => {
     e.stopPropagation();
     $(".canbe-fade").fadeToggle();
 
     if (isHide) {
-      $($chevron).css({
+      $(chevron).css({
         transform: "rotate(0deg)"
       });
     } else {
-      $($chevron).css({
+      $(chevron).css({
         transform: "rotate(180deg)"
       });
     }
