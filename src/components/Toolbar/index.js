@@ -8,7 +8,7 @@ function createToolbar() {
         <span class="menu tool-item" title="Mini菜单"><i class="fa fa-bars"></i></span>
         <span class="folding tool-item" title="收起侧边"><i class="fa fa-exchange"></i></span>
         <span class="up tool-item" title="返回顶部"><i class="fa fa-paper-plane"></i></span>
-        <span class="mode tool-item" title="切换模式"><i class=""></i></span>
+        <span class="mode tool-item" title="昼夜自动切换"><i class="fa fa-adjust"></i></span>
         <span class="skin tool-item" title="主题设置"><i class="fa fa-cog"></i></span>
       </div>
       <span class="chevron tool-item" title="收起工具"><i class="fa fa-chevron-right" aria-hidden="true"></i></span>
@@ -39,7 +39,7 @@ function createToolbar() {
   let modeI = $(modeItem).children("i");
 
   if (getMode() === "auto") {
-    $(modeI).addClass("fa fa-clock-o");
+    $(modeI).addClass("fa fa-adjust");
   } else if (getMode() === "dark") {
     $(modeI).addClass("fa fa-moon-o");
   } else if (getMode() === "light") {
@@ -86,7 +86,7 @@ function createToolbar() {
       $(modeItem).attr("title", "白昼模式");
       setMode("light");
     } else if (getMode() === "light") {
-      $(modeI).addClass("fa fa-clock-o");
+      $(modeI).addClass("fa fa-adjust");
       $(modeItem).attr("title", "昼夜自动切换");
       setMode("auto");
     }
