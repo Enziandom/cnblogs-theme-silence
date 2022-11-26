@@ -7,7 +7,7 @@
   overflow-x: auto;
   padding: 0.5em 0.7em 0.5em 0.7em !important;
   background: var(--blockquote-bg-color) !important;
-  color: #bababa;
+  color: var(--text-color);
 
   border: {
     width: 0;
@@ -80,7 +80,7 @@
 
 .hljs-comment,
 .hljs-quote {
-  color: #5c6370;
+  color: var(--blockquote-comment-color);
   font-style: italic;
 }
 
